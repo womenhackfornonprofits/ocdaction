@@ -21,6 +21,7 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 ## Team
 - [Lili](https://github.com/lili2311) - Full Stack
 - [Jen](https://github.com/jsms90) - Backend
+- [Lola](https://github.com/LolaPwa) - Full Stack (Training)
 
 # Setup
 ## Tools
