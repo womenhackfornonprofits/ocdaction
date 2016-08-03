@@ -32,16 +32,5 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 2. Clone the repo: `git clone git@github.com:womenhackfornonprofits/ocdaction.git`
 
 # Contributing
-Please follow a few guidelines in order to contribute to the project set out in the [Contributing file]()
-
-
-	
-## How to raise a Pull Request
-In order to raise a Pull Request with your changes (please make sure all changes are done on a branch):
-
-- Save and commit your changes
-- Push your changes and create a pull request: `git push origin your_branch_name`
-- Go to the [repo](https://github.com/womenhackfornonprofits/london-cafes-django) and you should see a green button "Raise a Pull Request"
-![](https://help.github.com/assets/images/help/pull_requests/pull-request-click-to-create.png)
-- Describe all the changes you have made in details and save.
+Please follow a few guidelines in order to contribute to the project set out in the [Contributing file](https://github.com/womenhackfornonprofits/ocdaction/blob/master/CONTRIBUTING.md)
 
