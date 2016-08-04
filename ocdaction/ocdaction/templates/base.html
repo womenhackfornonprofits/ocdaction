@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-gb">
+    <head>
+        <title>{% block title %} {% endblock %}| OCD Action</title>
+        <!--Meta Data-->
+        <meta charset="UTF-8">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <meta name="created" content='13th April 2016 04:37' />
+        <meta name="description" content="" />
+        <meta name="author" content="OCD Action in partnership with Women Hack for Non-Profits" />
+        <meta name="copyright" content="All text content and images copyright OCD Action" />
+        <meta name="company" content="OCD Action" />
+        
+        <!-- Latest compiled and minified CSS -->   
+        <link href="{% static "styles/styles.css" %}" rel="stylesheet">
+        <link rel="shortcut icon" href="{% static "img/favicon.png" %}" type="image/x-icon">
+    </head>
+    <body>
+   
+        {% block layout %} {% endblock %}
+        <!-- Latest compiled and minified JavaScript -->
+        <!--[if IE]><script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+        <script src="{% static "scripts/ocdaction.min.js" %}"></script>
+
+        {% if not debug and not request.user.is_staff %}
+        <script>
+           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+               (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+               m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+           ga('create', 'UA-********', 'auto');
+           ga('send', 'pageview');
+        </script>
+        {% endif %}
+
+    </body>
+</html>
