@@ -1,5 +1,5 @@
 # OCD Action
-	
+
 # Content
 
 1. [Description](#description)
@@ -23,6 +23,7 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 - [Jen](https://github.com/jsms90) - Backend
 - [Lola](https://github.com/LolaPwa) - Full Stack (Training)
 - [Elizabeth](https://github.com/elizabethvenner) - Front end
+- [Laura](https://github.com/lmash) - QA (a little Backend)
 
 # Setup
 ## Tools
@@ -35,4 +36,3 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 
 # Contributing
 Please follow a few guidelines in order to contribute to the project set out in the [Contributing file](https://github.com/womenhackfornonprofits/ocdaction/blob/master/CONTRIBUTING.md)
-
