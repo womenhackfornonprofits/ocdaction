@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+
+{% block main %} 
+
+    <h1>Log In</h1>
+   {% csrf_token %}
+   {{ form.as_p }}
+                        
+{% endblock %}
