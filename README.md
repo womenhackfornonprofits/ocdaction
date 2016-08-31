@@ -26,6 +26,7 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 - [Lola](https://github.com/LolaPwa) - Full Stack (Training)
 - [Elizabeth](https://github.com/elizabethvenner) - Front end
 - [Laura](https://github.com/lmash) - QA (a little Backend)
+- [Liz](https://github.com/Mawer) - Full Stack (Training)
 
 # Setup
 ## Tools
