@@ -10,7 +10,7 @@ class OCDActionUserAdmin(EmailUserAdmin):
     """
 
     fieldsets = (
-	        (None, {'fields': (('email','password1', 'password2', 'username'))}),
+	        (None, {'fields': (('email', 'username', 'date_birth'))}),
 	        (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
 	                                       'groups', 'user_permissions')}),
 	        (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
