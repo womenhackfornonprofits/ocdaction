@@ -27,6 +27,7 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 - [Elizabeth](https://github.com/elizabethvenner) - Front end
 - [Laura](https://github.com/lmash) - QA (a little Backend)
 - [Liz](https://github.com/Mawer) - Full Stack (Training)
+- [Natalia](https://github.com/natalia-z) - Front End
 
 # Setup
 ## Tools
