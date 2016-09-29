@@ -10,7 +10,3 @@ class OCDActionUser(AbstractEmailUser):
     username = models.CharField(max_length=24, blank=True)
     date_birth = models.DateField('date of birth', null=True, blank=True)
 
-    def is_date_of_birth_valid(self):
-        today = datetime.date.today()
-        if self.date_birth > today:
-            return False
