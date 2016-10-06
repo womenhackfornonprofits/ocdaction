@@ -9,4 +9,5 @@ class OCDActionUser(AbstractEmailUser):
     # basic info
     username = models.CharField(max_length=24, blank=True)
     date_birth = models.DateField('date of birth', null=True, blank=True)
+    have_ocd = models.BooleanField(default=True)
 
