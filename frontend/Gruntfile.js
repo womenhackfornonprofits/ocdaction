@@ -20,12 +20,16 @@ module.exports = function(grunt) {
     //------- SASS -------//
     sass: {
       dist: {
+        options: {
+            style: 'compressed',
+            loadPath: 'node_modules/bootstrap-sass/assets/stylesheets'
+        },
         files: {
           'css/styles.css': 'src/sass/styles.scss'
         }
       }
     },
-
+    
     //------- Watch SASS -> CSS -------//
     watch: {
       sass: {
@@ -36,7 +40,7 @@ module.exports = function(grunt) {
 
     jspaths: {
       src: {
-        js: 'src/**/**.js'
+        js: 'src/js/**.js'
       },
       dest: {
         jsMin: '../ocdaction/static/scripts/ocdaction.min.js'

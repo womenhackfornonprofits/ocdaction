@@ -1,0 +1,126 @@
+.header {
+	background-color: $white;
+	border-bottom: 1px solid $grey;
+	
+	&__logo {
+		flex: 0 1 10em;
+	}
+
+	&__wrapper {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		align-content: center;
+		flex-wrap: wrap;
+	}
+
+	&__nav {
+		@media (min-width: 990px) {
+			min-height: initial;
+			flex: auto;
+			text-align: right;
+			background: $white;
+			position: initial;
+			width: auto;
+			display: inline;
+			background-image: none;
+		}		
+	}
+
+	&__list {
+		margin: 0;
+		display: none;
+
+		@media (min-width: 990px) {
+			display: inline;
+		}
+	}
+
+	&__list--mobile {
+		display: block;
+		min-height: 100vh;
+	    width: 100%;
+	    position: fixed;
+	    top: 0;
+	   	transition: top 0.2s;
+	    bottom: 0;
+	    right: 0;
+	    margin: 0;
+	    padding: 0;
+	    z-index: 1000;	    
+		list-style: none;
+		margin: 0;
+		background-image: linear-gradient(315deg,#FF6E3D,$salmon-pink);
+
+	}
+
+
+	&__nav-toggle {
+		height: 32px;
+	    width: 40px;
+	    display: block;
+	    background: transparent;
+	    border: 0;
+	    margin: 1rem;
+	    position: fixed;
+	    top: 0;
+	    right: 15px;
+	    z-index: 2000;
+	    background: url(../img/icons/icon-hamburger-dark.svg) no-repeat center center;
+	    background-size: cover;
+	    color: transparent;
+
+		@media (min-width: 990px) {
+			display: none;
+		}
+	}
+
+
+	&__item {
+		list-style: none;
+		display: block;
+		text-align: center;
+		margin: 0;
+
+		&:hover {
+			background-color: $salmon-pink;
+		}
+
+		@media (min-width: 990px) {
+			display: inline-block;
+			padding: 0 .5em;
+			text-align: left;
+			background-image: none;
+
+			&:hover {
+				background-color: transparent;
+			}
+		}
+	}
+
+	&__link {
+		text-transform: uppercase;
+		color: $nav-link-color;
+		padding: 25px;
+		display: block;
+		box-sizing: border-box;
+
+		&:hover {
+			text-decoration: none;
+		}
+
+		@media (min-width: 990px) {
+			padding: 0;
+			&:visited {
+				color: $nav-link-visited-color;
+			}
+
+			&:hover {
+				color: $salmon-pink;
+				text-decoration: none;
+			}
+		}
+
+	}
+}
+

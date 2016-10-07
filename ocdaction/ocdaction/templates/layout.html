@@ -2,8 +2,36 @@
 {% load static %}
 
 {% block layout %}
-    <header class="header">
-    </header>
+	<header class="header">
+		<div class="header__wrapper container">
+		    <a class="header__logo" href="index.html">
+		    	<img src="img/#" alt="OCD Action Logo Image">
+		    </a>
+			<nav class="header__nav js-header-nav">
+			    <button class="header__nav-toggle js-nav-toggle"><span class="hidden">Menu</span></button>
+			    <ul class="header__list js-header-list">
+			        <li class="header__item">
+			            <a class="header__link" href="/about">About</a>
+			        </li>
+			        <li class="header__item">
+			            <a class="header__link" href="#">Think</a>
+			        </li>
+			        <li class="header__item">
+			            <a class="header__link" href="#">Act</a>
+			        </li>
+			        <li class="header__item">
+			            <a class="header__link" href="#">Contact</a>
+			        </li>
+			        <li class="header__item">
+			            <a class="header__link" href="/accounts/register">Register</a>
+			        </li>
+			        <li class="header__item">
+			            <a class="header__link" href="/accounts/login">Login</a>
+			        </li>
+			    </ul>
+			</nav>
+		</div>
+	</header>
     {% block main %}
     {% endblock %}
 
