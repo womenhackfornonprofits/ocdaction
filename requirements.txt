@@ -5,3 +5,4 @@ whitenoise==3.1
 wsgiref==0.1.2
 django-custom-user==0.6
 django-registration-redux==1.4
+dj-database-url==0.4.1
