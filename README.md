@@ -28,7 +28,8 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 - [Laura](https://github.com/lmash) - QA (a little Backend)
 - [Liz](https://github.com/Mawer) - Full Stack (Training)
 - [Natalia](https://github.com/natalia-z) - Front End
-
+- [Victoria](https://github.com/VAO11) - Full Stack (Training)
+- 
 # Setup
 ## Tools
 1. **Terminal**: [iTerm2](https://www.iterm2.com/) (MacOSX), [Terminator](http://gnometerminator.blogspot.co.uk/p/introduction.html) (Linux) or use your preffered one.
