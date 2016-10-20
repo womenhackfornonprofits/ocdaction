@@ -1,0 +1,50 @@
+// =================================
+//   LAYOUT / FORMS
+// ================================= 
+
+
+$input-txt-height: rem-calc(52);
+
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="tel"],
+input[type="url"], 
+select {
+    width: 100%;
+    height: $input-txt-height;
+    margin: .5em 0;
+	padding: 0 .5em;
+    font-size: 1em;
+    font-weight: 100;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+textarea {
+    width: 100%;
+    margin: .5em 0;
+	padding: .5em;
+    font-size: 1em;
+    font-weight: 100;
+    text-align: left;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+select {
+	-webkit-appearance: none;
+	background: url("http://garyjeffress.com/wp-content/themes/lms/framework/plugins/designthemes-core-features/page-builder/images/select-box-arrow.png") no-repeat right center;
+	background-color: $white;
+	border-radius: 0;
+}
+
+.errorlist {
+    display: none;
+}
+
+

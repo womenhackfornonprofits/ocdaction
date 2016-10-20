@@ -3,23 +3,26 @@
 {% load static %}
 
     {% block main %} 
-        
-            <form method="POST" action="">
-                {% csrf_token %}
-                {{ form.non_field_errors }}
-                {{ form.errors }}
-                {{ form.username.errors }}
-                <input type="text" name="username" placeholder="Userame *" required>
-                {{ form.email.errors }}
-                <input type="email" name="email" placeholder="Email *" required>
-                {{ form.password1.errors }}
-                {{ form.password1 }}
-                {{ form.password2.errors }}
-                {{ form.password2 }}
-                <label><input type="checkbox" name="terms" checked="checked"> I agree to the terms &amp; conditions</label>
-                <label><input type="checkbox" name="terms" checked="checked"> Sign me up for the newsletter</label>
-                <input class="button" type="submit" value="Register">
-            </form>
-                                    
+        <section class="container row">
+            <h1>Register</h1>
+            <div class="centered-div">
+                <form method="POST" action="" class="col-md-offset-4 col-lg-3 col-md-4 col-sm-6 col-xs-12 col-centered center-block">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    {{ form.errors }}
+                    {{ form.username.errors }}
+                    <input type="text" name="username" placeholder="Userame *" required>
+                    {{ form.email.errors }}
+                    <input type="email" name="email" placeholder="Email *" required>
+                    {{ form.password1.errors }}
+                    {{ form.password1 }}
+                    {{ form.password2.errors }}
+                    {{ form.password2 }}
+                    <label><input type="checkbox" name="terms" checked="checked"> I agree to the terms &amp; conditions</label>
+                    <label><input type="checkbox" name="terms" checked="checked"> Sign me up for the newsletter</label>
+                    <input class="button" type="submit" value="Register">
+                </form>
+            </div>
+        <section>                  
 
     {% endblock %}

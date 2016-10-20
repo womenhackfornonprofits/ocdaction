@@ -1,3 +1,15 @@
+@import "partials/bootstrap-custom";
+@import 'partials/normalize';
+@import 'partials/colours';
+@import 'partials/typography';
+@import 'components/forms';
+@import 'components/navigation';
+
 body {
-	background: pink;
+	background: #f4f4f4;
+}
+
+.container {
+	max-width: 70em;
+	margin: 0 auto;
 }
