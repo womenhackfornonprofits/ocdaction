@@ -4,8 +4,8 @@
 {% block layout %}
 	<header class="header">
 		<div class="header__wrapper container">
-		    <a class="header__logo" href="index.html">
-		    	<img src="img/#" alt="OCD Action Logo Image">
+		    <a class="header__logo" href="/">
+		    	<img src="http://ocdyouth.org/assets/images/logo.png" alt="OCD Action Logo Image">
 		    </a>
 			<nav class="header__nav js-header-nav">
 			    <button class="header__nav-toggle js-nav-toggle"><span class="hidden">Menu</span></button>
@@ -34,21 +34,34 @@
 	</header>
     {% block main %}
     {% endblock %}
-
-    <footer class="footer">
-      <ul class="footer_list">
-        <li class="footer_item"><a class="footer_link" href="#">Link 1</a></li>
-        <li class="footer_item"><a class="footer_link" href="#">Link 2</a></li>
-        <li class="footer_item"><a class="footer_link" href="#">Link 3</a></li>
-      </ul>
-      <ul class="footer_list">
-        <li class="footer_item"><a class="footer__link" href="#">Twitter</a></li>
-        <li class="footer_item"><a class="footer__link" href="#">Facebook</a></li>
-        <li class="footer_item"><a class="footer__link" href="#">Medium</a></li>
-        <li class="footer_item"><a class="footer__link" href="#">Github</a></li>
-      </ul>
-      <p>Copyright &#xA9; Women Hack For Non-Profits 2016.</p>
+    <footer class="footer col-xs-12">
+    	<div class="container">
+	    	<div class="col-xs-12 col-sm-4">
+	      		<h4 class="footer__category">Sitemap</h4>
+		    	<ul class="footer__list">
+		        	<li class="footer__item"><a class="footer__link" href="#"></a></li>
+		        	<li class="footer__item"><a class="footer__link" href="#">Link 2</a></li>
+		        	<li class="footer__item"><a class="footer__link" href="#">Link 3</a></li>
+		        </ul>
+		    </div>
+	      <div class="col-xs-12 col-sm-4">
+	      	<h4 class="footer__category">Social</h4>
+		    <ul class="footer__list">
+		      <li class="footer__item"><a class="footer__link" href="#">Twitter</a></li>
+		        <li class="footer__item"><a class="footer__link" href="#">Facebook</a></li>
+		        <li class="footer__item"><a class="footer__link" href="#">Medium</a></li>
+		    </ul>
+		  </div>
+		  <div class="col-xs-12 col-sm-4">
+	      	<h4 class="footer__category">Social</h4>
+		    <ul class="footer__list">
+		      <li class="footer__item"><a class="footer__link" href="#">Twitter</a></li>
+		        <li class="footer__item"><a class="footer__link" href="#">Facebook</a></li>
+		        <li class="footer__item"><a class="footer__link" href="#">Medium</a></li>
+		    </ul>
+		  </div>
+	      <span class="footer__legal col-xs-12">Copyright &#xA9; Women Hack For Non-Profits 2016.</span>
+	    </div>
     </footer>
-    
 {% endblock %}
 

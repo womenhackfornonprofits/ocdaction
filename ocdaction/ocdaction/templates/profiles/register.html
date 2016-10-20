@@ -3,26 +3,26 @@
 {% load static %}
 
     {% block main %} 
-        <section class="container row">
+        <section class="container">
             <h1>Register</h1>
-            <div class="centered-div">
-                <form method="POST" action="" class="col-md-offset-4 col-lg-3 col-md-4 col-sm-6 col-xs-12 col-centered center-block">
+            <div class="row">
+                <form method="POST" action="" class="col-xs-offset-2 col-xs-8 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4">
                     {% csrf_token %}
-                    {{ form.non_field_errors }}
-                    {{ form.errors }}
-                    {{ form.username.errors }}
-                    <input type="text" name="username" placeholder="Userame *" required>
-                    {{ form.email.errors }}
-                    <input type="email" name="email" placeholder="Email *" required>
-                    {{ form.password1.errors }}
-                    {{ form.password1 }}
-                    {{ form.password2.errors }}
-                    {{ form.password2 }}
-                    <label><input type="checkbox" name="terms" checked="checked"> I agree to the terms &amp; conditions</label>
-                    <label><input type="checkbox" name="terms" checked="checked"> Sign me up for the newsletter</label>
-                    <input class="button" type="submit" value="Register">
+                    {{ form.as_p }}
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <label><input type="checkbox" name="terms" checked="checked"> I agree to the terms &amp; conditions</label>
+                            <label><input type="checkbox" name="terms" checked="checked"> Sign me up for the newsletter</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <input class="button col-xs-4" type="submit" value="Register">
+                        </div>
+                    </div>
                 </form>
             </div>
-        <section>                  
+        </section>                  
 
     {% endblock %}
