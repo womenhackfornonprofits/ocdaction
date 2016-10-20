@@ -1,4 +1,4 @@
-from ocdaction.settings import *
+from pimpmycause.settings import *
 import dj_database_url
 
 DEBUG = False
@@ -30,7 +30,7 @@ LOGGING = {
     'handlers': {
         'null': {
             'level': 'DEBUG',
-            'class': 'logging.NullHandler'
+            'class': 'logging.NullHandler',
         },
         'console': {
             'level': 'DEBUG',
@@ -49,4 +49,12 @@ LOGGING = {
         }
     }
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = os.environ["SENDGRID_USERNAME"]
+EMAIL_HOST_PASSWORD = os.environ["SENDGRID_PASSWORD"]
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 

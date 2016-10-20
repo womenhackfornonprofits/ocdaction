@@ -25,22 +25,22 @@ module.exports = function(grunt) {
             loadPath: 'node_modules/bootstrap-sass/assets/stylesheets'
         },
         files: {
-          'css/styles.css': 'src/sass/styles.scss'
+          '../ocdaction/static/styles/styles.css': 'src/sass/styles.scss'
         }
       }
     },
-    
+
     //------- Watch SASS -> CSS -------//
     watch: {
       sass: {
         files: 'src/sass/**/**.scss',
-        tasks: ['sass', 'cssmin']
+        tasks: ['sass']
       }
     },
 
     jspaths: {
       src: {
-        js: 'src/js/**.js'
+        js: 'src/**/**.js'
       },
       dest: {
         jsMin: '../ocdaction/static/scripts/ocdaction.min.js'
