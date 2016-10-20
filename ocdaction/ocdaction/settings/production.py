@@ -1,4 +1,4 @@
-from pimpmycause.settings import *
+from ocdaction.settings import *
 import dj_database_url
 
 DEBUG = False
