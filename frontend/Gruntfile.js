@@ -9,13 +9,13 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     //------- CSS Minify -------//
-    cssmin: {
-      combine: {
-        files: {
-          '../ocdaction/static/styles/styles.css': ['css/styles.css']
-        }
-      }
-    },
+    // cssmin: {
+    //   combine: {
+    //     files: {
+    //       '../ocdaction/static/styles/styles.css': ['css/styles.css']
+    //     }
+    //   }
+    // },
 
     //------- SASS -------//
     sass: {
@@ -76,6 +76,6 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('default', ['sass', 'cssmin', 'uglify', 'copy']);
+  grunt.registerTask('default', ['sass', 'uglify', 'copy']);
 
 };
