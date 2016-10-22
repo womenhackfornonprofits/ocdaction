@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from core.views import HomepageView, ContactView, AboutView, MeetTheTeam
-from profiles.views import LoginView, RegistrationView, RegistrationComplete
+from profiles.views import LoginView, RegistrationView, RegistrationComplete, ActivationComplete
 from profiles.forms import OCDActionUserRegistrationForm
 
 urlpatterns = [
@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^meet-the-team', MeetTheTeam.as_view(), name="team"),
     url(r'^accounts/register', RegistrationView.as_view(form_class=OCDActionUserRegistrationForm), name='registration_register'),
     url(r'^accounts/registration-complete/', RegistrationComplete.as_view(), name='registration_complete'),
+    url(r'^accounts/activate/complete/', ActivationComplete.as_view(), name='activation_complete'),
     url(r'^accounts/', include('registration.backends.default.urls')),
 
 ]
