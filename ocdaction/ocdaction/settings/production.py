@@ -1,7 +1,7 @@
 from ocdaction.settings import *
 import dj_database_url
 
-DEBUG = False
+DEBUG = True
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'] = dj_database_url.config()
