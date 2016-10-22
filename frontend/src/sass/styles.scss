@@ -8,9 +8,16 @@
 
 body {
 	background: #f4f4f4;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 .container {
 	max-width: 70em;
 	margin: 0 auto;
+}
+
+.content__wrapper {
+	flex: 1;
 }

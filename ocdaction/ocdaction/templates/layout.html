@@ -2,41 +2,44 @@
 {% load static %}
 
 {% block layout %}
-	<header class="header">
-		<div class="header__wrapper container">
-		    <a class="header__logo" href="/">
-		    	<img src="http://ocdyouth.org/assets/images/logo.png" alt="OCD Action Logo Image">
-		    </a>
-			<nav class="header__nav js-header-nav">
-			    <button class="header__nav-toggle js-nav-toggle"><span class="hidden">Menu</span></button>
-			    <ul class="header__list js-header-list">
-			        <li class="header__item">
-			            <a class="header__link" href="/about">About</a>
-			        </li>
-			        <li class="header__item">
-			            <a class="header__link" href="#">Think</a>
-			        </li>
-			        <li class="header__item">
-			            <a class="header__link" href="#">Act</a>
-			        </li>
-			        <li class="header__item">
-			            <a class="header__link" href="#">Contact</a>
-			        </li>
-			        <li class="header__item">
-			            <a class="header__link" href="/accounts/register">Register</a>
-			        </li>
-			        <li class="header__item">
-			            <a class="header__link" href="/accounts/login">Login</a>
-			        </li>
-			    </ul>
-			</nav>
-		</div>
-	</header>
-    {% block main %}
-    {% endblock %}
+	<div class="content__wrapper">
+		<header class="header">
+			<div class="header__wrapper container">
+			    <a class="header__logo" href="/">
+			    	<img src="http://ocdyouth.org/assets/images/logo.png" alt="OCD Action Logo Image">
+			    </a>
+				<nav class="header__nav js-header-nav">
+				    <button class="header__nav-toggle js-nav-toggle"><span class="hidden">Menu</span></button>
+				    <ul class="header__list js-header-list">
+				        <li class="header__item">
+				            <a class="header__link" href="/about">About</a>
+				        </li>
+				        <li class="header__item">
+				            <a class="header__link" href="#">Think</a>
+				        </li>
+				        <li class="header__item">
+				            <a class="header__link" href="#">Act</a>
+				        </li>
+				        <li class="header__item">
+				            <a class="header__link" href="#">Contact</a>
+				        </li>
+				        <li class="header__item">
+				            <a class="header__link" href="/accounts/register">Register</a>
+				        </li>
+				        <li class="header__item">
+				            <a class="header__link" href="/accounts/login">Login</a>
+				        </li>
+				    </ul>
+				</nav>
+			</div>
+		</header>
+	    {% block main %}
+	    {% endblock %}
+	</div>
+
     <footer class="footer col-xs-12">
     	<div class="container">
-	    	<div class="col-xs-12 col-sm-4">
+	    	<div class="col-xs-6 col-sm-4">
 	      		<h4 class="footer__category">Sitemap</h4>
 		    	<ul class="footer__list">
 		        	<li class="footer__item"><a class="footer__link" href="#"></a></li>
@@ -44,7 +47,7 @@
 		        	<li class="footer__item"><a class="footer__link" href="#">Link 3</a></li>
 		        </ul>
 		    </div>
-	      <div class="col-xs-12 col-sm-4">
+	      <div class="col-xs-6 col-sm-4">
 	      	<h4 class="footer__category">Social</h4>
 		    <ul class="footer__list">
 		      <li class="footer__item"><a class="footer__link" href="#">Twitter</a></li>
@@ -60,7 +63,7 @@
 		        <li class="footer__item"><a class="footer__link" href="#">Medium</a></li>
 		    </ul>
 		  </div>
-	      <span class="footer__legal col-xs-12">Copyright &#xA9; Women Hack For Non-Profits 2016.</span>
+	      <span class="footer__legal col-xs-12">Copyright &#xA9; OCD Youth. Created by <a href="http://www.womenhackfornonprofits.co.uk">Women Hack For Non-Profits 2016.</a></span>
 	    </div>
     </footer>
 {% endblock %}
