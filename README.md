@@ -119,8 +119,9 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 ## Deploying to Heroku
 1. Create a Heroku Account
 2. Get added to the app in the Heroku Dashboard
+3. Download [Heroku toolbelt](https://devcenter.heroku.com/articles/heroku-command-line): `wget -qO- https://toolbelt.heroku.com/install.sh | sh`
 3. In the terminal `heroku login`
-4. Within you project directory `heroku git:remote -a staging-ocdactin`
+4. Within you project directory `heroku git:remote -a staging-ocdaction`
 5. Once you are ready to deploy, from master branch you can run `git push heroku master` make sure you have commited all the changes before running this and the `git status` is clean.
 6. Go to https://staging-ocdaction.herokuapp.com/ to view the live site.
 
