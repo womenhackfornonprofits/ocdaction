@@ -2,6 +2,7 @@ from django import forms
 
 from profiles.models import OCDActionUser
 from registration.forms import RegistrationForm
+import datetime
 
 
 class OCDActionUserRegistrationForm(RegistrationForm):
@@ -12,7 +13,10 @@ class OCDActionUserRegistrationForm(RegistrationForm):
     )
 
     have_ocd = forms.ChoiceField(choices=yes_no_choices, label='Do you have an OCD diagnosis?')
-    date_birth = forms.DateField(widget=forms.SelectDateWidget(), label='Date of birth')
+
+    now = datetime.datetime.now()
+    current_year = now.year
+    date_birth = forms.DateField(widget=forms.SelectDateWidget(years=range(current_year - 100, current_year)), label='Date of birth')
 
     class Meta:
         model = OCDActionUser
