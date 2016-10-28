@@ -29,3 +29,10 @@ class MeetTheTeam(TemplateView):
     Meet The Team View.
     """
     template_name = "core/team.html"
+
+
+class TermsAndConditions(TemplateView):
+    """
+    Meet The Team View.
+    """
+    template_name = "core/terms_conditions.html"
