@@ -35,4 +35,4 @@ class TermsAndConditions(TemplateView):
     """
     Meet The Team View.
     """
-    template_name = "core/terms_conditions.html"
+    template_name = "core/terms_and_conditions.html"

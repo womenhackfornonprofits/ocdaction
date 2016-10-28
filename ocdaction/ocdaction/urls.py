@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^contact', ContactView.as_view(), name="contact"),
     url(r'^about', AboutView.as_view(), name="about"),
     url(r'^meet-the-team', MeetTheTeam.as_view(), name="team"),
-    url(r'^terms-conditions', TermsAndConditions.as_view(), name="terms_conditions"),
+    url(r'^terms-and-conditions', TermsAndConditions.as_view(), name="terms_and_conditions"),
     url(r'^accounts/register', RegistrationView.as_view(form_class=OCDActionUserRegistrationForm), name='registration_register'),
     url(r'^accounts/registration-complete/', RegistrationComplete.as_view(), name='registration_complete'),
     url(r'^accounts/activate/complete/', ActivationComplete.as_view(), name='activation_complete'),
