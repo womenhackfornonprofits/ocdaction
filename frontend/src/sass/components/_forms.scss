@@ -59,11 +59,27 @@ select {
     padding-right: 2rem;
 }
 
-.errorlist {
-    display: none;
+.errorlist  {
+    padding: 0;
+    margin: 0;
+
+    li {
+        color: red;
+        line-height: 1em;
+        line-height: .6em;
+        font-size: .7em;
+        list-style: none;
+    }
+}
+
+.errorlist + p > input {
+    border: 1px red solid;
 }
 
 form {
+    p {
+        margin-top: 0;
+    }
     .button {
         margin: 15px 0;
         display: block;
