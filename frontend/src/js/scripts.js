@@ -14,23 +14,24 @@ var birthYear = document.getElementById('id_date_birth_year');
 var birthMonth = document.getElementById('id_date_birth_month');
 var birthDay = document.getElementById('id_date_birth_day');
 
+// Javascript uses a Month Index of 0-11
+var birthMonthIndex = Number(birthMonth.value) - 1;
+
 birthYear.onchange = function () {
-  var x = Number(birthMonth.value) - 1;
-  var birthday = new Date(birthYear.value, x, birthDay.value);
+  var birthday = new Date(birthYear.value, birthMonthIndex, birthDay.value);
   var age = calculateAge(birthday)
   checkYoungerThanEighteen(age)
 }
 
 birthMonth.onchange = function () {
-  var x = Number(birthMonth.value) - 1;
-  var birthday = new Date(birthYear.value, x, birthDay.value);
+  birthMonthIndex = Number(birthMonth.value) - 1;
+  var birthday = new Date(birthYear.value, birthMonthIndex, birthDay.value);
   var age = calculateAge(birthday)
   checkYoungerThanEighteen(age)
 } 
 
 birthDay.onchange = function () {
-  var x = Number(birthMonth.value) - 1;
-  var birthday = new Date(birthYear.value, x, birthDay.value);
+  var birthday = new Date(birthYear.value, birthMonthIndex, birthDay.value);
   var age = calculateAge(birthday)
   checkYoungerThanEighteen(age)
 }
