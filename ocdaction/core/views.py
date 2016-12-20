@@ -36,3 +36,10 @@ class TermsAndConditions(TemplateView):
     Meet The Team View.
     """
     template_name = "core/terms_and_conditions.html"
+
+
+class ThinkView(TemplateView):
+    """
+    The Think View.
+    """
+    template_name = "core/think.html"
