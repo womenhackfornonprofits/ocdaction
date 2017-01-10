@@ -29,7 +29,7 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 - [Liz](https://github.com/Mawer) - Full Stack (Training)
 - [Natalia](https://github.com/natalia-z) - Front End
 - [Victoria](https://github.com/VAO11) - Full Stack (Training)
-- 
+ 
 # Setup
 ## Tools
 1. **Terminal**: [iTerm2](https://www.iterm2.com/) (MacOSX), [Terminator](http://gnometerminator.blogspot.co.uk/p/introduction.html) (Linux) or use your preffered one.
@@ -44,7 +44,7 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 
 	```sudo pip install virtualenv```
 
-2. Install [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/install.html):
+2. Install [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/install.html): ```sudo pip install virtualenvwrapper```
 
 3. Source the `virtualenvwrapper`:
 	```source /usr/local/bin/virtualenvwrapper.sh```
