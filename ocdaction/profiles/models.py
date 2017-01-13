@@ -12,7 +12,7 @@ class OCDActionUser(AbstractEmailUser):
     have_ocd = models.BooleanField(default=True, blank=True)
 
 class Task(models.Model):
-    taskname = models.CharField(max_length=100, blank=True)
+    taskname = models.CharField(max_length=100)
     is_archived = models.BooleanField(default=False, blank=True)
     user = models.ForeignKey('OCDActionUser', on_delete=models.CASCADE)
 
