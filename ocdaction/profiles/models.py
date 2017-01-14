@@ -11,3 +11,10 @@ class OCDActionUser(AbstractEmailUser):
     date_birth = models.DateField('date of birth', null=True, blank=True)
     have_ocd = models.BooleanField(default=True, blank=True)
 
+class Task(models.Model):
+    taskname = models.CharField(max_length=100)
+    is_archived = models.BooleanField(default=False, blank=True)
+    user = models.ForeignKey('OCDActionUser', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.taskname
