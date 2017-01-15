@@ -1,7 +1,7 @@
 from django.conf.urls import include, url
 from django.contrib.auth import views as auth_views
 
-from .views import RegistrationView
+from .views import RegistrationView, RegistrationComplete, ActivationComplete
 from .forms import OCDActionUserRegistrationForm
 
 
@@ -10,12 +10,14 @@ urlpatterns = [
         r'^register/$',
         RegistrationView.as_view(form_class=OCDActionUserRegistrationForm), name='register',
     ),
-    # url(
-    #     r'^registration-complete/$',
-    #     auth_views.password_reset,
-    #     {'template_name': 'registration/register.html'},
-    #     name='registration_register',
-    # ),
+    url(
+        r'^register/complete/$',
+        RegistrationComplete.as_view(), name='registration_complete',
+    ),
+    url(
+        r'^register/activation-complete', 
+        ActivationComplete.as_view(), name='activation_complete',
+    ),
     url(
         r'^login/$',
         auth_views.login,
@@ -55,9 +57,4 @@ urlpatterns = [
     # (r'^accounts/', include('registration.backends.default.urls')),
 
 ]
-
-    # url(r'^accounts/register', RegistrationView.as_view(form_class=OCDActionUserRegistrationForm), name='registration_register'),
-    # url(r'^accounts/registration-complete/', RegistrationComplete.as_view(), name='registration_complete'),
-    # url(r'^accounts/activate/complete/', ActivationComplete.as_view(), name='activation_complete'),
-    # url(r'^accounts/', include('registration.backends.default.urls')),
 
