@@ -37,8 +37,6 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 
 ## Dev Enviroment Setup
 1. [Install Git](http://git-scm.com/download/mac)
-2. Clone the repo: `git clone git@github.com:womenhackfornonprofits/ocdaction.git`
-
 
 1. Install [virtualenv](https://virtualenv.pypa.io/en/stable/): 
 
