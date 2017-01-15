@@ -1,6 +1,6 @@
 from django.contrib import admin
 from custom_user.admin import EmailUserAdmin
-from .models import OCDActionUser, Task
+from .models import OCDActionUser
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -17,11 +17,4 @@ class OCDActionUserAdmin(EmailUserAdmin):
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )
 
-class TaskAdmin(admin.ModelAdmin):
-    list_select_related = True
-    list_display = ('taskname', 'user')
-    search_fields = ['taskname']
-
-# Register your models here.
 admin.site.register(OCDActionUser, OCDActionUserAdmin)
-admin.site.register(Task, TaskAdmin)
