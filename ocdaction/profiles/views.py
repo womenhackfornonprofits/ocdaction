@@ -29,4 +29,3 @@ class RegistrationView(registration_views.RegistrationView):
 
     template_name = 'registration/register.html'
     form_class = OCDActionUserRegistrationForm
-    success_url = '/users/registration-complete/'

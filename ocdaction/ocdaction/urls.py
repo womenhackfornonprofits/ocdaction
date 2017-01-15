@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.views.generic.base import TemplateView
 
 from core.views import HomepageView, ContactView, AboutView, MeetTheTeam, TermsAndConditions, ThinkView
 
@@ -29,4 +30,7 @@ urlpatterns = [
     url(r'^terms-and-conditions', TermsAndConditions.as_view(), name="terms_and_conditions"),
 
     url(r'^users/', include('profiles.urls')),
+    url(r'^dashboard/$', TemplateView.as_view(
+        template_name='dashboard/dashboard_index.html'
+    )),
 ]

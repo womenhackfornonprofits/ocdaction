@@ -7,9 +7,9 @@ from custom_user.models import AbstractEmailUser
 class OCDActionUser(AbstractEmailUser):
 
     # basic info
-    username = models.CharField(max_length=24, blank=True)
-    date_birth = models.DateField('date of birth', null=True, blank=True)
-    have_ocd = models.BooleanField(default=True, blank=True)
+    username = models.CharField(max_length=24)
+    date_birth = models.DateField('date of birth')
+    have_ocd = models.BooleanField(default=False)
 
 
 class Task(models.Model):

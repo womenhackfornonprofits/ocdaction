@@ -52,6 +52,8 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'ocdaction.urls'
 
+LOGIN_REDIRECT_URL = '/dashboard/'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

@@ -54,7 +54,7 @@ urlpatterns = [
         {'template_name': 'profiles/password_reset_complete.html'},
         name='password_reset_complete',
     ),
-    # (r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^accounts/', include('registration.backends.default.urls')),
 
 ]
 
