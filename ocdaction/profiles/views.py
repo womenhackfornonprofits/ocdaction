@@ -6,29 +6,29 @@ from registration.backends.default import views as registration_views
 from profiles.forms import OCDActionUserRegistrationForm
 
 
-# Create your views here.
-class LoginView(TemplateView):
-    """
-    The Login view.
-    """
+# # Create your views here.
+# class LoginView(TemplateView):
+#     """
+#     The Login view.
+#     """
 
-    template_name = "profiles/login.html"
-
-
-class RegistrationComplete(TemplateView):
-    """
-    The Registration Complete view.
-    """
-
-    template_name = "registration/registration_complete.html"
+#     template_name = "profiles/login.html"
 
 
-class ActivationComplete(TemplateView):
-    """
-    The Registration Complete view.
-    """
+# class RegistrationComplete(TemplateView):
+#     """
+#     The Registration Complete view.
+#     """
 
-    template_name = "registration/activation_complete.html"
+#     template_name = "registration/registration_complete.html"
+
+
+# class ActivationComplete(TemplateView):
+#     """
+#     The Registration Complete view.
+#     """
+
+#     template_name = "registration/activation_complete.html"
 
 
 class RegistrationView(registration_views.RegistrationView):
@@ -36,6 +36,6 @@ class RegistrationView(registration_views.RegistrationView):
     The Registration view.
     """
 
-    template_name = 'profiles/register.html'
+    template_name = 'registration/register.html'
     form_class = OCDActionUserRegistrationForm
-    success_url = '/accounts/registration-complete/'
+    success_url = '/users/registration-complete/'

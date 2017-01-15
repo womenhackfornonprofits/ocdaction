@@ -17,21 +17,16 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from core.views import HomepageView, ContactView, AboutView, MeetTheTeam, TermsAndConditions, ThinkView
-from profiles.views import LoginView, RegistrationView, RegistrationComplete, ActivationComplete
-from profiles.forms import OCDActionUserRegistrationForm
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomepageView.as_view(), name="index"),
-    url(r'^login', LoginView.as_view(), name="login"),
     url(r'^contact', ContactView.as_view(), name="contact"),
     url(r'^about', AboutView.as_view(), name="about"),
     url(r'^meet-the-team', MeetTheTeam.as_view(), name="team"),
     url(r'^think', ThinkView.as_view(), name="think"),
     url(r'^terms-and-conditions', TermsAndConditions.as_view(), name="terms_and_conditions"),
-    url(r'^accounts/register', RegistrationView.as_view(form_class=OCDActionUserRegistrationForm), name='registration_register'),
-    url(r'^accounts/registration-complete/', RegistrationComplete.as_view(), name='registration_complete'),
-    url(r'^accounts/activate/complete/', ActivationComplete.as_view(), name='activation_complete'),
-    url(r'^accounts/', include('registration.backends.default.urls')),
 
+    url(r'^users/', include('profiles.urls')),
 ]

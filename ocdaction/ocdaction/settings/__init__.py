@@ -18,12 +18,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'FAKEforDEV'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 ALLOWED_HOSTS = []
 
 
@@ -160,5 +154,3 @@ ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_DEFAULT_FROM_EMAIL = "info@ocdaction.org"
 REGISTRATION_EMAIL_HTML = True
 REGISTRATION_AUTO_LOGIN = True
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
