@@ -5,6 +5,23 @@
 {% block main %} 
     <section>
  		<h1>Contact</h1>
-    </section> 
+        <div class="col-xs-offset-2 col-xs-8 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4">
+        <form role="form" method="post">
+         {% csrf_token %}
+         {{ form.as_p }}
+        <div class="row">
+        <div class="col-xs-12">
+        <label for="email">Email: </label>
+        <input id="email" type="text" name="email" value="{{ email }}">        
+        <label for="message">Message: </label>
+        <input id="message" type="text" name="message" value="{{ message }}">
+        </div>
+        </div>
+        <div class="form-actions">
+        <input class="button col-xs-4" type="submit" value="Send">
+    </div>
+</form>
+</div>
+</section> 
 {% endblock %}
      
