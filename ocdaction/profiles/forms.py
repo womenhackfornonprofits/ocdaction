@@ -30,4 +30,4 @@ class OCDActionUserRegistrationForm(RegistrationForm):
         by a user to track anxiety
         """
         model = OCDActionUser
-        fields = ('email', 'password1', 'password2', 'username')
+        fields = ('email', 'password1', 'password2', 'username', 'date_birth')
