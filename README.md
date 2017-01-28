@@ -29,6 +29,7 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 - [Liz](https://github.com/Mawer) - Full Stack (Training)
 - [Natalia](https://github.com/natalia-z) - Front End
 - [Victoria](https://github.com/VAO11) - Full Stack (Training)
+- [Jia Lin](https://github.com/jlin95) - Frontnnd (and a little backend) 
  
 # Setup
 ## Tools
