@@ -52,4 +52,4 @@ class AnxietyScore(models.Model):
     )
     user = models.ForeignKey('profiles.OCDActionUser', on_delete=models.CASCADE)
     task = models.ForeignKey('tasks.Task', on_delete=models.CASCADE)
-    TEN = '10'
+
