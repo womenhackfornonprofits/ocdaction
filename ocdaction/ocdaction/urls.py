@@ -7,12 +7,12 @@ from django.views.generic.base import TemplateView
 
 from core.views import HomepageView, ContactView, AboutView, MeetTheTeam, TermsAndConditions, ThinkView
 
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomepageView.as_view(), name="index"),
     url(r'^contact', ContactView.as_view(), name="contact"),
     url(r'^about', AboutView.as_view(), name="about"),
+	url(r'^act', ActView.as_view(), name="act"),
     url(r'^meet-the-team', MeetTheTeam.as_view(), name="team"),
     url(r'^think', ThinkView.as_view(), name="think"),
     url(r'^terms-and-conditions', TermsAndConditions.as_view(), name="terms_and_conditions"),
