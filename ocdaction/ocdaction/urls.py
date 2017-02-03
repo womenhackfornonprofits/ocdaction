@@ -5,7 +5,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic.base import TemplateView
 
-from core.views import HomepageView, ContactView, AboutView, MeetTheTeam, TermsAndConditions, ThinkView
+from core.views import HomepageView, ContactView, AboutView, MeetTheTeam, TermsAndConditions, ThinkView, ActView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
