@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}Login{% endblock %} 
+
+{% load static %}
+
+{% block main %} 
+
+ <section class="container">
+    
+    <h1>Log in</h1>
+    <form class="col-xs-offset-2 col-xs-8 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" role="" action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        {{ form.errors }}
+        {{ form.as_p }}
+
+        <button type="submit" class="button">Login</button>
+        <a href="{% url 'password_reset' %}"><small>Forgot password?</small></a>
+    </form>
+</section>
+
+{% endblock %}

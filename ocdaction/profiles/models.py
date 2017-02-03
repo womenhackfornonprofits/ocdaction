@@ -1,20 +1,15 @@
 from __future__ import unicode_literals
-
 from django.db import models
 from custom_user.models import AbstractEmailUser
-import datetime
+
 
 class OCDActionUser(AbstractEmailUser):
-
-    # basic info
-    username = models.CharField(max_length=24, blank=True)
-    date_birth = models.DateField('date of birth', null=True, blank=True)
-    have_ocd = models.BooleanField(default=True, blank=True)
-
-class Task(models.Model):
-    taskname = models.CharField(max_length=100)
-    is_archived = models.BooleanField(default=False, blank=True)
-    user = models.ForeignKey('OCDActionUser', on_delete=models.CASCADE)
+    """ User is authenticated with their email
+    but for app purposes users also have usernames.
+    """
+    username = models.CharField(max_length=24)
+    date_birth = models.DateField('date of birth')
+    have_ocd = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.taskname
+        return self.username

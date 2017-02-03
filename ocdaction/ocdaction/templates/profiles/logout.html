@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}Logout{% endblock %}
+
+{% block panel_title %}Logout{% endblock %} 
+
+{% load static %}
+
+{% block main %} 
+    <form class="col-xs-offset-2 col-xs-8 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" role="form" action="{% url 'logout' %}" method="POST">
+        {% csrf_token %}
+        <h1>Logout</h1>
+        <button type="submit" class="button">Logout</button>
+    </form>
+{% endblock %}
