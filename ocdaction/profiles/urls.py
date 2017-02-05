@@ -19,7 +19,7 @@ urlpatterns = [
         RegistrationComplete.as_view(), name='registration_complete',
     ),
     url(
-        r'^register/activation-complete', 
+        r'^register/activation-complete',
         ActivationComplete.as_view(), name='activation_complete',
     ),
     url(
@@ -61,4 +61,3 @@ urlpatterns = [
     url(r'^accounts/', include('registration.backends.default.urls')),
 
 ]
-

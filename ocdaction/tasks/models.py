@@ -7,7 +7,7 @@ class Task(models.Model):
     """a task is a user created task that can be completed
     by a user to track anxiety
     """
-    taskname = models.CharField(max_length=100)
+    task_name = models.CharField(max_length=100)
     is_archived = models.BooleanField(default=False)
     task_fears = models.CharField(max_length=300, blank=True)
     task_compulsions = models.CharField(max_length=300, blank=True)
@@ -17,39 +17,39 @@ class Task(models.Model):
     # TODO add a task anxiety score once score model is created
 
     def __str__(self):
-        return self.taskname
+        return self.task_name
+
 
 class AnxietyScore(models.Model):
-    ZERO = '0'
-    ONE = '1'
-    TWO = '2'
-    THREE = '3'
-    FOUR = '4'
-    FIVE = '5'
-    SIX = '6'
-    SEVEN = '7'
-    EIGHT = '8'
-    NINE = '9'
-    TEN = '10'
+    SCORE_ZERO = '0'
+    SCORE_ONE = '1'
+    SCORE_TWO = '2'
+    SCORE_THREE = '3'
+    SCORE_FOUR = '4'
+    SCORE_FIVE = '5'
+    SCORE_SIX = '6'
+    SCORE_SEVEN = '7'
+    SCORE_EIGHT = '8'
+    SCORE_NINE = '9'
+    SCORE_TEN = '10'
 
     ANXIETY_SCORE_CHOICES = (
-        (ZERO, 'Zero'),
-        (ONE, 'One'),
-        (TWO, 'Two'),
-        (THREE, 'Three'),
-        (FOUR, 'Four'),
-        (FIVE, 'Five'),
-        (SIX, 'Six'),
-        (SEVEN, 'Seven'),
-        (EIGHT, 'Eight'),
-        (NINE, 'Nine'),
-        (TEN, 'Ten'),
+        (SCORE_ZERO, 'Zero'),
+        (SCORE_ONE, 'One'),
+        (SCORE_TWO, 'Two'),
+        (SCORE_THREE, 'Three'),
+        (SCORE_FOUR, 'Four'),
+        (SCORE_FIVE, 'Five'),
+        (SCORE_SIX, 'Six'),
+        (SCORE_SEVEN, 'Seven'),
+        (SCORE_EIGHT, 'Eight'),
+        (SCORE_NINE, 'Nine'),
+        (SCORE_TEN, 'Ten'),
     )
     score = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        default=ZERO
+        default=SCORE_ZERO
     )
     user = models.ForeignKey('profiles.OCDActionUser', on_delete=models.CASCADE)
     task = models.ForeignKey('tasks.Task', on_delete=models.CASCADE)
-

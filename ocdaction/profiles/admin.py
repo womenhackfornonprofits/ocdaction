@@ -17,4 +17,5 @@ class OCDActionUserAdmin(EmailUserAdmin):
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )
 
+
 admin.site.register(OCDActionUser, OCDActionUserAdmin)
