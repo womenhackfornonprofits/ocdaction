@@ -23,11 +23,13 @@ class AboutView(TemplateView):
     """
     template_name = "core/about.html"
 
+
 class ActView(TemplateView):
     """
     The Act View.
     """
     template_name = "core/act.html"
+
 
 class MeetTheTeam(TemplateView):
     """
