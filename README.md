@@ -29,8 +29,9 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 - [Liz](https://github.com/Mawer) - Full Stack (Training)
 - [Natalia](https://github.com/natalia-z) - Front End
 - [Victoria](https://github.com/VAO11) - Full Stack (Training)
-- [Jia Lin](https://github.com/jlin95) - Frontnnd (and a little backend) 
- 
+- [Jia Lin](https://github.com/jlin95) - Front End (and a little backend)
+- [Madeleine Linder](https://github.com/madeleinel) - Front End
+
 # Setup
 ## Tools
 1. **Terminal**: [iTerm2](https://www.iterm2.com/) (MacOSX), [Terminator](http://gnometerminator.blogspot.co.uk/p/introduction.html) (Linux) or use your preffered one.
@@ -39,7 +40,7 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 ## Dev Enviroment Setup
 1. [Install Git](http://git-scm.com/download/mac)
 
-1. Install [virtualenv](https://virtualenv.pypa.io/en/stable/): 
+1. Install [virtualenv](https://virtualenv.pypa.io/en/stable/):
 
 	```sudo pip install virtualenv```
 
@@ -47,24 +48,24 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 
 3. Source the `virtualenvwrapper`:
 	```source /usr/local/bin/virtualenvwrapper.sh```
-	
+
 	**NOTE**: To help do this automatically on every new shell you open add the line above to your `.bash_profile` or  `.bashrc`
 
 4. Create a new env for the project:
- 
+
 	 ```mkvirtualenv ocdaction```
-6. Get the code: 
+6. Get the code:
 
 	```git clone git@github.com:womenhackfornonprofits/ocdaction.git```
-	
+
 6. Go inside the `ocdaction` directory:
-	
+
 	```cd ocdaction```
 
 7. Activate the virtual enviroment:
- 
-	 ```workon ocdaction``` 
-	 
+
+	 ```workon ocdaction```
+
 	 This will now ensure anything you install is within this enviroment.
 
 8. You will need to have [Postgres installed](https://www.postgresql.org/download/) and up and running. You can onstall it via:
@@ -77,16 +78,16 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 
 9. Install the requirements:
 
-	 ```pip install -r requirements.txt``` 
-	 
+	 ```pip install -r requirements.txt```
+
 	 This will get all the dependencies.
 
 9. Create a database locally for the project to run:
-	
+
 	```createdb ocdaction```
 
-10. Go inside frontend folder: 
-	
+10. Go inside frontend folder:
+
 	```cd frontend```
 
 11. Install all the dependencies:
@@ -95,16 +96,16 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 
 	 This will get all the dependencies
 
-	
+
 ## Running the project locally
-1. Go inside the django app directory: 
+1. Go inside the django app directory:
 
 	```cd ocdaction```
 2. Run django server:
-	
+
 	```python manage.py runserver```
-	
-3. The project is now running on `http://127.0.0.1:8000/`, go to that address in your browser. 
+
+3. The project is now running on `http://127.0.0.1:8000/`, go to that address in your browser.
 4. You may see a message that you have unapplied migrations, when you see this simply run the command below which will create any tables and fields in the database:
 
 	```python manage.py migrate```
