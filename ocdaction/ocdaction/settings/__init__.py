@@ -53,6 +53,8 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'ocdaction.urls'
 
+LOGIN_URL = '/users/login/'
+
 LOGIN_REDIRECT_URL = '/dashboard/'
 
 TEMPLATES = [

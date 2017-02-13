@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
+from django.contrib.auth.decorators import login_required
+
+from tasks.models import Task
 
 
 # Create your views here.
@@ -24,11 +27,14 @@ class AboutView(TemplateView):
     template_name = "core/about.html"
 
 
-class ActView(TemplateView):
+@login_required
+def ActView(request):
     """
     The Act View.
     """
     template_name = "core/act.html"
+    task_list = Task.objects.filter(user=request.user, is_archived=False)
+    return render(request, template_name, {'tasks': task_list})
 
 
 class MeetTheTeam(TemplateView):
