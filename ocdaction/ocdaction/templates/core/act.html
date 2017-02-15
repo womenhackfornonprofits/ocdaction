@@ -6,7 +6,16 @@
     <section>
         <h1>ACT</h1>
         {% for task in tasks %}
-            <li>{{ task }}</li>
+            <ul>
+            <li>
+            <h3>{{ task.task_name }}</h3>
+                <ul>
+                    <li><p>Fears: My task fears are {{ task.task_fears }}<p></li>
+                    <li><p>Goals: My task goals are {{ task.task_goals }}<p></li>
+                    <li><p>Compulsions: My task compulsions are {{ task.task_compulsions }}<p></li>
+                </ul>
+            </li>
+            </ul>
         {% endfor %}
     </section>
 {% endblock %}
