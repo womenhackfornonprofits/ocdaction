@@ -140,8 +140,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'ocdaction/staticfiles')
 
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "ocdaction/static"),
 ]
+
 
 CONTEXT_PROCESSORS = [
     "django.contrib.auth.context_processors.auth",
