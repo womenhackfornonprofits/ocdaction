@@ -14,8 +14,6 @@ class Task(models.Model):
     task_goals = models.CharField(max_length=300, blank=True)
     user = models.ForeignKey('profiles.OCDActionUser', on_delete=models.CASCADE)
 
-    # TODO add a task anxiety score once score model is created
-
     def __str__(self):
         return self.task_name
 
