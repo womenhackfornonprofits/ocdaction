@@ -1,0 +1,163 @@
+.heading {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.title {
+  padding: 40px 0;
+}
+
+.subheading {
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+.section {
+  padding-bottom: 80px;
+}
+
+.hero {
+  background: linear-gradient(45deg, #392e6d, #2e3881);
+  padding-bottom: 130px;
+}
+
+footer p {
+  text-align: center;
+}
+
+h1 {
+  font-size: 70px;
+}
+
+section {
+  background-color: #e3e3e3;
+  text-align: center;
+  border-top: 2px solid #392e6d;
+}
+
+section p {
+  color: #003264;
+  text-align: left;
+  max-width: 740px;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-bottom: 20px;
+}
+
+.navigation {
+  max-width: 740px;
+  margin: 0 auto;
+  text-align: right;
+  padding: 30px;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+nav ul li {
+  padding: 6px 8px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+  color: #fff;
+}
+
+section img {
+  margin: 0 auto;
+  text-align: center;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+}
+
+
+footer {
+  background: #3c3c3c;
+  padding: 30px;
+  color: #ccc;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h5 {
+  color: #003264;
+}
+
+section {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 80px;
+  background-color: #f9f9f9;
+  text-align: center;
+  border-top: 2px solid #e3e2e4;
+}
+
+@media (min-width: 600px) {
+  section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+section ol {
+  max-width: 700px;
+  padding: 0;
+  margin: 0 auto;
+  text-align: left;
+}
+
+section li {
+  padding: 10px 0
+}
+
+section img {
+  margin: 0 auto;
+  text-align: center;
+}
+
+section h1 {
+  margin-top: 60px;
+  color: #392e6d;
+  font-size: 30px;
+  padding: 30px;
+}
+
+form {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.icon {
+  margin-right: 15px;
+  color: #e272ab;
+}
+
+button {
+  padding: 6px 8px;
+  background-color: #e272ab;
+  color: white;
+  border: 0;
+  display: inline-block;
+  margin: auto auto;
+}
+
+.social li {
+  display: inline-block;
+}
