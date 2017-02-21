@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Task(models.Model):
@@ -52,11 +53,14 @@ class AnxietyScore(models.Model):
         choices=ANXIETY_SCORE_CHOICES,
         default=SCORE_ZERO
     )
-    user = models.ForeignKey('profiles.OCDActionUser', on_delete=models.CASCADE)
+    
     task = models.ForeignKey('tasks.Task', on_delete=models.CASCADE)
 
     def __unicode__(self):
         return self.score
+
+    def user_name(self):
+        return self.task.user
 
 
 class AnxietyScoreCard(models.Model):
@@ -89,3 +93,6 @@ class AnxietyScoreCard(models.Model):
         related_name='score_20',
         on_delete=models.CASCADE
     )
+
+    def user_name(self):
+        return self.task.user

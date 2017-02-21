@@ -10,13 +10,13 @@ class TaskAdmin(admin.ModelAdmin):
 
 class AnxietyScoreAdmin(admin.ModelAdmin):
     list_select_related = True
-    list_display = ('user', 'task', 'score')
+    list_display = ('user_name', 'task', 'score')
     search_fields = ['task__task_name']
 
 
 class AnxietyScoreCardAdmin(admin.ModelAdmin):
     list_select_related = True
-    list_display = ('task', 'score_after_5_min', 'score_after_10_min', 'score_after_15_min', 'score_after_20_min')
+    list_display = ('task', 'user_name', 'score_after_5_min', 'score_after_10_min', 'score_after_15_min', 'score_after_20_min')
     search_fields = ['task__task_name']
 
 
