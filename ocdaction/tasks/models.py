@@ -1,7 +1,6 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from django.contrib.auth.models import User
 
 
 class Task(models.Model):
@@ -53,7 +52,7 @@ class AnxietyScore(models.Model):
         choices=ANXIETY_SCORE_CHOICES,
         default=SCORE_ZERO
     )
-    
+
     task = models.ForeignKey('tasks.Task', on_delete=models.CASCADE)
 
     def __unicode__(self):
