@@ -64,6 +64,14 @@ class AnxietyScore(models.Model):
 
 class AnxietyScoreCard(models.Model):
     task = models.ForeignKey('Task', on_delete=models.CASCADE)
+    score_after_0_min = models.ForeignKey(
+        AnxietyScore,
+        blank=True,
+        null=True,
+        related_name='score_0',
+        on_delete=models.CASCADE
+    )
+
     score_after_5_min = models.ForeignKey(
         AnxietyScore,
         blank=True,
@@ -85,11 +93,19 @@ class AnxietyScoreCard(models.Model):
         related_name='score_15',
         on_delete=models.CASCADE
     )
-    score_after_20_min = models.ForeignKey(
+    score_after_30_min = models.ForeignKey(
         AnxietyScore,
         blank=True,
         null=True,
-        related_name='score_20',
+        related_name='score_30',
+        on_delete=models.CASCADE
+    )
+
+    score_after_60_min = models.ForeignKey(
+        AnxietyScore,
+        blank=True,
+        null=True,
+        related_name='score_60',
         on_delete=models.CASCADE
     )
 
