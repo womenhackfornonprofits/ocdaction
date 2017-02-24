@@ -14,13 +14,14 @@ class Task(models.Model):
     task_goals = models.CharField(max_length=300, blank=True)
     user = models.ForeignKey('profiles.OCDActionUser', on_delete=models.CASCADE)
 
-    # TODO add a task anxiety score once score model is created
-
     def __str__(self):
         return self.task_name
 
 
 class AnxietyScore(models.Model):
+    """a task is a user created task that can be completed
+    by a user to track anxiety
+    """
     SCORE_ZERO = '0'
     SCORE_ONE = '1'
     SCORE_TWO = '2'
@@ -51,5 +52,62 @@ class AnxietyScore(models.Model):
         choices=ANXIETY_SCORE_CHOICES,
         default=SCORE_ZERO
     )
-    user = models.ForeignKey('profiles.OCDActionUser', on_delete=models.CASCADE)
+
     task = models.ForeignKey('tasks.Task', on_delete=models.CASCADE)
+
+    def __unicode__(self):
+        return self.score
+
+    def user_name(self):
+        return self.task.user
+
+
+class AnxietyScoreCard(models.Model):
+    task = models.ForeignKey('Task', on_delete=models.CASCADE)
+    score_after_0_min = models.ForeignKey(
+        AnxietyScore,
+        blank=True,
+        null=True,
+        related_name='score_0',
+        on_delete=models.CASCADE
+    )
+
+    score_after_5_min = models.ForeignKey(
+        AnxietyScore,
+        blank=True,
+        null=True,
+        related_name='score_5',
+        on_delete=models.CASCADE
+    )
+    score_after_10_min = models.ForeignKey(
+        AnxietyScore,
+        blank=True,
+        null=True,
+        related_name='score_10',
+        on_delete=models.CASCADE
+    )
+    score_after_15_min = models.ForeignKey(
+        AnxietyScore,
+        blank=True,
+        null=True,
+        related_name='score_15',
+        on_delete=models.CASCADE
+    )
+    score_after_30_min = models.ForeignKey(
+        AnxietyScore,
+        blank=True,
+        null=True,
+        related_name='score_30',
+        on_delete=models.CASCADE
+    )
+
+    score_after_60_min = models.ForeignKey(
+        AnxietyScore,
+        blank=True,
+        null=True,
+        related_name='score_60',
+        on_delete=models.CASCADE
+    )
+
+    def user_name(self):
+        return self.task.user
