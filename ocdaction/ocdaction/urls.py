@@ -47,6 +47,6 @@ urlpatterns = [
     ),
     url(
         r'^act/',
-        include('ocdaction.act_urls')
+        include('ocdaction.tasks_urls')
     ),
 ]

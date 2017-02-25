@@ -3,7 +3,7 @@
 """
 from django.conf.urls import url
 
-from core.views import (
+from tasks.views import (
     task_list,
     task_add,
 )
