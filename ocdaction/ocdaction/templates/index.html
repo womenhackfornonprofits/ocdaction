@@ -3,9 +3,15 @@
 {% load static %}
 
 
-    {% block main %} 
+    {% block main %}
         <section class="col-xs-12">
             <h1> Welcome to OCD Action homepage!</h1>
+        </section>
+
+        <section class="col-md-offset-3 col-md-6">
+          <h2>With thanks to:</h2>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/South_London_and_Maudsley_NHS_Foundation_Trust_logo.jpg"/>
+          {% include 'whfnplogo.svg' %}
         </section>
 
     {% endblock %}
