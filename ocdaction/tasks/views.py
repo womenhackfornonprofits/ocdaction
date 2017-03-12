@@ -24,7 +24,7 @@ def task_add(request):
     Add a new task
     """
     if request.method == 'POST':
-        task_form = TaskForm(request.POST, instance=instance)
+        task_form = TaskForm(request.POST)
 
         if task_form.is_valid():
             task = task_form.save(commit=False)
