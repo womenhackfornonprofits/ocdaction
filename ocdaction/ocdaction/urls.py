@@ -17,11 +17,6 @@ urlpatterns = [
         name="contact"
     ),
     url(
-        r'^about/$',
-        TemplateView.as_view(template_name='core/about.html'),
-        name="about"
-    ),
-    url(
         r'^meet-the-team/$',
         TemplateView.as_view(template_name='core/team.html'),
         name="team"
