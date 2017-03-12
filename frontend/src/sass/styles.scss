@@ -1,10 +1,9 @@
-@import "partials/bootstrap-custom";
-@import 'partials/normalize';
-@import 'partials/colours';
-@import 'partials/typography';
-@import 'components/forms';
-@import 'components/navigation';
-@import 'components/footer';
+@import "partials/normalize";
+@import "partials/colours";
+@import "partials/typography";
+@import "components/forms";
+@import "components/navigation";
+@import "components/footer";
 
 body {
 	background: #f4f4f4;
@@ -20,4 +19,8 @@ body {
 
 .content__wrapper {
 	flex: 1;
+}
+
+.errorlist {
+	display: block !important;
 }
