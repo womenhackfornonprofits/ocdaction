@@ -1,0 +1,21 @@
+.partners {
+	padding: 4em 0;
+
+	&__image {
+		height: 3em;
+		margin: 1em auto;
+	}
+
+	&__text {
+		text-align: center;
+		
+		@media (min-width: 780px) {
+			text-align: left;
+		}
+	}
+
+	@media (min-width: 480px) {
+		display: flex;
+    	align-items: center;
+	}
+}

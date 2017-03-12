@@ -4,14 +4,38 @@
 
 
     {% block main %}
-        <section class="col-xs-12">
-            <h1> Welcome to OCD Action homepage!</h1>
-        </section>
+      <section class="col-xs-12 background-light">
+        <div class="container">
+          <div class="row">
+              <h1> OCD Youth App</h1>
+          </div>
+        </div>
+      </section>
 
-        <section id="partners">
-          <h2>With thanks to:</h2>
-          <!-- include nhs logo -->
-          {% include "whfnplogo.svg" %} <!-- link to the file within the static img folder -->
-        </section>
+      <section class="background-dark text-justify">
+        <h2>About Us</h2>
+        <p>OCD Youth is a peer-led project supporting under 25s affected by Obsessive Compulsive Disorder. It is facilitated by OCD Action, the national charity for people affected by OCD in the UK, and is run by us - a group of young volunteers known as the Youth Advisory Panel (YAP).</p>
+
+        <p>Tackling OCD can be hard work, and sometimes you just need a helping hand to stay on track and keep your eyes on the prize. Facing your fears is always going to be difficult - no matter how gradual - but if you've had enough of OCD interfering in your life and have taken steps to seek support and treatment, this web app is for you. </p>
+
+        <p>Here at OCD Youth we've teamed up with specialist clinicians at South London and Maudsley Child and Adolescent OCD team, and an expert development team at Women Hack for Non-Profits to bring you a free web app that, alongside therapy, will help you manage your OCD. No more messing around with pieces of paper - do your exposure tasks on the go and keep track of your progress all in one place. You can do it!</p>
+
+      </section>
+      <section class="partners background-light">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-md-3 col-sm-4">
+              <h3 class="partners__text">With thanks to:</h3> 
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <img class="partners__image" src={% static 'img/nhslogo.jpg' %}/>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <img class="partners__image" src={% static 'img/whfnplogo.svg' %}/>
+            </div>
+          </div>
+        </div>
+      </section>
+      </div>
 
     {% endblock %}

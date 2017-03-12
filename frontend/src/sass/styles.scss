@@ -4,7 +4,7 @@
 @import 'components/forms';
 @import 'components/navigation';
 @import 'components/footer';
-@import 'components/banner';
+@import 'components/partners';
 
 
 body {
@@ -14,6 +14,17 @@ body {
 	min-height: 100vh;
 }
 
+section {
+	padding: 4em 0;
+	clear: both;
+}
+
+.background-light {
+	background-color: $white;
+}
+.background-dark {
+	background-color: $grey;
+}
 .container {
 	max-width: 70em;
 	margin: 0 auto;
