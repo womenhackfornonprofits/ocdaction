@@ -4,8 +4,6 @@ from django.contrib.auth.decorators import login_required
 from tasks.models import Task
 from tasks.forms import TaskForm
 
-import ipdb
-
 
 @login_required
 def task_list(request):
@@ -31,7 +29,6 @@ def task_add(request):
             task.user = request.user
             task.save()
 
-            ipdb.set_trace()
             return redirect('task-list')
     else:
         task_form = TaskForm()
