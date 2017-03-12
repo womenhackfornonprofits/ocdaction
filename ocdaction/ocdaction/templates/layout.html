@@ -12,23 +12,29 @@
 				    <button class="header__nav-toggle js-nav-toggle"><span class="hidden">Menu</span></button>
 				    <ul class="header__list js-header-list">
 				        <li class="header__item">
-				            <a class="header__link" href="/about">About</a>
+				            <a class="header__link" href="{% url 'about' %}">About</a>
 				        </li>
 				        <li class="header__item">
-				            <a class="header__link" href="/think">Think</a>
+				            <a class="header__link" href="{% url 'think' %}">Think</a>
 				        </li>
 				        <li class="header__item">
-				            <a class="header__link" href="/act">Act</a>
+				            <a class="header__link" href="{% url 'task-list' %}">Act</a>
 				        </li>
 				        <li class="header__item">
-				            <a class="header__link" href="/contact">Contact</a>
+				            <a class="header__link" href="{% url 'contact' %}">Contact</a>
 				        </li>
-				        <li class="header__item">
-				            <a class="header__link" href="{% url 'register' %}">Register</a>
-				        </li>
-				        <li class="header__item">
-				            <a class="header__link" href="{% url 'login' %}">Login</a>
-				        </li>
+				        {% if user.is_authenticated %}
+					        <li class="header__item">
+					            <a class="header__link" href="{% url 'logout' %}">Logout {{ user.username }}</a>
+					        </li>
+				        {% else %}
+					       	<li class="header__item">
+					            <a class="header__link" href="{% url 'register' %}">Register</a>
+					        </li>
+					        <li class="header__item">
+					            <a class="header__link" href="{% url 'login' %}">Login</a>
+					        </li>
+				        {% endif %}
 				    </ul>
 				</nav>
 			</div>

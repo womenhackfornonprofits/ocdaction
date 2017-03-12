@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block main %}
+    <section class="container">
+        <h1>ACT</h1>
+        <h2>All your tasks</h2>
+        {% if tasks %}
+            {% for task in tasks %}
+                <ul class="col-xs-6 col-xs-offset-3">
+                <li class="row">
+                <h3>{{ task.task_name }}</h3>
+                    <ul>
+                        <li><p>Fears: My task fears are {{ task.task_fears }}<p></li>
+                        <li><p>Goals: My task goals are {{ task.task_goals }}<p></li>
+                        <li><p>Compulsions: My task compulsions are {{ task.task_compulsions }}<p></li>
+                    </ul>
+                </li>
+                </ul>
+            {% endfor %}
+        {% else %}
+            <h2>You have no tasks yet!</h2>
+        {% endif %}
+            <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-5" href="{% url 'task-add' %}">
+                <span class="fa fa-plus-square"></span> Add New Task
+            </a>
+    </section>
+{% endblock %}

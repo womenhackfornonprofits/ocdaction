@@ -9,21 +9,17 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     //------- CSS Minify -------//
-    // cssmin: {
-    //   combine: {
-    //     files: {
-    //       '../ocdaction/static/styles/styles.css': ['css/styles.css']
-    //     }
-    //   }
-    // },
+    cssmin: {
+      combine: {
+        files: {
+          '../ocdaction/static/styles/styles.css': ['css/styles.css']
+        }
+      }
+    },
 
     //------- SASS -------//
     sass: {
       dist: {
-        options: {
-            style: 'compressed',
-            loadPath: 'node_modules/bootstrap-sass/assets/stylesheets'
-        },
         files: {
           '../ocdaction/static/styles/styles.css': 'src/sass/styles.scss'
         }
@@ -76,6 +72,6 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('default', ['sass', 'uglify', 'copy']);
+  grunt.registerTask('default', ['sass', 'uglify', 'copy', 'cssmin']);
 
 };

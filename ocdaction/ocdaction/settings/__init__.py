@@ -31,10 +31,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'widget_tweaks',
     'custom_user',
     'profiles',
     'core',
-    'tasks'
+    'tasks',
 
 ]
 
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'ocdaction.urls'
 
 LOGIN_URL = '/users/login/'
 
-LOGIN_REDIRECT_URL = '/dashboard/'
+LOGIN_REDIRECT_URL = 'task-list'
 
 TEMPLATES = [
     {
