@@ -7,4 +7,3 @@ django-custom-user==0.6
 django-registration-redux==1.4
 dj-database-url==0.4.1
 django-widget-tweaks==1.4.1               # Tweaks form field rendering in templates, not in Python
-pytest==3.0.6

@@ -77,7 +77,7 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 
 9. Install the requirements:
 
-	 ```pip install -r requirements.txt```
+	 ```pip install -r base.txt```
 
 	 This will get all the dependencies.
 
