@@ -16,4 +16,4 @@ Here is an example to show you how new test files should be placed:
 
 is tested at:
 
-    wound_care_buddy/tests/apps/profiles/test_example_file.py```
+    ocdaction/tests/apps/profiles/test_example_file.py```
