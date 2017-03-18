@@ -12,8 +12,8 @@ possible the actual codebase.
 
 Here is an example to show you how new test files should be placed:
 
-    ocdaction/apps/profiles/example_file.py
+    `ocdaction/apps/profiles/example_file.py`
 
 is tested at:
 
-    ocdaction/tests/apps/profiles/test_example_file.py```
+    `ocdaction/tests/apps/profiles/test_example_file.py`
