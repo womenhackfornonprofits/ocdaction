@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% load static %}
+{% load static widget_tweaks %}
 
     {% block main %} 
         <section class="container">
@@ -8,7 +8,31 @@
             <div class="row">
                 <form method="POST" action="" class="col-xs-offset-2 col-xs-8 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4">
                     {% csrf_token %}
-                    {{ form.as_p }}
+
+                    {% if form.non_field_errors %}
+                        <div class="non-field-errors">
+                        {% for error in form.non_field_errors %}
+                            <p class="form-error text-danger">{{ error }}</p>
+                        {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% for field in form %}
+                        <div class="form-group {% if field.errors %} has-error {% endif %}">
+                            {% if field.errors %}
+                                {% for error in field.errors %}
+                                    <p class="form-error pull-left text-danger">{{ error }}</p>
+                                {% endfor %}
+                            {% endif %}
+
+                            <label for="{{ field.name }}">{{ field.label }}:</label>
+                            {{ fiels.label_tag }}    
+                            {% render_field field placeholder=field.label class+="form-control" %}
+                            {% if field.help_text %}
+                            <p class="helptext">{{ field.help_text|safe }}</p>
+                            {% endif %}
+
+                        </div>
+                    {% endfor %}
                     <div class="row">
                         <div class="col-xs-12">
                             <label><input type="checkbox" name="terms" checked="checked"> I agree to the <a href="/terms-and-conditions">Terms &amp; Conditions</a></label>
