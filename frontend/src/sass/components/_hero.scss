@@ -1,0 +1,32 @@
+.hero {
+	position: relative;
+	
+	&__img {
+		width: 45%;
+		display: none;
+    	margin: 10px auto;
+    	margin-top: 0;
+
+    	@media (min-width: 400px) {
+			display:block;
+		}
+
+    	@media (min-width: 480px) {
+			width: 60%;
+		}
+		@media (min-width: 740px) {
+			width: 80%;
+		}
+	}
+
+	&__overlay {
+		position: absolute;
+		bottom: 33%;
+		
+		@media (min-width: 480px) {
+			bottom: 40%;
+
+		}
+	}
+}
+

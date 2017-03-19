@@ -1,0 +1,3 @@
+# Production requirements
+
+-r base.txt

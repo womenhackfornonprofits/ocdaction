@@ -5,31 +5,32 @@
 
 {% block main %} 
 
- <section class="container">
-    
-    <h1>Log in</h1>
-    <form class="col-xs-offset-2 col-xs-8 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" role="" action="{% url 'login' %}" method="POST">
-        {% csrf_token %}
-        {% if form.non_field_errors %}
-            <div class="non-field-errors">
-            {% for error in form.non_field_errors %}
-                <p class="form-error text-danger">{{ error }}</p>
+<section class="container">
+    <div clas="row">
+        <form class="col-xs-offset-2 col-xs-8 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" role="" action="{% url 'login' %}" method="POST">
+            <h1>Log in</h1>
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+                <div class="non-field-errors">
+                {% for error in form.non_field_errors %}
+                    <p class="form-error text-danger">{{ error }}</p>
+                {% endfor %}
+                </div>
+            {% endif %}
+            {% for field in form %}
+                <div class="form-group {% if field.errors %} has-error {% endif %}">
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                            <p class="form-error pull-left text-danger">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                    {% render_field field placeholder=field.label class+="form-control" %}
+                </div>
             {% endfor %}
-            </div>
-        {% endif %}
-        {% for field in form %}
-            <div class="form-group {% if field.errors %} has-error {% endif %}">
-                {% if field.errors %}
-                    {% for error in field.errors %}
-                        <p class="form-error pull-left text-danger">{{ error }}</p>
-                    {% endfor %}
-                {% endif %}
-                {% render_field field placeholder=field.label class+="form-control" %}
-            </div>
-        {% endfor %}
-        <button type="submit" class="button">Login</button>
-        <a href="{% url 'password_reset' %}"><small>Forgot password?</small></a>
-    </form>
+            <button type="submit" class="button pull-right">Login</button>
+            <a href="{% url 'password_reset' %}"><small>Forgot password?</small></a>
+        </form>
+    </div>
 </section>
 
 {% endblock %}

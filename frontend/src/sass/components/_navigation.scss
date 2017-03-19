@@ -1,6 +1,7 @@
 .header {
-	background-color: $white;
+	background-color: $white-colour;
 	border-bottom: 1px solid $grey;
+	padding: 15px 0;
 	
 	&__logo {
 		flex: 0 1 10em;
@@ -19,7 +20,6 @@
 			min-height: initial;
 			flex: auto;
 			text-align: right;
-			background: $white;
 			position: initial;
 			width: auto;
 			display: inline;
@@ -50,8 +50,8 @@
 	    z-index: 1000;	    
 		list-style: none;
 		margin: 0;
-		background-image: linear-gradient(315deg,#FF6E3D,$salmon-pink);
-
+		background: $white-colour;
+		padding-top: 6em;
 	}
 
 
@@ -63,7 +63,7 @@
 	    border: 0;
 	    margin: 1rem;
 	    position: fixed;
-	    top: 30px;
+	    top: 9px;
 	    right: 15px;
 	    z-index: 2000;
 	    background: url(../img/icon-hamburger-dark.svg) no-repeat center center;
@@ -83,7 +83,7 @@
 		margin: 0;
 
 		&:hover {
-			background-color: $salmon-pink;
+			background-color: $ocd-blue-colour;
 		}
 
 		@media (min-width: 990px) {
@@ -100,7 +100,6 @@
 
 	&__link {
 		text-transform: uppercase;
-		color: $nav-link-color;
 		padding: 25px;
 		display: block;
 		box-sizing: border-box;
@@ -111,14 +110,7 @@
 
 		@media (min-width: 990px) {
 			padding: 0;
-			&:visited {
-				color: $nav-link-visited-color;
-			}
 
-			&:hover {
-				color: $salmon-pink;
-				text-decoration: none;
-			}
 		}
 
 	}

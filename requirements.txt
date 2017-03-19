@@ -1,0 +1,4 @@
+# Root requirements file
+# Required by Heroku to be here
+
+-r requirements/production.txt

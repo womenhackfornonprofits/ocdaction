@@ -2,10 +2,60 @@
 
 {% load static %}
 
+    {% block main %}
+    <section class="background-light">
+      <div class="container">
+        <div clas="row">
+          <div class="col-xs-12 col-md-7 background-light">
+            <h1 class="visuallyhidden">The OCD Youth App</h1>
+              <div class="hero">
+                <img src="http://res.cloudinary.com/ocd-action-app/image/upload/v1489778911/OCDyouth_banner_yccy6y.jpg"/>
+                <div class="hero__overlay col-xs-8 col-xs-offset-1 col-sm-7">
+                  <img class="hero__img" src="http://res.cloudinary.com/ocd-action-app/image/upload/v1489950737/Screen_Shot_2017-03-19_at_19.11.15_qolzax.png"/>
+                  <p>Designed with young people and clinicians to help you tackle obsessions and compulsions as part of your therapy.</p>
+                </div>
+              </div>
+          </div>
+          <div class="col-xs-12 col-md-5 background-dark">
+              <form class="col-xs-12">
+                <h2>Register</h2>
+                <h3>We need to get some information from you first. Let's start with your email:</h3>
+                <input type="email" name="email"/>
+                <button class="button pull-right">Go!</button>
+              </form>
+          </div>
+          <p class="col-xs-12 col-md-5 margin-top-15">Already a member? Please <a href="TODO">Login here</a></p>
+      </div>
 
-    {% block main %} 
-        <section class="col-xs-12">
-            <h1> Welcome to OCD Action homepage!</h1>
-        </section>
+    </section>
+      <section class="background-dark">
+      <div class="container">
+        <div clas="row">
+          <div class="col-xs-12 col-md-8 col-md-offset-2">
+          <h2 class="text-center">About Us</h2>
+          <p class="text-center">OCD Youth is a peer-led project supporting under 25s affected by Obsessive Compulsive Disorder. It is facilitated by OCD Action, the national charity for people affected by OCD in the UK, and is run by us - a group of young volunteers known as the Youth Advisory Panel (YAP).</p>
+
+          <p class="text-center">Tackling OCD can be hard work, and sometimes you just need a helping hand to stay on track and keep your eyes on the prize. Facing your fears is always going to be difficult - no matter how gradual - but if you've had enough of OCD interfering in your life and have taken steps to seek support and treatment, this web app is for you. </p>
+
+          <p class="text-center">Here at OCD Youth we've teamed up with specialist clinicians at South London and Maudsley Child and Adolescent OCD team, and an expert development team at Women Hack for Non-Profits to bring you a free web app that, alongside therapy, will help you manage your OCD. No more messing around with pieces of paper - do your exposure tasks on the go and keep track of your progress all in one place. You can do it!</p>
+      </div>
+
+      </section>
+      <section class="background-light">
+        <div class="container">
+          <div class="row partners">
+            <div class="col-xs-12 col-md-3 col-sm-4">
+              <h3 class="partners__text">With thanks to:</h3> 
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <img class="partners__image" src={% static 'img/nhslogo.jpg' %}/>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <img class="partners__image" src={% static 'img/whfnplogo.svg' %}/>
+            </div>
+          </div>
+        </div>
+      </section>
+      </div>
 
     {% endblock %}

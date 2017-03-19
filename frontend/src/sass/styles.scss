@@ -1,17 +1,34 @@
-@import "partials/normalize";
-@import "partials/colours";
-@import "partials/typography";
-@import "components/forms";
-@import "components/navigation";
-@import "components/footer";
+@import 'partials/normalize';
+@import 'partials/colours';
+@import 'partials/typography';
+@import 'partials/helpers';
+
+@import 'components/forms';
+@import 'components/navigation';
+@import 'components/footer';
+@import 'components/partners';
+@import 'components/hero';
+@import 'components/contact-us';
+
 
 body {
-	background: #f4f4f4;
+	background: $white-colour;
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 }
 
+section {
+	padding: 4em 0;
+	clear: both;
+}
+
+.background-light {
+	background-color: $white-colour;
+}
+.background-dark {
+	background-color: $grey;
+}
 .container {
 	max-width: 70em;
 	margin: 0 auto;
@@ -23,4 +40,9 @@ body {
 
 .errorlist {
 	display: block !important;
+}
+
+img {
+	max-width: 100%;
+	display: block;
 }

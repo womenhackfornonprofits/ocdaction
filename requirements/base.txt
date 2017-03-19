@@ -1,3 +1,6 @@
+# Core requirements
+# that are needed for all enviroments
+
 Django==1.9.6
 gunicorn==19.5.0
 psycopg2==2.6.1
