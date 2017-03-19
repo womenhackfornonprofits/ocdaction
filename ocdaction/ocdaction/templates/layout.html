@@ -22,8 +22,10 @@
 				        </li>
 				        {% if user.is_authenticated %}
 					        <li class="header__item">
-					            <a class="header__link" href="{% url 'logout' %}">Logout {{ user.username }}</a>
-					        </li>
+								<a href="{% url 'logout' %}">
+									<i class="fa fa-sign-out"></i> Log out
+								</a>
+							</li>
 				        {% else %}
 					       	<li class="header__item">
 					            <a class="header__link" href="{% url 'register' %}">Register</a>
@@ -40,33 +42,33 @@
 	    {% endblock %}
 	</div>
 
-    <footer class="footer col-xs-12">
+    <footer class="global-footer">
     	<div class="container">
 	    	<div class="col-xs-6 col-sm-4">
-	      		<h4 class="h5 footer__category text-uppercase">Sitemap</h4>
-		    	<ul class="footer__list margin-top-0 ">
-		        	<li class="footer__item"><a class="footer__link" href="#"></a></li>
-		        	<li class="footer__item"><a class="footer__link" href="#">Link 2</a></li>
-		        	<li class="footer__item"><a class="footer__link" href="#">Link 3</a></li>
+	      		<h4 class="h5 global-footer__category text-uppercase">Sitemap</h4>
+		    	<ul class="global-footer__list margin-top-0 ">
+		        	<li class="global-footer__item"><a class="global-footer__link" href="#"></a></li>
+		        	<li class="global-footer__item"><a class="global-footer__link" href="#">Link 2</a></li>
+		        	<li class="global-footer__item"><a class="global-footer__link" href="#">Link 3</a></li>
 		        </ul>
 		    </div>
 	      <div class="col-xs-6 col-sm-4">
-	      	<h4 class="h5 footer__category text-uppercase">Social</h4>
-		    <ul class="footer__list margin-top-0">
-		      <li class="footer__item"><a class="footer__link" href="#">Twitter</a></li>
-		        <li class="footer__item"><a class="footer__link" href="#">Facebook</a></li>
-		        <li class="footer__item"><a class="footer__link" href="#">Medium</a></li>
+	      	<h4 class="h5 global-footer__category text-uppercase">Social</h4>
+		    <ul class="global-footer__list margin-top-0">
+		      <li class="global-footer__item"><a class="global-footer__link" href="#">Twitter</a></li>
+		        <li class="global-footer__item"><a class="global-footer__link" href="#">Facebook</a></li>
+		        <li class="global-footer__item"><a class="global-footer__link" href="#">Medium</a></li>
 		    </ul>
 		  </div>
 		  <div class="col-xs-12 col-sm-4">
-	      	<h4 class="h5 footer__category text-uppercase">Contact</h4>
-		    <ul class="footer__list margin-top-0">
-		      <li class="footer__item"><a class="footer__link" href="#">Twitter</a></li>
-		        <li class="footer__item"><a class="footer__link" href="#">Facebook</a></li>
-		        <li class="footer__item"><a class="footer__link" href="#">Medium</a></li>
+	      	<h4 class="h5 global-footer__category text-uppercase">Contact</h4>
+		    <ul class="global-footer__list margin-top-0">
+		      <li class="global-footer__item"><a class="global-footer__link" href="#">Twitter</a></li>
+		        <li class="global-footer__item"><a class="global-footer__link" href="#">Facebook</a></li>
+		        <li class="global-footer__item"><a class="global-footer__link" href="#">Medium</a></li>
 		    </ul>
 		  </div>
-	      <span class="footer__legal col-xs-12 small">Copyright &#xA9; OCD Youth. Created by <a href="http://www.womenhackfornonprofits.co.uk">Women Hack For Non-Profits 2016.</a></span>
+	      <span class="global-footer__legal col-xs-12 small">Copyright &#xA9; OCD Youth. Created by <a href="http://www.womenhackfornonprofits.co.uk">Women Hack For Non-Profits 2016.</a></span>
 	    </div>
     </footer>
 {% endblock %}

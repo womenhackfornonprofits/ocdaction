@@ -8,6 +8,8 @@ from tasks.views import (
     task_add,
 )
 
+from core.views import dashboard_index
+
 urlpatterns = [
     url(
         r'^tasks/$',
@@ -18,5 +20,10 @@ urlpatterns = [
         r'^tasks/new/$',
         task_add,
         name="task-add"
+    ),
+    url(
+        r'^index/$',
+        dashboard_index,
+        name="dashboard-index"
     ),
 ]
