@@ -185,16 +185,14 @@ h5 {
 
 .body-text,
 p {
-  margin: 30px 20px;
+  margin: 30px 0 15px 0;
   font-size: 1em;
   line-height: 1.3em;
   color: #000;
   font-family: "Open Sans", sans-serif;
   text-align: left;
   font-weight: 300;
-  max-width: 35em;
-  margin-left: auto;
-  margin-right: auto; }
+  max-width: 35em; }
   .body-text:first-of-type,
   p:first-of-type {
     margin-top: 0; }
@@ -458,6 +456,14 @@ form p {
     margin-left: 4em; }
   .hero img {
     margin: 0; }
+
+.contact__title {
+  margin-bottom: .5em; }
+.contact a {
+  margin: 0;
+  display: block; }
+.contact p {
+  margin: 0; }
 
 body {
   background: #fff;

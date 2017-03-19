@@ -70,7 +70,7 @@ h5 {
 .body-text,
 p {
  
-    margin: 30px 20px;
+    margin: 30px 0 15px 0;
     font-size: 1em;
     line-height: 1.3em;
     color: $body-text-colour;
@@ -78,8 +78,6 @@ p {
 	text-align: left;
 	font-weight: 300;
 	max-width: 35em;
-	margin-left: auto;
-	margin-right: auto;
 
     &:first-of-type {
         margin-top: 0;
