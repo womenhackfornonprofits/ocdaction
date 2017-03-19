@@ -1,6 +1,7 @@
 .header {
 	background-color: $white-colour;
 	border-bottom: 1px solid $grey;
+	padding: 15px 0;
 	
 	&__logo {
 		flex: 0 1 10em;
@@ -49,6 +50,8 @@
 	    z-index: 1000;	    
 		list-style: none;
 		margin: 0;
+		background: $white-colour;
+		padding-top: 6em;
 	}
 
 
@@ -60,7 +63,7 @@
 	    border: 0;
 	    margin: 1rem;
 	    position: fixed;
-	    top: 30px;
+	    top: 9px;
 	    right: 15px;
 	    z-index: 2000;
 	    background: url(../img/icon-hamburger-dark.svg) no-repeat center center;

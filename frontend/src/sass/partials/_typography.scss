@@ -77,7 +77,6 @@ p {
 	font-family: $base-font-family;
 	text-align: left;
 	font-weight: 300;
-	max-width: 35em;
 
     &:first-of-type {
         margin-top: 0;
@@ -123,12 +122,6 @@ strong,
 b,
 .bold {
     font-weight: 800;
-}
-
-img {
-    display: block;
-    max-width: 100%;
-    margin: 30px 15px;
 }
 
 .small {
