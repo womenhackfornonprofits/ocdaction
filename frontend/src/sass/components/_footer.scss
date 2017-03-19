@@ -1,5 +1,5 @@
 .footer {
-	background: #3c3c3c;
+	background: $lighter-black-colour;
 	
 	&__list {
 		list-style: none;
@@ -11,7 +11,7 @@
 
 	&__category {
 		text-align: left;
-		color: #f4f4f4;
+		color: $off-white-colour;
 	}
 
 	&__item {
@@ -20,25 +20,32 @@
 		margin: 0;
 
 		&:hover {
-			color: $salmon-pink;
+			color: $ocd-blue-colour;
 		}
 	}
 
 	&__link {
-		color: #f4f4f4;
+		color: $off-white-colour;
 		display: block;
 		box-sizing: border-box;
+		font-weight: 400;
+		text-decoration: none;
 
 		&:hover {
-			text-decoration: none;
+			text-decoration: underline;
 		}
 
 	}
 
 	&__legal {
 		text-align: center;
-		color: #f4f4f4;
+		color: $off-white-colour;
 		margin: 30px 0;
+
+		a {
+			font-weight: 400;
+			text-decoration: none;
+		}
 
 	}
 

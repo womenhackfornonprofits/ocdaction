@@ -1,5 +1,5 @@
 .header {
-	background-color: $white;
+	background-color: $white-colour;
 	border-bottom: 1px solid $grey;
 	
 	&__logo {
@@ -19,7 +19,6 @@
 			min-height: initial;
 			flex: auto;
 			text-align: right;
-			background: $white;
 			position: initial;
 			width: auto;
 			display: inline;
@@ -50,8 +49,6 @@
 	    z-index: 1000;	    
 		list-style: none;
 		margin: 0;
-		background-image: linear-gradient(315deg,#FF6E3D,$salmon-pink);
-
 	}
 
 
@@ -83,7 +80,7 @@
 		margin: 0;
 
 		&:hover {
-			background-color: $salmon-pink;
+			background-color: $ocd-blue-colour;
 		}
 
 		@media (min-width: 990px) {
@@ -100,7 +97,6 @@
 
 	&__link {
 		text-transform: uppercase;
-		color: $nav-link-color;
 		padding: 25px;
 		display: block;
 		box-sizing: border-box;
@@ -111,14 +107,7 @@
 
 		@media (min-width: 990px) {
 			padding: 0;
-			&:visited {
-				color: $nav-link-visited-color;
-			}
 
-			&:hover {
-				color: $salmon-pink;
-				text-decoration: none;
-			}
 		}
 
 	}

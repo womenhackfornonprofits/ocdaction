@@ -1,14 +1,17 @@
 @import 'partials/normalize';
 @import 'partials/colours';
 @import 'partials/typography';
+@import 'partials/helpers';
+
 @import 'components/forms';
 @import 'components/navigation';
 @import 'components/footer';
 @import 'components/partners';
+@import 'components/hero';
 
 
 body {
-	background: #f4f4f4;
+	background: $white-colour;
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
@@ -20,7 +23,7 @@ section {
 }
 
 .background-light {
-	background-color: $white;
+	background-color: $white-colour;
 }
 .background-dark {
 	background-color: $grey;

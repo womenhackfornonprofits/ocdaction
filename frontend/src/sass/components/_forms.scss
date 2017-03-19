@@ -44,15 +44,10 @@ label {
     display: block;
 }
 
-.helptext {
-    font-style: italic;
-    font-size: .8rem;
-}
-
 select {
 	-webkit-appearance: none;
 	background: url("http://garyjeffress.com/wp-content/themes/lms/framework/plugins/designthemes-core-features/page-builder/images/select-box-arrow.png") no-repeat right center;
-	background-color: $white;
+	background-color: $white-colour;
 	border-radius: 0;
     display: inline;
     width: auto;
@@ -80,10 +75,18 @@ form {
     p {
         margin-top: 0;
     }
-    .button {
-        margin: 15px 0;
-        display: block;
-    }
 }
 
+.button {
+    margin: 0;
+    background: $ocd-blue-colour;
+    display: inline;
+    text-decoration: uppercase;
+    padding: 6px 8px;
+    border: 0;
+    color: $white-colour;
+    text-transform: uppercase;
+    font-weight: 600;
+    box-shadow: 1px 1px 1px 0px #339279;
+}
 
