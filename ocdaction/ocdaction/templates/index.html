@@ -4,14 +4,28 @@
 
 
     {% block main %}
-      <section class="col-xs-12 background-light">
-        <div class="container">
-          <div class="row">
-              <h1> OCD Youth App</h1>
-          </div>
+    <section class="background-light">
+    <div class="container">
+      <div clas="row">
+        <div class="col-xs-12 col-md-7 background-light">
+            <div class="hero">
+              <img src="http://res.cloudinary.com/ocd-action-app/image/upload/v1489778911/OCDyouth_banner_yccy6y.jpg"></img>
+              <p>OCD Youth is an app that will help </p>
+            </div>
         </div>
-      </section>
+        <div class="col-xs-12 col-md-5 background-dark">
+            <form>
+              <h2>Register</h2>
+              <h3>We need to get some information from you first.Let's start with your email:</h3>
+              <input type="email" name="email"/>
+              <button class="button pull-right">Go!</button>
+            </form>
+        </div>
+        <p class="col-xs-12 col-md-5">Already a member? Please <a href="TODO">Login here</a></p>
 
+      </div>
+
+    </section>
       <section class="background-dark text-justify">
         <h2>About Us</h2>
         <p>OCD Youth is a peer-led project supporting under 25s affected by Obsessive Compulsive Disorder. It is facilitated by OCD Action, the national charity for people affected by OCD in the UK, and is run by us - a group of young volunteers known as the Youth Advisory Panel (YAP).</p>
@@ -23,7 +37,7 @@
       </section>
       <section class="partners background-light">
         <div class="container">
-          <div class="row">
+          <div class="row flex-wrap">
             <div class="col-xs-12 col-md-3 col-sm-4">
               <h3 class="partners__text">With thanks to:</h3> 
             </div>

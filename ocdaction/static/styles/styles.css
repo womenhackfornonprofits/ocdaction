@@ -1,4 +1,5 @@
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700,900|Open+Sans:600,700,300");
 article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
   display: block; }
 
@@ -138,9 +139,6 @@ table {
   border-spacing: 0; }
 
 /*------------------------------------*\
-    # Simple Typography Settings
-\*------------------------------------*/
-/*------------------------------------*\
     # Type
 \*------------------------------------*/
 *, html, body {
@@ -152,148 +150,101 @@ table {
   -ms-text-size-adjust: 100%; }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 36px 0 24px 0;
   color: #000;
-  line-height: 1.25em;
-  font-weight: 400;
   font-family: "Lato", sans-serif;
   text-align: center; }
 
+.h1,
 h1 {
-  font-size: rem(40px);
+  font-size: 1.95em;
+  font-weight: 400; }
+
+.h2,
+h2 {
+  font-size: 1.8em;
+  margin: 1.625em 0 1.25em 0;
   font-weight: 700; }
 
-h2 {
-  font-size: rem(40px)/1.3; }
-
+.h3,
 h3 {
-  font-size: rem(40px)/1.5; }
+  font-size: 1.5em;
+  margin: 1.875em 0 1.25em 0;
+  font-weight: 400; }
 
+.h4,
 h4 {
-  font-size: rem(40px)/1.7; }
+  font-size: 1.3em;
+  margin: 2.125em 0 1.25em 0;
+  font-weight: 400; }
 
+.h5,
 h5 {
-  font-size: rem(40px)/1.8; }
+  font-size: 1.2em;
+  margin: 2.25em 0 1.25em 0;
+  font-weight: 400; }
 
-h6 {
-  font-size: rem(40px)/2; }
-
+.body-text,
 p {
-  margin-top: 20px;
-  font-size: rem(18px);
-  line-height: 1.5em;
+  margin: 30px 20px;
+  font-size: 1em;
+  line-height: 1.3em;
   color: #000;
   font-family: "Open Sans", sans-serif;
-  txt-align: center;
+  text-align: left;
   font-weight: 300;
   max-width: 35em;
   margin-left: auto;
   margin-right: auto; }
+  .body-text:first-of-type,
   p:first-of-type {
     margin-top: 0; }
 
+.a,
 a {
-  text-decoration: none;
-  color: #000; }
-  a:hover, a:focus {
-    text-decoration: none;
-    color: #000; }
+  text-decoration: underline;
+  font-weight: 600;
+  color: #4cc1a7; }
+  .a:hover, .a:focus,
+  a:hover,
+  a:focus {
+    color: #1689b9; }
+
+.helptext {
+  font-style: italic;
+  font-size: .8rem;
+  font-color: #444; }
 
 ul, ol {
-  margin: 20px 0 0 20px; }
+  margin: 30px 0 0 20px; }
   ul li, ol li {
     margin-top: 10px;
-    color: #000; }
+    color: #000;
+    list-style: none; }
   ul ul, ul ol, ol ul, ol ol {
     margin-top: 0; }
 
-ul li {
-  list-style: disc; }
-ul ul li {
-  list-style: circle; }
-
-ol li {
-  list-style: decimal; }
-
-hr {
-  height: 1px;
-  margin: 30px 0;
-  border: none;
-  background-color: #DADADA; }
-
-blockquote {
-  margin: 30px 0;
-  font-size: rem(23px);
-  line-height: 1.5em;
-  color: #000;
-  text-align: center;
-  font-style: italic; }
-
-table {
-  width: 100%;
-  margin: 30px 0;
-  border-collapse: collapse; }
-
-table, td, th {
-  border: 1px solid #DADADA;
-  text-align: left; }
-
-th {
-  font-weight: 800; }
-
-th, td {
-  padding: 15px; }
-
-figure {
-  margin: 30px 0; }
-  figure img {
-    margin: 0; }
-
-figcaption {
-  margin-top: 10px;
-  color: #1a1a1a;
-  font-size: 16px; }
-
-pre {
-  display: block;
-  margin: 0 0 40px 0;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #DADADA;
-  overflow: auto;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px; }
-  pre code {
-    position: static;
-    padding: 0;
-    border: none;
-    line-height: 1.5em; }
-
-code {
-  position: relative;
-  top: -0.2em;
-  padding: 3px;
-  font-family: Courier New, Courier, monospace;
-  font-size: rem(18px)/1.4;
-  color: #747474;
-  line-height: 1em;
-  pointer-events: none;
-  border: 1px solid #DADADA;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px; }
-
-em, i, .italic {
-  font-style: italic; }
-
-strong, b, .bold {
+strong,
+b,
+.bold {
   font-weight: 800; }
 
 img {
   display: block;
   max-width: 100%;
-  margin: 30px 0; }
+  margin: 30px 15px; }
+
+.small {
+  font-weight: 300;
+  font-size: .9em; }
+
+.flex-wrap {
+  display: flex; }
+
+.margin-top-0 {
+  margin-top: 0 !important; }
+
+.margin-bottom-0 {
+  margin-bottom: 0 !important; }
 
 input[type="text"],
 input[type="email"],
@@ -330,10 +281,6 @@ textarea {
 label {
   display: block; }
 
-.helptext {
-  font-style: italic;
-  font-size: .8rem; }
-
 select {
   -webkit-appearance: none;
   background: url("http://garyjeffress.com/wp-content/themes/lms/framework/plugins/designthemes-core-features/page-builder/images/select-box-arrow.png") no-repeat right center;
@@ -359,9 +306,18 @@ select {
 
 form p {
   margin-top: 0; }
-form .button {
-  margin: 15px 0;
-  display: block; }
+
+.button {
+  margin: 0;
+  background: #4cc1a7;
+  display: inline;
+  text-decoration: uppercase;
+  padding: 6px 8px;
+  border: 0;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  box-shadow: 1px 1px 1px 0px #339279; }
 
 .header {
   background-color: #fff;
@@ -379,7 +335,6 @@ form .button {
       min-height: initial;
       flex: auto;
       text-align: right;
-      background: #fff;
       position: initial;
       width: auto;
       display: inline;
@@ -403,8 +358,7 @@ form .button {
     padding: 0;
     z-index: 1000;
     list-style: none;
-    margin: 0;
-    background-image: linear-gradient(315deg, #FF6E3D, orange); }
+    margin: 0; }
   .header__nav-toggle {
     height: 32px;
     width: 40px;
@@ -428,7 +382,7 @@ form .button {
     text-align: center;
     margin: 0; }
     .header__item:hover {
-      background-color: orange; }
+      background-color: #4cc1a7; }
     @media (min-width: 990px) {
       .header__item {
         display: inline-block;
@@ -439,7 +393,6 @@ form .button {
           background-color: transparent; } }
   .header__link {
     text-transform: uppercase;
-    color: #3c3c3c;
     padding: 25px;
     display: block;
     box-sizing: border-box; }
@@ -447,15 +400,10 @@ form .button {
       text-decoration: none; }
     @media (min-width: 990px) {
       .header__link {
-        padding: 0; }
-        .header__link:visited {
-          color: blue; }
-        .header__link:hover {
-          color: orange;
-          text-decoration: none; } }
+        padding: 0; } }
 
 .footer {
-  background: #3c3c3c; }
+  background: #444; }
   .footer__list {
     list-style: none;
     display: block;
@@ -470,17 +418,22 @@ form .button {
     display: block;
     margin: 0; }
     .footer__item:hover {
-      color: orange; }
+      color: #4cc1a7; }
   .footer__link {
     color: #f4f4f4;
     display: block;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    font-weight: 400;
+    text-decoration: none; }
     .footer__link:hover {
-      text-decoration: none; }
+      text-decoration: underline; }
   .footer__legal {
     text-align: center;
     color: #f4f4f4;
     margin: 30px 0; }
+    .footer__legal a {
+      font-weight: 400;
+      text-decoration: none; }
 
 .partners {
   padding: 4em 0; }
@@ -497,8 +450,17 @@ form .button {
       display: flex;
       align-items: center; } }
 
+.hero {
+  position: relative; }
+  .hero p {
+    position: absolute;
+    bottom: 50%;
+    margin-left: 4em; }
+  .hero img {
+    margin: 0; }
+
 body {
-  background: #f4f4f4;
+  background: #fff;
   display: flex;
   flex-direction: column;
   min-height: 100vh; }
