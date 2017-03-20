@@ -37,25 +37,19 @@ urlpatterns = [
     url(
         r'^password-reset/$',
         auth_views.password_reset,
-        {'template_name': 'profiles/password_reset.html'},
+        {'template_name': 'registration/password_reset.html'},
         name='password_reset',
     ),
     url(
         r'^password-reset/done/$',
         auth_views.password_reset_done,
-        {'template_name': 'profiles/password_reset_done.html'},
+        {'template_name': 'registration/password_reset_done.html'},
         name='password_reset_done',
-    ),
-    url(
-        r'^reset/(?P<uidb64>[\w\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',  # noqa
-        auth_views.password_reset_confirm,
-        {'template_name': 'profiles/password_reset_confirm.html'},
-        name='password_reset_confirm',
     ),
     url(
         r'^password-reset/complete/$',
         auth_views.password_reset_complete,
-        {'template_name': 'profiles/password_reset_complete.html'},
+        {'template_name': 'registration/password_reset_complete.html'},
         name='password_reset_complete',
     ),
     url(r'^accounts/', include('registration.backends.default.urls')),
