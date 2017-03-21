@@ -56,7 +56,7 @@ ROOT_URLCONF = 'ocdaction.urls'
 
 LOGIN_URL = '/users/login/'
 
-LOGIN_REDIRECT_URL = 'task-list'
+LOGIN_REDIRECT_URL = 'dashboard-index'
 
 TEMPLATES = [
     {
