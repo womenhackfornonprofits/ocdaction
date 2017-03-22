@@ -30,6 +30,7 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 - [Victoria](https://github.com/VAO11) - Full Stack (Training)
 - [Jia Lin](https://github.com/jlin95) - Front End (and a little backend)
 - [Madeleine Linder](https://github.com/madeleinel) - Front End
+- [Lori Lee](https://github.com/teekirol) - Full Stack
 
 # Setup
 ## Tools
@@ -44,6 +45,18 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 	```sudo pip install virtualenv```
 
 2. Install [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/install.html): ```sudo pip install virtualenvwrapper```
+
+	If you are on OS X El Capitan, you might get the following error:
+	
+	```
+	Uninstalling six-1.4.1:
+		Exception:
+      	Traceback (most recent call last):
+      	...
+      	OSError: [Errno 1] Operation not permitted: '/var/folders/7x/h9sy5ff95bl45569k5km9g5m0000gn/T/pip-aWCOxi-uninstall/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/six-1.4.1-py2.7.egg-info'
+	```
+	
+	If that happens, re-run the command with the flag `--ignore-installed six`
 
 3. Source the `virtualenvwrapper`:
 	```source /usr/local/bin/virtualenvwrapper.sh```
@@ -77,7 +90,7 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 
 9. Install the requirements:
 
-	 ```pip install -r base.txt```
+	 ```pip install -r requirements/base.txt```
 
 	 This will get all the dependencies.
 
