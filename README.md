@@ -31,6 +31,7 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 - [Jia Lin](https://github.com/jlin95) - Front End (and a little backend)
 - [Madeleine Linder](https://github.com/madeleinel) - Front End
 - [Lori Lee](https://github.com/teekirol) - Full Stack
+- [Carly](https://github.com/gnocchi2815) - Backend
 
 # Setup
 ## Tools
