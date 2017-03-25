@@ -6,6 +6,7 @@ from django.conf.urls import url
 from tasks.views import (
     task_list,
     task_add,
+    task_edit
 )
 
 from core.views import dashboard_index
@@ -20,6 +21,11 @@ urlpatterns = [
         r'^tasks/new/$',
         task_add,
         name="task-add"
+    ),
+    url(
+        r'^tasks/edit/$',
+        task_edit,
+        name="task-edit"
     ),
     url(
         r'^index/$',

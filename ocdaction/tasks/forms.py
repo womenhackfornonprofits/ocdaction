@@ -12,5 +12,5 @@ class TaskForm(forms.ModelForm):
 class EditTaskForm(forms.ModelForm):
 
     class Meta:
-        model = Task
-        fields = ('task_name')
+    	model = Task
+    	fields = ('task_name',)

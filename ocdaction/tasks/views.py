@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
 from tasks.models import Task
-from tasks.forms import TaskForm
+from tasks.forms import TaskForm, EditTaskForm
 
 
 @login_required
@@ -36,6 +36,31 @@ def task_add(request):
     return render(
         request,
         'dashboard/act/task_add.html',
+        {
+            'task_form': task_form,
+        }
+    )
+
+@login_required
+def task_edit(request):
+    """
+    Edit a task
+    """
+    if request.method == 'POST':
+        task_form = EditTaskForm(request.POST)
+
+        if task_form.is_valid():
+            task = task_form.save(commit=False)
+            task.user = request.user
+            task.save()
+
+            return redirect('task-list')
+    else:
+        task_form = EditTaskForm()
+
+    return render(
+        request,
+        'dashboard/act/task_edit.html',
         {
             'task_form': task_form,
         }
