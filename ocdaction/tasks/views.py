@@ -46,8 +46,9 @@ def task_edit(request):
     """
     Edit a task
     """
+    task = Task.objects.get(id=1)
     if request.method == 'POST':
-        edit_task_form = EditTaskForm(request.POST)
+        edit_task_form = EditTaskForm(request.POST, instance=task)
 
         if edit_task_form.is_valid():
             task = edit_task_form.save(commit=False)
@@ -56,7 +57,9 @@ def task_edit(request):
 
             return redirect('task-list')
     else:
-        edit_task_form = EditTaskForm()
+        edit_task_form = EditTaskForm(instance=task)
+
+    context = {'edit_task_form': edit_task_form}
 
     return render(
         request,
