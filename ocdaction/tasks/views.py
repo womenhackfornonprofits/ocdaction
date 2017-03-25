@@ -47,21 +47,21 @@ def task_edit(request):
     Edit a task
     """
     if request.method == 'POST':
-        task_form = EditTaskForm(request.POST)
+        edit_task_form = EditTaskForm(request.POST)
 
-        if task_form.is_valid():
-            task = task_form.save(commit=False)
+        if edit_task_form.is_valid():
+            task = edit_task_form.save(commit=False)
             task.user = request.user
             task.save()
 
             return redirect('task-list')
     else:
-        task_form = EditTaskForm()
+        edit_task_form = EditTaskForm()
 
     return render(
         request,
         'dashboard/act/task_edit.html',
         {
-            'task_form': task_form,
+            'edit_task_form': edit_task_form,
         }
     )
