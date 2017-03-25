@@ -8065,7 +8065,7 @@ form p {
     top: 9px;
     right: 15px;
     z-index: 2000;
-    background: url(../img/icon-hamburger-dark.svg) no-repeat center center;
+    background: url(http://res.cloudinary.com/ocd-action-app/image/upload/v1489960516/icon-hamburger-dark_zuqcx6.svg) no-repeat center center;
     background-size: cover;
     color: transparent; }
     @media (min-width: 990px) {
