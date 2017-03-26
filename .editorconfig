@@ -1,0 +1,30 @@
+# editorconfig.org
+root = true
+
+[*.py]
+indent_style = space
+indent_size = 4
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.js]
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+insert_final_newline = false
+
+[*.scss]
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+insert_final_newline = false
+
+[*.html]
+indent_style = space
+indent_size = 4
+
+[{*.json,*.yml}]
+indent_style = space
+indent_size = 4
