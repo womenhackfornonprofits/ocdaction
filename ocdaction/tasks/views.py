@@ -11,7 +11,7 @@ def task_list(request):
     Displays a list os user tasks on ACT view
     """
     template_name = "dashboard/act/task_list.html"
-    tasks = Task.objects.filter(user=request.user, is_archived=False)
+    tasks = Task.objects.filter(user=request.user, is_archived=False).order_by('-created_at', '-updated_at')[:10]
 
     return render(request, template_name, {'tasks': tasks})
 
