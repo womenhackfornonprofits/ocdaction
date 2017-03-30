@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% load static %}
+{% load static widget_tweaks %}
 
 {% block main %} 
     <section class="container">
@@ -44,18 +44,18 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
-                <form method="POST" action="//formspree.io/info@ocdaction.org.uk">
+                <form method="POST" action="//formspree.io/contact@ocdaction.org.uk">
                     <div class="row">
                         <div class="col-xs-12 col-sm-10">
                             <div class="form-group">
-                                <label for="email">Email Address: </label>
+                                <label>Email Address: </label>
                                 <p class="helptext">We'll never share your email with anyone else.</p>
-                                <input id="email" type="email" name="_replyto" placeholder="Your email">
+                                <input type="email" name="_replyto" class="form-control" required="" placeholder="Enter email">
                             </div>  
                             <div class="form-group">
-                                <label for="message">Your Message: </label>
+                                <label for="message">Message: </label>
                                 <p class="helptext">Your message will be kept confidential with us.</p>
-                                <textarea name="message" placeholder="Your message" rows="15"></textarea>
+                                <textarea name="message" class="form-control" required="" placeholder="Your message" rows="10"></textarea>
                             </div>
                         </div>
                     </div>
