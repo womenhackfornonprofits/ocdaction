@@ -1,6 +1,4 @@
-from django.shortcuts import render
 from django.views.generic import TemplateView
-from django.views.generic.edit import FormView
 
 from registration.backends.default import views as registration_views
 from profiles.forms import OCDActionUserRegistrationForm

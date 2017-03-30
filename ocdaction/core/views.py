@@ -10,4 +10,3 @@ def dashboard_index(request):
 
     template_name = "dashboard/dashboard_index.html"
     return render(request, template_name)
-

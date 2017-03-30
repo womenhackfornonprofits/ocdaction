@@ -41,12 +41,12 @@ def task_add(request):
         }
     )
 
+
 @login_required
 def task_edit(request, task_id):
     """
     Edit a task
     """
-    # Below works
     task_inst = get_object_or_404(Task, pk=task_id)
 
     if request.method == 'POST':

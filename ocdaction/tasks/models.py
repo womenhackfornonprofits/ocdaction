@@ -13,7 +13,8 @@ class Task(models.Model):
     task_fears = models.CharField(max_length=300, blank=True)
     task_compulsions = models.CharField(max_length=300, blank=True)
     task_goals = models.CharField(max_length=300, blank=True)
-    user = models.ForeignKey('profiles.OCDActionUser', on_delete=models.CASCADE)
+    user = models.ForeignKey('profiles.OCDActionUser',
+                             on_delete=models.CASCADE)
 
     def __str__(self):
         return self.task_name
