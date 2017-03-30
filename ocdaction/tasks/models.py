@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+from django.core.urlresolvers import reverse
 
 from django.db import models
 
@@ -16,6 +17,10 @@ class Task(models.Model):
 
     def __str__(self):
         return self.task_name
+
+    def get_absolute_url(self):
+        return reverse('task-edit',
+                       kwargs={'task_id': self.id})
 
 
 class AnxietyScore(models.Model):

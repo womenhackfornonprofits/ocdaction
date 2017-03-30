@@ -5,11 +5,10 @@
 {% block main %}
     <section>
         <h1>Edit task</h1>
-        <h2>{{ task.task_name }}</h2>
-        <form class="col-xs-6 col-xs-offset-3" method="POST" action="{% url 'task-edit' %}">
+        <form class="col-xs-6 col-xs-offset-3" method="POST" action="{{ task_form.get_absolute_url }}">
             {% csrf_token %}
-            {{ edit_task_form.non_field_errors }}
-            {{ edit_task_form.as_p }}
+            {{ task_form.non_field_errors }}
+            {{ task_form.as_p }}
             <button class="btn btn-primary pull-left col-xs-2 col-xs-offset-5" type="submit">Save</button>
         </form>
     </section>

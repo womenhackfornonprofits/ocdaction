@@ -10,7 +10,7 @@
             {% for task in tasks %}
                 <ul class="col-xs-6 col-xs-offset-3">
                 <li class="row">
-                <h3>{{ task.task_name }}</h3>
+                    <a href="{% url 'task-edit' task.id %}"><h3>{{ task.task_name }}</h3></a>
                     <ul>
                         <li><p>Fears: My task fears are {{ task.task_fears }}<p></li>
                         <li><p>Goals: My task goals are {{ task.task_goals }}<p></li>
