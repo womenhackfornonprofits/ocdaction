@@ -7,7 +7,8 @@
 
 
     <section>
-        <h1>Edit task</h1>
+        <h1>ACT</h1>
+        <h2>Edit task</h2>
         <form class="col-xs-6 col-xs-offset-3" method="POST" action="{{ task_form.get_absolute_url }}">
             {% csrf_token %}
             {% if task_form.non_field_errors %}
