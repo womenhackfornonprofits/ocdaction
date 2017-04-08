@@ -9,18 +9,22 @@ from tasks.models import Task
 # use the below if multiple DB access tests
 #pytestmark = pytest.mark.django_db
 
-@pytest.fixture
+
+@pytest.yield_fixture()
+@pytest.mark.django_db
 def user():
     user = OCDActionUser(username='autouser',
-                         date_birth=datetime.date(2000, 1, 2),
-                         have_ocd=True,
-                         email='autouser@yopmail.com'
-                         )
-    return user
+                        date_birth=datetime.date(2000, 1, 2),
+                        have_ocd=True,
+                        email='autouser@yopmail.com'
+                        )
+    user.save()
+    yield user
+    OCDActionUser.objects.get(username='autouser').delete()
+
 
 @pytest.mark.django_db
 def test_addtask(user):
-    user.save()
 
     task = Task(task_name='taskname',
                 is_archived=False,
@@ -39,9 +43,6 @@ def test_addtask(user):
     # Check there is 1 task after a new task is added
     number_tasks = Task.objects.filter(user_id=user.id).count()
     assert number_tasks == 1
-
-    # Teardown
-    OCDActionUser.objects.get(username='autouser').delete()
 
 
 # class UserFactory(factory.Factory):
