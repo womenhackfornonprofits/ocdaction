@@ -1,61 +1,19 @@
 import pytest
-import datetime
-import factory
-from pytest_factoryboy import register
 
-from profiles.models import OCDActionUser
+from tests.factories import UserFactory, TaskFactory
 from tasks.models import Task
 
-# use the below if multiple DB access tests
-#pytestmark = pytest.mark.django_db
-
-
-@pytest.yield_fixture()
 @pytest.mark.django_db
-def user():
-    user = OCDActionUser(username='autouser',
-                        date_birth=datetime.date(2000, 1, 2),
-                        have_ocd=True,
-                        email='autouser@yopmail.com'
-                        )
-    user.save()
-    yield user
-    OCDActionUser.objects.get(username='autouser').delete()
+def test_create_task():
 
-
-@pytest.mark.django_db
-def test_addtask(user):
-
-    task = Task(task_name='taskname',
-                is_archived=False,
-                task_fears='fears',
-                task_compulsions='compulsions',
-                task_goals='goals',
-                user_id=user.id
-                )
+    user = UserFactory.create()
 
     # Check there are 0 tasks before a new task is added
     number_tasks = Task.objects.filter(user_id=user.id).count()
     assert number_tasks == 0
 
-    task.save()
+    task = TaskFactory.create()
 
     # Check there is 1 task after a new task is added
     number_tasks = Task.objects.filter(user_id=user.id).count()
     assert number_tasks == 1
-
-
-# class UserFactory(factory.Factory):
-#
-#     class Meta:
-#         model = OCDActionUser
-#
-# register(UserFactory)
-#
-# @pytest.mark.django_db
-# def test_addtaskUsefactory(user_factory):
-#     testuser = user_factory(username='autouser',
-#                          date_birth=datetime.date(2000, 1, 2),
-#                          have_ocd=True,
-#                          email='autouser@yopmail.com'
-#                             )
