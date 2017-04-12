@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
 from tasks.models import Task
@@ -39,4 +39,32 @@ def task_add(request):
         {
             'task_form': task_form,
         }
+    )
+
+
+@login_required
+def task_edit(request, task_id):
+    """
+    Edit a task
+    """
+    task_inst = get_object_or_404(Task, pk=task_id)
+
+    if request.method == 'POST':
+        task_form = TaskForm(request.POST, instance=task_inst)
+
+        if task_form.is_valid():
+            task = task_form.save(commit=False)
+            task.user = request.user
+            task.save()
+
+            return redirect('task-list')
+    else:
+        task_form = TaskForm(instance=task_inst)
+
+    context = {'task_form': task_form}
+
+    return render(
+         request,
+         'dashboard/act/task_edit.html',
+         context
     )

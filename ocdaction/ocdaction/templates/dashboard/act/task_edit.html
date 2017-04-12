@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% load static widget_tweaks %}
+
+{% block title %}Edit task{% endblock %}
+
+{% block main %}
+
+
+    <section>
+        <h1>ACT</h1>
+        <h2>Edit task</h2>
+        <form class="col-xs-6 col-xs-offset-3" method="POST" action="{{ task_form.get_absolute_url }}">
+            {% csrf_token %}
+            {% if task_form.non_field_errors %}
+                <div class="non-field-errors">
+                {% for error in task_form.non_field_errors %}
+                    <p class="form-error text-danger">{{ error }}</p>
+                {% endfor %}
+                </div>
+            {% endif %}
+
+            {% for field in task_form %}
+                <div class="form-group {% if field.errors %} has-error {% endif %}">
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                            <p class="form-error pull-left text-danger">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                    {% render_field field placeholder=field.label class+="form-control" %}
+                </div>
+            {% endfor %}
+
+            <button class="btn btn-primary pull-left col-xs-2 col-xs-offset-5" type="submit">Save</button>
+        </form>
+    </section>
+
+{% endblock %}

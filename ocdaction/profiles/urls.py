@@ -12,7 +12,8 @@ from .forms import OCDActionUserRegistrationForm
 urlpatterns = [
     url(
         r'^register/$',
-        RegistrationView.as_view(form_class=OCDActionUserRegistrationForm), name='register',
+        RegistrationView.as_view(form_class=OCDActionUserRegistrationForm),
+        name='register',
     ),
     url(
         r'^register/complete/$',
