@@ -14,6 +14,8 @@ def test_create_task():
 
     task = TaskFactory.create()
 
-    # Check there is 1 task after a new task is added
+    # Check there is 1 task after a new task is added and that it's not archived
     number_tasks = Task.objects.filter(user_id=user.id).count()
+    task = Task.objects.get(user_id=user.id)
     assert number_tasks == 1
+    assert task.is_archived is False
