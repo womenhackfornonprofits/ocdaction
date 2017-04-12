@@ -17,3 +17,12 @@ def test_create_task():
     # Check there is 1 task after a new task is added
     number_tasks = Task.objects.filter(user_id=user.id).count()
     assert number_tasks == 1
+
+@pytest.mark.django_db
+def test_archive_task():
+
+	user = UserFactory.create()
+	task = TaskFactory.create()
+
+	task.archive()
+	assert task.is_archived == True
