@@ -76,5 +76,6 @@ def task_archive(request, task_id):
     """
     task = get_object_or_404(Task, pk=task_id)
     task.archive()
+    
     return redirect('task-list')
 
