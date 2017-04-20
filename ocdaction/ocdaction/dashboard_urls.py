@@ -23,7 +23,7 @@ urlpatterns = [
         name="task-add"
     ),
     url(
-        r'^tasks/(?P<task_id>\d+)/$',
+        r'^tasks/(?P<task_id>\d+)/edit$',
         task_edit,
         name="task-edit"
     ),
