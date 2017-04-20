@@ -5,6 +5,9 @@ machine:
     SECRET_KEY: test-secret-key
     DEBUG: 0
 
+dependencies:
+  pre:
+    - pip install -r requirements/testing.txt
 
 test:
   override:

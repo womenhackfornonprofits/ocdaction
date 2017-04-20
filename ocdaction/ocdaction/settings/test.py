@@ -2,6 +2,10 @@ from ocdaction.settings import *
 
 import django
 
+INSTALLED_APPS = INSTALLED_APPS + [
+    'tests',
+]
+
 
 class DisableMigrations(object):
 
