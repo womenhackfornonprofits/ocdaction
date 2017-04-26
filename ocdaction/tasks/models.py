@@ -89,3 +89,7 @@ class AnxietyScoreCard(models.Model):
 
     def user_name(self):
         return self.task.user
+
+    def get_absolute_url(self):
+        return reverse('task_score_form',
+                        kwargs={'task_id': self.task})

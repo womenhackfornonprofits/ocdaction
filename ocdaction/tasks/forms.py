@@ -1,6 +1,6 @@
 from django import forms
 
-from tasks.models import Task
+from tasks.models import Task, AnxietyScoreCard
 
 
 class TaskForm(forms.ModelForm):
@@ -12,3 +12,9 @@ class TaskForm(forms.ModelForm):
             'task_compulsions': forms.Textarea(attrs={'rows': '3'}),
             'task_goals': forms.Textarea(attrs={'rows': '3'})
         }
+
+class AnxietyScoreCardForm(forms.ModelForm):
+    
+    class Meta:
+        model = AnxietyScoreCard
+        exclude = ['task']
