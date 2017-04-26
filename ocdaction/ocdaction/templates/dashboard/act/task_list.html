@@ -16,6 +16,7 @@
                         <li><p>Goals: My task goals are {{ task.task_goals }}<p></li>
                         <li><p>Compulsions: My task compulsions are {{ task.task_compulsions }}<p></li>
                     </ul>
+                    <a href="{% url 'task-score-form' task.id %}"><p> Do the task </p></a>
                 </li>
                 </ul>
             {% endfor %}
