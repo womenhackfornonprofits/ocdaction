@@ -68,3 +68,14 @@ def task_edit(request, task_id):
          'dashboard/act/task_edit.html',
          context
     )
+
+@login_required
+def task_archive(request, task_id):
+    """
+    Archive a task
+    """
+    task = get_object_or_404(Task, pk=task_id)
+    task.archive()
+    
+    return redirect('task-list')
+

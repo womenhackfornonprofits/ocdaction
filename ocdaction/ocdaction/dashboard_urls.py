@@ -6,7 +6,8 @@ from django.conf.urls import url
 from tasks.views import (
     task_list,
     task_add,
-    task_edit
+    task_edit,
+    task_archive
 )
 
 from core.views import dashboard_index
@@ -26,6 +27,11 @@ urlpatterns = [
         r'^tasks/(?P<task_id>\d+)/edit$',
         task_edit,
         name="task-edit"
+    ),
+    url(
+        r'^tasks/(?P<task_id>\d+)/archive/$',
+        task_archive,
+        name="task-archive"
     ),
     url(
         r'^index/$',

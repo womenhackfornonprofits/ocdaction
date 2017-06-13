@@ -24,6 +24,10 @@ class Task(models.Model):
         return reverse('task-edit',
                        kwargs={'task_id': self.id})
 
+    def archive(self):
+        self.is_archived = True
+        self.save()
+
 
 class AnxietyScore(models.Model):
     """a task is a user created task that can be completed
