@@ -124,6 +124,8 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 
 	```python manage.py migrate```
 
+5. To run tests, run ```pytest``` from within the app directory.  This will run all tests within that directory and subfolders.
+
 
 ## Front End changes
 1. Make css and javascript changes in the ```frontend``` folder
