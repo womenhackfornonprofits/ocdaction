@@ -19,6 +19,11 @@ urlpatterns = [
         name="task-list"
     ),
     url(
+        r'^tasks/(?P<archived>)/$',
+        task_list,
+        name="task-list-archived"
+    ),
+    url(
         r'^tasks/new/$',
         task_add,
         name="task-add"
