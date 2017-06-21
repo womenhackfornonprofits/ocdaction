@@ -26,5 +26,8 @@
             <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-5" href="{% url 'task-add' %}">
                 <span class="fa fa-plus-square"></span> Add New Task
             </a>
+            <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-5" href="{% url 'task-list-archived' archived %}">
+                <span class="fa fa-plus-square"></span> View Archived Tasks
+            </a>
     </section>
 {% endblock %}
