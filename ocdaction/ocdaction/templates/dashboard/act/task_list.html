@@ -29,11 +29,13 @@
         {% else %}
             <h2>You have no tasks yet!</h2>
         {% endif %}
+        {% if not is_archive %}
             <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-5" href="{% url 'task-add' %}">
                 <span class="fa fa-plus-square"></span> Add New Task
             </a>
             <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-5" href="{% url 'task-list-archived' archived %}">
                 <span class="fa fa-archive"></span> View Archived Tasks
             </a>
+        {% endif %}
     </section>
 {% endblock %}
