@@ -14,11 +14,13 @@ def task_list(request, archived=None):
 
     if archived == None:
         tasks = Task.objects.filter(user=request.user, is_archived=False).order_by('-created_at', '-updated_at')[:10]
+        context = {'tasks': tasks}
     else:
         tasks = Task.objects.filter(user=request.user, is_archived=True).order_by('-created_at', '-updated_at')[:10]
+        context = {'tasks': tasks, 'is_archive': True}
         
-
-    return render(request, template_name, {'tasks': tasks})
+    return render(request, template_name, context)
+    
 
 
 @login_required
