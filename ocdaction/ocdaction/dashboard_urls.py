@@ -19,7 +19,7 @@ urlpatterns = [
         name="task-list"
     ),
     url(
-        r'^tasks/(?P<archived>)/$',
+        r'^tasks/(?P<archived>)archived/$',
         task_list,
         name="task-list-archived"
     ),
