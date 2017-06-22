@@ -5,7 +5,11 @@
 {% block main %}
     <section class="container">
         <h1>ACT</h1>
-        <h2>All your tasks</h2>
+        {% if is_archive %}
+            <h2>Your archived tasks</h2>
+        {% else %}
+            <h2>All your tasks</h2>
+        {% endif %}
         {% if tasks %}
             {% for task in tasks %}
                 <ul class="col-xs-6 col-xs-offset-3">
