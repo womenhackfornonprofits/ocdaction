@@ -1,2 +1,0 @@
-const navigation=document.getElementsByClassName("js-header-nav")[0],menuEl=document.getElementsByClassName("js-header-list")[0];navigation.addEventListener("click",function(a){const b=a.target.className;b.match("js-nav-toggle")?menuEl.classList.toggle("header__list--mobile"):menuEl.classList.remove("header__list--mobile")});
-//# sourceMappingURL=ocdaction.min.js.map
