@@ -96,3 +96,15 @@ def task_score_form(request, task_id):
             'task': task
         }
     )
+
+
+@login_required
+def task_archive(request, task_id):
+    """
+    Archive a task
+    """
+    task = get_object_or_404(Task, pk=task_id)
+    task.archive()
+    
+    return redirect('task-list')
+  

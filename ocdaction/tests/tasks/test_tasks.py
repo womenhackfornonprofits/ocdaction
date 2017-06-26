@@ -19,3 +19,13 @@ def test_create_task():
     task = Task.objects.get(user_id=user.id)
     assert number_tasks == 1
     assert task.is_archived is False
+
+@pytest.mark.django_db
+def test_archive_task():
+
+	user = UserFactory.create()
+	task = TaskFactory.create()
+
+	task.archive()
+	assert task.is_archived is True
+    
