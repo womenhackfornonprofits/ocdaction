@@ -7,6 +7,7 @@ from tasks.views import (
     task_list,
     task_add,
     task_edit,
+    task_score_form,
     task_archive
 )
 
@@ -29,6 +30,11 @@ urlpatterns = [
         name="task-edit"
     ),
     url(
+        r'^tasks/(?P<task_id>\d+)/$',
+        task_score_form,
+        name="task-score-form"
+    ),
+    url(  
         r'^tasks/(?P<task_id>\d+)/archive/$',
         task_archive,
         name="task-archive"
