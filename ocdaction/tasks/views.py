@@ -6,14 +6,21 @@ from tasks.forms import TaskForm
 
 
 @login_required
-def task_list(request):
+def task_list(request, archived=None):
     """
     Displays a list os user tasks on ACT view
     """
     template_name = "dashboard/act/task_list.html"
-    tasks = Task.objects.filter(user=request.user, is_archived=False).order_by('-created_at', '-updated_at')[:10]
 
-    return render(request, template_name, {'tasks': tasks})
+    if archived == None:
+        tasks = Task.objects.filter(user=request.user, is_archived=False).order_by('-created_at', '-updated_at')[:10]
+        context = {'tasks': tasks}
+    else:
+        tasks = Task.objects.filter(user=request.user, is_archived=True).order_by('-created_at', '-updated_at')[:10]
+        context = {'tasks': tasks, 'archived': True}
+        
+    return render(request, template_name, context)
+    
 
 
 @login_required
