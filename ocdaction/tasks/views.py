@@ -17,7 +17,7 @@ def task_list(request, archived=None):
         context = {'tasks': tasks}
     else:
         tasks = Task.objects.filter(user=request.user, is_archived=True).order_by('-created_at', '-updated_at')[:10]
-        context = {'tasks': tasks, 'is_archive': True}
+        context = {'tasks': tasks, 'archived': True}
         
     return render(request, template_name, context)
     
