@@ -19,7 +19,11 @@
             {% for task in tasks %}
                 <ul class="col-xs-6 col-xs-offset-3">
                 <li class="row">
-                    <a href="{% url 'task-edit' task.id %}"><h3>{{ task.task_name }}</h3></a>                 
+                    {% if archived %}
+                        <h3>{{ task.task_name }}</h3>
+                    {% else %}
+                        <a href="{% url 'task-edit' task.id %}"><h3>{{ task.task_name }}</h3></a>                 
+                    {% endif %}
                     <ul>
                         <li><p>Fears: My task fears are {{ task.task_fears }}<p></li>
                         <li><p>Goals: My task goals are {{ task.task_goals }}<p></li>
