@@ -2,3 +2,4 @@ frontend/.sass-cache/
 frontend/node_modules
 .DS_Store
 **.pyc
+.env

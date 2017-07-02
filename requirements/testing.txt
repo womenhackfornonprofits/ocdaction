@@ -11,3 +11,5 @@ pytest-factoryboy==1.3.0   # Factory_Boy integration with pytest fixtures
 pytest-sugar==0.8.0        # For better pytest output
 tox==2.3.2                 # Standardises testing in Python
 pytest-pythonpath==0.7.1   # explicitly setting the project on the python path
+boto==2.46.1               # Sending test emails using Amazon SES
+django-ses==0.8.2          # Sending test emails using Amazon SES 
