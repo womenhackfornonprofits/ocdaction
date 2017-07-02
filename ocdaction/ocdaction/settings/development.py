@@ -5,10 +5,6 @@ SECRET_KEY = 'FAKEforDEV'
 
 DEBUG = True
 
-EMAIL_BACKEND = 'django_ses.SESBackend'
-REGISTRATION_DEFAULT_FROM_EMAIL = "ocdstage@gmail.com"
-DEFAULT_FROM_EMAIL = 'ocdstage@gmail.com'
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
