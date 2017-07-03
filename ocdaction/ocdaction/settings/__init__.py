@@ -164,6 +164,12 @@ CONTEXT_PROCESSORS = [
 
 # Registration settings
 ACCOUNT_ACTIVATION_DAYS = 7
-REGISTRATION_DEFAULT_FROM_EMAIL = "info@ocdaction.org"
+#REGISTRATION_DEFAULT_FROM_EMAIL = "info@ocdaction.org"
 REGISTRATION_EMAIL_HTML = True
 REGISTRATION_AUTO_LOGIN = True
+
+EMAIL_BACKEND = 'django_ses.SESBackend'
+REGISTRATION_DEFAULT_FROM_EMAIL = "ocdstage@gmail.com"
+DEFAULT_FROM_EMAIL = 'ocdstage@gmail.com'
+AWS_SES_REGION_NAME = 'us-west-2'
+AWS_SES_REGION_ENDPOINT = 'email.us-west-2.amazonaws.com'
