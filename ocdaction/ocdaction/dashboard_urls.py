@@ -7,7 +7,8 @@ from tasks.views import (
     task_list,
     task_add,
     task_edit,
-    task_archive
+    task_archive,
+    task_score_form
 )
 
 from core.views import dashboard_index
@@ -37,6 +38,11 @@ urlpatterns = [
         r'^tasks/(?P<task_id>\d+)/archive/$',
         task_archive,
         name="task-archive"
+    ),
+    url(
+        r'^tasks/(?P<task_id>\d+)/$',
+        task_score_form,
+        name="task-score-form"
     ),
     url(
         r'^index/$',
