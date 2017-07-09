@@ -28,10 +28,9 @@ class Task(models.Model):
         self.is_archived = True
         self.save()
 
-
-class AnxietyScore(models.Model):
-    """a task is a user created task that can be completed
-    by a user to track anxiety
+class AnxietyScoreCard(models.Model):
+    """ 
+    Anxiety score card is a collection of scores for the task
     """
     SCORE_ZERO = '0'
     SCORE_ONE = '1'
@@ -46,79 +45,54 @@ class AnxietyScore(models.Model):
     SCORE_TEN = '10'
 
     ANXIETY_SCORE_CHOICES = (
-        (SCORE_ZERO, 'Zero'),
-        (SCORE_ONE, 'One'),
-        (SCORE_TWO, 'Two'),
-        (SCORE_THREE, 'Three'),
-        (SCORE_FOUR, 'Four'),
-        (SCORE_FIVE, 'Five'),
-        (SCORE_SIX, 'Six'),
-        (SCORE_SEVEN, 'Seven'),
-        (SCORE_EIGHT, 'Eight'),
-        (SCORE_NINE, 'Nine'),
-        (SCORE_TEN, 'Ten'),
+        (SCORE_ZERO, 'zero'),
+        (SCORE_ONE, 'one'),
+        (SCORE_TWO, 'two'),
+        (SCORE_THREE, 'three'),
+        (SCORE_FOUR, 'four'),
+        (SCORE_FIVE, 'five'),
+        (SCORE_SIX, 'six'),
+        (SCORE_SEVEN, 'seven'),
+        (SCORE_EIGHT, 'eight'),
+        (SCORE_NINE, 'nine'),
+        (SCORE_TEN, 'ten'),
     )
-    score = models.CharField(
+
+    score_after_0_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        default=SCORE_ZERO
+        blank=True
     )
-
-    task = models.ForeignKey('tasks.Task', on_delete=models.CASCADE)
-
-    def __unicode__(self):
-        return self.score
-
-    def user_name(self):
-        return self.task.user
-
-
-class AnxietyScoreCard(models.Model):
+    score_after_5_min = models.CharField(
+        max_length=2,
+        choices=ANXIETY_SCORE_CHOICES,
+        blank=True
+    )
+    score_after_10_min = models.CharField(
+        max_length=2,
+        choices=ANXIETY_SCORE_CHOICES,
+        blank=True
+    )
+    score_after_15_min = models.CharField(
+        max_length=2,
+        choices=ANXIETY_SCORE_CHOICES,
+        blank=True
+    )
+    score_after_30_min = models.CharField(
+        max_length=2,
+        choices=ANXIETY_SCORE_CHOICES,
+        blank=True
+    )
+    score_after_60_min = models.CharField(
+        max_length=2,
+        choices=ANXIETY_SCORE_CHOICES,
+        blank=True
+    )
     task = models.ForeignKey('Task', on_delete=models.CASCADE)
-    score_after_0_min = models.ForeignKey(
-        AnxietyScore,
-        blank=True,
-        null=True,
-        related_name='score_0',
-        on_delete=models.CASCADE
-    )
-
-    score_after_5_min = models.ForeignKey(
-        AnxietyScore,
-        blank=True,
-        null=True,
-        related_name='score_5',
-        on_delete=models.CASCADE
-    )
-    score_after_10_min = models.ForeignKey(
-        AnxietyScore,
-        blank=True,
-        null=True,
-        related_name='score_10',
-        on_delete=models.CASCADE
-    )
-    score_after_15_min = models.ForeignKey(
-        AnxietyScore,
-        blank=True,
-        null=True,
-        related_name='score_15',
-        on_delete=models.CASCADE
-    )
-    score_after_30_min = models.ForeignKey(
-        AnxietyScore,
-        blank=True,
-        null=True,
-        related_name='score_30',
-        on_delete=models.CASCADE
-    )
-
-    score_after_60_min = models.ForeignKey(
-        AnxietyScore,
-        blank=True,
-        null=True,
-        related_name='score_60',
-        on_delete=models.CASCADE
-    )
 
     def user_name(self):
         return self.task.user
+    
+    def get_absolute_url(self):
+        return reverse('task_score_form',
+                        kwargs={'task_id': self.task})
