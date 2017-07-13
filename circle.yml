@@ -2,7 +2,6 @@ machine:
   environment:
     DATABASE_URL: 'sqlite://:memory:'
     DJANGO_SETTINGS_MODULE: ocdaction.settings.test
-    SECRET_KEY: test-secret-key
     DEBUG: 0
     PYTHONPATH: ${HOME}/ocdaction/ocdaction    
 
@@ -12,8 +11,6 @@ dependencies:
 
 test:
   override:
-    - echo $PWD
-    - echo $PYTHONPATH    
     - pytest
 
 
