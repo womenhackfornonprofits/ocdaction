@@ -12,6 +12,8 @@ dependencies:
 
 test:
   override:
+    - echo pwd
+    - echo pyenv local
     - echo $PYTHONPATH    
     - pytest
 
