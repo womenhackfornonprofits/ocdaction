@@ -2,6 +2,8 @@ from ocdaction.settings import *
 
 import django
 
+SECRET_KEY = 'FAKEforTEST'
+
 INSTALLED_APPS = INSTALLED_APPS + [
     'tests',
 ]
