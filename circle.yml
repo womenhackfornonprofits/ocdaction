@@ -4,7 +4,7 @@ machine:
     DJANGO_SETTINGS_MODULE: ocdaction.settings.test
     SECRET_KEY: test-secret-key
     DEBUG: 0
-    PYTHONPATH: ${PYTHONPATH}:${HOME}/ocdaction    
+    PYTHONPATH: ${HOME}/ocdaction/ocdaction    
 
 dependencies:
   pre:
