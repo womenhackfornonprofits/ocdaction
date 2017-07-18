@@ -3,6 +3,8 @@
 """
 from django.conf.urls import url
 
+from django.views.generic import TemplateView
+
 from tasks.views import (
     task_list,
     task_add,
@@ -45,8 +47,8 @@ urlpatterns = [
         name="task-score-form"
     ),
     url(
-        r'^tasks/(?P<task_id>\d+)/complete/$',
-        task_complete,
+        r'^tasks/complete/$',
+        TemplateView.as_view(template_name="task_complete.html"),
         name="task-complete"
     ),
     url(
