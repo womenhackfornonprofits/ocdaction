@@ -48,7 +48,7 @@ urlpatterns = [
     ),
     url(
         r'^tasks/complete/$',
-        TemplateView.as_view(template_name="task_complete.html"),
+        TemplateView.as_view(template_name="dashboard/act/task_complete.html"),
         name="task-complete"
     ),
     url(

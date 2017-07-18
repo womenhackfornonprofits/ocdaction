@@ -100,7 +100,7 @@ def task_score_form(request, task_id):
             anxiety_score_card.task = task
             anxiety_score_card.save()
 
-            return redirect('task-list')
+            return redirect('task-complete')
     else:
         anxiety_score_form = AnxietyScoreCardForm()
     
