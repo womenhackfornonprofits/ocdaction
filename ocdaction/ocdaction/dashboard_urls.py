@@ -45,6 +45,11 @@ urlpatterns = [
         name="task-score-form"
     ),
     url(
+        r'^tasks/(?P<task_id>\d+)/complete/$',
+        task_complete,
+        name="task-complete"
+    ),
+    url(
         r'^index/$',
         dashboard_index,
         name="dashboard-index"
