@@ -22,7 +22,6 @@ def task_list(request, archived=None):
     return render(request, template_name, context)
     
 
-
 @login_required
 def task_add(request):
     """
@@ -76,6 +75,7 @@ def task_edit(request, task_id):
          context
     )
 
+
 @login_required
 def task_archive(request, task_id):
     """
@@ -85,6 +85,7 @@ def task_archive(request, task_id):
     task.archive()
     
     return redirect('task-list')
+
 
 @login_required
 def task_score_form(request, task_id):
