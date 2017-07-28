@@ -10,7 +10,9 @@ from tasks.views import (
     task_add,
     task_edit,
     task_archive,
-    task_score_form
+    task_score_form,
+    task_complete,
+    task_summary
 )
 
 from core.views import dashboard_index
@@ -47,9 +49,14 @@ urlpatterns = [
         name="task-score-form"
     ),
     url(
-        r'^tasks/complete/$',
-        TemplateView.as_view(template_name="dashboard/act/task_complete.html"),
+        r'^tasks/(?P<task_id>\d+)/complete/(?P<score_id>\d+)/$',
+        task_complete,
         name="task-complete"
+    ),
+    url(
+        r'^tasks/(?P<task_id>\d+)/summary/(?P<score_id>\d+)/$',
+        task_summary,
+        name="task-summary"
     ),
     url(
         r'^index/$',

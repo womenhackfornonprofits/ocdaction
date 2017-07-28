@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block main %}
+    <section>
+        <h1>ACT</h1>
+        <h2>Your anxiety levels for {{ task.task_name }}</h2>
+        <ul>
+            <li><p>After 0 min: {{ anxiety_score_card.score_after_0_min }}<p></li>
+            <li><p>After 5 min: {{ anxiety_score_card.score_after_5_min }}<p></li>
+            <li><p>After 10 min: {{ anxiety_score_card.score_after_10_min }}<p></li>
+            <li><p>After 15 min: {{ anxiety_score_card.score_after_15_min }}<p></li>
+            <li><p>After 30 min: {{ anxiety_score_card.score_after_30_min }}<p></li>
+            <li><p>After 60 min: {{ anxiety_score_card.score_after_60_min }}<p></li>
+        </ul>
+    </section>
+{% endblock %}
