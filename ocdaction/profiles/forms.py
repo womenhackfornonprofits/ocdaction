@@ -20,8 +20,9 @@ class OCDActionUserRegistrationForm(RegistrationForm):
 
     now = datetime.datetime.now()
     current_year = now.year
+    users_average_age = 20
     date_birth = forms.DateField(widget=forms.SelectDateWidget(
-        years=range(current_year - 100, current_year)),
+        years=range(current_year - users_average_age, current_year)),
         label='Date of birth'
     )
 
