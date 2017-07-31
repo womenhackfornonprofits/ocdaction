@@ -3,8 +3,6 @@
 """
 from django.conf.urls import url
 
-from django.views.generic import TemplateView
-
 from tasks.views import (
     task_list,
     task_add,
