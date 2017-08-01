@@ -24,6 +24,10 @@ class OCDActionUserRegistrationForm(RegistrationForm):
         years=range(current_year - 100, current_year)),
         label='Date of birth'
     )
+    terms = forms.BooleanField(
+        error_messages={'required': 'You must accept the terms and conditions'},
+        label="Terms&Conditions"
+    )
 
     class Meta:
         """a task is a user created task that can be completed
