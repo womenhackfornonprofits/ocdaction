@@ -29,7 +29,7 @@ class Task(models.Model):
         self.save()
 
 class AnxietyScoreCard(models.Model):
-    """ 
+    """
     Anxiety score card is a collection of scores for the task
     """
     SCORE_ZERO = '0'
@@ -92,7 +92,14 @@ class AnxietyScoreCard(models.Model):
 
     def user_name(self):
         return self.task.user
-    
+
     def get_absolute_url(self):
-        return reverse('task_score_form',
-                        kwargs={'task_id': self.task})
+        return reverse(
+            'task-score-form',
+            kwargs={'task_id': self.task.id})
+
+    def get_score_url(self):
+        return reverse(
+            'task-summary',
+            kwargs={'task_id': self.task.id,
+                    'score_id': self.id})
