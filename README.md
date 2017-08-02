@@ -131,6 +131,11 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 1. Make css and javascript changes in the ```frontend``` folder
 2. Make any HTML changes in the Django templates located in `ocdaction/templates`
 3. Use `grunt default` in the frontend folder to build, watch and copy all the required files automatically into the Django static folder.
+4. If you see the following error message:
+	```-bash: grunt: command not found```
+	This means you need to install grunt cli tools so that you can run Grunt in the command line. Solution:
+	``` npm install -g grunt-cli ```
+	or possible ``` sudo npm install -g grunt-cli ```
 
 ## Deploying to Heroku
 1. Create a Heroku Account
