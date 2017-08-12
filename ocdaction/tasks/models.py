@@ -62,32 +62,32 @@ class AnxietyScoreCard(models.Model):
     score_after_0_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        blank=True
+        blank=False
     )
     score_after_5_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        blank=True
+        blank=False
     )
     score_after_10_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        blank=True
+        blank=False
     )
     score_after_15_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        blank=True
+        blank=False
     )
     score_after_30_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        blank=True
+        blank=False
     )
     score_after_60_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        blank=True
+        blank=False
     )
     task = models.ForeignKey('Task', on_delete=models.CASCADE)
 
