@@ -8,8 +8,8 @@
         <h2>Anxiety Tracker</h2>
         <form class="col-xs-6 col-xs-offset-3" method="POST">
             {% csrf_token %}
+
             <h3> {{ task.task_name }} </h3>
-            {{ anxiety_score_form.non_field_errors }}
             {{ anxiety_score_form.as_p }}
             <button class="btn btn-primary pull-left col-xs-4 col-xs-offset-5" type="submit">Complete the Task</button>
         </form>
