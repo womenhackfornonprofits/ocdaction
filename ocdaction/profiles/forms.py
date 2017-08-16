@@ -24,9 +24,10 @@ class OCDActionUserRegistrationForm(RegistrationForm):
         years=range(current_year - 100, current_year)),
         label='Date of birth'
     )
-    terms = forms.BooleanField(
+    terms = forms.BooleanField(widget=forms.CheckboxInput(
+        attrs={'class': 'form-checkbox'}),
         error_messages={'required': 'You must accept the terms and conditions'},
-        label="Terms&Conditions"
+        label="I accept the terms and conditions"
     )
 
     class Meta:
