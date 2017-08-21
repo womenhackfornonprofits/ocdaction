@@ -27,7 +27,7 @@ class OCDActionUserRegistrationForm(RegistrationForm):
     terms = forms.BooleanField(widget=forms.CheckboxInput(
         attrs={'class': 'form-checkbox'}),
         error_messages={'required': 'You must accept the terms and conditions'},
-        label="I accept the terms and conditions"
+        label="I agree to the terms and conditions"
     )
 
     class Meta:
