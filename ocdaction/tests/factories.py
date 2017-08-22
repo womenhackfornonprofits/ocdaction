@@ -37,4 +37,3 @@ class TaskFactory(factory.django.DjangoModelFactory):
     task_compulsions = 'compulsions'
     task_goals = 'goals'
     user = factory.SubFactory(UserFactory)
-

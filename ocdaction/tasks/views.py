@@ -18,9 +18,8 @@ def task_list(request, archived=None):
     else:
         tasks = Task.objects.filter(user=request.user, is_archived=True).order_by('-created_at', '-updated_at')[:10]
         context = {'tasks': tasks, 'archived': True}
-        
+
     return render(request, template_name, context)
-    
 
 
 @login_required
@@ -76,6 +75,7 @@ def task_edit(request, task_id):
          context
     )
 
+
 @login_required
 def task_archive(request, task_id):
     """
@@ -83,8 +83,45 @@ def task_archive(request, task_id):
     """
     task = get_object_or_404(Task, pk=task_id)
     task.archive()
-    
+
     return redirect('task-list')
+
+
+@login_required
+def task_complete(request, task_id, score_id):
+    """
+    Mark task completed
+    """
+    task = get_object_or_404(Task, pk=task_id)
+    anxiety_score_card = get_object_or_404(AnxietyScoreCard, pk=score_id)
+
+    return render(
+        request,
+        'dashboard/act/task_complete.html',
+        {
+            'task': task,
+            'anxiety_score_card': anxiety_score_card,
+        }
+    )
+
+
+@login_required
+def task_summary(request, task_id, score_id):
+    """
+    Summary of a task
+    """
+    task = get_object_or_404(Task, pk=task_id)
+    anxiety_score_card = get_object_or_404(AnxietyScoreCard, pk=score_id)
+
+    return render(
+        request,
+        'dashboard/act/task_summary.html',
+        {
+            'task': task,
+            'anxiety_score_card': anxiety_score_card,
+        }
+    )
+
 
 @login_required
 def task_score_form(request, task_id):
@@ -100,10 +137,10 @@ def task_score_form(request, task_id):
             anxiety_score_card.task = task
             anxiety_score_card.save()
 
-            return redirect('task-complete')
+            return redirect('task-complete', task_id=task.id, score_id=anxiety_score_card.id)
     else:
         anxiety_score_form = AnxietyScoreCardForm()
-    
+
     return render(
         request,
         'dashboard/act/task_score_form.html',

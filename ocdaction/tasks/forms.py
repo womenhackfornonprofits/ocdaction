@@ -13,8 +13,9 @@ class TaskForm(forms.ModelForm):
             'task_goals': forms.Textarea(attrs={'rows': '3'})
         }
 
+
 class AnxietyScoreCardForm(forms.ModelForm):
-    
+
     class Meta:
         model = AnxietyScoreCard
         exclude = ['task']

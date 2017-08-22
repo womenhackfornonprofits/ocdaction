@@ -28,8 +28,9 @@ class Task(models.Model):
         self.is_archived = True
         self.save()
 
+
 class AnxietyScoreCard(models.Model):
-    """ 
+    """
     Anxiety score card is a collection of scores for the task
     """
     SCORE_ZERO = '0'
@@ -61,38 +62,45 @@ class AnxietyScoreCard(models.Model):
     score_after_0_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        blank=True
+        blank=False
     )
     score_after_5_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        blank=True
+        blank=False
     )
     score_after_10_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        blank=True
+        blank=False
     )
     score_after_15_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        blank=True
+        blank=False
     )
     score_after_30_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        blank=True
+        blank=False
     )
     score_after_60_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        blank=True
+        blank=False
     )
     task = models.ForeignKey('Task', on_delete=models.CASCADE)
 
     def user_name(self):
         return self.task.user
-    
+
     def get_absolute_url(self):
-        return reverse('task_score_form',
-                        kwargs={'task_id': self.task})
+        return reverse(
+            'task-score-form',
+            kwargs={'task_id': self.task.id})
+
+    def get_score_url(self):
+        return reverse(
+            'task-summary',
+            kwargs={'task_id': self.task.id,
+                    'score_id': self.id})
