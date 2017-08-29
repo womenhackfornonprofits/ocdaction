@@ -25,6 +25,11 @@ class OCDActionUserRegistrationForm(RegistrationForm):
         years=range(current_year - users_average_age, current_year)),
         label='Date of birth'
     )
+    terms = forms.BooleanField(widget=forms.CheckboxInput(
+        attrs={'class': 'form-checkbox'}),
+        error_messages={'required': 'You must accept the terms and conditions'},
+        label="I agree to the terms and conditions"
+    )
 
     class Meta:
         """a task is a user created task that can be completed

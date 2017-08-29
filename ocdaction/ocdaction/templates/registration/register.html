@@ -24,20 +24,21 @@
                                 {% endfor %}
                             {% endif %}
 
+                            {% if field.name == "terms" %}
+                            <label for="terms">{{ form.terms }} I agree to the <a href="/terms-and-conditions" target="_blank">Terms &amp; Conditions</a></label>
+                            {% else %}
                             <label for="{{ field.name }}">{{ field.label }}:</label>
-                            {{ fiels.label_tag }}    
-                            {% render_field field placeholder=field.label class+="form-control" %}
+                             
+                            {% render_field field placeholder=field.label class="form-control" %}
+                            {% endif %}
+
+
                             {% if field.help_text %}
                             <p class="helptext">{{ field.help_text|safe }}</p>
                             {% endif %}
 
                         </div>
                     {% endfor %}
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <label><input type="checkbox" name="terms" checked="checked"> I agree to the <a href="/terms-and-conditions" target="_blank">Terms &amp; Conditions</a></label>
-                        </div>
-                    </div>
 
                     <div class="row">
                         <div class="col-xs-12">
