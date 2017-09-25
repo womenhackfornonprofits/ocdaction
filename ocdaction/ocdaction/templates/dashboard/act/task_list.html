@@ -30,7 +30,7 @@
                         <li><p>Compulsions: My task compulsions are {{ task.task_compulsions }}<p></li>
                     </ul>
                     {% if not archived %}
-                        <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-1" href="{% url 'task-archive' task.id %}">Archive</a>
+                        <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-1 js-confirm-archive" href="{% url 'task-archive' task.id %}" onclick="return confirm('Are you sure want to archive this challenge? You will not be able to reactivate it.')";>Archive</a>
                         <a class="btn btn-primary pull-right col-xs-3" href="{% url 'task-score-form' task.id %}"> Do the task </a>
                     {% endif %}   
                 </li>
