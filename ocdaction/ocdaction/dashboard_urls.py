@@ -13,8 +13,6 @@ from tasks.views import (
     task_summary
 )
 
-from core.views import dashboard_index
-
 urlpatterns = [
     url(
         r'^tasks/$',
@@ -55,10 +53,5 @@ urlpatterns = [
         r'^tasks/(?P<task_id>\d+)/summary/(?P<score_id>\d+)/$',
         task_summary,
         name="task-summary"
-    ),
-    url(
-        r'^index/$',
-        dashboard_index,
-        name="dashboard-index"
     ),
 ]
