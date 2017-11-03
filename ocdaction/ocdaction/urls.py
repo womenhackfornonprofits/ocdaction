@@ -18,9 +18,9 @@ urlpatterns = [
         name="contact"
     ),
     url(
-        r'^think/$',
-        TemplateView.as_view(template_name='core/think.html'),
-        name="think"
+        r'^learn/$',
+        TemplateView.as_view(template_name='core/learn.html'),
+        name="learn"
     ),
     url(
         r'^terms-and-conditions/$',
