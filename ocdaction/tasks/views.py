@@ -10,7 +10,7 @@ def task_list(request, archived=None):
     """
     Displays a list os user tasks on ACT view
     """
-    template_name = "dashboard/act/task_list.html"
+    template_name = "act/task_list.html"
 
     if archived == None:
         tasks = Task.objects.filter(user=request.user, is_archived=False).order_by('-created_at', '-updated_at')[:10]
@@ -41,7 +41,7 @@ def task_add(request):
 
     return render(
         request,
-        'dashboard/act/task_add.html',
+        'act/task_add.html',
         {
             'task_form': task_form,
         }
@@ -71,7 +71,7 @@ def task_edit(request, task_id):
 
     return render(
          request,
-         'dashboard/act/task_edit.html',
+         'act/task_edit.html',
          context
     )
 
@@ -97,7 +97,7 @@ def task_complete(request, task_id, score_id):
 
     return render(
         request,
-        'dashboard/act/task_complete.html',
+        'act/task_complete.html',
         {
             'task': task,
             'anxiety_score_card': anxiety_score_card,
@@ -115,7 +115,7 @@ def task_summary(request, task_id, score_id):
 
     return render(
         request,
-        'dashboard/act/task_summary.html',
+        'act/task_summary.html',
         {
             'task': task,
             'anxiety_score_card': anxiety_score_card,
@@ -143,7 +143,7 @@ def task_score_form(request, task_id):
 
     return render(
         request,
-        'dashboard/act/task_score_form.html',
+        'act/task_score_form.html',
         {
             'anxiety_score_form': anxiety_score_form,
             'task': task

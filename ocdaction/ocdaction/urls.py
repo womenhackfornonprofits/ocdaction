@@ -37,7 +37,7 @@ urlpatterns = [
         include('profiles.urls')
     ),
     url(
-        r'^dashboard/',
-        include('ocdaction.dashboard_urls')
+        r'^tasks/',
+        include('tasks.urls')
     ),
 ]
