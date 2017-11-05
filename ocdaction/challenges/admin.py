@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Challenge, AnxietyScoreCard
 
 
-class TaskAdmin(admin.ModelAdmin):
+class ChallengeAdmin(admin.ModelAdmin):
     list_select_related = True
     list_display = ('task_name', 'user')
     search_fields = ['task_name']
@@ -24,5 +24,5 @@ class AnxietyScoreCardAdmin(admin.ModelAdmin):
 
 
 # Register your models here.
-admin.site.register(Challenge, TaskAdmin)
+admin.site.register(Challenge, ChallengeAdmin)
 admin.site.register(AnxietyScoreCard, AnxietyScoreCardAdmin)
