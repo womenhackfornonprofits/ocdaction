@@ -13,18 +13,18 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AddField(
-            model_name='task',
-            name='task_compulsions',
+            model_name='challenge',
+            name='challenge_compulsions',
             field=models.CharField(blank=True, max_length=300),
         ),
         migrations.AddField(
-            model_name='task',
-            name='task_fears',
+            model_name='challenge',
+            name='challenge_fears',
             field=models.CharField(blank=True, max_length=300),
         ),
         migrations.AddField(
-            model_name='task',
-            name='task_goals',
+            model_name='challenge',
+            name='challenge_goals',
             field=models.CharField(blank=True, max_length=300),
         ),
     ]

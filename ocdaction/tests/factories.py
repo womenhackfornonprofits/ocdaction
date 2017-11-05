@@ -24,11 +24,11 @@ class TaskFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Task
         django_get_or_create = (
-            'task_name',
+            'challenge_name',
             'is_archived',
-            'task_fears',
-            'task_compulsions',
-            'task_goals'
+            'challenge_fears',
+            'challenge_compulsions',
+            'challenge_goals'
         )
 
     task_name = 'taskname'

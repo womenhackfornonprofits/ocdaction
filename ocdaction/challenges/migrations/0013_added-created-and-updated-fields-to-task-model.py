@@ -15,13 +15,13 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AddField(
-            model_name='task',
+            model_name='challenge',
             name='created_at',
             field=models.DateTimeField(auto_now_add=True, default=datetime.datetime(2017, 3, 26, 16, 4, 44, 39503, tzinfo=utc)),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='task',
+            model_name='challenge',
             name='updated_at',
             field=models.DateTimeField(auto_now=True, default=datetime.datetime(2017, 3, 26, 16, 4, 58, 789791, tzinfo=utc)),
             preserve_default=False,

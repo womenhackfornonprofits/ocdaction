@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RenameField(
-            model_name='task',
+            model_name='challenge',
             old_name='username',
             new_name='user',
         ),

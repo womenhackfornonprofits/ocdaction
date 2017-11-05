@@ -17,41 +17,41 @@ urlpatterns = [
     url(
         r'^$',
         task_list,
-        name="task-list"
+        name="challenge-list"
     ),
     url(
         r'^(?P<archived>)archived/$',
         task_list,
-        name="task-list-archived"
+        name="challenge-list-archived"
     ),
     url(
         r'^new/$',
         task_add,
-        name="task-add"
+        name="challenge-add"
     ),
     url(
         r'^(?P<task_id>\d+)/edit$',
         task_edit,
-        name="task-edit"
+        name="challenge-edit"
     ),
     url(
         r'^(?P<task_id>\d+)/archive/$',
         task_archive,
-        name="task-archive"
+        name="challenge-archive"
     ),
     url(
         r'^(?P<task_id>\d+)/$',
         task_score_form,
-        name="task-score-form"
+        name="challenge-score-form"
     ),
     url(
         r'^(?P<task_id>\d+)/complete/(?P<score_id>\d+)/$',
         task_complete,
-        name="task-complete"
+        name="challenge-complete"
     ),
     url(
         r'^(?P<task_id>\d+)/summary/(?P<score_id>\d+)/$',
         task_summary,
-        name="task-summary"
+        name="challenge-summary"
     ),
 ]

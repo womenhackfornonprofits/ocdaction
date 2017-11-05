@@ -4,14 +4,14 @@ from .models import Challenge, AnxietyScoreCard
 
 class ChallengeAdmin(admin.ModelAdmin):
     list_select_related = True
-    list_display = ('task_name', 'user')
-    search_fields = ['task_name']
+    list_display = ('challenge_name', 'user')
+    search_fields = ['challenge_name']
 
 
 class AnxietyScoreCardAdmin(admin.ModelAdmin):
     list_select_related = True
     list_display = (
-        'task',
+        'challenge',
         'user_name',
         'score_after_0_min',
         'score_after_5_min',

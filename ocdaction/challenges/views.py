@@ -25,7 +25,7 @@ def task_list(request, archived=None):
 @login_required
 def task_add(request):
     """
-    Add a new task
+    Add a new challenge
     """
     if request.method == 'POST':
         task_form = TaskForm(request.POST)
@@ -35,7 +35,7 @@ def task_add(request):
             task.user = request.user
             task.save()
 
-            return redirect('task-list')
+            return redirect('challenge-list')
     else:
         task_form = TaskForm()
 
@@ -51,7 +51,7 @@ def task_add(request):
 @login_required
 def task_edit(request, task_id):
     """
-    Edit a task
+    Edit a challenge
     """
     task_inst = get_object_or_404(Task, pk=task_id)
 
@@ -63,7 +63,7 @@ def task_edit(request, task_id):
             task.user = request.user
             task.save()
 
-            return redirect('task-list')
+            return redirect('challenge-list')
     else:
         task_form = TaskForm(instance=task_inst)
 
@@ -79,18 +79,18 @@ def task_edit(request, task_id):
 @login_required
 def task_archive(request, task_id):
     """
-    Archive a task
+    Archive a challenge
     """
     task = get_object_or_404(Task, pk=task_id)
     task.archive()
 
-    return redirect('task-list')
+    return redirect('challenge-list')
 
 
 @login_required
 def task_complete(request, task_id, score_id):
     """
-    Mark task completed
+    Mark challenge completed
     """
     task = get_object_or_404(Task, pk=task_id)
     anxiety_score_card = get_object_or_404(AnxietyScoreCard, pk=score_id)
@@ -99,7 +99,7 @@ def task_complete(request, task_id, score_id):
         request,
         'act/task_complete.html',
         {
-            'task': task,
+            'challenge': task,
             'anxiety_score_card': anxiety_score_card,
         }
     )
@@ -108,7 +108,7 @@ def task_complete(request, task_id, score_id):
 @login_required
 def task_summary(request, task_id, score_id):
     """
-    Summary of a task
+    Summary of a challenge
     """
     task = get_object_or_404(Task, pk=task_id)
     anxiety_score_card = get_object_or_404(AnxietyScoreCard, pk=score_id)
@@ -117,7 +117,7 @@ def task_summary(request, task_id, score_id):
         request,
         'act/task_summary.html',
         {
-            'task': task,
+            'challenge': task,
             'anxiety_score_card': anxiety_score_card,
         }
     )
@@ -126,7 +126,7 @@ def task_summary(request, task_id, score_id):
 @login_required
 def task_score_form(request, task_id):
     """
-    Enter anxiety scores for the task
+    Enter anxiety scores for the challenge
     """
     task = get_object_or_404(Task, pk=task_id)
 
@@ -137,7 +137,7 @@ def task_score_form(request, task_id):
             anxiety_score_card.task = task
             anxiety_score_card.save()
 
-            return redirect('task-complete', task_id=task.id, score_id=anxiety_score_card.id)
+            return redirect('challenge-complete', task_id=task.id, score_id=anxiety_score_card.id)
     else:
         anxiety_score_form = AnxietyScoreCardForm()
 
@@ -146,6 +146,6 @@ def task_score_form(request, task_id):
         'act/task_score_form.html',
         {
             'anxiety_score_form': anxiety_score_form,
-            'task': task
+            'challenge': task
         }
     )

@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.RemoveField(
             model_name='anxietyscore',
-            name='task',
+            name='challenge',
         ),
         migrations.DeleteModel(
             name='AnxietyScore',

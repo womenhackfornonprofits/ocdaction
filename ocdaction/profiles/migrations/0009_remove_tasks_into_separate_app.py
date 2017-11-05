@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RemoveField(
-            model_name='task',
+            model_name='challenge',
             name='user',
         ),
         migrations.AlterField(

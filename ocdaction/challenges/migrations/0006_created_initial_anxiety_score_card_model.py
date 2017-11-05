@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('score_after_15_min', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='score_15', to='challenges.AnxietyScore')),
                 ('score_after_20_min', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='score_20', to='challenges.AnxietyScore')),
                 ('score_after_5_min', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='score_5', to='challenges.AnxietyScore')),
-                ('task', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='challenges.Challenge')),
+                ('challenge', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='challenges.Challenge')),
             ],
         ),
     ]
