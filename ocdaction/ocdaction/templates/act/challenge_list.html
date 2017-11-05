@@ -6,41 +6,41 @@
     <section class="container">
         <h1>ACT</h1>
         {% if archived %}
-            <h2>Your archived tasks</h2>
-            <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-5" href="{% url 'task-list' %}">Back to Tasks
+            <h2>Your archived challenges</h2>
+            <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-5" href="{% url 'challenge-list' %}">Back to challenges
             </a>
         {% else %}
-            <h2>All your tasks</h2>
-            <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-5" href="{% url 'task-list-archived' archived %}">
-                <span class="fa fa-archive"></span> View Archived Tasks
+            <h2>All your challenges</h2>
+            <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-5" href="{% url 'challenge-list-archived' archived %}">
+                <span class="fa fa-archive"></span> View Archived Challenges
             </a>
         {% endif %}
-        {% if tasks %}
-            {% for task in tasks %}
+        {% if challenges %}
+            {% for challenge in challenges %}
                 <ul class="col-xs-6 col-xs-offset-3">
                 <li class="row">
                     {% if archived %}
-                        <h3>{{ task.task_name }}</h3>
+                        <h3>{{ challenge.challenge_name }}</h3>
                     {% else %}
-                        <a href="{% url 'task-edit' task.id %}"><h3>{{ task.task_name }}</h3></a>                 
+                        <a href="{% url 'challenge-edit' challenge.id %}"><h3>{{ challenge.challenge_name }}</h3></a>                 
                     {% endif %}
                     <ul>
-                        <li><p>Fears: My task fears are {{ task.task_fears }}<p></li>
-                        <li><p>Goals: My task goals are {{ task.task_goals }}<p></li>
-                        <li><p>Compulsions: My task compulsions are {{ task.task_compulsions }}<p></li>
+                        <li><p>Fears: My challenge fears are {{ challenge.challenge_fears }}<p></li>
+                        <li><p>Goals: My challenge goals are {{ challenge.challenge_goals }}<p></li>
+                        <li><p>Compulsions: My challenge compulsions are {{ challenge.challenge_compulsions }}<p></li>
                     </ul>
                     {% if not archived %}
-                        <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-1" href="{% url 'task-archive' task.id %}" onclick="return checkArchive()";>Archive</a>
-                        <a class="btn btn-primary pull-right col-xs-3" href="{% url 'task-score-form' task.id %}"> Do the task </a>
+                        <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-1" href="{% url 'challenge-archive' challenge.id %}" onclick="return checkArchive()";>Archive</a>
+                        <a class="btn btn-primary pull-right col-xs-3" href="{% url 'challenge-score-form' challenge.id %}"> Do the challenge </a>
                     {% endif %}   
                 </li>
                 </ul>
             {% endfor %}
         {% else %}
-            <h2>You have no tasks yet!</h2>
+            <h2>You have no challenges yet!</h2>
         {% endif %}
         {% if not archived %}
-            <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-5" href="{% url 'task-add' %}">
+            <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-5" href="{% url 'challenge-add' %}">
                 <span class="fa fa-plus-square"></span> Add New Challenge
             </a>
         {% endif %}
@@ -48,7 +48,7 @@
     
     <script language="javascript">
         function checkArchive() {
-            if (confirm("Are you sure you want to archive this task? Once archived you will not be able to reactivate it.")) {
+            if (confirm("Are you sure you want to archive this challenge? Once archived you will not be able to reactivate it.")) {
                 return true;
             } else {
                 return false;
