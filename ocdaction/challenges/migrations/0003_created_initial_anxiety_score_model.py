@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('score', models.CharField(choices=[('0', 'Zero'), ('1', 'One'), ('2', 'Two'), ('3', 'Three'), ('4', 'Four'), ('5', 'Five'), ('6', 'Six'), ('7', 'Seven'), ('8', 'Eight'), ('9', 'Nine'), ('10', 'Ten')], default='0', max_length=2)),
-                ('task', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='challenges.Task')),
+                ('task', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='challenges.Challenge')),
             ],
         ),
     ]

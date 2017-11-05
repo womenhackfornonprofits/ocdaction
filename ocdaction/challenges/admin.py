@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Task, AnxietyScoreCard
+from .models import Challenge, AnxietyScoreCard
 
 
 class TaskAdmin(admin.ModelAdmin):
@@ -24,5 +24,5 @@ class AnxietyScoreCardAdmin(admin.ModelAdmin):
 
 
 # Register your models here.
-admin.site.register(Task, TaskAdmin)
+admin.site.register(Challenge, TaskAdmin)
 admin.site.register(AnxietyScoreCard, AnxietyScoreCardAdmin)

@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 
 
-class Task(models.Model):
+class Challenge(models.Model):
     """a task is a user created task that can be completed
     by a user to track anxiety
     """
@@ -89,7 +89,7 @@ class AnxietyScoreCard(models.Model):
         choices=ANXIETY_SCORE_CHOICES,
         blank=False
     )
-    task = models.ForeignKey('Task', on_delete=models.CASCADE)
+    task = models.ForeignKey('Challenge', on_delete=models.CASCADE)
 
     def user_name(self):
         return self.task.user
