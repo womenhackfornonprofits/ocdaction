@@ -37,7 +37,7 @@ def challenge_add(request):
 
             return redirect('challenge-list')
     else:
-        challenge_form = TaskForm()
+        challenge_form = ChallengeForm()
 
     return render(
         request,
