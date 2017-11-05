@@ -1,11 +1,11 @@
 from django import forms
 
-from tasks.models import Task, AnxietyScoreCard
+from challenges.models import Challenge, AnxietyScoreCard
 
 
-class TaskForm(forms.ModelForm):
+class ChallengeForm(forms.ModelForm):
     class Meta:
-        model = Task
+        model = Challenge
         fields = ('challenge_name', 'challenge_fears', 'challenge_compulsions', 'challenge_goals')
         widgets = {
             'challenge_fears': forms.Textarea(attrs={'rows': '3'}),
