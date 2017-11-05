@@ -110,7 +110,7 @@ def challenge_summary(request, challenge_id, score_id):
     """
     Summary of a challenge
     """
-    challenge = get_object_or_404(Task, pk=challenge_id)
+    challenge = get_object_or_404(Challenge, pk=challenge_id)
     anxiety_score_card = get_object_or_404(AnxietyScoreCard, pk=score_id)
 
     return render(
@@ -128,7 +128,7 @@ def challenge_score_form(request, challenge_id):
     """
     Enter anxiety scores for the challenge
     """
-    challenge = get_object_or_404(Task, pk=challenge_id)
+    challenge = get_object_or_404(Challenge, pk=challenge_id)
 
     if request.method == "POST":
         anxiety_score_form = AnxietyScoreCardForm(request.POST)
