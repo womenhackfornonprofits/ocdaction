@@ -20,7 +20,7 @@ class AnxietyScoreCardAdmin(admin.ModelAdmin):
         'score_after_30_min',
         'score_after_60_min'
     )
-    search_fields = ['task__task_name']
+    search_fields = ['challenge__challenge_name']
 
 
 # Register your models here.
