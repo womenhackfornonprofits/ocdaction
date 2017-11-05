@@ -9,7 +9,7 @@ def test_create_task():
 
     user = UserFactory.create()
 
-    # Check there are 0 tasks before a new task is added
+    # Check there are 0 challenges before a new task is added
     number_tasks = Task.objects.filter(user_id=user.id).count()
     assert number_tasks == 0
 

@@ -8,16 +8,16 @@ from tasks.forms import TaskForm, AnxietyScoreCardForm
 @login_required
 def task_list(request, archived=None):
     """
-    Displays a list os user tasks on ACT view
+    Displays a list os user challenges on ACT view
     """
     template_name = "act/task_list.html"
 
     if archived == None:
         tasks = Task.objects.filter(user=request.user, is_archived=False).order_by('-created_at', '-updated_at')[:10]
-        context = {'tasks': tasks}
+        context = {'challenges': tasks}
     else:
         tasks = Task.objects.filter(user=request.user, is_archived=True).order_by('-created_at', '-updated_at')[:10]
-        context = {'tasks': tasks, 'archived': True}
+        context = {'challenges': tasks, 'archived': True}
 
     return render(request, template_name, context)
 

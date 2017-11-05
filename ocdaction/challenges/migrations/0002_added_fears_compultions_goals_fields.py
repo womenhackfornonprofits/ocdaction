@@ -8,7 +8,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('tasks', '0001_split_up_tasks_separate_app'),
+        ('challenges', '0001_split_up_tasks_separate_app'),
     ]
 
     operations = [

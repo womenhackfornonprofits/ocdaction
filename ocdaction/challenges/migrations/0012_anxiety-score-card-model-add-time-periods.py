@@ -9,7 +9,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('tasks', '0011_remove_anxietyscore_user'),
+        ('challenges', '0011_remove_anxietyscore_user'),
     ]
 
     operations = [
@@ -20,16 +20,16 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='anxietyscorecard',
             name='score_after_0_min',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='score_0', to='tasks.AnxietyScore'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='score_0', to='challenges.AnxietyScore'),
         ),
         migrations.AddField(
             model_name='anxietyscorecard',
             name='score_after_30_min',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='score_30', to='tasks.AnxietyScore'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='score_30', to='challenges.AnxietyScore'),
         ),
         migrations.AddField(
             model_name='anxietyscorecard',
             name='score_after_60_min',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='score_60', to='tasks.AnxietyScore'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='score_60', to='challenges.AnxietyScore'),
         ),
     ]

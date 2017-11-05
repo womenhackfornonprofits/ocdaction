@@ -37,7 +37,7 @@ urlpatterns = [
         include('profiles.urls')
     ),
     url(
-        r'^tasks/',
-        include('tasks.urls')
+        r'^challenges/',
+        include('challenges.urls')
     ),
 ]

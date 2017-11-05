@@ -8,7 +8,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('tasks', '0014_moved-score-choices-to-anxiety-score-card-model'),
+        ('challenges', '0014_moved-score-choices-to-anxiety-score-card-model'),
     ]
 
     operations = [

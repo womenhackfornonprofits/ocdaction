@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'custom_user',
     'profiles',
     'core',
-    'tasks',
+    'challenges',
 
 ]
 

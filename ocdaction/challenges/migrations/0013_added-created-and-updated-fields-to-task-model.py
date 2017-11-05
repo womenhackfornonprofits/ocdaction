@@ -10,7 +10,7 @@ from django.utils.timezone import utc
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('tasks', '0012_anxiety-score-card-model-add-time-periods'),
+        ('challenges', '0012_anxiety-score-card-model-add-time-periods'),
     ]
 
     operations = [

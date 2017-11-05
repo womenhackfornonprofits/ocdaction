@@ -8,7 +8,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('tasks', '0013_added-created-and-updated-fields-to-task-model'),
+        ('challenges', '0013_added-created-and-updated-fields-to-task-model'),
     ]
 
     operations = [
