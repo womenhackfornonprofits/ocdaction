@@ -4,54 +4,54 @@
 from django.conf.urls import url
 
 from .views import (
-    task_list,
-    task_add,
-    task_edit,
-    task_archive,
-    task_score_form,
-    task_complete,
-    task_summary
+    challenge_list,
+    challenge_add,
+    challenge_edit,
+    challenge_archive,
+    challenge_score_form,
+    challenge_complete,
+    challenge_summary
 )
 
 urlpatterns = [
     url(
         r'^$',
-        task_list,
+        challenge_list,
         name="challenge-list"
     ),
     url(
         r'^(?P<archived>)archived/$',
-        task_list,
+        challenge_list,
         name="challenge-list-archived"
     ),
     url(
         r'^new/$',
-        task_add,
+        challenge_add,
         name="challenge-add"
     ),
     url(
-        r'^(?P<task_id>\d+)/edit$',
-        task_edit,
+        r'^(?P<challenge_id>\d+)/edit$',
+        challenge_edit,
         name="challenge-edit"
     ),
     url(
-        r'^(?P<task_id>\d+)/archive/$',
-        task_archive,
+        r'^(?P<challenge_id>\d+)/archive/$',
+        challenge_archive,
         name="challenge-archive"
     ),
     url(
-        r'^(?P<task_id>\d+)/$',
-        task_score_form,
+        r'^(?P<challenge_id>\d+)/$',
+        challenge_score_form,
         name="challenge-score-form"
     ),
     url(
-        r'^(?P<task_id>\d+)/complete/(?P<score_id>\d+)/$',
-        task_complete,
+        r'^(?P<challenge_id>\d+)/complete/(?P<score_id>\d+)/$',
+        challenge_complete,
         name="challenge-complete"
     ),
     url(
-        r'^(?P<task_id>\d+)/summary/(?P<score_id>\d+)/$',
-        task_summary,
+        r'^(?P<challenge_id>\d+)/summary/(?P<score_id>\d+)/$',
+        challenge_summary,
         name="challenge-summary"
     ),
 ]
