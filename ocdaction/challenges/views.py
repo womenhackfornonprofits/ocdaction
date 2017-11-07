@@ -10,7 +10,7 @@ def challenge_list(request, archived=None):
     """
     Displays a list os user challenges on ACT view
     """
-    template_name = "act/challenge_list.html"
+    template_name = "challenge/challenge_list.html"
 
     if archived == None:
         challenges = Challenge.objects.filter(user=request.user, is_archived=False).order_by('-created_at', '-updated_at')[:10]
@@ -41,7 +41,7 @@ def challenge_add(request):
 
     return render(
         request,
-        'act/challenge_add.html',
+        'challenge/challenge_add.html',
         {
             'challenge_form': challenge_form,
         }
@@ -71,7 +71,7 @@ def challenge_edit(request, challenge_id):
 
     return render(
          request,
-         'act/challenge_edit.html',
+         'challenge/challenge_edit.html',
          context
     )
 
@@ -97,7 +97,7 @@ def challenge_complete(request, challenge_id, score_id):
 
     return render(
         request,
-        'act/challenge_complete.html',
+        'challenge/challenge_complete.html',
         {
             'challenge': challenge,
             'anxiety_score_card': anxiety_score_card,
@@ -115,7 +115,7 @@ def challenge_summary(request, challenge_id, score_id):
 
     return render(
         request,
-        'act/challenge_summary.html',
+        'challenge/challenge_summary.html',
         {
             'challenge': challenge,
             'anxiety_score_card': anxiety_score_card,
@@ -143,7 +143,7 @@ def challenge_score_form(request, challenge_id):
 
     return render(
         request,
-        'act/challenge_score_form.html',
+        'challenge/challenge_score_form.html',
         {
             'anxiety_score_form': anxiety_score_form,
             'challenge': challenge
