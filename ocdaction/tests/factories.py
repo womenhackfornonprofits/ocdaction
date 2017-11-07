@@ -1,7 +1,7 @@
 import factory.django
 
 from profiles.models import OCDActionUser
-from tasks.models import Task
+from challenges.models import Challenge
 import datetime
 
 
@@ -20,20 +20,20 @@ class UserFactory(factory.django.DjangoModelFactory):
     have_ocd = True
 
 
-class TaskFactory(factory.django.DjangoModelFactory):
+class ChallengeFactory(factory.django.DjangoModelFactory):
     class Meta:
-        model = Task
+        model = Challenge
         django_get_or_create = (
-            'task_name',
+            'challenge_name',
             'is_archived',
-            'task_fears',
-            'task_compulsions',
-            'task_goals'
+            'challenge_fears',
+            'challenge_compulsions',
+            'challenge_goals'
         )
 
-    task_name = 'taskname'
+    challenge_name = 'challengename'
     is_archived = False
-    task_fears = 'fears'
-    task_compulsions = 'compulsions'
-    task_goals = 'goals'
+    challenge_fears = 'fears'
+    challenge_compulsions = 'compulsions'
+    challenge_goals = 'goals'
     user = factory.SubFactory(UserFactory)

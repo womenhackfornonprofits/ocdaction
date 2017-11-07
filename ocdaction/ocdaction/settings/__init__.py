@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'custom_user',
     'profiles',
     'core',
-    'tasks',
+    'challenges',
 
 ]
 
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'ocdaction.urls'
 
 LOGIN_URL = '/users/login/'
 
-LOGIN_REDIRECT_URL = 'task-list'
+LOGIN_REDIRECT_URL = 'challenge-list'
 
 TEMPLATES = [
     {

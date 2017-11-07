@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% load static widget_tweaks %}
+
+{% block title %}Edit challenge{% endblock %}
+
+{% block main %}
+
+    <section>
+        <h1>ACT</h1>
+        <h2>Edit challenge</h2>
+        <form class="col-xs-6 col-xs-offset-3" method="POST" action="{{ challenge_form.get_absolute_url }}">
+            {% csrf_token %}
+            {% if challenge_form.non_field_errors %}
+                <div class="non-field-errors">
+                {% for error in challenge_form.non_field_errors %}
+                    <p class="form-error text-danger">{{ error }}</p>
+                {% endfor %}
+                </div>
+            {% endif %}
+
+            {% for field in challenge_form %}
+                <div class="form-group {% if field.errors %} has-error {% endif %}">
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                            <p class="form-error pull-left text-danger">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                    {% render_field field placeholder=field.label class+="form-control" %}
+                </div>
+            {% endfor %}
+            <div class="col-xs-6">
+                <a class="btn btn-danger pull-right" onclick="return checkCancel()" href="{% url 'challenge-list' %}">Cancel</a>
+            </div>
+            <div class="col-xs-6">
+                <button class="btn btn-primary pull-left" type="submit">Save</button>
+            </div>
+        </form>
+    </section>
+
+    <script language="javascript">
+        function checkCancel() {
+            if (confirm("Are you sure you want to discard changes?")) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+
+{% endblock %}

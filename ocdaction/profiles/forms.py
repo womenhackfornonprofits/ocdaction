@@ -32,7 +32,7 @@ class OCDActionUserRegistrationForm(RegistrationForm):
     )
 
     class Meta:
-        """a task is a user created task that can be completed
+        """a challenge is a user created challenge that can be completed
         by a user to track anxiety
         """
         model = OCDActionUser

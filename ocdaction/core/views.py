@@ -8,6 +8,6 @@ def home_index(request):
 
     template_name = "index.html"
     if request.user.is_authenticated():
-        return redirect('task-list')
+        return redirect('challenge-list')
     else:
         return render(request, template_name)

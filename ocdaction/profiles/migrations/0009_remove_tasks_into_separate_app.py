@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RemoveField(
-            model_name='task',
+            model_name='challenge',
             name='user',
         ),
         migrations.AlterField(
@@ -35,6 +35,6 @@ class Migration(migrations.Migration):
             field=models.CharField(max_length=24),
         ),
         migrations.DeleteModel(
-            name='Task',
+            name='Challenge',
         ),
     ]

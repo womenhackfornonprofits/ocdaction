@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.DeleteModel(
-            name='Task',
+            name='Challenge',
         ),
     ]
