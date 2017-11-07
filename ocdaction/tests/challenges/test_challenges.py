@@ -5,7 +5,7 @@ from challenges.models import Challenge
 
 
 @pytest.mark.django_db
-def test_create_task():
+def test_create_challenge():
 
     user = UserFactory.create()
 
