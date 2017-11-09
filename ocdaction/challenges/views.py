@@ -8,18 +8,12 @@ from challenges.forms import ChallengeForm, AnxietyScoreCardForm
 @login_required
 def challenge_list(request, archived=None):
     """
-    Displays a list os user challenges on ACT view
+    Displays a list of user challenges on Challenge view
     """
-    template_name = "challenge/challenge_list.html"
+    challenges = Challenge.objects.filter(user=request.user, is_archived=False).order_by('-created_at', '-updated_at')[:10]
+    context = {'challenges': challenges}
 
-    if archived == None:
-        challenges = Challenge.objects.filter(user=request.user, is_archived=False).order_by('-created_at', '-updated_at')[:10]
-        context = {'challenges': challenges}
-    else:
-        challenges = Challenge.objects.filter(user=request.user, is_archived=True).order_by('-created_at', '-updated_at')[:10]
-        context = {'challenges': challenges, 'archived': True}
-
-    return render(request, template_name, context)
+    return render(request, 'challenge/challenge_list.html', context)
 
 
 @login_required
