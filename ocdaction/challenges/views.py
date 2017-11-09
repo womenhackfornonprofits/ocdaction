@@ -6,7 +6,7 @@ from challenges.forms import ChallengeForm, AnxietyScoreCardForm
 
 
 @login_required
-def challenge_list(request, archived=None):
+def challenge_list(request):
     """
     Displays a list of user challenges on Challenge view
     """
@@ -17,7 +17,7 @@ def challenge_list(request, archived=None):
 
 
 @login_required
-def challenge_list_archived(request, archived=True):
+def challenge_list_archived(request):
     """
     Displays a list of user archived challenges
     """ 
