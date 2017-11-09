@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block main %}
+    <section class="container">
+        <h2>My Archive</h2>
+        {% if challenges %}
+            {% for challenge in challenges %}
+                <ul class="col-xs-6 col-xs-offset-3">
+                    <li class="row">
+                        <h3>{{ challenge.challenge_name }}</h3>                        
+                        <ul>
+                            <li><p>Fears: My challenge fears are {{ challenge.challenge_fears }}<p></li>
+                            <li><p>Goals: My challenge goals are {{ challenge.challenge_goals }}<p></li>
+                            <li><p>Compulsions: My challenge compulsions are {{ challenge.challenge_compulsions }}<p></li>
+                        </ul>
+                    </li>
+                </ul>
+            {% endfor %}
+        {% else %}
+            <h2>You have no archived challenges yet</h2>
+        {% endif %}
+    </section>
+{% endblock %}

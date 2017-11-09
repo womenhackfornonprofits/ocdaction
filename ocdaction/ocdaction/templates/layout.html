@@ -20,7 +20,10 @@
 				        <li class="header__item">
 				            <a class="header__link" href="{% url 'contact' %}">Contact</a>
 				        </li>
-				        {% if user.is_authenticated %}
+						{% if user.is_authenticated %}
+						<li class="header__item">
+							<a class="header__link" href="{% url 'challenge-list-archived' %}">Archive</a>
+						</li>
 					        <li class="header__item">
 								<a href="{% url 'logout' %}">
 									<i class="fa fa-sign-out"></i> Log out

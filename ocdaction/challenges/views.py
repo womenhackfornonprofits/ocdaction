@@ -17,6 +17,17 @@ def challenge_list(request, archived=None):
 
 
 @login_required
+def challenge_list_archived(request, archived=True):
+    """
+    Displays a list of user archived challenges
+    """ 
+    challenges = Challenge.objects.filter(user=request.user, is_archived=True).order_by('-created_at', '-updated_at')[:10]
+    context = {'challenges': challenges}
+
+    return render(request, 'challenge/challenge_list_archived.html', context)
+
+
+@login_required
 def challenge_add(request):
     """
     Add a new challenge

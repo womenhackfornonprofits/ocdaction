@@ -5,6 +5,7 @@ from django.conf.urls import url
 
 from .views import (
     challenge_list,
+    challenge_list_archived,
     challenge_add,
     challenge_edit,
     challenge_archive,
@@ -20,8 +21,8 @@ urlpatterns = [
         name="challenge-list"
     ),
     url(
-        r'^(?P<archived>)archived/$',
-        challenge_list,
+        r'^archived/$',
+        challenge_list_archived,
         name="challenge-list-archived"
     ),
     url(
