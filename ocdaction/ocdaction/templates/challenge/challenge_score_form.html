@@ -41,7 +41,9 @@
                 {% endif %}
             {% endfor %}
 
-            <!---button class="btn btn-primary pull-left col-xs-4 col-xs-offset-5" type="submit">Complete the Challenge</button-->
+            {% if anxiety_score_form.score_after_120_min.value %}
+                <button class="btn btn-primary pull-left col-xs-4 col-xs-offset-5" type="submit">Complete the Challenge</button>
+            {% endif %}
         </form>
     </section>
 {% endblock %}
