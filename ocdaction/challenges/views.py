@@ -20,7 +20,7 @@ def challenge_list(request):
 def challenge_list_archived(request):
     """
     Displays a list of user archived challenges
-    """ 
+    """
     challenges = Challenge.objects.filter(user=request.user, is_archived=True).order_by('-created_at', '-updated_at')[:10]
     context = {'challenges': challenges}
 
@@ -142,7 +142,7 @@ def challenge_score_form(request, challenge_id):
             anxiety_score_card.challenge = challenge
             anxiety_score_card.save()
 
-            return redirect('challenge-complete', challenge_id=challenge.id, score_id=anxiety_score_card.id)
+            #return redirect('challenge-complete', challenge_id=challenge.id, score_id=anxiety_score_card.id)
     else:
         anxiety_score_form = AnxietyScoreCardForm()
 

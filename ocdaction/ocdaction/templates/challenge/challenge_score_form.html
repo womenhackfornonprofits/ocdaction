@@ -10,8 +10,15 @@
             {% csrf_token %}
 
             <h3> {{ challenge.challenge_name }} </h3>
-            {{ anxiety_score_form.as_p }}
-            <button class="btn btn-primary pull-left col-xs-4 col-xs-offset-5" type="submit">Complete the Challenge</button>
+            {% for field in anxiety_score_form %}
+                <div class=""fieldWrapper">
+                    {{ field.errors }}
+                    {{ field.label_tag }} {{ field }}
+                    <button class="btn btn-primary pull-left col-xs-4 col-xs-offset-8" type="submit">Save</button>
+                </div>
+            {% endfor %}
+
+            <!---button class="btn btn-primary pull-left col-xs-4 col-xs-offset-5" type="submit">Complete the Challenge</button-->
         </form>
     </section>
 {% endblock %}
