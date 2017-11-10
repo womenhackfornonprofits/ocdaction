@@ -94,7 +94,7 @@ class AnxietyScoreCard(models.Model):
         choices=ANXIETY_SCORE_CHOICES,
         blank=False
     )
-    challenge = models.ForeignKey('Challenge', on_delete=models.CASCADE)
+    challenge = models.OneToOneField('Challenge', on_delete=models.CASCADE)
 
     def user_name(self):
         return self.challenge.user
