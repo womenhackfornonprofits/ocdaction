@@ -146,7 +146,6 @@ def challenge_score_form(request, challenge_id):
             anxiety_score_card.challenge = challenge
             anxiety_score_card.save()
 
-            #return redirect('challenge-complete', challenge_id=challenge.id, score_id=anxiety_score_card.id)
     else:
         anxiety_score_form = AnxietyScoreCardForm(instance=scores)
 
