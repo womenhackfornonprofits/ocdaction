@@ -134,7 +134,10 @@ def challenge_score_form(request, challenge_id):
     Enter anxiety scores for the challenge
     """
     challenge = get_object_or_404(Challenge, pk=challenge_id)
-    scores = get_object_or_404(AnxietyScoreCard, challenge=challenge_id)
+    try:
+        scores = AnxietyScoreCard.objects.get(challenge=challenge_id)
+    except AnxietyScoreCard.DoesNotExist:
+        scores = None
 
     if request.method == "POST":
         anxiety_score_form = AnxietyScoreCardForm(request.POST, instance=scores)
