@@ -11,7 +11,7 @@
 
             <h3> {{ challenge.challenge_name }} </h3>
             {% for field in anxiety_score_form %}
-                {% if anxiety_score_form.score_after_0_min.value %}
+                {% if anxiety_score_form.anxiety_at_0_min.value %}
                     {% if field.value %}
                         {{ field.as_hidden }}
                         <p>{{ field.label_tag }} {{ field.value }}</p>
@@ -23,7 +23,7 @@
                         </div>
                     {% endif %}
                 {% else %}
-                    {% if field.name == 'score_after_0_min' %}
+                    {% if field.name == 'anxiety_at_0_min' %}
                         <div class="fieldWrapper">
                             {{ field.errors }}
                             {{ field.label_tag }} {{ field }}
@@ -41,7 +41,7 @@
                 {% endif %}
             {% endfor %}
 
-            {% if anxiety_score_form.score_after_120_min.value %}
+            {% if anxiety_score_form.anxiety_at_120_min.value %}
                 <button class="btn btn-primary pull-left col-xs-4 col-xs-offset-5" type="submit">Complete the Challenge</button>
             {% endif %}
         </form>
