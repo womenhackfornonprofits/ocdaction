@@ -19,3 +19,7 @@ class AnxietyScoreCardForm(forms.ModelForm):
     class Meta:
         model = AnxietyScoreCard
         exclude = ['challenge']
+
+    def __init__(self, *args, **kwargs):
+        super(AnxietyScoreCardForm, self).__init__(*args, **kwargs)
+        self.fields['score_after_120_min'].required = False

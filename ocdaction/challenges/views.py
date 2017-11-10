@@ -134,9 +134,10 @@ def challenge_score_form(request, challenge_id):
     Enter anxiety scores for the challenge
     """
     challenge = get_object_or_404(Challenge, pk=challenge_id)
+    scores = get_object_or_404(AnxietyScoreCard, challenge=challenge_id)
 
     if request.method == "POST":
-        anxiety_score_form = AnxietyScoreCardForm(request.POST)
+        anxiety_score_form = AnxietyScoreCardForm(request.POST, instance=scores)
         if anxiety_score_form.is_valid():
             anxiety_score_card = anxiety_score_form.save(commit=False)
             anxiety_score_card.challenge = challenge
@@ -144,7 +145,7 @@ def challenge_score_form(request, challenge_id):
 
             #return redirect('challenge-complete', challenge_id=challenge.id, score_id=anxiety_score_card.id)
     else:
-        anxiety_score_form = AnxietyScoreCardForm()
+        anxiety_score_form = AnxietyScoreCardForm(instance=scores)
 
     return render(
         request,
