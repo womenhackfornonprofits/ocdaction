@@ -11,11 +11,31 @@
 
             <h3> {{ challenge.challenge_name }} </h3>
             {% for field in anxiety_score_form %}
-                <div class=""fieldWrapper">
-                    {{ field.errors }}
-                    {{ field.label_tag }} {{ field }}
-                    <button class="btn btn-primary pull-left col-xs-4 col-xs-offset-8" type="submit">Save</button>
-                </div>
+                {% if anxiety_score_form.score_after_0_min.value %}
+                    {% if field.value %}
+                        <p>Anxiety at {{ field.name }} min: {{ field.value }}</p>
+                    {% else %}
+                        <div class="fieldWrapper">
+                            {{ field.errors }}
+                            {{ field.label_tag }} {{ field }}
+                            <button class="btn btn-primary pull-left col-xs-4 col-xs-offset-8" type="submit">Save</button>
+                        </div>
+                    {% endif %}
+                {% else %}
+                    {% if field.name == 'score_after_0_min' %}
+                        <div class="fieldWrapper">
+                            {{ field.errors }}
+                            {{ field.label_tag }} {{ field }}
+                            <button class="btn btn-primary pull-left col-xs-4 col-xs-offset-8" type="submit">Save</button>
+                        </div>
+                    {% else %}
+                        <div class="fieldWrapper">
+                            {{ field.errors }}
+                            {{ field.label_tag }} {{ field }}
+                            <button class="btn btn-primary pull-left col-xs-4 col-xs-offset-8" type="submit" disabled>Save</button>
+                        </div>
+                    {% endif %}
+                {% endif %}
             {% endfor %}
 
             <!---button class="btn btn-primary pull-left col-xs-4 col-xs-offset-5" type="submit">Complete the Challenge</button-->
