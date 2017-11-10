@@ -14,7 +14,7 @@
                 {% if anxiety_score_form.score_after_0_min.value %}
                     {% if field.value %}
                         {{ field.as_hidden }}
-                        <p>Anxiety at {{ field.name }} min: {{ field.value }}</p>
+                        <p>{{ field.label_tag }} {{ field.value }}</p>
                     {% else %}
                         <div class="fieldWrapper">
                             {{ field.errors }}
