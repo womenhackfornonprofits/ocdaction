@@ -30,8 +30,10 @@
                         </div>
                     {% else %}
                         <div class="fieldWrapper">
+                            <fieldset disabled="disabled">
                             {{ field.errors }}
                             {{ field.label_tag }} {{ field }}
+                            </fieldset>
                             <button class="btn btn-primary pull-left col-xs-4 col-xs-offset-8" type="submit" disabled>Save</button>
                         </div>
                     {% endif %}
