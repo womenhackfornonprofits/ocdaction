@@ -67,27 +67,27 @@ class AnxietyScoreCard(models.Model):
     score_after_5_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        blank=False
+        blank=True
     )
     score_after_10_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        blank=False
+        blank=True
     )
     score_after_15_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        blank=False
+        blank=True
     )
     score_after_30_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        blank=False
+        blank=True
     )
     score_after_60_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        blank=False
+        blank=True
     )
     score_after_120_min = models.CharField(
         max_length=2,
