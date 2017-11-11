@@ -59,37 +59,42 @@ class AnxietyScoreCard(models.Model):
         (SCORE_TEN, 'ten'),
     )
 
-    score_after_0_min = models.CharField(
+    anxiety_at_0_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
         blank=False
     )
-    score_after_5_min = models.CharField(
+    anxiety_at_5_min = models.CharField(
+        max_length=2,
+        choices=ANXIETY_SCORE_CHOICES,
+        blank=True
+    )
+    anxiety_at_10_min = models.CharField(
+        max_length=2,
+        choices=ANXIETY_SCORE_CHOICES,
+        blank=True
+    )
+    anxiety_at_15_min = models.CharField(
+        max_length=2,
+        choices=ANXIETY_SCORE_CHOICES,
+        blank=True
+    )
+    anxiety_at_30_min = models.CharField(
+        max_length=2,
+        choices=ANXIETY_SCORE_CHOICES,
+        blank=True
+    )
+    anxiety_at_60_min = models.CharField(
+        max_length=2,
+        choices=ANXIETY_SCORE_CHOICES,
+        blank=True
+    )
+    anxiety_at_120_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
         blank=False
     )
-    score_after_10_min = models.CharField(
-        max_length=2,
-        choices=ANXIETY_SCORE_CHOICES,
-        blank=False
-    )
-    score_after_15_min = models.CharField(
-        max_length=2,
-        choices=ANXIETY_SCORE_CHOICES,
-        blank=False
-    )
-    score_after_30_min = models.CharField(
-        max_length=2,
-        choices=ANXIETY_SCORE_CHOICES,
-        blank=False
-    )
-    score_after_60_min = models.CharField(
-        max_length=2,
-        choices=ANXIETY_SCORE_CHOICES,
-        blank=False
-    )
-    challenge = models.ForeignKey('Challenge', on_delete=models.CASCADE)
+    challenge = models.OneToOneField('Challenge', on_delete=models.CASCADE)
 
     def user_name(self):
         return self.challenge.user

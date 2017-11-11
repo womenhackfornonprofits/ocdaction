@@ -20,7 +20,7 @@ def challenge_list(request):
 def challenge_list_archived(request):
     """
     Displays a list of user archived challenges
-    """ 
+    """
     challenges = Challenge.objects.filter(user=request.user, is_archived=True).order_by('-created_at', '-updated_at')[:10]
     context = {'challenges': challenges}
 
@@ -146,23 +146,35 @@ def challenge_score_form(request, challenge_id):
     Enter anxiety scores for the challenge
     """
     challenge = get_object_or_404(Challenge, pk=challenge_id)
+    try:
+        scores = AnxietyScoreCard.objects.get(challenge=challenge_id)
+    except AnxietyScoreCard.DoesNotExist:
+        scores = None
 
     if request.method == "POST":
-        anxiety_score_form = AnxietyScoreCardForm(request.POST)
+        anxiety_score_form = AnxietyScoreCardForm(request.POST, instance=scores)
         if anxiety_score_form.is_valid():
             anxiety_score_card = anxiety_score_form.save(commit=False)
             anxiety_score_card.challenge = challenge
             anxiety_score_card.save()
 
-            return redirect('challenge-complete', challenge_id=challenge.id, score_id=anxiety_score_card.id)
     else:
-        anxiety_score_form = AnxietyScoreCardForm()
+        anxiety_score_form = AnxietyScoreCardForm(instance=scores)
+
+    if scores == None:
+        context = {
+            'anxiety_score_form': anxiety_score_form,
+            'challenge': challenge
+        }
+    else:
+        context = {
+            'anxiety_score_form': anxiety_score_form,
+            'challenge': challenge,
+            'score_id': scores.id
+        }
 
     return render(
         request,
         'challenge/challenge_score_form.html',
-        {
-            'anxiety_score_form': anxiety_score_form,
-            'challenge': challenge
-        }
+        context
     )
