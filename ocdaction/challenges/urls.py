@@ -7,6 +7,7 @@ from .views import (
     challenge_list,
     challenge_list_archived,
     challenge_add,
+    challenge_view,
     challenge_edit,
     challenge_archive,
     challenge_score_form,
@@ -31,7 +32,12 @@ urlpatterns = [
         name="challenge-add"
     ),
     url(
-        r'^(?P<challenge_id>\d+)/edit$',
+        r'^(?P<challenge_id>\d+)/$',
+        challenge_view,
+        name="challenge"
+    ),
+    url(
+        r'^(?P<challenge_id>\d+)/edit/$',
         challenge_edit,
         name="challenge-edit"
     ),
@@ -41,7 +47,7 @@ urlpatterns = [
         name="challenge-archive"
     ),
     url(
-        r'^(?P<challenge_id>\d+)/$',
+        r'^(?P<challenge_id>\d+)/exposure/$',
         challenge_score_form,
         name="challenge-score-form"
     ),

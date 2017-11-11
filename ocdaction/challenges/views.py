@@ -52,6 +52,16 @@ def challenge_add(request):
         }
     )
 
+@login_required
+def challenge_view(request, challenge_id):
+    """
+    View a challenge
+    """
+    challenge = get_object_or_404(Challenge, pk=challenge_id)
+    context = {'challenge': challenge}
+
+    return render(request, 'challenge/challenge_view.html', context)
+
 
 @login_required
 def challenge_edit(request, challenge_id):
@@ -68,7 +78,9 @@ def challenge_edit(request, challenge_id):
             challenge.user = request.user
             challenge.save()
 
-            return redirect('challenge-list')
+            context = {'challenge': challenge_inst}
+            return render(request, 'challenge/challenge_view.html', context)
+        
     else:
         challenge_form = ChallengeForm(instance=challenge_inst)
 
