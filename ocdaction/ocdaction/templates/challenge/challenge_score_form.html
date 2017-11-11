@@ -41,7 +41,7 @@
              {% endfor %}
 
              {% if anxiety_score_form.anxiety_at_120_min.value %}
-                 <a class="btn btn-primary pull-left col-xs-4 col-xs-offset-5" href="{% url 'challenge-complete' challenge_id=challenge.pk score_id=score_id %}">Complete the Challenge</a>
+                 <a class="btn btn-primary pull-left col-xs-4 col-xs-offset-5" href="{% url 'challenge-complete' challenge.pk score_id %}">Complete the Challenge</a>
              {% endif %}
         </form>
     </section>
