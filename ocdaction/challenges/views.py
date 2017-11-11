@@ -149,11 +149,20 @@ def challenge_score_form(request, challenge_id):
     else:
         anxiety_score_form = AnxietyScoreCardForm(instance=scores)
 
-    return render(
-        request,
-        'challenge/challenge_score_form.html',
-        {
+    if scores == None:
+        context = {
             'anxiety_score_form': anxiety_score_form,
             'challenge': challenge
         }
+    else:
+        context = {
+            'anxiety_score_form': anxiety_score_form,
+            'challenge': challenge,
+            'score_id': scores.id
+        }
+
+    return render(
+        request,
+        'challenge/challenge_score_form.html',
+        context
     )
