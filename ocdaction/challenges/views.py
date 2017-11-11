@@ -141,17 +141,15 @@ def challenge_summary(request, challenge_id, score_id):
 
 
 @login_required
-def challenge_score_form(request, challenge_id, score_id=None):
+def challenge_score_form(request, challenge_id, score_id):
     """
     Enter anxiety scores for the challenge
     """
     challenge = get_object_or_404(Challenge, pk=challenge_id)
     try:
         anxiety_score_card = AnxietyScoreCard.objects.get(pk=score_id)
-        score_id = anxiety_score_card.pk
     except AnxietyScoreCard.DoesNotExist:
         anxiety_score_card = None
-        score_id = None
 
     if request.method == "POST":
         anxiety_score_form = AnxietyScoreCardForm(request.POST, instance=anxiety_score_card)
@@ -163,12 +161,20 @@ def challenge_score_form(request, challenge_id, score_id=None):
     else:
         anxiety_score_form = AnxietyScoreCardForm(instance=anxiety_score_card)
 
+    if anxiety_score_card == None:
+        context = {
+            'anxiety_score_form': anxiety_score_form,
+            'challenge': challenge
+        }
+    else:
+        context = {
+            'anxiety_score_form': anxiety_score_form,
+            'challenge': challenge,
+            'score_id': anxiety_score_card.id
+        }
+
     return render(
         request,
         'challenge/challenge_score_form.html',
-        {
-            'anxiety_score_form': anxiety_score_form,
-            'challenge': challenge,
-            'score_id': score_id
-        }
+        context
     )
