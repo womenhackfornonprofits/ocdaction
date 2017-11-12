@@ -20,20 +20,6 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 - Github
 - Slack for group chats/standups etc
 
-## Team
-- [Lili](https://github.com/lili2311) - Full Stack
-- [Jen](https://github.com/jsms90) - Backend
-- [Lola](https://github.com/LolaPwa) - Full Stack (Training)
-- [Laura](https://github.com/lmash) - QA (a little Backend)
-- [Liz](https://github.com/Mawer) - Full Stack (Training)
-- [Natalia](https://github.com/natalia-z) - Front End
-- [Victoria](https://github.com/VAO11) - Full Stack (Training)
-- [Jia Lin](https://github.com/jlin95) - Front End (and a little backend)
-- [Madeleine Linder](https://github.com/madeleinel) - Front End
-- [Lori Lee](https://github.com/teekirol) - Full Stack
-- [Carly](https://github.com/gnocchi2815) - Backend
-- [Anyi Guo](https://github.com/yanniey) - Full Stack
-
 # Setup
 ## Tools
 1. **Terminal**: [iTerm2](https://www.iterm2.com/) (MacOSX), [Terminator](http://gnometerminator.blogspot.co.uk/p/introduction.html) (Linux) or use your preffered one.
