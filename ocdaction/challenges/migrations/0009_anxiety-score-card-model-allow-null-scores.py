@@ -15,12 +15,12 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterField(
             model_name='anxietyscorecard',
-            name='score_after_10_min',
+            name='anxiety_at_10_min',
             field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='score_10', to='challenges.AnxietyScore'),
         ),
         migrations.AlterField(
             model_name='anxietyscorecard',
-            name='score_after_15_min',
+            name='anxiety_at_15_min',
             field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='score_15', to='challenges.AnxietyScore'),
         ),
         migrations.AlterField(
@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='anxietyscorecard',
-            name='score_after_5_min',
+            name='anxiety_at_5_min',
             field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='score_5', to='challenges.AnxietyScore'),
         ),
     ]

@@ -8,10 +8,41 @@
         <h2>Anxiety Tracker</h2>
         <form class="col-xs-6 col-xs-offset-3" method="POST">
             {% csrf_token %}
-
             <h3> {{ challenge.challenge_name }} </h3>
-            {{ anxiety_score_form.as_p }}
-            <button class="btn btn-primary pull-left col-xs-4 col-xs-offset-5" type="submit">Complete the Challenge</button>
+            {% for field in anxiety_score_form %}
+                 {% if anxiety_score_form.anxiety_at_0_min.value %}
+                     {% if field.value %}
+                         {{ field.as_hidden }}
+                         <p>{{ field.label_tag }} {{ field.value }}</p>
+                     {% else %}
+                         <div class="fieldWrapper">
+                             {{ field.errors }}
+                             {{ field.label_tag }} {{ field }}
+                             <button class="btn btn-primary pull-left col-xs-4 col-xs-offset-8" type="submit">Save</button>
+                         </div>
+                     {% endif %}
+                 {% else %}
+                     {% if field.name == 'anxiety_at_0_min' %}
+                         <div class="fieldWrapper">
+                             {{ field.errors }}
+                             {{ field.label_tag }} {{ field }}
+                             <button class="btn btn-primary pull-left col-xs-4 col-xs-offset-8" type="submit">Save</button>
+                         </div>
+                     {% else %}
+                         <div class="fieldWrapper">
+                             <fieldset disabled="disabled">
+                             {{ field.errors }}
+                             {{ field.label_tag }} {{ field }}
+                             </fieldset>
+                             <button class="btn btn-primary pull-left col-xs-4 col-xs-offset-8" type="submit" disabled>Save</button>
+                         </div>
+                     {% endif %}
+                 {% endif %}
+             {% endfor %}
+
+             {% if anxiety_score_form.anxiety_at_120_min.value %}
+                 <a class="btn btn-primary pull-left col-xs-4 col-xs-offset-5" href="{% url 'challenge-complete' challenge.pk score_id %}">Complete the Challenge</a>
+             {% endif %}
         </form>
     </section>
 {% endblock %}

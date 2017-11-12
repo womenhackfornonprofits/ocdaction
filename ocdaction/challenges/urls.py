@@ -47,7 +47,7 @@ urlpatterns = [
         name="challenge-archive"
     ),
     url(
-        r'^(?P<challenge_id>\d+)/exposure/$',
+        r'^(?P<challenge_id>\d+)/exposure/(?P<score_id>\d+)/$',
         challenge_score_form,
         name="challenge-score-form"
     ),

@@ -13,12 +13,13 @@ class AnxietyScoreCardAdmin(admin.ModelAdmin):
     list_display = (
         'challenge',
         'user_name',
-        'score_after_0_min',
-        'score_after_5_min',
-        'score_after_10_min',
-        'score_after_15_min',
-        'score_after_30_min',
-        'score_after_60_min'
+        'anxiety_at_0_min',
+        'anxiety_at_5_min',
+        'anxiety_at_10_min',
+        'anxiety_at_15_min',
+        'anxiety_at_30_min',
+        'anxiety_at_60_min',
+        'anxiety_at_120_min'
     )
     search_fields = ['challenge__challenge_name']
 

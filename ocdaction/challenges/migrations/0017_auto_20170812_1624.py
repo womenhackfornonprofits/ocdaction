@@ -14,32 +14,32 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterField(
             model_name='anxietyscorecard',
-            name='score_after_0_min',
+            name='anxiety_at_0_min',
             field=models.CharField(choices=[('0', 'zero'), ('1', 'one'), ('2', 'two'), ('3', 'three'), ('4', 'four'), ('5', 'five'), ('6', 'six'), ('7', 'seven'), ('8', 'eight'), ('9', 'nine'), ('10', 'ten')], max_length=2),
         ),
         migrations.AlterField(
             model_name='anxietyscorecard',
-            name='score_after_10_min',
+            name='anxiety_at_10_min',
             field=models.CharField(choices=[('0', 'zero'), ('1', 'one'), ('2', 'two'), ('3', 'three'), ('4', 'four'), ('5', 'five'), ('6', 'six'), ('7', 'seven'), ('8', 'eight'), ('9', 'nine'), ('10', 'ten')], max_length=2),
         ),
         migrations.AlterField(
             model_name='anxietyscorecard',
-            name='score_after_15_min',
+            name='anxiety_at_15_min',
             field=models.CharField(choices=[('0', 'zero'), ('1', 'one'), ('2', 'two'), ('3', 'three'), ('4', 'four'), ('5', 'five'), ('6', 'six'), ('7', 'seven'), ('8', 'eight'), ('9', 'nine'), ('10', 'ten')], max_length=2),
         ),
         migrations.AlterField(
             model_name='anxietyscorecard',
-            name='score_after_30_min',
+            name='anxiety_at_30_min',
             field=models.CharField(choices=[('0', 'zero'), ('1', 'one'), ('2', 'two'), ('3', 'three'), ('4', 'four'), ('5', 'five'), ('6', 'six'), ('7', 'seven'), ('8', 'eight'), ('9', 'nine'), ('10', 'ten')], max_length=2),
         ),
         migrations.AlterField(
             model_name='anxietyscorecard',
-            name='score_after_5_min',
+            name='anxiety_at_5_min',
             field=models.CharField(choices=[('0', 'zero'), ('1', 'one'), ('2', 'two'), ('3', 'three'), ('4', 'four'), ('5', 'five'), ('6', 'six'), ('7', 'seven'), ('8', 'eight'), ('9', 'nine'), ('10', 'ten')], max_length=2),
         ),
         migrations.AlterField(
             model_name='anxietyscorecard',
-            name='score_after_60_min',
+            name='anxiety_at_60_min',
             field=models.CharField(choices=[('0', 'zero'), ('1', 'one'), ('2', 'two'), ('3', 'three'), ('4', 'four'), ('5', 'five'), ('6', 'six'), ('7', 'seven'), ('8', 'eight'), ('9', 'nine'), ('10', 'ten')], max_length=2),
         ),
     ]

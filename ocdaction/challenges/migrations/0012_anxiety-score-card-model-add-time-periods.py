@@ -19,17 +19,17 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='anxietyscorecard',
-            name='score_after_0_min',
+            name='anxiety_at_0_min',
             field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='score_0', to='challenges.AnxietyScore'),
         ),
         migrations.AddField(
             model_name='anxietyscorecard',
-            name='score_after_30_min',
+            name='anxiety_at_30_min',
             field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='score_30', to='challenges.AnxietyScore'),
         ),
         migrations.AddField(
             model_name='anxietyscorecard',
-            name='score_after_60_min',
+            name='anxiety_at_60_min',
             field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='score_60', to='challenges.AnxietyScore'),
         ),
     ]

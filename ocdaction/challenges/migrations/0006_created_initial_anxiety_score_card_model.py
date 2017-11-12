@@ -17,10 +17,10 @@ class Migration(migrations.Migration):
             name='AnxietyScoreCard',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('score_after_10_min', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='score_10', to='challenges.AnxietyScore')),
-                ('score_after_15_min', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='score_15', to='challenges.AnxietyScore')),
+                ('anxiety_at_10_min', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='score_10', to='challenges.AnxietyScore')),
+                ('anxiety_at_15_min', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='score_15', to='challenges.AnxietyScore')),
                 ('score_after_20_min', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='score_20', to='challenges.AnxietyScore')),
-                ('score_after_5_min', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='score_5', to='challenges.AnxietyScore')),
+                ('anxiety_at_5_min', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='score_5', to='challenges.AnxietyScore')),
                 ('challenge', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='challenges.Challenge')),
             ],
         ),
