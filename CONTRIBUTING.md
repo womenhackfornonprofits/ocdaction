@@ -1,9 +1,8 @@
 # Contributing Guidelines
 1. Come say hi in the #ocd-action Slack channel before grabbing a ticket
-2. Please ask to be added to the team on Github, you will need to have a github account and share your github username.
-3. As a first PR please add yourself to the README.md as a contributer and raise the PR for review, this will test you have all the access you need to start contributing
-4. Assign an issue to yourself and start working. All changes must be done on a branch so you can raise a PR.
-5. Once ready, please raise a Pull Request.
+2. Fork the repository or ask to be added to the team on Github (you will need to have a github account and share your github username) 
+3. Assign an issue to yourself and start working. All changes must be done on a new branch so you can raise a PR.
+4. Once ready, please raise a Pull Request.
 
 # How to raise a Pull Request
 In order to raise a Pull Request with your changes (please make sure all changes are done on a branch):
