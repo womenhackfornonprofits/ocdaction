@@ -10,8 +10,11 @@ def challenge_list(request):
     """
     Displays a list of user challenges on Challenge view
     """
-    challenges = Challenge.objects.filter(user=request.user, is_archived=False).order_by('-created_at', '-updated_at')[:10]
-    context = {'challenges': challenges}
+    challenges = Challenge.objects.filter(user=request.user, is_archived=False).order_by('-in_progress', '-created_at', '-updated_at')[:10]
+    challenge_in_progress = Challenge.objects.filter(in_progress=True)
+    anxiety_score_card = AnxietyScoreCard.objects.filter(challenge=challenge_in_progress).last()
+
+    context = {'challenges': challenges, 'another_challenge_in_progress': challenge_in_progress, 'anxiety_score_card': anxiety_score_card}
 
     return render(request, 'challenge/challenge_list.html', context)
 
@@ -112,6 +115,9 @@ def challenge_complete(request, challenge_id, score_id):
     challenge = get_object_or_404(Challenge, pk=challenge_id)
     anxiety_score_card = get_object_or_404(AnxietyScoreCard, pk=score_id)
 
+    challenge.in_progress = False
+    challenge.save()
+
     return render(
         request,
         'challenge/challenge_complete.html',
@@ -141,15 +147,37 @@ def challenge_summary(request, challenge_id, score_id):
 
 
 @login_required
+def challenge_score_form_new(request, challenge_id):
+    """
+    Start doing a challenge, creating a new score card
+    """
+
+    challenge = get_object_or_404(Challenge, pk=challenge_id)
+
+    if request.method == "POST":
+        anxiety_score_form = AnxietyScoreCardForm(request.POST)
+        if anxiety_score_form.is_valid():
+            anxiety_score_card = anxiety_score_form.save(commit=False)
+            anxiety_score_card.challenge = challenge
+            challenge.in_progress = True
+            challenge.save()
+            anxiety_score_card.save()
+
+            return redirect(challenge_score_form, challenge_id=challenge_id, score_id=anxiety_score_card.id)
+
+    else:
+        anxiety_score_form = AnxietyScoreCardForm()
+
+    return render(request, 'challenge/challenge_score_form.html', {'anxiety_score_form': anxiety_score_form, 'challenge': challenge})
+
+@login_required
 def challenge_score_form(request, challenge_id, score_id):
     """
-    Enter anxiety scores for the challenge
+    Continue doing a challenge, on an existing score card
     """
+
     challenge = get_object_or_404(Challenge, pk=challenge_id)
-    try:
-        anxiety_score_card = AnxietyScoreCard.objects.get(pk=score_id)
-    except AnxietyScoreCard.DoesNotExist:
-        anxiety_score_card = None
+    anxiety_score_card = get_object_or_404(AnxietyScoreCard, pk=score_id)
 
     if request.method == "POST":
         anxiety_score_form = AnxietyScoreCardForm(request.POST, instance=anxiety_score_card)
@@ -161,20 +189,15 @@ def challenge_score_form(request, challenge_id, score_id):
     else:
         anxiety_score_form = AnxietyScoreCardForm(instance=anxiety_score_card)
 
-    if anxiety_score_card == None:
-        context = {
-            'anxiety_score_form': anxiety_score_form,
-            'challenge': challenge
-        }
-    else:
-        context = {
-            'anxiety_score_form': anxiety_score_form,
-            'challenge': challenge,
-            'score_id': anxiety_score_card.id
-        }
+    context = {
+        'anxiety_score_form': anxiety_score_form,
+        'challenge': challenge,
+        'anxiety_score_card': anxiety_score_card
+    }
 
     return render(
         request,
         'challenge/challenge_score_form.html',
         context
     )
+

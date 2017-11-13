@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 from django.core.urlresolvers import reverse
 
-from django.db import models
+from django.db import models, transaction
 
 
 class Challenge(models.Model):
@@ -10,6 +10,7 @@ class Challenge(models.Model):
     """
     challenge_name = models.CharField(max_length=100)
     is_archived = models.BooleanField(default=False)
+    in_progress = models.BooleanField(default=False)
     challenge_fears = models.CharField(max_length=300, blank=True)
     challenge_compulsions = models.CharField(max_length=300, blank=True)
     challenge_goals = models.CharField(max_length=300, blank=True)
@@ -19,6 +20,12 @@ class Challenge(models.Model):
 
     def __str__(self):
         return self.challenge_name
+
+    @transaction.atomic
+    def save(self, *args, **kwargs):
+        if self.in_progress:
+            Challenge.objects.filter(in_progress=True).update(in_progress=False)
+        super(Challenge, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse('challenge-edit',
