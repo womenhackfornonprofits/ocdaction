@@ -14,7 +14,7 @@ def challenge_list(request):
     challenge_in_progress = Challenge.objects.filter(in_progress=True)
     anxiety_score_card = AnxietyScoreCard.objects.filter(challenge=challenge_in_progress).last()
 
-    context = {'challenges': challenges, 'anxiety_score_card': anxiety_score_card}
+    context = {'challenges': challenges, 'challenge_in_progress': challenge_in_progress, 'anxiety_score_card': anxiety_score_card}
 
     return render(request, 'challenge/challenge_list.html', context)
 
