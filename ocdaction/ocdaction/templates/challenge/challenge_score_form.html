@@ -38,11 +38,11 @@
                          </div>
                      {% endif %}
                  {% endif %}
-             {% endfor %}
+            {% endfor %}
 
-             {% if anxiety_score_form.anxiety_at_120_min.value %}
-                 <a class="btn btn-primary pull-left col-xs-4 col-xs-offset-5" href="{% url 'challenge-complete' challenge.pk score_id %}">Complete the Challenge</a>
-             {% endif %}
+            {% if anxiety_score_form.anxiety_at_120_min.value %}
+                <a class="btn btn-primary pull-left col-xs-4 col-xs-offset-5" href="{% url 'challenge-complete' challenge.pk anxiety_score_card.pk %}">Complete the Challenge</a>
+            {% endif %}
         </form>
     </section>
 {% endblock %}

@@ -12,8 +12,8 @@
             {% for challenge in challenges %}
                 <ul class="col-xs-6 col-xs-offset-3">
                     <li class="row">
-                        <a href="{% url 'challenge' challenge.id %}"><h3>{{ challenge.challenge_name }}</h3></a>                 
-                        <a class="btn btn-primary pull-right col-xs-3" href="{% url 'challenge-score-form' challenge.id 0 %}"> Do the challenge </a>
+                        <a href="{% url 'challenge' challenge.id %}"><h3>{{ challenge.challenge_name }}</h3></a>
+                        <a class="btn btn-primary pull-right col-xs-3" href="{% url 'challenge-score-form-new' challenge.id %}"> Do the challenge </a>
                     </li>
                 </ul>
             {% endfor %}

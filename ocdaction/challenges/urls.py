@@ -1,5 +1,5 @@
 """ocdaction URL Configuration
-    Tasks specific urls for tasks workflows
+    Challenges specific urls for challenges workflows
 """
 from django.conf.urls import url
 
@@ -10,6 +10,7 @@ from .views import (
     challenge_view,
     challenge_edit,
     challenge_archive,
+    challenge_score_form_new,
     challenge_score_form,
     challenge_complete,
     challenge_summary
@@ -45,6 +46,11 @@ urlpatterns = [
         r'^(?P<challenge_id>\d+)/archive/$',
         challenge_archive,
         name="challenge-archive"
+    ),
+    url(
+        r'^(?P<challenge_id>\d+)/exposure/$',
+        challenge_score_form_new,
+        name="challenge-score-form-new"
     ),
     url(
         r'^(?P<challenge_id>\d+)/exposure/(?P<score_id>\d+)/$',
