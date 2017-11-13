@@ -153,6 +153,8 @@ def challenge_score_form_new(request, challenge_id):
         if anxiety_score_form.is_valid():
             anxiety_score_card = anxiety_score_form.save(commit=False)
             anxiety_score_card.challenge = challenge
+            challenge.in_progress = True
+            challenge.save()
             anxiety_score_card.save()
 
             return redirect(challenge_score_form, challenge_id=challenge_id, score_id=anxiety_score_card.id)
