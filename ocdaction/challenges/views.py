@@ -10,7 +10,7 @@ def challenge_list(request):
     """
     Displays a list of user challenges on Challenge view
     """
-    challenges = Challenge.objects.filter(user=request.user, is_archived=False).order_by('-created_at', '-updated_at')[:10]
+    challenges = Challenge.objects.filter(user=request.user, is_archived=False).order_by('-in_progress', '-created_at', '-updated_at')[:10]
     context = {'challenges': challenges}
 
     return render(request, 'challenge/challenge_list.html', context)
