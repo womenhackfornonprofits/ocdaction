@@ -20,7 +20,7 @@
                     <hr>
                 </ul>
                 {% else %}
-                    {% if challenge_in_progress %}
+                    {% if another_challenge_in_progress %}
                         <ul class="col-xs-6 col-xs-offset-3">
                             <li class="row">
                                 <a href="{% url 'challenge' challenge.id %}"><h3>{{ challenge.challenge_name }}</h3></a>
