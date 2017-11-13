@@ -112,6 +112,9 @@ def challenge_complete(request, challenge_id, score_id):
     challenge = get_object_or_404(Challenge, pk=challenge_id)
     anxiety_score_card = get_object_or_404(AnxietyScoreCard, pk=score_id)
 
+    challenge.in_progress = False
+    challenge.save()
+
     return render(
         request,
         'challenge/challenge_complete.html',
