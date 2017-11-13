@@ -13,6 +13,13 @@ class ChallengeForm(forms.ModelForm):
             'exposure': forms.Textarea(attrs={'rows': '3'})
         }
 
+    def __init__(self, *args, **kwargs):
+        super(ChallengeForm, self).__init__(*args, **kwargs)
+        self.fields['challenge_name'].label = 'Your Fear'
+        self.fields['obsession'].label = 'Your Obsession'
+        self.fields['compulsion'].label = 'Your Compulsion'
+        self.fields['exposure'].label = 'Your Exposure'
+
 
 class AnxietyScoreCardForm(forms.ModelForm):
 

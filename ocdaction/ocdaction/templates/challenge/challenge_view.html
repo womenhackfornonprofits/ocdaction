@@ -6,9 +6,9 @@
     <section class="container">
         <h2>{{ challenge.challenge_name }}</h2>
             <ul class="col-xs-6 col-xs-offset-3">
-                <li><p>Fears: My challenge fears are {{ challenge.challenge_fears }}<p></li>
-                <li><p>Goals: My challenge goals are {{ challenge.challenge_goals }}<p></li>
-                <li><p>Compulsions: My challenge compulsions are {{ challenge.challenge_compulsions }}<p></li>
+                <li><p>Your Obsession: {{ challenge.obsession }}<p></li>
+                <li><p>Your Compulsion: {{ challenge.compulsion }}<p></li>
+                <li><p>Your Exposure: {{ challenge.exposure }}<p></li>
                 {% if not challenge.is_archived %}
                 <li>
                     <a class="btn btn-primary pull-right col-xs-2 col-xs-offset-1" 
