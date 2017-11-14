@@ -58,11 +58,6 @@ urlpatterns = [
         name="challenge-score-form"
     ),
     url(
-        r'^(?P<challenge_id>\d+)/complete/(?P<score_id>\d+)/$',
-        challenge_complete,
-        name="challenge-complete"
-    ),
-    url(
         r'^(?P<challenge_id>\d+)/summary/(?P<score_id>\d+)/$',
         challenge_summary,
         name="challenge-summary"
