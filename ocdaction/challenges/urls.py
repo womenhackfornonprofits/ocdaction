@@ -12,7 +12,6 @@ from .views import (
     challenge_archive,
     challenge_score_form_new,
     challenge_score_form,
-    challenge_complete,
     challenge_summary
 )
 
