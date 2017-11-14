@@ -6,12 +6,19 @@ from challenges.models import Challenge, AnxietyScoreCard
 class ChallengeForm(forms.ModelForm):
     class Meta:
         model = Challenge
-        fields = ('challenge_name', 'challenge_fears', 'challenge_compulsions', 'challenge_goals')
+        fields = ('challenge_name', 'obsession', 'compulsion', 'exposure')
         widgets = {
-            'challenge_fears': forms.Textarea(attrs={'rows': '3'}),
-            'challenge_compulsions': forms.Textarea(attrs={'rows': '3'}),
-            'challenge_goals': forms.Textarea(attrs={'rows': '3'})
+            'obsession': forms.Textarea(attrs={'rows': '3'}),
+            'compulsion': forms.Textarea(attrs={'rows': '3'}),
+            'exposure': forms.Textarea(attrs={'rows': '3'})
         }
+
+    def __init__(self, *args, **kwargs):
+        super(ChallengeForm, self).__init__(*args, **kwargs)
+        self.fields['challenge_name'].label = 'Your Fear'
+        self.fields['obsession'].label = 'Your Obsession'
+        self.fields['compulsion'].label = 'Your Compulsion'
+        self.fields['exposure'].label = 'Your Exposure'
 
 
 class AnxietyScoreCardForm(forms.ModelForm):

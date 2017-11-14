@@ -26,14 +26,14 @@ class ChallengeFactory(factory.django.DjangoModelFactory):
         django_get_or_create = (
             'challenge_name',
             'is_archived',
-            'challenge_fears',
-            'challenge_compulsions',
-            'challenge_goals'
+            'obsession',
+            'compulsion',
+            'exposure'
         )
 
     challenge_name = 'challengename'
     is_archived = False
-    challenge_fears = 'fears'
-    challenge_compulsions = 'compulsions'
-    challenge_goals = 'goals'
+    obsession = 'obsession'
+    compulsion = 'compulsion'
+    exposure = 'exposure'
     user = factory.SubFactory(UserFactory)
