@@ -9,7 +9,7 @@
             <span class="fa fa-plus-square"></span> Add New Challenge
         </a>
         {% if challenges %}
-            {% for challenge in challenges %}
+            {% for challenge in sorted_challenges %}
                 {% if challenge.in_progress %}
                 <ul class="col-xs-6 col-xs-offset-3">
                     <h4>In progress</h4>
@@ -23,7 +23,7 @@
                     {% if another_challenge_in_progress %}
                         <ul class="col-xs-6 col-xs-offset-3">
                             <li class="row">
-                                Level: {{ challenge.get_latest_initial_anxiety_level }}
+                                Level: {{ challenge.get_latest_initial_anxiety_level_as_str }}
                                 <a href="{% url 'challenge' challenge.id %}"><h3>{{ challenge.challenge_name }}</h3></a>
                                 <button class="btn btn-primary pull-right col-xs-3" disabled> Do the challenge </button>
                             </li>
@@ -31,7 +31,7 @@
                     {% else %}
                         <ul class="col-xs-6 col-xs-offset-3">
                             <li class="row">
-                                Level: {{ challenge.get_latest_initial_anxiety_level }}
+                                Level: {{ challenge.get_latest_initial_anxiety_level_as_str }}
                                 <a href="{% url 'challenge' challenge.id %}"><h3>{{ challenge.challenge_name }}</h3></a>
                                 <a class="btn btn-primary pull-right col-xs-3" href="{% url 'challenge-score-form-new' challenge.id %}"> Do the challenge </a>
                             </li>
