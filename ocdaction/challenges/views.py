@@ -16,7 +16,8 @@ def challenge_list(request):
         '-updated_at'
     )[:10]
 
-    sorted_challenges = sorted(challenges.all(), reverse=True, key = lambda c: int(c.get_latest_initial_anxiety_level()))
+    sorted_challenges_by_anxiety = sorted(challenges.all(), reverse=True, key = lambda c: int(c.get_latest_initial_anxiety_level()))
+    sorted_challenges = sorted(sorted_challenges_by_anxiety, reverse=True, key = lambda c: c.in_progress)
 
     challenge_in_progress = Challenge.objects.filter(in_progress=True)
     anxiety_score_card = AnxietyScoreCard.objects.filter(challenge=challenge_in_progress).last()
