@@ -10,11 +10,24 @@ def challenge_list(request):
     """
     Displays a list of user challenges on Challenge view
     """
-    challenges = Challenge.objects.filter(user=request.user, is_archived=False).order_by('-in_progress', '-created_at', '-updated_at')[:10]
+    challenges = Challenge.objects.filter(user=request.user, is_archived=False).order_by(
+        '-in_progress',
+        '-created_at',
+        '-updated_at'
+    )[:10]
+
+    sorted_challenges_by_anxiety = sorted(challenges.all(), reverse=True, key = lambda c: int(c.get_latest_initial_anxiety_level()))
+    sorted_challenges = sorted(sorted_challenges_by_anxiety, reverse=True, key = lambda c: c.in_progress)
+
     challenge_in_progress = Challenge.objects.filter(in_progress=True)
     anxiety_score_card = AnxietyScoreCard.objects.filter(challenge=challenge_in_progress).last()
 
-    context = {'challenges': challenges, 'another_challenge_in_progress': challenge_in_progress, 'anxiety_score_card': anxiety_score_card}
+    context = {
+        'challenges': challenges,
+        'sorted_challenges': sorted_challenges,
+        'another_challenge_in_progress': challenge_in_progress,
+        'anxiety_score_card': anxiety_score_card
+    }
 
     return render(request, 'challenge/challenge_list.html', context)
 
