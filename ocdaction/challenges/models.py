@@ -41,7 +41,7 @@ class Challenge(models.Model):
             latest_initial_anxiety_level = anxiety_score_card.anxiety_at_0_min
         except:
             AnxietyScoreCard.DoesNotExist
-            latest_initial_anxiety_level = 0
+            latest_initial_anxiety_level = -1
         return latest_initial_anxiety_level
 
     def get_latest_initial_anxiety_level_as_str(self):
