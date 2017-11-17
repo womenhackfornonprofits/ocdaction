@@ -4,6 +4,11 @@
 
 {% block main %}
     <section>
+        <div class="col-xs-offset-3">
+            <a href="{% url 'challenge-list' %}">
+                <span class="glyphicon glyphicon-menu-left">Back</span>
+            </a>
+        </div>
         <h1>ACT</h1>
         <h2>Anxiety Tracker</h2>
         <form class="col-xs-6 col-xs-offset-3" method="POST">
