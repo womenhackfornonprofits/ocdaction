@@ -14,6 +14,11 @@
                 <ul class="col-xs-6 col-xs-offset-3">
                     <h4>In progress</h4>
                     <li class="row">
+                        Level:  {% if challenge.get_latest_initial_anxiety_level == -1 %}
+                                    -
+                                {% else %}
+                                    {{ challenge.get_latest_initial_anxiety_level }}
+                                {% endif %}
                         <a href="{% url 'challenge' challenge.id %}"><h3>{{ challenge.challenge_name }}</h3></a>
                         <a class="btn btn-primary pull-right col-xs-3" href="{% url 'challenge-score-form' challenge.id anxiety_score_card.id %}"> Do the challenge </a>
                     </li>
