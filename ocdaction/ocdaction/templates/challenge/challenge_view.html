@@ -4,6 +4,11 @@
 
 {% block main %}
     <section class="container">
+        <div class="col-xs-3">
+            <a href="{% url 'challenge-list' %}">
+                <span class="glyphicon glyphicon-menu-left">Back</span>
+            </a>
+        </div>
         <h2>{{ challenge.challenge_name }}</h2>
             <ul class="col-xs-6 col-xs-offset-3">
                 <li><p>Your Obsession: {{ challenge.obsession }}<p></li>
