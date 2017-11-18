@@ -74,7 +74,9 @@ def challenge_view(request, challenge_id):
     View a challenge
     """
     challenge = get_object_or_404(Challenge, pk=challenge_id)
-    context = {'challenge': challenge}
+    anxiety_score_cards = AnxietyScoreCard.objects.filter(challenge=challenge).order_by('-id')[:3]
+
+    context = {'challenge': challenge, 'anxiety_score_cards': anxiety_score_cards}
 
     return render(request, 'challenge/challenge_view.html', context)
 
