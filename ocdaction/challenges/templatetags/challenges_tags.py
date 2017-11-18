@@ -5,10 +5,8 @@ register = template.Library()
 
 @register.simple_tag
 def get_anxiety_level(challenge):
-    try:
-        anxiety_score_card = AnxietyScoreCard.objects.filter(challenge=challenge).last()
-        anxiety_level = anxiety_score_card.anxiety_at_0_min
-    except:
-        AnxietyScoreCard.DoesNotExist
-        anxiety_level = "-"
-    return anxiety_level
+    anxiety_level = challenge.get_latest_initial_anxiety_level()
+    if anxiety_level == -1:
+        return "-"
+    else:
+        return anxiety_level
