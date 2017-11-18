@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% load static %}
+{% load challenges_tags %}
 
 {% block main %}
     <section class="container">
@@ -14,11 +15,7 @@
                 <ul class="col-xs-6 col-xs-offset-3">
                     <h4>In progress</h4>
                     <li class="row">
-                        Level:  {% if challenge.get_latest_initial_anxiety_level == -1 %}
-                                    -
-                                {% else %}
-                                    {{ challenge.get_latest_initial_anxiety_level }}
-                                {% endif %}
+                        Level: {% get_anxiety_level challenge %}
                         <a href="{% url 'challenge' challenge.id %}"><h3>{{ challenge.challenge_name }}</h3></a>
                         <a class="btn btn-primary pull-right col-xs-3" href="{% url 'challenge-score-form' challenge.id anxiety_score_card.id %}"> Do the challenge </a>
                     </li>
@@ -28,11 +25,7 @@
                     {% if another_challenge_in_progress %}
                         <ul class="col-xs-6 col-xs-offset-3">
                             <li class="row">
-                                Level:  {% if challenge.get_latest_initial_anxiety_level == -1 %}
-                                            -
-                                        {% else %}
-                                            {{ challenge.get_latest_initial_anxiety_level }}
-                                        {% endif %}
+                                Level: {% get_anxiety_level challenge %}
                                 <a href="{% url 'challenge' challenge.id %}"><h3>{{ challenge.challenge_name }}</h3></a>
                                 <button class="btn btn-primary pull-right col-xs-3" disabled> Do the challenge </button>
                             </li>
@@ -40,11 +33,7 @@
                     {% else %}
                         <ul class="col-xs-6 col-xs-offset-3">
                             <li class="row">
-                                Level:  {% if challenge.get_latest_initial_anxiety_level == -1 %}
-                                            -
-                                        {% else %}
-                                            {{ challenge.get_latest_initial_anxiety_level }}
-                                        {% endif %}
+                                Level: {% get_anxiety_level challenge %}
                                 <a href="{% url 'challenge' challenge.id %}"><h3>{{ challenge.challenge_name }}</h3></a>
                                 <a class="btn btn-primary pull-right col-xs-3" href="{% url 'challenge-score-form-new' challenge.id %}"> Do the challenge </a>
                             </li>
