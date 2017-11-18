@@ -9,40 +9,40 @@
         <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-5" href="{% url 'challenge-add' %}">
             <span class="fa fa-plus-square"></span> Add New Challenge
         </a>
-        {% if challenges %}
-            {% for challenge in sorted_challenges %}
-                {% if challenge.in_progress %}
-                <ul class="col-xs-6 col-xs-offset-3">
-                    <h4>In progress</h4>
-                    <li class="row">
-                        Level: {% get_anxiety_level challenge %}
-                        <a href="{% url 'challenge' challenge.id %}"><h3>{{ challenge.challenge_name }}</h3></a>
-                        <a class="btn btn-primary pull-right col-xs-3" href="{% url 'challenge-score-form' challenge.id anxiety_score_card.id %}"> Do the challenge </a>
-                    </li>
-                    <hr>
-                </ul>
+        {% for challenge in sorted_challenges %}
+            {% if challenge.in_progress %}
+            <ul class="col-xs-6 col-xs-offset-3">
+                <h4>In progress</h4>
+                <li class="row">
+                    Level: {% get_anxiety_level challenge %}
+                    <a href="{% url 'challenge' challenge.id %}"><h3>{{ challenge.challenge_name }}</h3></a>
+                    <a class="btn btn-primary pull-right col-xs-3" href="{% url 'challenge-score-form' challenge.id anxiety_score_card.id %}"> Do the challenge </a>
+                </li>
+                <hr>
+            </ul>
+            {% else %}
+                {% if another_challenge_in_progress %}
+                    <ul class="col-xs-6 col-xs-offset-3">
+                        <li class="row">
+                            Level: {% get_anxiety_level challenge %}
+                            <a href="{% url 'challenge' challenge.id %}"><h3>{{ challenge.challenge_name }}</h3></a>
+                            <button class="btn btn-primary pull-right col-xs-3" disabled> Do the challenge </button>
+                        </li>
+                    </ul>
                 {% else %}
-                    {% if another_challenge_in_progress %}
-                        <ul class="col-xs-6 col-xs-offset-3">
-                            <li class="row">
-                                Level: {% get_anxiety_level challenge %}
-                                <a href="{% url 'challenge' challenge.id %}"><h3>{{ challenge.challenge_name }}</h3></a>
-                                <button class="btn btn-primary pull-right col-xs-3" disabled> Do the challenge </button>
-                            </li>
-                        </ul>
-                    {% else %}
-                        <ul class="col-xs-6 col-xs-offset-3">
-                            <li class="row">
-                                Level: {% get_anxiety_level challenge %}
-                                <a href="{% url 'challenge' challenge.id %}"><h3>{{ challenge.challenge_name }}</h3></a>
-                                <a class="btn btn-primary pull-right col-xs-3" href="{% url 'challenge-score-form-new' challenge.id %}"> Do the challenge </a>
-                            </li>
-                        </ul>
-                    {% endif %}
+                    <ul class="col-xs-6 col-xs-offset-3">
+                        <li class="row">
+                            Level: {% get_anxiety_level challenge %}
+                            <a href="{% url 'challenge' challenge.id %}"><h3>{{ challenge.challenge_name }}</h3></a>
+                            <a class="btn btn-primary pull-right col-xs-3" href="{% url 'challenge-score-form-new' challenge.id %}"> Do the challenge </a>
+                        </li>
+                    </ul>
                 {% endif %}
-            {% endfor %}
-        {% else %}
-            <h2>You have no challenges yet!</h2>
-        {% endif %}
+            {% endif %}
+        {% empty %}
+            <ul class="col-xs-6 col-xs-offset-3">
+                <h2>You have no challenges yet!</h2>
+            </ul>
+        {% endfor %}
     </section>    
 {% endblock %}
