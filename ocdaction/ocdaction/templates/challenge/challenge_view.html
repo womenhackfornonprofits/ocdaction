@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% load static %}
+{% load challenges_tags %}
 
 {% block main %}
     <section class="container">
@@ -40,43 +41,43 @@
                     <tr>
                         <td>Anxiety at 0 min:</td>
                         {% for card in anxiety_score_cards %}
-                            <td>{% if card.anxiety_at_0_min %} {{ card.anxiety_at_0_min }} {% else %} - {% endif %}</td>
+                            <td>{% render_anxiety_level card.anxiety_at_0_min %}</td>
                         {% endfor %}
                     </tr>
                     <tr>
                         <td>Anxiety at 5 min:</td>
                         {% for card in anxiety_score_cards %}
-                            <td>{% if card.anxiety_at_5_min %} {{ card.anxiety_at_5_min }} {% else %} - {% endif %}</td>
+                            <td>{% render_anxiety_level card.anxiety_at_5_min %}</td>
                         {% endfor %}
                     </tr>
                     <tr>
                         <td>Anxiety at 10 min:</td>
                         {% for card in anxiety_score_cards %}
-                            <td>{% if card.anxiety_at_10_min %} {{ card.anxiety_at_10_min }} {% else %} - {% endif %}</td>
+                            <td>{% render_anxiety_level card.anxiety_at_10_min %}</td>
                         {% endfor %}
                     </tr>
                     <tr>
                         <td>Anxiety at 15 min:</td>
                         {% for card in anxiety_score_cards %}
-                            <td>{% if card.anxiety_at_15_min %} {{ card.anxiety_at_15_min }} {% else %} - {% endif %}</td>
+                            <td>{% render_anxiety_level card.anxiety_at_15_min %}</td>
                         {% endfor %}
                     </tr>
                     <tr>
                         <td>Anxiety at 30 min:</td>
                         {% for card in anxiety_score_cards %}
-                            <td>{% if card.anxiety_at_30_min %} {{ card.anxiety_at_30_min }} {% else %} - {% endif %}</td>
+                            <td>{% render_anxiety_level card.anxiety_at_30_min %}</td>
                         {% endfor %}
                     </tr>
                     <tr>
                         <td>Anxiety at 60 min:</td>
                         {% for card in anxiety_score_cards %}
-                            <td>{% if card.anxiety_at_60_min %} {{ card.anxiety_at_60_min }} {% else %} - {% endif %}</td>
+                            <td>{% render_anxiety_level card.anxiety_at_60_min %}</td>
                         {% endfor %}
                     </tr>
                     <tr>
                         <td>Anxiety at 120 min:</td>
                         {% for card in anxiety_score_cards %}
-                            <td>{% if card.anxiety_at_120_min %} {{ card.anxiety_at_120_min }} {% else %} - {% endif %}</td>
+                            <td>{% render_anxiety_level card.anxiety_at_120_min %}</td>
                         {% endfor %}
                     </tr>
                 </tbody>
