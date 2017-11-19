@@ -25,6 +25,7 @@
             </ul>
     </section>
 
+    {% if anxiety_score_cards %}
     <section>
         <ul class="col-xs-6 col-xs-offset-3">
             <h4>Your exposures for this challenge</h4>
@@ -84,6 +85,7 @@
             </table>
         </ul>
     </section>
+    {% endif %}
 
     <script language="javascript">
         function checkArchive() {
