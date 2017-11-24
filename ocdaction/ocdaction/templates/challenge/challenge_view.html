@@ -5,7 +5,11 @@
 {% block main %}
     <section class="container">
         <div class="col-xs-offset-3">
+            {% if challenge.is_archived %}
+            <a href="{% url 'challenge-list-archived' %}">
+            {% else %}
             <a href="{% url 'challenge-list' %}">
+            {% endif %}
                 <span class="glyphicon glyphicon-menu-left">Back</span>
             </a>
         </div>
