@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% load static %}
+{% load challenges_tags %}
 
 {% block main %}
     <section class="container">
@@ -23,6 +24,68 @@
                 {% endif %}
             </ul>
     </section>
+
+    {% if anxiety_score_cards %}
+    <section>
+        <ul class="col-xs-6 col-xs-offset-3">
+            <h4>Your exposures for this challenge</h4>
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Most recent</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Anxiety at 0 min:</td>
+                        {% for card in anxiety_score_cards %}
+                            <td>{% render_anxiety_level card.anxiety_at_0_min %}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>Anxiety at 5 min:</td>
+                        {% for card in anxiety_score_cards %}
+                            <td>{% render_anxiety_level card.anxiety_at_5_min %}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>Anxiety at 10 min:</td>
+                        {% for card in anxiety_score_cards %}
+                            <td>{% render_anxiety_level card.anxiety_at_10_min %}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>Anxiety at 15 min:</td>
+                        {% for card in anxiety_score_cards %}
+                            <td>{% render_anxiety_level card.anxiety_at_15_min %}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>Anxiety at 30 min:</td>
+                        {% for card in anxiety_score_cards %}
+                            <td>{% render_anxiety_level card.anxiety_at_30_min %}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>Anxiety at 60 min:</td>
+                        {% for card in anxiety_score_cards %}
+                            <td>{% render_anxiety_level card.anxiety_at_60_min %}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>Anxiety at 120 min:</td>
+                        {% for card in anxiety_score_cards %}
+                            <td>{% render_anxiety_level card.anxiety_at_120_min %}</td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        </ul>
+    </section>
+    {% endif %}
 
     <script language="javascript">
         function checkArchive() {
