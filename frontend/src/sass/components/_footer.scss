@@ -1,6 +1,7 @@
 .global-footer {
 	background: $lighter-black-colour;
-	
+    clear: both;
+
 	&__list {
 		list-style: none;
 		display: block;
@@ -20,7 +21,7 @@
 		margin: 0;
 
 		&:hover {
-			color: $ocd-blue-colour;
+			color: $ocd-colour;
 		}
 	}
 
@@ -33,6 +34,7 @@
 
 		&:hover {
 			text-decoration: underline;
+            color: $off-white-colour;
 		}
 
 	}

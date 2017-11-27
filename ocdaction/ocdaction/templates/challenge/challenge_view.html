@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
 
+{% block title %}Challenge: {{ challenge.challenge_name }}{% endblock %} 
+
 {% load static %}
 {% load challenges_tags %}
 
@@ -7,9 +9,9 @@
     <section class="container">
         <div class="col-xs-offset-3">
             {% if challenge.is_archived %}
-            <a href="{% url 'challenge-list-archived' %}">
+                <a href="{% url 'challenge-list-archived' %}">
             {% else %}
-            <a href="{% url 'challenge-list' %}">
+                <a href="{% url 'challenge-list' %}">
             {% endif %}
                 <span class="glyphicon glyphicon-menu-left">Back</span>
             </a>

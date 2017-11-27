@@ -9,7 +9,9 @@
 {% block main %} 
     <form class="col-xs-offset-2 col-xs-8 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" role="form" action="{% url 'logout' %}" method="POST">
         {% csrf_token %}
-        <h3>You are now logged out. Thank you and have a great day.</h3>
-        <p>You can log back in <a href="{% url 'login' %}">here</a></p>
+        <div class="text-align-center">
+            <h3>You are now logged out. Thank you and have a great day.</h3>
+            <a href="{% url 'login' %}" class="button">Log in again</a></p>
+        </div>
     </form>
 {% endblock %}

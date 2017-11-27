@@ -9,17 +9,15 @@ $nav-link-color: #3c3c3c;
 $nav-link-visited-color: blue;
 
 
-$ocd-blue-colour: #4cc1a7;
-$ocd-dark-blue-colour: #1689b9;
-
-// Headings
-
+$ocd-colour: #4cc1a7;
+$ocd-dark-colour: #647975;
 
 // Body Text
-$body-text-colour: #000;
+$body-text-colour: #333;
+$text-color: #333;
 
-
+$pastel-green: #e7f6f3;
 
 // Links
-$link-colour: $ocd-blue-colour;
-$link-active-colour: $ocd-dark-blue-colour;
+$link-colour: $ocd-colour;
+$link-active-colour: $ocd-dark-colour;

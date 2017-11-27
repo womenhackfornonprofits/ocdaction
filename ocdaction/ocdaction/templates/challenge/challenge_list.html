@@ -1,48 +1,105 @@
 {% extends "layout.html" %}
 
 {% load static %}
+
+{% block title %}My Challenge Hierarchy{% endblock %} 
+
 {% load challenges_tags %}
 
 {% block main %}
     <section class="container">
         <h2>My Challenge Hierarchy</h2>
-        <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-5" href="{% url 'challenge-add' %}">
+
+<!--         <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-5" href="{% url 'challenge-add' %}">
             <span class="fa fa-plus-square"></span> Add New Challenge
-        </a>
+        </a> -->
         {% for challenge in sorted_challenges %}
             {% if challenge.in_progress %}
-            <ul class="col-xs-6 col-xs-offset-3">
-                <h4>In progress</h4>
-                <li class="row">
-                    Level: {% get_anxiety_level challenge %}
-                    <a href="{% url 'challenge' challenge.id %}"><h3>{{ challenge.challenge_name }}</h3></a>
-                    <a class="btn btn-primary pull-right col-xs-3" href="{% url 'challenge-score-form' challenge.id anxiety_score_card.id %}"> Do the challenge </a>
-                </li>
-                <hr>
-            </ul>
-            {% else %}
-                {% if another_challenge_in_progress %}
-                    <ul class="col-xs-6 col-xs-offset-3">
-                        <li class="row">
-                            Level: {% get_anxiety_level challenge %}
-                            <a href="{% url 'challenge' challenge.id %}"><h3>{{ challenge.challenge_name }}</h3></a>
-                            <button class="btn btn-primary pull-right col-xs-3" disabled> Do the challenge </button>
-                        </li>
-                    </ul>
-                {% else %}
-                    <ul class="col-xs-6 col-xs-offset-3">
-                        <li class="row">
-                            Level: {% get_anxiety_level challenge %}
-                            <a href="{% url 'challenge' challenge.id %}"><h3>{{ challenge.challenge_name }}</h3></a>
-                            <a class="btn btn-primary pull-right col-xs-3" href="{% url 'challenge-score-form-new' challenge.id %}"> Do the challenge </a>
-                        </li>
-                    </ul>
-                {% endif %}
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h3 class="text-align-center">In progress</h3>
+                        </div>
+                        <div class="ibox-content">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th class="ibox-content bold">Level</th>
+                                    <th class="ibox-content bold">Challenge</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-align-left ibox-content">{% get_anxiety_level challenge %}</td>
+                                        <td class="text-align-left ibox-content">
+                                            <a href="{% url 'challenge' challenge.id %}">{{ challenge.challenge_name | title}}</a>
+                                        </td>
+                                        <td class="text-align-right ibox-content"><a class="" href="{% url 'challenge-score-form' challenge.id anxiety_score_card.id %}"><span class="glyphicon glyphicon-hourglass margin-right-5"></span>Continue</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             {% endif %}
-        {% empty %}
-            <ul class="col-xs-6 col-xs-offset-3">
-                <h2>You have no challenges yet!</h2>
-            </ul>
         {% endfor %}
+        
+        {% if sorted_challenges %}
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h3 class="text-align-center">My Challenges</h3>
+                        <div class="ibox-tools">
+                            <a class="button button--secondary" href="{% url 'challenge-add' %}">
+                                <span class="glyphicon glyphicon-plus-sign margin-right-5"></span>Add
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th class="ibox-content bold">Level</th>
+                                <th class="ibox-content bold">Challenge</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {% for challenge in sorted_challenges %}
+                                    {% if not challenge.in_progress %}
+                                        <tr>
+                                            <td class="text-align-left ibox-content">
+                                                {% get_anxiety_level challenge %}
+                                            </td>
+                                            <td class="text-align-left ibox-content">
+                                                <a href="{% url 'challenge' challenge.id %}">
+                                                    {{ challenge.challenge_name | title }}
+                                                </a>
+                                            </td>
+                                            <td class="ibox-content text-align-right">
+
+                                                {% if another_challenge_in_progress %}
+                                                        <span class="glyphicon glyphicon-play-circle margin-right-5"></span>
+                                                        Do the challenge
+                                                {% else %}
+                                                    <a href="{% url 'challenge-score-form-new' challenge.id %}">
+                                                        <span class="glyphicon glyphicon-play-circle margin-right-5"></span>
+                                                        Do the challenge
+                                                    </a>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="custom-panel background--primary text-align-center col-xs-12">
+                <h2 class="h4 margin-top-0">Add a new Challenge to get started</h2>
+                <a class="button button--primary" href="{% url 'challenge-add' %}">Add</a>
+            </div>
+        {% endif %}
     </section>    
 {% endblock %}

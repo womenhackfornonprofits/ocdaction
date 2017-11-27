@@ -88,12 +88,13 @@ p {
 // Links
 .a,
 a {
-    text-decoration: underline;
+    text-decoration: none;
     font-weight: 600;
     color: $link-colour;
 
     &:hover, &:focus {
-        color: $link-active-colour
+        color: $link-active-colour;
+        text-decoration: none;
     }
 }
 

@@ -1,7 +1,6 @@
-@import 'inspinia/inspinia';
-
-@import 'partials/normalize';
 @import 'partials/colours';
+@import 'inspinia/inspinia';
+@import 'partials/normalize';
 @import 'partials/typography';
 @import 'partials/helpers';
 
@@ -12,12 +11,13 @@
 @import 'components/hero';
 @import 'components/contact-us';
 @import 'components/menu';
+@import 'components/custom-panel';
+@import 'components/button';
+@import 'components/ibox-custom';
 
 
 body {
 	background: $white-colour;
-	display: flex;
-	flex-direction: column;
 	min-height: 100vh;
 }
 

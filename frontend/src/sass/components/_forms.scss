@@ -1,15 +1,15 @@
 // =================================
 //   LAYOUT / FORMS
-// ================================= 
+// =================================
 
 
 $input-txt-height: rem-calc(52);
 
-input[type="text"], 
-input[type="email"], 
-input[type="password"], 
+input[type="text"],
+input[type="email"],
+input[type="password"],
 input[type="tel"],
-input[type="url"], 
+input[type="url"],
 select {
     width: 100%;
     height: $input-txt-height;
@@ -76,18 +76,3 @@ form {
         margin-top: 0;
     }
 }
-
-.button {
-    margin: 0;
-    background: $ocd-blue-colour;
-    display: inline;
-    text-decoration: uppercase;
-    padding: 6px 8px;
-    border: 0;
-    color: $white-colour;
-    text-transform: uppercase;
-    font-weight: 600;
-    box-shadow: 1px 1px 1px 0px #339279;
-    margin-bottom: 15px;
-}
-
