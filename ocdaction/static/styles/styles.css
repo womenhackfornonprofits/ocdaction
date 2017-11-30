@@ -6729,16 +6729,20 @@ p {
   p:first-of-type {
     margin-top: 0; }
 
-.a,
+.link,
 a {
   text-decoration: none;
   font-weight: 600;
   color: #4cc1a7; }
-  .a:hover, .a:focus,
+  .link:hover, .link:focus,
   a:hover,
   a:focus {
     color: #647975;
     text-decoration: none; }
+  .link--disabled,
+  a--disabled {
+    color: #808080;
+    pointer-events: none; }
 
 .helptext {
   font-style: italic;
@@ -7092,9 +7096,6 @@ form p {
 .ibox-content {
   color: #333;
   font-weight: 400; }
-  .ibox-content a {
-    color: #333;
-    font-weight: 400; }
 
 body {
   background: #fff;

@@ -96,6 +96,11 @@ a {
         color: $link-active-colour;
         text-decoration: none;
     }
+
+    &--disabled {
+        color: $link-disabled-colour;
+        pointer-events: none;
+    }
 }
 
 .helptext {

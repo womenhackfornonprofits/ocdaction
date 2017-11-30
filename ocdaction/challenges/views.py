@@ -5,41 +5,6 @@ from challenges.models import Challenge, AnxietyScoreCard
 from challenges.forms import ChallengeForm, AnxietyScoreCardForm
 
 
-# @login_required
-# def challenge_list(request):
-#     """Display a list of user challenges on Challenge view"""
-#     current_challenge_in_progress = Challenge.objects.filter(
-#         user=request.user,
-#         is_archived=False,
-#         in_progress=True
-#     )
-
-#     challenges_not_in_progress = Challenge.objects.filter(
-#         user=request.user,
-#         is_archived=False,
-#         in_progress=False
-#     ).order_by(
-#         '-created_at',
-#         '-updated_at'
-#     )[:10]
-
-#     challenges_not_in_progress_sorted = sorted(
-#         challenges_not_in_progress.all(),
-#         reverse=True,
-#         key=lambda c: int(c.get_latest_initial_anxiety_level())
-#     )
-
-#     anxiety_score_card = AnxietyScoreCard.objects.filter(
-#         challenge=current_challenge_in_progress
-#     ).last()
-
-#     context = {
-#         'current_challenge_in_progress': current_challenge_in_progress,
-#         'challenges_not_in_progress_sorted': challenges_not_in_progress_sorted,
-#         'anxiety_score_card': anxiety_score_card,
-#     }
-
-#     return render(request, 'challenge/challenge_list.html', context)
 @login_required
 def challenge_list(request):
     """
@@ -65,6 +30,7 @@ def challenge_list(request):
     }
 
     return render(request, 'challenge/challenge_list.html', context)
+
 
 @login_required
 def challenge_list_archived(request):

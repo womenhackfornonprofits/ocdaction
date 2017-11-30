@@ -78,8 +78,10 @@
                                             <td class="ibox-content text-align-right">
 
                                                 {% if another_challenge_in_progress %}
+                                                    <a class="link--disabled">
                                                         <span class="glyphicon glyphicon-play-circle margin-right-5"></span>
                                                         Do the challenge
+                                                    </a>
                                                 {% else %}
                                                     <a href="{% url 'challenge-score-form-new' challenge.id %}">
                                                         <span class="glyphicon glyphicon-play-circle margin-right-5"></span>
