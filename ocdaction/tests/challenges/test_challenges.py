@@ -126,15 +126,64 @@ class ViewsTest(TestCase):
     def setUp(self):
         self.factory = RequestFactory()
         self.user = UserFactory.create()
+        self.challenge = ChallengeFactory.create()
+        self.score_card = AnxietyScoreCard.objects.create(
+            challenge=self.challenge,
+            anxiety_at_0_min='9',
+            anxiety_at_120_min='2'
+        )
 
-    def test_challenge_list_view(self):
+    def test_challenge_list(self):
         request = self.factory.get(reverse('challenge-list'))
         request.user = self.user
         response = challenge_list(request)
         self.assertEqual(response.status_code, 200)
 
-    def test_challenge_archive_view(self):
+    def test_challenge_list_archived(self):
         request = self.factory.get(reverse('challenge-list-archived'))
         request.user = self.user
         response = challenge_list_archived(request)
         self.assertEqual(response.status_code, 200)
+
+    def test_challenge_add(self):
+        request = self.factory.get(reverse('challenge-add'))
+        request.user = self.user
+        response = challenge_add(request)
+        self.assertEqual(response.status_code, 200)
+
+    def test_challenge_view(self):
+        request = self.factory.get(reverse('challenge', args=(self.challenge.pk,)))
+        request.user = self.user
+        response = challenge_view(request, self.challenge.pk)
+        self.assertEqual(response.status_code, 200)
+
+    def test_challenge_edit(self):
+        request = self.factory.get(reverse('challenge-edit', args=(self.challenge.pk,)))
+        request.user = self.user
+        response = challenge_edit(request, self.challenge.pk)
+        self.assertEqual(response.status_code, 200)
+
+    def test_challenge_archive(self):
+        request = self.factory.get(reverse('challenge-archive', args=(self.challenge.pk,)))
+        request.user = self.user
+        response = challenge_archive(request, self.challenge.pk)
+        self.assertEqual(response.status_code, 302)
+
+    def test_challenge_summary(self):
+        request = self.factory.get(reverse('challenge-summary', args=(self.challenge.pk, self.score_card.pk,)))
+        request.user = self.user
+        response = challenge_summary(request, self.challenge.pk, self.score_card.pk)
+        self.assertEqual(response.status_code, 200)
+
+    def test_challenge_score_form_new(self):
+        request = self.factory.get(reverse('challenge-score-form-new', args=(self.challenge.pk,)))
+        request.user = self.user
+        response = challenge_score_form_new(request, self.challenge.pk)
+        self.assertEqual(response.status_code, 200)
+
+    def test_challenge_score_form(self):
+        request = self.factory.get(reverse('challenge-score-form', args=(self.challenge.pk, self.score_card.pk,)))
+        request.user = self.user
+        response = challenge_score_form(request, self.challenge.pk, self.score_card.pk)
+        self.assertEqual(response.status_code, 200)
+
