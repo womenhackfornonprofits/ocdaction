@@ -3,7 +3,7 @@ import pytest
 from tests.factories import UserFactory, ChallengeFactory
 from challenges.models import Challenge, AnxietyScoreCard
 from django.test import TestCase, RequestFactory
-from challenges.views import challenge_list
+from challenges.views import *
 from django.core.urlresolvers import reverse
 
 
@@ -131,4 +131,10 @@ class ViewsTest(TestCase):
         request = self.factory.get(reverse('challenge-list'))
         request.user = self.user
         response = challenge_list(request)
+        self.assertEqual(response.status_code, 200)
+
+    def test_challenge_archive_view(self):
+        request = self.factory.get(reverse('challenge-list-archived'))
+        request.user = self.user
+        response = challenge_list_archived(request)
         self.assertEqual(response.status_code, 200)
