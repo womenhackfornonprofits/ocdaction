@@ -4,6 +4,7 @@ from tests.factories import UserFactory, ChallengeFactory
 from challenges.models import Challenge, AnxietyScoreCard
 from django.test import TestCase, RequestFactory
 from challenges.views import challenge_list
+from django.core.urlresolvers import reverse
 
 
 @pytest.mark.django_db
@@ -127,7 +128,7 @@ class ViewsTest(TestCase):
         self.user = UserFactory.create()
 
     def test_challenge_list_view(self):
-        request = self.factory.get('/challenges/')
+        request = self.factory.get(reverse('challenge-list'))
         request.user = self.user
         response = challenge_list(request)
         self.assertEqual(response.status_code, 200)
