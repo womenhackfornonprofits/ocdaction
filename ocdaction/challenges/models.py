@@ -23,8 +23,9 @@ class Challenge(models.Model):
 
     @transaction.atomic
     def save(self, *args, **kwargs):
+        user = self.user
         if self.in_progress:
-            Challenge.objects.filter(user=request.user, in_progress=True).update(in_progress=False)
+            Challenge.objects.filter(user=user, in_progress=True).update(in_progress=False)
         super(Challenge, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
