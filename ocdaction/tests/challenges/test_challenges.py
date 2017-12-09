@@ -4,6 +4,7 @@ from tests.factories import UserFactory, ChallengeFactory
 from challenges.models import Challenge, AnxietyScoreCard
 from django.test import TestCase, RequestFactory
 from challenges.views import *
+from challenges.forms import *
 from django.core.urlresolvers import reverse
 
 
@@ -187,3 +188,46 @@ class ViewsTest(TestCase):
         response = challenge_score_form(request, self.challenge.pk, self.score_card.pk)
         self.assertEqual(response.status_code, 200)
 
+@pytest.mark.parametrize(
+    'challenge_name, obsession, compulsion, exposure, validity',
+    [('', '', '', '', False),
+     ('', 'o', 'c', 'e', False),
+     ('challenge', '', '', '', True),
+     ('challenge', 'o', 'c', 'e', True),
+     ])
+
+def test_challenge_form(challenge_name, obsession, compulsion, exposure, validity):
+    form = ChallengeForm(data={
+        'challenge_name': challenge_name,
+        'obsession': obsession,
+        'compulsion': compulsion,
+        'exposure': exposure,
+    })
+
+    assert form.is_valid() is validity
+
+@pytest.mark.parametrize(
+    'anxiety_at_0_min, anxiety_at_5_min, anxiety_at_10_min, anxiety_at_15_min, anxiety_at_30_min, anxiety_at_60_min, anxiety_at_120_min, validity',
+    [('', '', '', '', '', '', '', False),
+     ('', '1', '', '', '', '', '', False),
+     ('', '', '1', '', '', '', '', False),
+     ('', '', '', '1', '', '', '', False),
+     ('', '', '', '', '1', '', '', False),
+     ('', '', '', '', '', '1', '', False),
+     ('', '', '', '', '', '', '1', False),
+     ('1', '', '', '', '', '', '', True),
+     ('1', '', '', '', '', '', '1', True),
+     ])
+
+def test_anxietyscore_form(anxiety_at_0_min, anxiety_at_5_min, anxiety_at_10_min, anxiety_at_15_min, anxiety_at_30_min, anxiety_at_60_min, anxiety_at_120_min, validity):
+    form = AnxietyScoreCardForm(data={
+        'anxiety_at_0_min': anxiety_at_0_min,
+        'anxiety_at_5_min': anxiety_at_5_min,
+        'anxiety_at_10_min': anxiety_at_10_min,
+        'anxiety_at_15_min': anxiety_at_15_min,
+        'anxiety_at_30_min': anxiety_at_30_min,
+        'anxiety_at_60_min': anxiety_at_60_min,
+        'anxiety_at_120_min': anxiety_at_120_min,
+    })
+
+    assert form.is_valid() is validity
