@@ -15,9 +15,10 @@ class UserFactory(factory.django.DjangoModelFactory):
             'have_ocd'
         )
 
-    username = 'testuser'
+    username = factory.Sequence(lambda n: 'username_{}'.format(n))
     date_birth = datetime.date(2000, 1, 2)
     have_ocd = True
+    email = factory.Sequence(lambda n: 'email_{}'.format(n))
 
 
 class ChallengeFactory(factory.django.DjangoModelFactory):
@@ -31,8 +32,9 @@ class ChallengeFactory(factory.django.DjangoModelFactory):
             'exposure'
         )
 
-    challenge_name = 'challengename'
+    challenge_name = factory.Sequence(lambda n: 'challengename_{}'.format(n))
     is_archived = False
+    in_progress = False
     obsession = 'obsession'
     compulsion = 'compulsion'
     exposure = 'exposure'
