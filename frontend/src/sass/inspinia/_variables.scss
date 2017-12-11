@@ -11,7 +11,7 @@ $text-color: #676a6c;   // Body text
 $gray: #f3f3f4;         // Background wrapper color
 $light-gray: #D1DADE;   // Default label, badge
 $label-badge-color: #5E5E5E;
-$light-blue:#f3f6fb;
+$light-blue: #f3f6fb;
 
 // Spiner color and margin
 $spin-color: $navy;
@@ -20,8 +20,8 @@ $spin-margin: 0 auto;
 
 // IBOX colors ( default panel colors)
 $border-color: #e7eaec;     // IBox border
-$ibox-title-bg:#ffffff;     // IBox Background header
-$ibox-content-bg:#ffffff;   // IBox Background content
+$ibox-title-bg: #fff;     // IBox Background header
+$ibox-content-bg: #fff;   // IBox Background content
 
 //Sidebar width
 $sidebar-width: 220px;
@@ -41,4 +41,4 @@ $nav-text-color: #a7b1c2;
 
 $ibox-title-bg: $pastel-green;
 $ibox-content-bg: $pastel-green;
-$border-color: #97bdb5;
+$border-color: #ced2d2;
