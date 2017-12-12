@@ -18,26 +18,40 @@
             {% if challenge.in_progress %}
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h3 class="text-align-center">In progress</h3>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-8 col-md-offset-2 ol-xl-6 col-xl-offset-3">
+                                        <h3 class="text-align-center">In progress</h3>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="ibox-content">
-                            <table class="table table-striped">
-                                <thead>
-                                <tr>
-                                    <th class="ibox-content bold">Level</th>
-                                    <th class="ibox-content bold">Challenge</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-align-left ibox-content">{% get_anxiety_level challenge %}</td>
-                                        <td class="text-align-left ibox-content">
-                                            <a href="{% url 'challenge' challenge.id %}">{{ challenge.challenge_name }}</a>
-                                        </td>
-                                        <td class="text-align-right ibox-content"><a href="{% url 'challenge-score-form' challenge.id anxiety_score_card.id %}"><span class="glyphicon glyphicon-hourglass margin-right-5"></span class="visuallyhidden">Continue</a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="ibox-content border-bottom">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-8 col-md-offset-2 ol-xl-6 col-xl-offset-3">
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th class="ibox-content bold">Level</th>
+                                                <th class="ibox-content bold">Challenge</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-align-left ibox-content col-xs-3">
+                                                        {% get_anxiety_level challenge %}
+                                                    </td>
+                                                    <td class="text-align-left ibox-content">
+                                                        <a href="{% url 'challenge' challenge.id %}">{{ challenge.challenge_name }}</a>
+                                                    </td>
+                                                    <td class="text-align-right ibox-content"><a href="{% url 'challenge-score-form' challenge.id anxiety_score_card.id %}"><span class="glyphicon glyphicon-hourglass margin-right-5"></span class="visuallyhidden">Continue</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
             {% endif %}
@@ -59,7 +73,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="ibox-content">
+                <div class="ibox-content border-bottom">
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-12 col-md-8 col-md-offset-2 ol-xl-6 col-xl-offset-3">
@@ -74,7 +88,7 @@
                                         {% for challenge in sorted_challenges %}
                                             {% if not challenge.in_progress %}
                                                 <tr>
-                                                    <td class="text-align-left ibox-content">
+                                                    <td class="text-align-left ibox-content col-xs-3">
                                                         {% get_anxiety_level challenge %}
                                                     </td>
                                                     <td class="text-align-left ibox-content">
