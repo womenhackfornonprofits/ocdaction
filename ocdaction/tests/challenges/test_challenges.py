@@ -207,7 +207,8 @@ def test_challenge_form(challenge_name, obsession, compulsion, exposure, validit
     assert form.is_valid() is validity
 
 @pytest.mark.parametrize(
-    'anxiety_at_0_min, anxiety_at_5_min, anxiety_at_10_min, anxiety_at_15_min, anxiety_at_30_min, anxiety_at_60_min, anxiety_at_120_min, validity',
+    'anxiety_at_0_min, anxiety_at_5_min, anxiety_at_10_min, anxiety_at_15_min, anxiety_at_30_min, anxiety_at_60_min, '
+    'anxiety_at_120_min, validity',
     [('', '', '', '', '', '', '', False),
      ('', '1', '', '', '', '', '', False),
      ('', '', '1', '', '', '', '', False),
@@ -219,7 +220,8 @@ def test_challenge_form(challenge_name, obsession, compulsion, exposure, validit
      ('1', '', '', '', '', '', '1', True),
      ])
 
-def test_anxietyscore_form(anxiety_at_0_min, anxiety_at_5_min, anxiety_at_10_min, anxiety_at_15_min, anxiety_at_30_min, anxiety_at_60_min, anxiety_at_120_min, validity):
+def test_anxietyscore_form(anxiety_at_0_min, anxiety_at_5_min, anxiety_at_10_min, anxiety_at_15_min, anxiety_at_30_min,
+                           anxiety_at_60_min, anxiety_at_120_min, validity):
     form = AnxietyScoreCardForm(data={
         'anxiety_at_0_min': anxiety_at_0_min,
         'anxiety_at_5_min': anxiety_at_5_min,
