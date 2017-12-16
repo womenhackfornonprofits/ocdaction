@@ -96,7 +96,6 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 
 	 This will get all the dependencies
 
-
 ## Running the project locally
 1. Go inside the django app directory:
 

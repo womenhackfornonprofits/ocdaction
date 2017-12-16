@@ -6726,16 +6726,20 @@ p {
     margin-top: 0; }
 
 .a,
+.link,
 a {
   text-decoration: none;
   font-weight: 600;
   color: #4cc1a7; }
   .a:hover, .a:focus,
+  .link:hover,
+  .link:focus,
   a:hover,
   a:focus {
     color: #647975;
     text-decoration: none; }
   .a--disabled,
+  .link--disabled,
   a--disabled {
     color: #808080;
     pointer-events: none; }

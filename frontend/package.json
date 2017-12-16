@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "OCD Action",
   "main": "Gruntfile.js",
-  "scripts": {
-    "lint": "scss-lint ."
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/womenhackfornonprofits/ocdaction.git"
@@ -28,8 +25,5 @@
   },
   "dependencies": {
     "grunt-sync": "^0.5.2"
-  },
-  "pre-commit": [
-    "lint"
-  ]
+  }
 }
