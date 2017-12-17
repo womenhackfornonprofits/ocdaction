@@ -74,6 +74,8 @@ def test_get_latest_initial_anxiety_level_no_score_card():
     # Check that if there is no anxiety score card for a challenge, -1 is returned
     assert challenge.get_latest_initial_anxiety_level() == -1
 
+
+# Tests for marking challenges in progress
 class ChallengesInProgressTest(TestCase):
 
     def setUp(self):
@@ -122,6 +124,7 @@ class ChallengesInProgressTest(TestCase):
         assert challenge1.in_progress is True
 
 
+# Test each of the views
 class ViewsTest(TestCase):
 
     def setUp(self):
@@ -188,6 +191,8 @@ class ViewsTest(TestCase):
         response = challenge_score_form(request, self.challenge.pk, self.score_card.pk)
         assert response.status_code == 200
 
+
+# Test the forms
 @pytest.mark.parametrize(
     'challenge_name, obsession, compulsion, exposure, validity',
     [('', '', '', '', False),
