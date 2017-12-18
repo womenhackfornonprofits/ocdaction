@@ -11,7 +11,7 @@ $text-color: #676a6c;   // Body text
 $gray: #f3f3f4;         // Background wrapper color
 $light-gray: #D1DADE;   // Default label, badge
 $label-badge-color: #5E5E5E;
-$light-blue:#f3f6fb;
+$light-blue: #f3f6fb;
 
 // Spiner color and margin
 $spin-color: $navy;
@@ -20,8 +20,8 @@ $spin-margin: 0 auto;
 
 // IBOX colors ( default panel colors)
 $border-color: #e7eaec;     // IBox border
-$ibox-title-bg:#ffffff;     // IBox Background header
-$ibox-content-bg:#ffffff;   // IBox Background content
+$ibox-title-bg: #fff;     // IBox Background header
+$ibox-content-bg: #fff;   // IBox Background content
 
 //Sidebar width
 $sidebar-width: 220px;
@@ -37,3 +37,8 @@ $btn-border-radius: 3px;
 $nav-bg: #2F4050;
 $nav-profile-pattern: url("http://res.cloudinary.com/ocd-action-app/image/upload//v1489950737/Screen_Shot_2017-03-19_at_19.11.15_qolzax.png");
 $nav-text-color: #a7b1c2;
+
+
+$ibox-title-bg: $pastel-green;
+$ibox-content-bg: $pastel-green;
+$border-color: #ced2d2;

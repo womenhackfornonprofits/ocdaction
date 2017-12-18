@@ -1,20 +1,47 @@
 {% extends "layout.html" %}
 
+{% block title %}My Challenge Archive{% endblock %} 
+
 {% load static %}
+{% load challenges_tags %}
 
 {% block main %}
     <section class="container">
-        <h2>My Archive</h2>
-        {% if challenges %}
-            {% for challenge in challenges %}
-                <ul class="col-xs-6 col-xs-offset-3">
-                    <li class="row">
-                        <a href="{% url 'challenge' challenge.id %}"><h3>{{ challenge.challenge_name }}</h3></a>
-                    </li>
-                </ul>
-            {% endfor %}
+        <h1>My Challenge Archive</h1>
+        {% if challenges_archived %}
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h3 class="text-align-center">Archived</h3>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Level</th>
+                                <th>Challenge</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {% for challenge in challenges_archived %}
+                                    <tr>
+                                        <td class="text-align-left ibox-content">{% get_anxiety_level challenge %}</td>
+                                        <td class="text-align-left ibox-content"><a href="{% url 'challenge' challenge.id %}">{{ challenge.challenge_name | title}}</a></td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         {% else %}
-            <h2>You have no archived challenges yet</h2>
+    
+            <div class="custom-panel background--primary text-align-center col-xs-12">
+                <h2 class="h4 margin-top-0">No archived Challenges</h2>
+            </div>
+
         {% endif %}
-    </section>
+
+    </section>    
 {% endblock %}

@@ -96,7 +96,6 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 
 	 This will get all the dependencies
 
-
 ## Running the project locally
 1. Go inside the django app directory:
 
@@ -116,7 +115,7 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 ## Front End changes
 1. Make css and javascript changes in the ```frontend``` folder
 2. Make any HTML changes in the Django templates located in `ocdaction/templates`
-3. Use `grunt default` in the frontend folder to build, watch and copy all the required files automatically into the Django static folder.
+3. Use `grunt watch` in the frontend folder to build, watch and copy all the required files automatically into the Django static folder.
 
 ## Deploying to Heroku
 1. Create a Heroku Account

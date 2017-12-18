@@ -4,7 +4,7 @@ from .models import Challenge, AnxietyScoreCard
 
 class ChallengeAdmin(admin.ModelAdmin):
     list_select_related = True
-    list_display = ('challenge_name', 'user')
+    list_display = ('challenge_name', 'user', 'is_archived', 'in_progress')
     search_fields = ['challenge_name']
 
 

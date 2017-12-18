@@ -1,0 +1,39 @@
+.ibox-content {
+    color: $body-text-colour;
+    font-weight: 400;
+    border-style: none;
+    border: 0;
+
+    a {
+        color: $ibox-link-color;
+    }
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding: 12px 6px;
+}
+
+.ibox-title {
+    border: 0;
+}
+
+.ibox-tools {
+    position: relative;
+
+    * {
+        color: $black-colour;
+    }
+
+    &-cta {
+        position: absolute;
+        right: 0;
+        transform: translateY(-50%);
+        top: 50%;
+        display: flex;
+        align-items: center;
+    }
+
+    @media (max-width: 350px) {
+        display: block;
+    }
+}

@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
 
+{% block title %}Anxiety Tracker{% endblock %} 
+
 {% load static %}
 
 {% block main %}
@@ -9,11 +11,10 @@
                 <span class="glyphicon glyphicon-menu-left">Back</span>
             </a>
         </div>
-        <h1>ACT</h1>
-        <h2>Anxiety Tracker</h2>
+        <h1>Anxiety Tracker</h1>
         <form class="col-xs-6 col-xs-offset-3" method="POST">
             {% csrf_token %}
-            <h3> {{ challenge.challenge_name }} </h3>
+            <h3>{{ challenge.challenge_name }}</h3>
             {% for field in anxiety_score_form %}
                  {% if anxiety_score_form.anxiety_at_0_min.value %}
                      {% if field.value %}

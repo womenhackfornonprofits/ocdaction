@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
 
+{% block title %}Add new challenge{% endblock %} 
+
 {% load static widget_tweaks %}
 
 {% block main %}
@@ -11,8 +13,7 @@
                 </a>
             </div>
 			<div class="col-xs-12">
-				<h1> ACT </h1>
-                <h2>Add new challenge</h2>
+                <h1>Add new challenge</h1>
 			</div>
 
             <form class="col-xs-6 col-xs-offset-3" method="POST" action="{% url 'challenge-add' %}">
@@ -21,7 +22,7 @@
                 {{ challenge_form.as_p }}
                 <div class="row">
                     <div class="col-xs-12">
-                        <input class="button col-xs-4" type="submit" value="Save">
+                        <input class="button button--primary col-xs-4" type="submit" value="Save">
                     </div>
                 </div>
             </form>

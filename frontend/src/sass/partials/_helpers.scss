@@ -14,6 +14,54 @@
 	margin-top: 15px !important;
 }
 
+.margin-bottom-15 {
+    margin-bottom: 15px !important;
+}
+
+.margin-top-30 {
+    margin-top: 30px !important;
+}
+
+.margin-bottom-30 {
+    margin-bottom: 30px !important;
+}
+
+.margin-right-5 {
+    margin-right: 5px !important;
+}
+
+.bold {
+    font-weight: bold !important;
+}
+
+.text-align-center {
+    text-align: center !important;
+}
+
+.text-align-left {
+    text-align: left !important;
+}
+
+.text-align-right {
+    text-align: right !important;
+}
+
+.background--primary {
+    background-color: $pastel-green;
+}
+
+.display-inline {
+    display: inline;
+}
+
+.unstyled-list {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    li {
+        list-style: none !important;
+    }
+}
 .visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);

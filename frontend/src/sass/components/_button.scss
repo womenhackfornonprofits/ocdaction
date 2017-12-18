@@ -1,0 +1,32 @@
+.button {
+    margin: 0;
+    text-decoration: none;
+    display: inline;
+    text-decoration: uppercase;
+    padding: 8px 32px;
+    border: 0;
+    color: $white-colour;
+    font-weight: 600;
+    font-weight: 16px;
+    line-height: 24px;
+    margin-bottom: 15px;
+
+    .glyphicon {
+        font-size: 16px;
+    }
+
+    &--primary {
+        box-shadow: 1px 1px 1px 0px #339279;
+        background-color: $ocd-colour;
+        text-transform: uppercase;
+
+        &:hover {
+            background-color: $pastel-green;;
+            color: $ocd-colour;
+        }
+    }
+
+    &--secondary {
+        background-color: transparent;
+    }
+}
