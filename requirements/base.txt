@@ -1,7 +1,7 @@
 # Core requirements
 # that are needed for all enviroments
 
-Django==1.9.6
+Django==1.10.8
 gunicorn==19.5.0
 psycopg2==2.7.3.1
 whitenoise==3.1
