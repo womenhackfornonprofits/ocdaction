@@ -16,24 +16,30 @@
                 <span class="glyphicon glyphicon-menu-left">Back</span>
             </a>
         </div>
-        <h2>{{ challenge.challenge_name }}</h2>
-            <ul class="col-xs-6 col-xs-offset-3">
-                <li><p>Your Obsession: {{ challenge.obsession }}<p></li>
-                <li><p>Your Compulsion: {{ challenge.compulsion }}<p></li>
-                <li><p>Your Exposure: {{ challenge.exposure }}<p></li>
-                {% if not challenge.is_archived %}
-                <li>
-                    <a class="btn btn-primary pull-right col-xs-2 col-xs-offset-1" 
-                        href="{% url 'challenge-edit' challenge.id %}">
-                        Edit
-                    </a>    
-                    <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-1" 
-                        href="{% url 'challenge-archive' challenge.id %}" onclick="return checkArchive()";>
-                        Archive
-                    </a>
-                </li>
-                {% endif %}
-            </ul>
+        <h1>{{ challenge.challenge_name }}</h1>
+        <dl class="col-xs-12 col-md-6 col-md-offset-3">
+            <dt>Your Obsession: </dt>
+            <dd>{{ challenge.obsession }}</dd>
+            <dt>Your Compulsion:</dt>
+            <dd>{{ challenge.compulsion }}</dd>
+            <dt>Your Exposure:</dt>
+            <dd>{{ challenge.exposure }}</dd>
+        </dl>
+
+        {% if not challenge.is_archived %}            
+            <div class="col-xs-6">
+                <a class="btn btn-primary pull-right col-xs-2 col-xs-offset-1" 
+                    href="{% url 'challenge-edit' challenge.id %}">
+                    Edit
+                </a>    
+            </div>
+            <div class="col-xs-6">
+                <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-1" 
+                    href="{% url 'challenge-archive' challenge.id %}" onclick="return checkArchive()";>
+                    Archive
+                </a>
+            </div>
+        {% endif %}
     </section>
 
     {% if anxiety_score_cards %}

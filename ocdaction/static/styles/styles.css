@@ -6749,14 +6749,18 @@ a {
   font-size: .8rem;
   font-color: #444; }
 
-ul, ol {
+ul, ol, dl {
   margin: 30px 0 0 20px; }
-  ul li, ol li {
+  ul li, ul dt, ul dd, ol li, ol dt, ol dd, dl li, dl dt, dl dd {
     margin-top: 10px;
     color: #333;
     list-style: none; }
-  ul ul, ul ol, ol ul, ol ol {
+  ul ul, ul ol, ol ul, ol ol, dl ul, dl ol {
     margin-top: 0; }
+  ul dt, ul dd, ol dt, ol dd, dl dt, dl dd {
+    font-size: 18px; }
+  ul dd, ol dd, dl dd {
+    margin-bottom: 25px; }
 
 strong,
 b,

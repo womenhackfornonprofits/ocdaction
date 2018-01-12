@@ -111,10 +111,10 @@ a {
 }
 
 // Lists
-ul, ol {
+ul, ol, dl {
     margin: 30px 0 0 20px;
 
-    li {
+    li, dt, dd {
         margin-top: 10px;
         color: $body-text-colour;
         list-style: none;
@@ -122,6 +122,14 @@ ul, ol {
 
     ul, ol {
         margin-top: 0;
+    }
+
+    dt, dd {
+        font-size: 18px;
+    }
+
+    dd {
+        margin-bottom: 25px;
     }
 }
 
