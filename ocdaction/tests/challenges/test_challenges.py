@@ -5,7 +5,7 @@ from challenges.models import Challenge, AnxietyScoreCard
 from django.test import TestCase, RequestFactory
 from challenges.views import *
 from challenges.forms import *
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 
 @pytest.mark.django_db
