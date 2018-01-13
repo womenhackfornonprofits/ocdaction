@@ -26,18 +26,18 @@
             <dd>{{ challenge.exposure }}</dd>
         </dl>
 
-        {% if not challenge.is_archived %}            
-            <div class="col-xs-6">
-                <a class="btn btn-primary pull-right col-xs-2 col-xs-offset-1" 
-                    href="{% url 'challenge-edit' challenge.id %}">
-                    Edit
-                </a>    
-            </div>
-            <div class="col-xs-6">
-                <a class="btn btn-primary pull-left col-xs-2 col-xs-offset-1" 
+        {% if not challenge.is_archived %} 
+            <div class="col-xs-6 col-md-3 col-md-offset-2">
+                <a class="button--archive btn btn-lg btn-outline btn-warning pull-right" 
                     href="{% url 'challenge-archive' challenge.id %}" onclick="return checkArchive()";>
                     Archive
                 </a>
+            </div>           
+            <div class="col-xs-6 col-md-3 col-md-offset-1">
+                <a class="button--edit btn btn-lg btn-outline btn-primary pull-left" 
+                    href="{% url 'challenge-edit' challenge.id %}">
+                    Edit
+                </a>    
             </div>
         {% endif %}
     </section>

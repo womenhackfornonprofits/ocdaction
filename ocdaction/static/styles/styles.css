@@ -6686,7 +6686,8 @@ h1, h2, h3, h4, h5, h6 {
 .h1,
 h1 {
   font-size: 1.95em;
-  font-weight: 400; }
+  font-weight: 400;
+  margin-bottom: 0.625em; }
 
 .h2,
 h2 {
@@ -6749,18 +6750,26 @@ a {
   font-size: .8rem;
   font-color: #444; }
 
-ul, ol, dl {
+ul, ol {
   margin: 30px 0 0 20px; }
-  ul li, ul dt, ul dd, ol li, ol dt, ol dd, dl li, dl dt, dl dd {
+  ul li, ol li {
     margin-top: 10px;
     color: #333;
     list-style: none; }
-  ul ul, ul ol, ol ul, ol ol, dl ul, dl ol {
+  ul ul, ul ol, ol ul, ol ol {
     margin-top: 0; }
-  ul dt, ul dd, ol dt, ol dd, dl dt, dl dd {
-    font-size: 18px; }
-  ul dd, ol dd, dl dd {
+
+dl {
+  margin: 30px 0 0; }
+  dl dd, dl dt {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+    list-style: none; }
+  dl dd {
     margin-bottom: 25px; }
+    dl dd:last-child {
+      margin-bottom: 50px; }
 
 strong,
 b,
@@ -7099,6 +7108,18 @@ form p {
       color: #4cc1a7; }
   .button--secondary {
     background-color: transparent; }
+
+.button--edit {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 9px 54px; }
+
+.button--archive {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 9px 41px; }
 
 .ibox-content {
   color: #333;
