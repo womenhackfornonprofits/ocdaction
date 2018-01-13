@@ -6782,7 +6782,7 @@ ul, ol {
     margin-top: 10px;
     color: #333;
     list-style: none; }
-  ul ul, ul ol, ol ul, ol ol {
+  ul, ol {
     margin-top: 0; }
 
 dl {
@@ -7145,7 +7145,7 @@ form p {
   text-transform: uppercase;
   font-size: 18px;
   font-weight: 600;
-  padding: 9px 36px; }
+  padding: 9px 41px; }
 
 .ibox-content {
   color: #333;
