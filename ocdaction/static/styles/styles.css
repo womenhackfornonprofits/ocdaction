@@ -6934,8 +6934,11 @@ form p {
 
 .challenge-form {
   margin-top: 40px; }
+  .challenge-form__label,
   .challenge-form label {
-    font-size: 18px; }
+    font-size: 18px;
+    font-weight: 700;
+    color: #333; }
   .challenge-form textarea, .challenge-form input[type="text"] {
     width: 100%;
     margin: .5em 0;
@@ -6944,6 +6947,9 @@ form p {
     font-weight: 100;
     text-align: left;
     border: 1px solid #333; }
+  .challenge-form textarea.challenge-form__textarea, .challenge-form input.challenge-form__textarea {
+    color: #333;
+    font-weight: 400; }
   .challenge-form p {
     margin-bottom: 23px; }
 

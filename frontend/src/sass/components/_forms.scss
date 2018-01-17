@@ -80,8 +80,11 @@ form {
 .challenge-form {
     margin-top: 40px;
 
+    &__label,
     label {
         font-size: 18px;
+        font-weight: 700;
+        color: $black-colour;
     }
 
     textarea, input[type="text"], {
@@ -92,6 +95,11 @@ form {
         font-weight: 100;
         text-align: left;
         border: 1px solid $black-colour;
+    }
+
+    textarea.challenge-form__textarea, input.challenge-form__textarea{
+        color: $black-colour;
+        font-weight: 400;   
     }
 
     p {
