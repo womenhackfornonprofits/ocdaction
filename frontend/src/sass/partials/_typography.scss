@@ -33,9 +33,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .h1,
 h1 {
-    font-size: 1.95em;
+    font-size: 1.7em;
     font-weight: 400;
     margin-bottom: $header-margin / 2;
+
+    @media (min-width: 990px) {
+        font-size: 1.95em;        
+    }
 }
 
 .h2,
@@ -109,6 +113,35 @@ a {
     font-style: italic;
     font-size: .8rem;
     font-color: $lighter-black-colour;
+}
+
+.backlink {
+    text-decoration: none;
+    font-size: 20px;
+    color: $lighter-black-colour;
+    position: absolute;
+    top: 20px;
+
+    i {
+        color: $lighter-black-colour;
+    }
+   
+    @media (min-width: 990px) {
+        font-size: 15px;
+        position: absolute;
+        top: 20px;
+    }
+
+    &__text {
+        display: none; 
+
+        @media (min-width: 990px) {
+            display: inline-block;
+            color: $lighter-black-colour;
+            text-decoration: none;
+            font-size: 20px;
+        }
+    }
 }
 
 // Lists
