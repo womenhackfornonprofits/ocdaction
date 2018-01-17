@@ -7143,7 +7143,9 @@ form p {
   .button--primary {
     box-shadow: 1px 1px 1px 0px #339279;
     background-color: #4cc1a7;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    padding: 8px 51px;
+    font-size: 17px; }
     .button--primary:hover {
       background-color: #e7f6f3;
       color: #4cc1a7; }

@@ -21,9 +21,9 @@
             {% csrf_token %}
             {{ challenge_form.non_field_errors }}
             {{ challenge_form.as_p }}
-            <div class="row">
+            <div class="row text-center">
                 <div class="col-xs-12">
-                    <input class="button button--primary col-xs-4" type="submit" value="Save">
+                    <button class="button button--primary" type="submit">Save</button>
                 </div>
             </div>
         </form>
