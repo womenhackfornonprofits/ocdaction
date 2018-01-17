@@ -6932,6 +6932,21 @@ select {
 form p {
   margin-top: 0; }
 
+.challenge-form {
+  margin-top: 30px; }
+  .challenge-form label {
+    font-size: 18px; }
+  .challenge-form textarea, .challenge-form input[type="text"] {
+    width: 100%;
+    margin: .5em 0;
+    padding: .5em;
+    font-size: 1em;
+    font-weight: 100;
+    text-align: left;
+    border: 1px solid #333; }
+  .challenge-form p {
+    margin-bottom: 23px; }
+
 .header {
   background-color: #fff;
   border-bottom: 1px solid #fafafa;

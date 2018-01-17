@@ -76,3 +76,25 @@ form {
         margin-top: 0;
     }
 }
+
+.challenge-form {
+    margin-top: 30px;
+
+    label {
+        font-size: 18px;
+    }
+
+    textarea, input[type="text"], {
+        width: 100%;
+        margin: .5em 0;
+        padding: .5em;
+        font-size: 1em;
+        font-weight: 100;
+        text-align: left;
+        border: 1px solid $black-colour;
+    }
+
+    p {
+        margin-bottom: 23px;
+    }   
+}
