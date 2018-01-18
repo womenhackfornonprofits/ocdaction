@@ -20,12 +20,20 @@ class ChallengeForm(forms.ModelForm):
         self.fields['compulsion'].label = 'Your Compulsion'
         self.fields['exposure'].label = 'Your Exposure'
 
-
 class AnxietyScoreCardForm(forms.ModelForm):
 
     class Meta:
         model = AnxietyScoreCard
         exclude = ['challenge']
+        widgets = {
+            'anxiety_at_0_min': forms.RadioSelect(attrs={'id': 'value'}),
+            'anxiety_at_5_min': forms.RadioSelect(attrs={'id': 'value'}),
+            'anxiety_at_10_min': forms.RadioSelect(attrs={'id': 'value'}),
+            'anxiety_at_15_min': forms.RadioSelect(attrs={'id': 'value'}),
+            'anxiety_at_30_min': forms.RadioSelect(attrs={'id': 'value'}),
+            'anxiety_at_60_min': forms.RadioSelect(attrs={'id': 'value'}),
+            'anxiety_at_120_min': forms.RadioSelect(attrs={'id': 'value'})
+        }
 
     def __init__(self, *args, **kwargs):
         super(AnxietyScoreCardForm, self).__init__(*args, **kwargs)
