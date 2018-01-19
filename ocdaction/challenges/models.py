@@ -49,7 +49,6 @@ class AnxietyScoreCard(models.Model):
     """
     Anxiety score card is a collection of scores for the challenge
     """
-    SCORE_ZERO = '0'
     SCORE_ONE = '1'
     SCORE_TWO = '2'
     SCORE_THREE = '3'
@@ -62,7 +61,6 @@ class AnxietyScoreCard(models.Model):
     SCORE_TEN = '10'
 
     ANXIETY_SCORE_CHOICES = (
-        (SCORE_ZERO, 'zero'),
         (SCORE_ONE, 'one'),
         (SCORE_TWO, 'two'),
         (SCORE_THREE, 'three'),
