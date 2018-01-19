@@ -26,13 +26,13 @@ class AnxietyScoreCardForm(forms.ModelForm):
         model = AnxietyScoreCard
         exclude = ['challenge']
         widgets = {
-            'anxiety_at_0_min': forms.RadioSelect(),
-            'anxiety_at_5_min': forms.RadioSelect(),
-            'anxiety_at_10_min': forms.RadioSelect(),
-            'anxiety_at_15_min': forms.RadioSelect(),
-            'anxiety_at_30_min': forms.RadioSelect(),
-            'anxiety_at_60_min': forms.RadioSelect(),
-            'anxiety_at_120_min': forms.RadioSelect()
+            'anxiety_at_0_min': forms.RadioSelect(attrs={'id': 'label'}),
+            'anxiety_at_5_min': forms.RadioSelect(attrs={'id': 'label'}),
+            'anxiety_at_10_min': forms.RadioSelect(attrs={'id': 'label'}),
+            'anxiety_at_15_min': forms.RadioSelect(attrs={'id': 'label'}),
+            'anxiety_at_30_min': forms.RadioSelect(attrs={'id': 'label'}),
+            'anxiety_at_60_min': forms.RadioSelect(attrs={'id': 'label'}),
+            'anxiety_at_120_min': forms.RadioSelect(attrs={'id': 'label'})
         }
 
     def __init__(self, *args, **kwargs):
