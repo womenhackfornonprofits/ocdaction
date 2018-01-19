@@ -24,7 +24,7 @@
                          <div class="fieldWrapper">
                              {{ field.errors }}
                              {{ field.label_tag }}
-                             {% for radio in field %}
+                             {% for radio in field|slice:"1:" %}
                                  {{ radio.choice_label }}
                                  {{ radio.tag }}
                              {% endfor %}
@@ -47,7 +47,7 @@
                              <fieldset disabled="disabled">
                              {{ field.errors }}
                              {{ field.label_tag }}
-                             {% for radio in field %}
+                             {% for radio in field|slice:"1:" %}
                                  {{ radio.choice_label }}
                                  {{ radio.tag }}
                              {% endfor %}

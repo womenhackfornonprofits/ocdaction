@@ -76,7 +76,8 @@ class AnxietyScoreCard(models.Model):
     anxiety_at_0_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        blank=False
+        blank=False,
+        default=None
     )
     anxiety_at_5_min = models.CharField(
         max_length=2,
