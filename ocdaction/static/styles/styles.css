@@ -7125,6 +7125,9 @@ form p {
     .ibox-tools {
       display: block; } }
 
+.video-container {
+  padding-bottom: 2%; }
+
 body {
   background: #fff;
   min-height: 100vh; }
