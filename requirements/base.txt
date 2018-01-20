@@ -8,7 +8,7 @@ whitenoise==3.3.1
 wsgiref==0.1.2
 django-custom-user==0.6
 django-registration-redux==1.4
-dj-database-url==0.4.1
+dj-database-url==0.4.2
 django-widget-tweaks==1.4.1               # Tweaks form field rendering in templates, not in Python
 boto==2.46.1               				  # Sending emails using Amazon SES
 django-ses==0.8.2                         # Sending emails using Amazon SES 
