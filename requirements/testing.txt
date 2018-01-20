@@ -3,7 +3,7 @@
 
 -r base.txt
 
-factory_boy==2.8.1         # For fixture generation
+factory_boy==2.9.2         # For fixture generation
 flake8==3.3.0			   # For linting the files
 pytest==3.0.5              # Our Python testing library
 pytest-django==3.1.2       # Integrates pytest with django
