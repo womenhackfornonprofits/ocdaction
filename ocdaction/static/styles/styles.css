@@ -6932,6 +6932,31 @@ select {
 form p {
   margin-top: 0; }
 
+.challenge-form {
+  margin-top: 40px; }
+  .challenge-form__label,
+  .challenge-form label {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333; }
+  .challenge-form textarea, .challenge-form input[type="text"] {
+    width: 100%;
+    margin: .5em 0;
+    padding: .5em;
+    font-size: 1em;
+    font-weight: 100;
+    text-align: left;
+    border: 1px solid #333; }
+  .challenge-form textarea.challenge-form__textarea, .challenge-form input.challenge-form__textarea {
+    color: #333;
+    font-weight: 400; }
+  .challenge-form p {
+    margin-bottom: 23px; }
+  .challenge-form ::-webkit-input-placeholder {
+    color: #9b9b9b; }
+  .challenge-form :-moz-placeholder {
+    color: #9b9b9b; }
+
 .header {
   background-color: #fff;
   border-bottom: 1px solid #fafafa;
@@ -7128,7 +7153,9 @@ form p {
   .button--primary {
     box-shadow: 1px 1px 1px 0px #339279;
     background-color: #4cc1a7;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    padding: 8px 51px;
+    font-size: 17px; }
     .button--primary:hover {
       background-color: #e7f6f3;
       color: #4cc1a7; }

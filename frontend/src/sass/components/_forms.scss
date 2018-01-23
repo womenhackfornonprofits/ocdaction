@@ -76,3 +76,41 @@ form {
         margin-top: 0;
     }
 }
+
+.challenge-form {
+    margin-top: 40px;
+
+    &__label,
+    label {
+        font-size: 18px;
+        font-weight: 700;
+        color: $black-colour;
+    }
+
+    textarea, input[type="text"], {
+        width: 100%;
+        margin: .5em 0;
+        padding: .5em;
+        font-size: 1em;
+        font-weight: 100;
+        text-align: left;
+        border: 1px solid $black-colour;
+    }
+
+    textarea.challenge-form__textarea, input.challenge-form__textarea{
+        color: $black-colour;
+        font-weight: 400;   
+    }
+
+    p {
+        margin-bottom: 23px;
+    }
+    
+    ::-webkit-input-placeholder {
+        color: $light-grey;
+    }
+        
+    :-moz-placeholder {
+        color: $light-grey;
+    }  
+}

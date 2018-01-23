@@ -8,12 +8,14 @@ class ChallengeForm(forms.ModelForm):
         model = Challenge
         fields = ('challenge_name', 'obsession', 'compulsion', 'exposure')
         widgets = {
-            'obsession': forms.Textarea(attrs={'rows': '3'}),
-            'compulsion': forms.Textarea(attrs={'rows': '3'}),
-            'exposure': forms.Textarea(attrs={'rows': '3'})
+            'challenge_name': forms.TextInput(attrs={'placeholder': 'This will appear in your Hierarchy'}),
+            'obsession': forms.Textarea(attrs={'rows': '3', 'placeholder': 'What\'s the worry or thought that makes you anxious'}),
+            'compulsion': forms.Textarea(attrs={'rows': '3', 'placeholder': 'What\'s the thing that you do to try to get rid of anxiety'}),
+            'exposure': forms.Textarea(attrs={'rows': '3', 'placeholder': 'What is your homework set by your therapist'})
         }
 
     def __init__(self, *args, **kwargs):
+        kwargs.setdefault('label_suffix', '')
         super(ChallengeForm, self).__init__(*args, **kwargs)
         self.fields['challenge_name'].label = 'Your Fear'
         self.fields['obsession'].label = 'Your Obsession'

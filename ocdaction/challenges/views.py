@@ -109,12 +109,12 @@ def challenge_edit(request, challenge_id):
     else:
         challenge_form = ChallengeForm(instance=challenge_inst)
 
-    context = {'challenge_form': challenge_form}
+    context = {'challenge_form': challenge_form, 'challenge': challenge_inst}
 
     return render(
-        request,
-        'challenge/challenge_edit.html',
-        context
+       request,
+       'challenge/challenge_edit.html',
+       context
     )
 
 
