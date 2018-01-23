@@ -49,7 +49,6 @@ class AnxietyScoreCard(models.Model):
     """
     Anxiety score card is a collection of scores for the challenge
     """
-    SCORE_ZERO = '0'
     SCORE_ONE = '1'
     SCORE_TWO = '2'
     SCORE_THREE = '3'
@@ -62,23 +61,23 @@ class AnxietyScoreCard(models.Model):
     SCORE_TEN = '10'
 
     ANXIETY_SCORE_CHOICES = (
-        (SCORE_ZERO, 'zero'),
-        (SCORE_ONE, 'one'),
-        (SCORE_TWO, 'two'),
-        (SCORE_THREE, 'three'),
-        (SCORE_FOUR, 'four'),
-        (SCORE_FIVE, 'five'),
-        (SCORE_SIX, 'six'),
-        (SCORE_SEVEN, 'seven'),
-        (SCORE_EIGHT, 'eight'),
-        (SCORE_NINE, 'nine'),
-        (SCORE_TEN, 'ten'),
+        (SCORE_ONE, '1'),
+        (SCORE_TWO, '2'),
+        (SCORE_THREE, '3'),
+        (SCORE_FOUR, '4'),
+        (SCORE_FIVE, '5'),
+        (SCORE_SIX, '6'),
+        (SCORE_SEVEN, '7'),
+        (SCORE_EIGHT, '8'),
+        (SCORE_NINE, '9'),
+        (SCORE_TEN, '10'),
     )
 
     anxiety_at_0_min = models.CharField(
         max_length=2,
         choices=ANXIETY_SCORE_CHOICES,
-        blank=False
+        blank=False,
+        default=None
     )
     anxiety_at_5_min = models.CharField(
         max_length=2,

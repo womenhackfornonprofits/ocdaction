@@ -23,7 +23,11 @@
                      {% else %}
                          <div class="fieldWrapper">
                              {{ field.errors }}
-                             {{ field.label_tag }} {{ field }}
+                             {{ field.label_tag }}
+                             {% for radio in field|slice:"1:" %}
+                                 {{ radio.choice_label }}
+                                 {{ radio.tag }}
+                             {% endfor %}
                              <button class="btn btn-primary pull-left col-xs-4 col-xs-offset-8" type="submit">Save</button>
                          </div>
                      {% endif %}
@@ -31,14 +35,22 @@
                      {% if field.name == 'anxiety_at_0_min' %}
                          <div class="fieldWrapper">
                              {{ field.errors }}
-                             {{ field.label_tag }} {{ field }}
+                             {{ field.label_tag }}
+                             {% for radio in field %}
+                                 {{ radio.choice_label }}
+                                 {{ radio.tag }}
+                             {% endfor %}
                              <button class="btn btn-primary pull-left col-xs-4 col-xs-offset-8" type="submit">Save</button>
                          </div>
                      {% else %}
                          <div class="fieldWrapper">
                              <fieldset disabled="disabled">
                              {{ field.errors }}
-                             {{ field.label_tag }} {{ field }}
+                             {{ field.label_tag }}
+                             {% for radio in field|slice:"1:" %}
+                                 {{ radio.choice_label }}
+                                 {{ radio.tag }}
+                             {% endfor %}
                              </fieldset>
                              <button class="btn btn-primary pull-left col-xs-4 col-xs-offset-8" type="submit" disabled>Save</button>
                          </div>
