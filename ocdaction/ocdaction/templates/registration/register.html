@@ -32,9 +32,10 @@
                             {% render_field field placeholder=field.label class="form-control" %}
                             {% endif %}
 
-
-                            {% if field.help_text %}
-                            <p class="helptext">{{ field.help_text|safe }}</p>
+                            {% if field.name != "password1" %}
+                                {% if field.help_text %}
+                                <p class="helptext">{{ field.help_text|safe }}</p>
+                                {% endif %}
                             {% endif %}
 
                         </div>
