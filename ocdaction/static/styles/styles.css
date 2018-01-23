@@ -6685,8 +6685,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .h1,
 h1 {
-  font-size: 1.95em;
-  font-weight: 400; }
+  font-size: 1.7em;
+  font-weight: 400;
+  margin-bottom: 0.625em; }
+  @media (min-width: 990px) {
+    .h1,
+    h1 {
+      font-size: 1.95em; } }
 
 .h2,
 h2 {
@@ -6749,6 +6754,28 @@ a {
   font-size: .8rem;
   font-color: #444; }
 
+.backlink {
+  text-decoration: none;
+  font-size: 20px;
+  color: #444;
+  position: absolute;
+  top: 20px; }
+  .backlink i {
+    color: #444; }
+  @media (min-width: 990px) {
+    .backlink {
+      font-size: 15px;
+      position: absolute;
+      top: 20px; } }
+  .backlink__text {
+    display: none; }
+    @media (min-width: 990px) {
+      .backlink__text {
+        display: inline-block;
+        color: #444;
+        text-decoration: none;
+        font-size: 20px; } }
+
 ul, ol {
   margin: 30px 0 0 20px; }
   ul li, ol li {
@@ -6757,6 +6784,18 @@ ul, ol {
     list-style: none; }
   ul ul, ul ol, ol ul, ol ol {
     margin-top: 0; }
+
+dl {
+  margin: 30px 0 0; }
+  dl dd, dl dt {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+    list-style: none; }
+  dl dd {
+    margin-bottom: 25px; }
+    dl dd:last-child {
+      margin-bottom: 50px; }
 
 strong,
 b,
@@ -7095,6 +7134,18 @@ form p {
       color: #4cc1a7; }
   .button--secondary {
     background-color: transparent; }
+
+.button--edit {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 9px 54px; }
+
+.button--archive {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 9px 36px; }
 
 .ibox-content {
   color: #333;
