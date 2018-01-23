@@ -6782,7 +6782,7 @@ ul, ol {
     margin-top: 10px;
     color: #333;
     list-style: none; }
-  ul, ol {
+  ul ul, ul ol, ol ul, ol ol {
     margin-top: 0; }
 
 dl {
@@ -6952,6 +6952,10 @@ form p {
     font-weight: 400; }
   .challenge-form p {
     margin-bottom: 23px; }
+  .challenge-form ::-webkit-input-placeholder {
+    color: #9b9b9b; }
+  .challenge-form :-moz-placeholder {
+    color: #9b9b9b; }
 
 .header {
   background-color: #fff;

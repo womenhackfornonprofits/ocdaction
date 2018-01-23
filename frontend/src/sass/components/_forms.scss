@@ -104,5 +104,13 @@ form {
 
     p {
         margin-bottom: 23px;
-    }   
+    }
+    
+    ::-webkit-input-placeholder {
+        color: $light-grey;
+    }
+        
+    :-moz-placeholder {
+        color: $light-grey;
+    }  
 }
