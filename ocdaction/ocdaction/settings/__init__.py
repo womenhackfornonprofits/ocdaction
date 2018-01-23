@@ -132,7 +132,7 @@ USE_TZ = True
 
 AUTH_USER_MODEL = 'profiles.OCDActionUser'
 
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = 'http://res.cloudinary.com/ocd-action-app/image/upload/'
 
