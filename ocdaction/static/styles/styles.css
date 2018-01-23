@@ -2961,6 +2961,8 @@ code {
   margin-bottom: 0;
   padding: 15px 15px 7px;
   min-height: 48px; }
+  .ibox-title--archive {
+    background-color: #FDB01E19; }
 
 .ibox-content {
   background-color: #e7f6f3;
@@ -2970,6 +2972,8 @@ code {
   border-image: none;
   border-style: solid solid none;
   border-width: 1px 0; }
+  .ibox-content--archive {
+    background-color: #FDB01E19; }
 
 .ibox-footer {
   color: inherit;

@@ -545,6 +545,10 @@ code {
   margin-bottom: 0;
   padding: 15px 15px 7px;
   min-height: 48px;
+
+  &--archive {
+    background-color: $ibox-title-archive-bg;
+  }
 }
 
 .ibox-content {
@@ -556,6 +560,10 @@ code {
   border-image: none;
   border-style: solid solid none;
   border-width: 1px 0;
+
+  &--archive {
+    background-color: $ibox-content-archive-bg;
+  }
 }
 
 .ibox-footer {
