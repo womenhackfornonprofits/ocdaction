@@ -7,7 +7,7 @@ psycopg2==2.7.3.2
 whitenoise==3.3.1
 wsgiref==0.1.2
 django-custom-user==0.6
-django-registration-redux==1.4
+django-registration-redux==2.1
 dj-database-url==0.4.2
 django-widget-tweaks==1.4.1               # Tweaks form field rendering in templates, not in Python
 boto==2.48.0               				  # Sending emails using Amazon SES
