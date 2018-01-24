@@ -130,7 +130,7 @@ class ViewsTest(TestCase):
     def setUp(self):
         self.factory = RequestFactory()
         self.user = UserFactory.create()
-        self.challenge = ChallengeFactory.create()
+        self.challenge = ChallengeFactory.create(user=self.user)
         self.score_card = AnxietyScoreCard.objects.create(
             challenge=self.challenge,
             anxiety_at_0_min='9',

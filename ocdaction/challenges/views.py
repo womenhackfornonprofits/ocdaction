@@ -80,7 +80,7 @@ def challenge_view(request, challenge_id):
     """
     View a challenge
     """
-    challenge = get_object_or_404(Challenge, pk=challenge_id)
+    challenge = get_object_or_404(Challenge.objects.filter(user=request.user), pk=challenge_id)
     anxiety_score_cards = AnxietyScoreCard.objects.filter(challenge=challenge).order_by('-id')[:3]
 
     context = {'challenge': challenge, 'anxiety_score_cards': anxiety_score_cards}
@@ -93,7 +93,7 @@ def challenge_edit(request, challenge_id):
     """
     Edit a challenge
     """
-    challenge_inst = get_object_or_404(Challenge, pk=challenge_id)
+    challenge_inst = get_object_or_404(Challenge.objects.filter(user=request.user), pk=challenge_id)
 
     if request.method == 'POST':
         challenge_form = ChallengeForm(request.POST, instance=challenge_inst)
@@ -123,7 +123,7 @@ def challenge_archive(request, challenge_id):
     """
     Archive a challenge
     """
-    challenge = get_object_or_404(Challenge, pk=challenge_id)
+    challenge = get_object_or_404(Challenge.objects.filter(user=request.user), pk=challenge_id)
     challenge.archive()
 
     return redirect('challenge-list')
@@ -134,7 +134,7 @@ def challenge_summary(request, challenge_id, score_id):
     """
     Mark challenge complete and display summary of a challenge
     """
-    challenge = get_object_or_404(Challenge, pk=challenge_id)
+    challenge = get_object_or_404(Challenge.objects.filter(user=request.user), pk=challenge_id)
     anxiety_score_card = get_object_or_404(AnxietyScoreCard, pk=score_id)
 
     challenge.in_progress = False
@@ -156,7 +156,7 @@ def challenge_score_form_new(request, challenge_id):
     Start doing a challenge, creating a new score card
     """
 
-    challenge = get_object_or_404(Challenge, pk=challenge_id)
+    challenge = get_object_or_404(Challenge.objects.filter(user=request.user), pk=challenge_id)
 
     if request.method == "POST":
         anxiety_score_form = AnxietyScoreCardForm(request.POST)
@@ -192,7 +192,7 @@ def challenge_score_form(request, challenge_id, score_id):
     Continue doing a challenge, on an existing score card
     """
 
-    challenge = get_object_or_404(Challenge, pk=challenge_id)
+    challenge = get_object_or_404(Challenge.objects.filter(user=request.user), pk=challenge_id)
     anxiety_score_card = get_object_or_404(AnxietyScoreCard, pk=score_id)
 
     if request.method == "POST":
