@@ -6960,7 +6960,11 @@ form p {
 .header {
   background-color: #fff;
   border-bottom: 1px solid #fafafa;
-  padding: 15px 0; }
+  padding: 15px 0;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030; }
   .header__logo {
     flex: 0 1 10em; }
   .header__wrapper {
@@ -7211,7 +7215,7 @@ body {
   min-height: 100vh; }
 
 section {
-  padding: 4em 0;
+  padding: 10em 0;
   clear: both; }
 
 .background-light {
