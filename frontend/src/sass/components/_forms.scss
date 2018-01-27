@@ -114,3 +114,24 @@ form {
         color: $light-grey;
     }  
 }
+
+.anxiety-tracker {
+    padding-bottom: 18px;
+}
+
+.btn-group>.btn:not(:first-child) {
+    margin-left: -1px;
+}
+
+.btn-group>.btn:last-child {
+    padding: 6px 9px;
+}
+
+input[type=radio]:checked + label {
+    background-color: $light-grey;
+    color: $white-colour;
+}
+
+.anxiety-tracker input[type=radio] {
+    display: none
+}

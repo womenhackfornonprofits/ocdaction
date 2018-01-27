@@ -6962,6 +6962,22 @@ form p {
   .challenge-form :-moz-placeholder {
     color: #9b9b9b; }
 
+.anxiety-tracker {
+  padding-bottom: 18px; }
+
+.btn-group > .btn:not(:first-child) {
+  margin-left: -1px; }
+
+.btn-group > .btn:last-child {
+  padding: 6px 9px; }
+
+input[type=radio]:checked + label {
+  background-color: #9b9b9b;
+  color: #fff; }
+
+.anxiety-tracker input[type=radio] {
+  display: none; }
+
 .header {
   background-color: #fff;
   border-bottom: 1px solid #fafafa;

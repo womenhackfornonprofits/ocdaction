@@ -16,54 +16,73 @@
             </div>
             <h1 class="col-xs-offset-1 col-md-6">{{ challenge.challenge_name }}</h1>
         </div>
-        <form class="col-xs-12 col-md-6 col-md-offset-3" method="POST">
-            {% csrf_token %}
-            {% for field in anxiety_score_form %}
-                 {% if anxiety_score_form.anxiety_at_0_min.value %}
-                     {% if field.value %}
-                         {{ field.as_hidden }}
-                         <p>{{ field.label_tag }} {{ field.value }}</p>
-                     {% else %}
-                         <div class="fieldWrapper">
-                             {{ field.errors }}
-                             {{ field.label_tag }}
-                             {% for radio in field|slice:"1:" %}
-                                 {{ radio.choice_label }}
-                                 {{ radio.tag }}
-                             {% endfor %}
-                             <button class="btn btn-primary pull-left col-xs-4 col-xs-offset-8" type="submit">Save</button>
-                         </div>
-                     {% endif %}
-                 {% else %}
-                     {% if field.name == 'anxiety_at_0_min' %}
-                         <div class="fieldWrapper">
-                             {{ field.errors }}
-                             {{ field.label_tag }}
-                             {% for radio in field %}
-                                 {{ radio.choice_label }}
-                                 {{ radio.tag }}
-                             {% endfor %}
-                             <button class="btn btn-primary pull-left col-xs-4 col-xs-offset-8" type="submit">Save</button>
-                         </div>
-                     {% else %}
-                         <div class="fieldWrapper">
-                             <fieldset disabled="disabled">
-                             {{ field.errors }}
-                             {{ field.label_tag }}
-                             {% for radio in field|slice:"1:" %}
-                                 {{ radio.choice_label }}
-                                 {{ radio.tag }}
-                             {% endfor %}
-                             </fieldset>
-                             <button class="btn btn-primary pull-left col-xs-4 col-xs-offset-8" type="submit" disabled>Save</button>
-                         </div>
-                     {% endif %}
-                 {% endif %}
-            {% endfor %}
+        <div class="ibox-content text-center col-xs-12 col-md-6 col-md-offset-3">
+            <h5 class="font-bold">Enter your anxiety level at each time</h5>
+            <form method="POST">
+                {% csrf_token %}
+                {% for field in anxiety_score_form %}
+                    {% if anxiety_score_form.anxiety_at_0_min.value %}
+                        {% if field.value %}
+                            {{ field.as_hidden }}
+                            {{ field.label_tag }} {{ field.value }}
+                        {% else %}
+                            {{ field.errors }}
+                            {{ field.label_tag }}
+                            <div class="btn-group anxiety-tracker" data-toggle="buttons">
+                                {% for radio in field|slice:"1:" %}
+                                    {{ radio.tag }}  
+                                    <label for="{{ radio.id_for_label }}" class="btn btn-white">
+                                        {{ radio.choice_label }}
+                                    </label>
+                                {% endfor %}
+                            </div>
+                            <div class="row text-center">
+                                <div class="col-xs-12">
+                                    <button class="button button--primary" type="submit">Save</button>
+                                </div>  
+                            </div> 
+                        {% endif %}
+                    {% else %}
+                        {% if field.name == 'anxiety_at_0_min' %}
+                            <div class="btn-group anxiety-tracker" data-toggle="buttons">
+                                {% for radio in field %}
+                                    {{ radio.tag }}
+                                    <label for="{{ radio.id_for_label }}" class="btn btn-white">
+                                        {{ radio.choice_label }}
+                                    </label>
+                                {% endfor %}
+                            </div>
+                            <div class="row text-center">
+                                <div class="col-xs-12">
+                                    <button class="button button--primary" type="submit">Save</button>
+                                </div>  
+                             </div>
+                        {% else %}
+                            <fieldset disabled="disabled">
+                                {{ field.errors }}
+                                {{ field.label_tag }}
+                                <div class="btn-group anxiety-tracker" data-toggle="buttons">
+                                    {% for radio in field|slice:"1:" %}
+                                        {{ radio.tag }}
+                                        <label for="{{ radio.id_for_label }}" class="btn btn-white">
+                                            {{ radio.choice_label }}
+                                        </label>
+                                    {% endfor %}
+                                </div>                                
+                            </fieldset>
+                            <div class="row text-center">
+                                <div class="col-xs-12">
+                                    <button class="button button--primary" type="submit" disabled>Save</button>
+                                </div>  
+                            </div> 
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
 
-            {% if anxiety_score_form.anxiety_at_120_min.value %}
-                <a class="btn btn-primary pull-left col-xs-4 col-xs-offset-5" href="{% url 'challenge-summary' challenge.pk anxiety_score_card.pk %}">Complete the Challenge</a>
-            {% endif %}
-        </form>
+                {% if anxiety_score_form.anxiety_at_120_min.value %}
+                    <a class="btn btn-primary pull-left col-xs-4 col-xs-offset-5" href="{% url 'challenge-summary' challenge.pk anxiety_score_card.pk %}">Complete the Challenge</a>
+                {% endif %}
+            </form>
+        </div>
     </section>
 {% endblock %}
