@@ -6965,19 +6965,33 @@ form p {
 .anxiety-tracker {
   margin-top: 25px;
   margin-bottom: 160px; }
-
-.btn-group > .btn:not(:first-child) {
-  margin-left: -1px; }
-
-.btn-group > .btn:last-child {
-  padding: 6px 9px; }
-
-input[type=radio]:checked + label {
-  background-color: #9b9b9b;
-  color: #fff; }
-
-.anxiety-tracker input[type=radio] {
-  display: none; }
+  .anxiety-tracker .btn-group > .btn:not(:first-child) {
+    margin-left: -1px; }
+  .anxiety-tracker .btn-group > .btn {
+    padding: 9px 11px; }
+    @media (min-width: 990px) {
+      .anxiety-tracker .btn-group > .btn {
+        padding: 10px 12px; } }
+  .anxiety-tracker .btn-group > .btn:last-child {
+    padding: 9px 7px; }
+    @media (min-width: 990px) {
+      .anxiety-tracker .btn-group > .btn:last-child {
+        padding: 10px 8px; } }
+  .anxiety-tracker fieldset {
+    border: none;
+    padding: 1.2em 0 .95em; }
+  .anxiety-tracker button[disabled] {
+    cursor: not-allowed;
+    background-color: #dddddd;
+    color: #fff;
+    box-shadow: none; }
+  .anxiety-tracker button:last-child {
+    margin-bottom: 27px; }
+  .anxiety-tracker input[type=radio]:checked + label {
+    background-color: #9b9b9b;
+    color: #fff; }
+  .anxiety-tracker input[type=radio] {
+    display: none; }
 
 .header {
   background-color: #fff;

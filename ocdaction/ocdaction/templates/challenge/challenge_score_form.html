@@ -28,16 +28,18 @@
                             {{ field.as_hidden }}
                             {{ field.label_tag }} {{ field.value }}
                         {% else %}
-                            {{ field.errors }}
-                            {{ field.label_tag }}
-                            <div class="btn-group" data-toggle="buttons">
-                                {% for radio in field|slice:"1:" %}
-                                    {{ radio.tag }}  
-                                    <label for="{{ radio.id_for_label }}" class="btn btn-white">
-                                        {{ radio.choice_label }}
-                                    </label>
-                                {% endfor %}
-                            </div>
+                            <fieldset>
+                                {{ field.errors }}
+                                {{ field.label_tag }}
+                                <div class="btn-group" data-toggle="buttons">
+                                    {% for radio in field|slice:"1:" %}
+                                        {{ radio.tag }}  
+                                        <label for="{{ radio.id_for_label }}" class="btn btn-white">
+                                            {{ radio.choice_label }}
+                                        </label>
+                                    {% endfor %}
+                                </div>
+                            </fieldset>
                             <div class="row text-center">
                                 <div class="col-xs-12">
                                     <button class="button button--primary" type="submit">Save</button>
@@ -46,14 +48,18 @@
                         {% endif %}
                     {% else %}
                         {% if field.name == 'anxiety_at_0_min' %}
-                            <div class="btn-group" data-toggle="buttons">
-                                {% for radio in field %}
-                                    {{ radio.tag }}
-                                    <label for="{{ radio.id_for_label }}" class="btn btn-white">
-                                        {{ radio.choice_label }}
-                                    </label>
-                                {% endfor %}
-                            </div>
+                        <fieldset>
+                                {{ field.errors }}
+                                {{ field.label_tag }}
+                                <div class="btn-group" data-toggle="buttons">
+                                    {% for radio in field %}
+                                        {{ radio.tag }}
+                                        <label for="{{ radio.id_for_label }}" class="btn btn-white">
+                                            {{ radio.choice_label }}
+                                        </label>
+                                    {% endfor %}
+                                </div>
+                            </fieldset>
                             <div class="row text-center">
                                 <div class="col-xs-12">
                                     <button class="button button--primary" type="submit">Save</button>
