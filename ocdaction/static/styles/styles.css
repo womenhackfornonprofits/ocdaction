@@ -6963,7 +6963,8 @@ form p {
     color: #9b9b9b; }
 
 .anxiety-tracker {
-  padding-bottom: 18px; }
+  margin-top: 25px;
+  margin-bottom: 160px; }
 
 .btn-group > .btn:not(:first-child) {
   margin-left: -1px; }
