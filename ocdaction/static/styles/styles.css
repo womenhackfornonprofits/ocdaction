@@ -6965,6 +6965,18 @@ form p {
 .anxiety-tracker {
   margin-top: 25px;
   margin-bottom: 160px; }
+  .anxiety-tracker form {
+    padding-top: 8px;
+    padding-bottom: 20px; }
+    .anxiety-tracker form p {
+      margin-top: 20px; }
+  .anxiety-tracker label {
+    display: inline-block; }
+  .anxiety-tracker p span {
+    font-weight: 600;
+    padding-left: 30px; }
+  .anxiety-tracker .btn-group {
+    padding-top: 5px; }
   .anxiety-tracker .btn-group > .btn:not(:first-child) {
     margin-left: -1px; }
   .anxiety-tracker .btn-group > .btn {
@@ -6977,6 +6989,8 @@ form p {
     @media (min-width: 990px) {
       .anxiety-tracker .btn-group > .btn:last-child {
         padding: 10px 8px; } }
+  .anxiety-tracker .btn-group > .btn:not(:first-child):not(:last-child) {
+    border-radius: 2px; }
   .anxiety-tracker fieldset {
     border: none;
     padding: 1.2em 0 .95em; }
@@ -6985,8 +6999,6 @@ form p {
     background-color: #dddddd;
     color: #fff;
     box-shadow: none; }
-  .anxiety-tracker button:last-child {
-    margin-bottom: 27px; }
   .anxiety-tracker input[type=radio]:checked + label {
     background-color: #9b9b9b;
     color: #fff; }

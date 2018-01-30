@@ -119,6 +119,30 @@ form {
     margin-top: 25px;
     margin-bottom: 160px;
 
+    form {
+        padding-top: 8px;
+        padding-bottom: 20px;
+
+        p {
+            margin-top: 20px;
+        }
+    }
+
+    label {
+        display: inline-block;
+    }
+
+    p {
+        span {
+            font-weight: 600;
+            padding-left: 30px;
+        }
+    }
+
+    .btn-group {
+        padding-top: 5px;
+    }
+
     .btn-group>.btn:not(:first-child) {
         margin-left: -1px;
     }
@@ -139,6 +163,10 @@ form {
         }
     }
 
+    .btn-group>.btn:not(:first-child):not(:last-child) {
+        border-radius: 2px;
+    }
+
     fieldset {
         border: none;
         padding: 1.2em 0 .95em;
@@ -149,10 +177,6 @@ form {
         background-color: $btn-disabled-color;
         color: $white-colour;
         box-shadow: none;
-    }
-
-    button:last-child {
-        margin-bottom: 27px;
     }
 
     input[type=radio]:checked + label {

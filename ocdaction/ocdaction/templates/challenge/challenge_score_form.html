@@ -26,7 +26,7 @@
                     {% if anxiety_score_form.anxiety_at_0_min.value %}
                         {% if field.value %}
                             {{ field.as_hidden }}
-                            {{ field.label_tag }} {{ field.value }}
+                            <p class="text-center">{{ field.label_tag }}<span>{{ field.value }}</span></p>
                         {% else %}
                             <fieldset>
                                 {{ field.errors }}
