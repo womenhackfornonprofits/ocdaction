@@ -114,3 +114,89 @@ form {
         color: $light-grey;
     }  
 }
+
+.anxiety-tracker {
+    margin-top: 25px;
+    margin-bottom: 160px;
+
+    form {
+        padding-top: 8px;
+        padding-bottom: 30px;
+
+        p {
+            margin-top: 20px;
+        }
+    }
+
+    label {
+        display: inline-block;
+    }
+
+    p {
+        span {
+            font-weight: 600;
+            padding-left: 30px;
+        }
+    }
+
+    .btn-group {
+        padding-top: 5px;
+    }
+
+    .btn-group>.btn:not(:first-child) {
+        margin-left: -1px;
+    }
+
+    .btn-group>.btn {
+        padding: 9px 11px;
+
+        @media (min-width: 990px) {
+            padding: 10px 12px;
+        }
+    }
+
+    .btn-group>.btn:last-child {
+        padding: 9px 7px;
+
+        @media (min-width: 990px) {
+            padding: 10px 8px;
+        }
+    }
+
+    .btn-group>.btn:not(:first-child):not(:last-child) {
+        border-radius: 2px;
+    }
+
+    fieldset {
+        border: none;
+        padding: 1.2em 0 .95em;
+    }
+
+    button[disabled] {
+        cursor: not-allowed;
+        background-color: $btn-disabled-color;
+        color: $white-colour;
+        box-shadow: none;
+    }
+
+    input[type=radio]:checked + label {
+        background-color: $light-grey;
+        color: $white-colour;
+    }
+
+    input[type=radio] {
+        display: none
+    }
+
+    .anxiety-tracker--complete {
+        padding-top: 25px;
+        
+        a {
+            color: $white-colour;
+        }
+
+        .button--primary {
+            padding: 8px 30px;
+        }
+    }
+}
