@@ -19,63 +19,63 @@
                     <h1 class="col-xs-offset-1 col-md-6">{{ challenge.challenge_name }}</h1>
                 </div>
             </div>
-            <div class="anxiety-tracker ibox-content text-center col-xs-12 col-md-4 col-md-offset-4">
-            <h3 class="font-bold">Congratulations!</h3>
-            <h5>You have tackled this exposure</h5>
-                <table>
+            <div class="challenge-summary ibox-content text-center col-xs-12 col-md-4 col-md-offset-4">
+                <h3 class="font-bold margin-bottom-0">Congratulations!</h3>
+                <p>You have tackled this exposure</p>
+                <table class="challenge-summary--table">
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Most recent</th>
+                            <th><div>Most</div><div>recent</div></th>
                             <th></th>
                             <th></th>
                         </tr>
                     </thead>
-                <tbody>
-                    <tr>
-                        <td>Anxiety at 0min:</td>
-                        {% for card in anxiety_score_cards %}
-                            <td>{% render_anxiety_level card.anxiety_at_0_min %}</td>
-                        {% endfor %}
-                    </tr>
-                    <tr>
-                        <td>Anxiety at 5min:</td>
-                        {% for card in anxiety_score_cards %}
-                            <td>{% render_anxiety_level card.anxiety_at_5_min %}</td>
-                        {% endfor %}
-                    </tr>
-                    <tr>
-                        <td>Anxiety at 10min:</td>
-                        {% for card in anxiety_score_cards %}
-                            <td>{% render_anxiety_level card.anxiety_at_10_min %}</td>
-                        {% endfor %}
-                    </tr>
-                    <tr>
-                        <td>Anxiety at 15min:</td>
-                        {% for card in anxiety_score_cards %}
-                            <td>{% render_anxiety_level card.anxiety_at_15_min %}</td>
-                        {% endfor %}
-                    </tr>
-                    <tr>
-                        <td>Anxiety at 30min:</td>
-                        {% for card in anxiety_score_cards %}
-                            <td>{% render_anxiety_level card.anxiety_at_30_min %}</td>
-                        {% endfor %}
-                    </tr>
-                    <tr>
-                        <td>Anxiety at 60min:</td>
-                        {% for card in anxiety_score_cards %}
-                            <td>{% render_anxiety_level card.anxiety_at_60_min %}</td>
-                        {% endfor %}
-                    </tr>
-                    <tr>
-                        <td>Anxiety at 120min:</td>
-                        {% for card in anxiety_score_cards %}
-                            <td>{% render_anxiety_level card.anxiety_at_120_min %}</td>
-                        {% endfor %}
-                    </tr>
-                </tbody>
-            </table>
+                    <tbody>
+                        <tr>
+                            <td>Anxiety at 0min:</td>
+                            {% for card in anxiety_score_cards %}
+                                <td>{% render_anxiety_level card.anxiety_at_0_min %}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>Anxiety at 5min:</td>
+                            {% for card in anxiety_score_cards %}
+                                <td>{% render_anxiety_level card.anxiety_at_5_min %}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>Anxiety at 10min:</td>
+                            {% for card in anxiety_score_cards %}
+                                <td>{% render_anxiety_level card.anxiety_at_10_min %}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>Anxiety at 15min:</td>
+                            {% for card in anxiety_score_cards %}
+                                <td>{% render_anxiety_level card.anxiety_at_15_min %}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>Anxiety at 30min:</td>
+                            {% for card in anxiety_score_cards %}
+                                <td>{% render_anxiety_level card.anxiety_at_30_min %}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>Anxiety at 60min:</td>
+                            {% for card in anxiety_score_cards %}
+                                <td>{% render_anxiety_level card.anxiety_at_60_min %}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>Anxiety at 120min:</td>
+                            {% for card in anxiety_score_cards %}
+                                <td>{% render_anxiety_level card.anxiety_at_120_min %}</td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
     {% endblock %}
