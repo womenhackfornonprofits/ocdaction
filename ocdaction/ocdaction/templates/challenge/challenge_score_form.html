@@ -88,7 +88,11 @@
                 {% endfor %}
 
                 {% if anxiety_score_form.anxiety_at_120_min.value %}
-                    <a class="btn btn-primary pull-left col-xs-4 col-xs-offset-5" href="{% url 'challenge-summary' challenge.pk anxiety_score_card.pk %}">Complete the Challenge</a>
+                <div class="anxiety-tracker--complete">
+                    <a class="button button--primary" href="{% url 'challenge-summary' challenge.pk anxiety_score_card.pk %}">
+                        Complete this exposure
+                    </a>
+                </div>
                 {% endif %}
             </form>
         </div>

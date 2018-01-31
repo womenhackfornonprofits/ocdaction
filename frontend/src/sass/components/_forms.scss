@@ -121,7 +121,7 @@ form {
 
     form {
         padding-top: 8px;
-        padding-bottom: 20px;
+        padding-bottom: 30px;
 
         p {
             margin-top: 20px;
@@ -186,5 +186,17 @@ form {
 
     input[type=radio] {
         display: none
+    }
+
+    .anxiety-tracker--complete {
+        padding-top: 25px;
+        
+        a {
+            color: $white-colour;
+        }
+
+        .button--primary {
+            padding: 8px 30px;
+        }
     }
 }
