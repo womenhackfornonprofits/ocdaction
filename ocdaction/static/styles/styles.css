@@ -7273,6 +7273,8 @@ form p {
     padding-top: 1px; }
   .challenge-summary hr {
     border-top: 1px solid #979797; }
+  .challenge-summary--archive {
+    background-color: #FDB01E19; }
 
 .challenge-summary--table {
   margin: 0 auto 20px;
