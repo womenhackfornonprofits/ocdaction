@@ -133,24 +133,6 @@ USE_TZ = True
 
 AUTH_USER_MODEL = 'profiles.OCDActionUser'
 
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-MEDIA_URL = 'http://res.cloudinary.com/ocd-action-app/image/upload/'
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.6/howto/static-files/
-#
-
-STATIC_URL = '/static/'
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
-
-
 CONTEXT_PROCESSORS = [
     "django.contrib.auth.context_processors.auth",
     "django.template.context_processors.debug",
@@ -162,7 +144,38 @@ CONTEXT_PROCESSORS = [
     "django.template.context_processors.request",
 ]
 
+
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.6/howto/static-files/
+#
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+# Static and media file storage with AWS S3
+
+AWS_STORAGE_BUCKET_NAME = 'ocdaction'
+AWS_S3_REGION_NAME = 'eu-west-2'
+AWS_ACCESS_KEY_ID = "FAKEforDEV"
+AWS_SECRET_ACCESS_KEY = "FAKEforDEV"
+
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+STATICFILES_LOCATION = 'static'
+STATICFILES_STORAGE = 's3_storages.StaticStorage'
+STATIC_URL = AWS_S3_CUSTOM_DOMAIN + '/static/'
+
+MEDIAFILES_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 's3_storages.MediaStorage'
+MEDIA_URL = AWS_S3_CUSTOM_DOMAIN + '/media/'
+
 # Registration settings
+
 ACCOUNT_ACTIVATION_DAYS = 7
 #REGISTRATION_DEFAULT_FROM_EMAIL = "info@ocdaction.org"
 REGISTRATION_EMAIL_HTML = True
