@@ -7271,6 +7271,8 @@ form p {
     font-weight: 800;
     text-align: center;
     padding-top: 1px; }
+  .challenge-summary hr {
+    border-top: 1px solid #979797; }
 
 .challenge-summary--table {
   margin: 0 auto 20px;
