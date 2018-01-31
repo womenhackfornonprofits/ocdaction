@@ -24,8 +24,12 @@ body {
 }
 
 section {
-	padding: 10em 0;
+	padding: 4em 0;
 	clear: both;
+}
+	
+.section--custom {
+	padding-bottom: 0;
 }
 
 .background-light {
@@ -41,6 +45,10 @@ section {
 
 .content__wrapper {
 	flex: 1;
+
+	section:first-of-type {
+		padding-top: 10em;
+	}
 }
 
 .errorlist {

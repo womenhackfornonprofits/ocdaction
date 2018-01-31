@@ -6964,7 +6964,7 @@ form p {
 
 .anxiety-tracker {
   margin-top: 25px;
-  margin-bottom: 160px; }
+  margin-bottom: 90px; }
   .anxiety-tracker form {
     padding-top: 8px;
     padding-bottom: 30px; }
@@ -7266,7 +7266,7 @@ form p {
 
 .challenge-summary {
   margin-top: 25px;
-  margin-bottom: 160px; }
+  margin-bottom: 90px; }
   .challenge-summary p {
     font-weight: 800;
     text-align: center;
@@ -7292,8 +7292,11 @@ body {
   min-height: 100vh; }
 
 section {
-  padding: 10em 0;
+  padding: 4em 0;
   clear: both; }
+
+.section--custom {
+  padding-bottom: 0; }
 
 .background-light {
   background-color: #fff; }
@@ -7307,6 +7310,8 @@ section {
 
 .content__wrapper {
   flex: 1; }
+  .content__wrapper section:first-of-type {
+    padding-top: 10em; }
 
 .errorlist {
   display: block !important; }
