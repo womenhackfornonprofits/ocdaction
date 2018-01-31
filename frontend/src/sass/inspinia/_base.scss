@@ -548,7 +548,7 @@ code {
   min-height: 48px;
 
   &--archive {
-    background-color: $ibox-title-archive-bg;
+    background-color: $archive-background-colour;
   }
 }
 
@@ -563,7 +563,7 @@ code {
   border-width: 1px 0;
 
   &--archive {
-    background-color: $ibox-content-archive-bg;
+    background-color: $archive-background-colour;
   }
 }
 
