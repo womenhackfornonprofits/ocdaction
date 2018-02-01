@@ -6851,6 +6851,9 @@ b,
 .background--primary {
   background-color: #e7f6f3; }
 
+.background--archive {
+  background-color: #FDB01E19; }
+
 .display-inline {
   display: inline; }
 
@@ -7194,7 +7197,8 @@ form p {
     font-size: 60px; }
 
 .custom-panel {
-  padding: 60px 0; }
+  padding: 60px 0;
+  margin-bottom: 90px; }
 
 .button {
   margin: 0;
