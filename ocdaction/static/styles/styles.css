@@ -6752,7 +6752,8 @@ a {
   .link--disabled,
   a--disabled {
     color: #808080;
-    pointer-events: none; }
+    pointer-events: none;
+    cursor: not-allowed; }
 
 .helptext {
   font-style: italic;
