@@ -7295,8 +7295,11 @@ body {
   min-height: 100vh; }
 
 section {
-  padding: 4em 0;
+  padding: 1.6em 0 4em;
   clear: both; }
+  @media (min-width: 990px) {
+    section {
+      padding: 4em 0; } }
 
 .section--custom {
   padding-bottom: 0; }

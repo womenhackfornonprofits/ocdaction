@@ -5,7 +5,7 @@
 {% load static widget_tweaks %}
 
 {% block main %} 
-    <section class="container">
+    <section class="container section--custom">
         <div class="row">
             <div class="col-xs-12 col-md-6">
                 <h1 class="text-left">Useful Contacts</h1>
@@ -14,19 +14,19 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-md-6 contact">
-                <h2 class="h3 text-left contact__title">OCD Youth</h2>
+                <h4 class="text-left contact__title">OCD Youth</h4>
                 <a href="mailto:youth@ocdaction.org.uk" class="text-left">youth@ocdaction.org.uk</a>
                 <a href="http://ocdyouth.org" class="text-left">ocdyouth.org</a>
             </div>
             <div class="col-xs-12 col-md-6 contact">
-                <h2 class="h4 text-left contact__title">OCD Youth Helpline</h2>
+                <h4 class="text-left contact__title">OCD Youth Helpline</h4>
                 <a href="mailto:youthhelpline@ocdaction.org.uk" class="text-left">youthhelpline@ocdaction.org.uk</a>
                 <a href="http://ocdyouth.org/helpline" class="text-left">ocdyouth.org/helpline</a>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12 col-md-6 contact">
-                <h2 class="h4 text-left contact__title">OCD Action</h2>
+                <h4 class="text-left contact__title">OCD Action</h4>
                 <p>Suite 506-507 Davina House,</br>
                 137-149 Goswell Road</br>
                 London,</br>
@@ -61,10 +61,14 @@
                             </div>
                         </div>
                     </div>
-                    <button class="button button--primary" type="submit">Contact Us Now</button>
+                    <div class="row text-center col-sm-10">
+                        <div class="margin-top-15">
+                            <button class="button button--primary" type="submit">Contact Us Now</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
     </section> 
 {% endblock %}
-     
+
