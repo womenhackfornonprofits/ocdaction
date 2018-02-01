@@ -12,9 +12,14 @@
             {% csrf_token %}
             <div class="text-align-center">
                 <div class="row">
-                    <h4>You are now logged out. Thank you and have a great day.</h4>
+                    <h1>You are now logged out</h1> 
+                    <h5>Thank you and have a great day</h5>
                 </div>
-                <a href="{% url 'login' %}" class="button button--primary">Log in again</a>
+                <div class="row text-center">
+                    <div class="margin-top-15">
+                        <a class="button button--primary" href="{% url 'login' %}">Log in again</a>
+                    </div>
+                </div>
             </div>
         </form>
     </section>

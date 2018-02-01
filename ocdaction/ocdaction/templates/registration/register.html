@@ -5,24 +5,23 @@
     {% block main %} 
         <section class="container">
             <h1>Register</h1>
-            <div class="row">
-                <form method="POST" action="" class="col-xs-offset-2 col-xs-8 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4">
-                    {% csrf_token %}
+            <form method="POST" action="" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4">
+                {% csrf_token %}
 
-                    {% if form.non_field_errors %}
-                        <div class="non-field-errors">
-                        {% for error in form.non_field_errors %}
-                            <p class="form-error text-danger">{{ error }}</p>
-                        {% endfor %}
-                        </div>
-                    {% endif %}
-                    {% for field in form %}
-                        <div class="form-group {% if field.errors %} has-error {% endif %}">
-                            {% if field.errors %}
-                                {% for error in field.errors %}
-                                    <p class="form-error pull-left text-danger">{{ error }}</p>
-                                {% endfor %}
-                            {% endif %}
+                {% if form.non_field_errors %}
+                    <div class="non-field-errors">
+                    {% for error in form.non_field_errors %}
+                        <p class="form-error text-danger">{{ error }}</p>
+                    {% endfor %}
+                    </div>
+                {% endif %}
+                {% for field in form %}
+                    <div class="form-group {% if field.errors %} has-error {% endif %}">
+                        {% if field.errors %}
+                            {% for error in field.errors %}
+                                <p class="form-error pull-left text-danger">{{ error }}</p>
+                            {% endfor %}
+                        {% endif %}
 
                             {% if field.name == "terms" %}
                                 <label for="terms">{{ form.terms }} I agree to the <a href="/terms-and-conditions" target="_blank">Terms &amp; Conditions</a></label>
@@ -35,22 +34,19 @@
                                 {% endif %}
                             {% endif %}
 
-                            {% if field.name != "password1" %}
-                                {% if field.help_text %}
-                                <p class="helptext">{{ field.help_text|safe }}</p>
-                                {% endif %}
+                        {% if field.name != "password1" %}
+                            {% if field.help_text %}
+                            <p class="helptext">{{ field.help_text|safe }}</p>
                             {% endif %}
-
-                        </div>
-                    {% endfor %}
-
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <input class="button button--primary col-xs-4" type="submit" value="Register">
-                        </div>
+                        {% endif %}
                     </div>
-                </form>
-            </div>
-        </section>                  
+                {% endfor %}
 
+                <div class="row text-center">
+                    <div class="margin-top-15">
+                        <button class="button button--primary" type="submit">Register</button>
+                    </div>
+                </div>
+            </form>
+        </section>
     {% endblock %}
