@@ -135,18 +135,17 @@ def challenge_summary(request, challenge_id, score_id):
     Mark challenge complete and display summary of a challenge
     """
     challenge = get_object_or_404(Challenge.objects.filter(user=request.user), pk=challenge_id)
-    anxiety_score_card = get_object_or_404(AnxietyScoreCard, pk=score_id)
+    anxiety_score_cards = AnxietyScoreCard.objects.filter(challenge=challenge).order_by('-id')[:3]
 
     challenge.in_progress = False
     challenge.save()
 
+    context = {'challenge': challenge, 'anxiety_score_cards': anxiety_score_cards}
+
     return render(
         request,
         'challenge/challenge_summary.html',
-        {
-            'challenge': challenge,
-            'anxiety_score_card': anxiety_score_card,
-        }
+        context
     )
 
 

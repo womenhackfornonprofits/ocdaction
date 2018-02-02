@@ -1,0 +1,36 @@
+.challenge-summary {
+    margin-top: 25px;
+    margin-bottom: 90px;
+
+    p {
+        font-weight: 800;
+        text-align: center;
+        padding-top: 1px;
+    }
+
+    hr {
+        border-top: 1px solid $dark-grey;
+    }
+
+    &--archive {
+        background-color: $archive-background-colour;
+    }
+}
+
+.challenge-summary--table {
+    margin: 0 auto 20px;
+    padding-bottom: 50px;
+    color: $black-colour;
+
+    th div {
+        font-size: 0.7em;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    td {
+        font-size: 18px;
+        padding: 8px 15px;
+        text-align: left;
+    }
+}
