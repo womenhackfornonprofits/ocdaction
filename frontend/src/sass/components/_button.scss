@@ -28,6 +28,22 @@
         }
     }
 
+    &--primary-white {
+        background-color: $white-colour;
+        color: $black-colour;
+        font-size: 17px;
+        font-weight: 800;
+        text-transform: uppercase;
+        padding: 8px 0;
+        width: 7em;
+        border: 2px solid $ocd-colour;
+
+        &:hover {
+            background-color: $ocd-colour;;
+            color: $white-colour;
+        }
+    }
+
     &--secondary {
         background-color: transparent;
     }
