@@ -6752,7 +6752,7 @@ a {
   .link--disabled,
   a--disabled {
     color: #808080;
-    pointer-events: none;
+    pointer-events: all !important;
     cursor: not-allowed; }
 
 .helptext {

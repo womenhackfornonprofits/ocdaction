@@ -105,7 +105,7 @@ a {
 
     &--disabled {
         color: $link-disabled-colour;
-        pointer-events: none;
+        pointer-events: all !important;
         cursor: not-allowed;
     }
 }
