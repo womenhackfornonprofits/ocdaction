@@ -20,7 +20,7 @@ class OCDActionUserRegistrationForm(RegistrationForm):
 
     now = datetime.datetime.now()
     current_year = now.year
-    users_average_age = 20
+    users_average_age = 30
     date_birth = forms.DateField(widget=forms.SelectDateWidget(
         years=range(current_year - users_average_age, current_year)),
         label='Date of birth'
@@ -32,8 +32,5 @@ class OCDActionUserRegistrationForm(RegistrationForm):
     )
 
     class Meta:
-        """a challenge is a user created challenge that can be completed
-        by a user to track anxiety
-        """
         model = OCDActionUser
         fields = ('email', 'password1', 'password2', 'username', 'date_birth')
