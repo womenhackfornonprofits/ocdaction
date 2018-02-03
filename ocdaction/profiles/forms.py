@@ -18,6 +18,8 @@ class OCDActionUserRegistrationForm(RegistrationForm):
         label='Do you have an OCD diagnosis?'
     )
 
+    nickname = forms.CharField(max_length=24, widget=forms.TextInput(attrs={'placeholder': 'Your preferred name'}))
+
     now = datetime.datetime.now()
     current_year = now.year
     users_average_age = 30
@@ -33,4 +35,5 @@ class OCDActionUserRegistrationForm(RegistrationForm):
 
     class Meta:
         model = OCDActionUser
-        fields = ('email', 'password1', 'password2', 'username', 'date_birth')
+        fields = ('email', 'password1', 'password2', 'nickname', 'date_birth')
+

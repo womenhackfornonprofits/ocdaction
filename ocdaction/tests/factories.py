@@ -10,12 +10,12 @@ class UserFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = OCDActionUser
         django_get_or_create = (
-            'username',
+            'nickname',
             'date_birth',
             'have_ocd'
         )
 
-    username = factory.Sequence(lambda n: 'username_{}'.format(n))
+    nickname = factory.Sequence(lambda n: 'nickname_{}'.format(n))
     date_birth = datetime.date(2000, 1, 2)
     have_ocd = True
     email = factory.Sequence(lambda n: 'email_{}'.format(n))

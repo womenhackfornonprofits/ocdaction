@@ -25,11 +25,14 @@
                             {% endif %}
 
                             {% if field.name == "terms" %}
-                            <label for="terms">{{ form.terms }} I agree to the <a href="/terms-and-conditions" target="_blank">Terms &amp; Conditions</a></label>
+                                <label for="terms">{{ form.terms }} I agree to the <a href="/terms-and-conditions" target="_blank">Terms &amp; Conditions</a></label>
                             {% else %}
-                            <label for="{{ field.name }}">{{ field.label }}:</label>
-                             
-                            {% render_field field placeholder=field.label class="form-control" %}
+                                <label for="{{ field.name }}">{{ field.label }}:</label>
+                                {% if field.name == "nickname" %}
+                                    {% render_field field class="form-control" %}
+                                {% else %}
+                                    {% render_field field placeholder=field.label class="form-control" %}
+                                {% endif %}
                             {% endif %}
 
                             {% if field.name != "password1" %}
