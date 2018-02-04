@@ -6752,7 +6752,8 @@ a {
   .link--disabled,
   a--disabled {
     color: #808080;
-    pointer-events: none; }
+    pointer-events: all !important;
+    cursor: not-allowed; }
 
 .helptext {
   font-style: italic;
@@ -6849,6 +6850,9 @@ b,
 
 .background--primary {
   background-color: #e7f6f3; }
+
+.background--archive {
+  background-color: #FDB01E19; }
 
 .display-inline {
   display: inline; }
@@ -7138,7 +7142,6 @@ form p {
       text-decoration: none; }
 
 .partners {
-  padding: 4em 0;
   display: flex;
   flex-direction: column; }
   .partners__image {
@@ -7149,7 +7152,9 @@ form p {
     margin: 0; }
     @media (min-width: 780px) {
       .partners__text {
-        text-align: left; } }
+        text-align: left;
+        position: absolute;
+        top: -18px; } }
   @media (min-width: 480px) {
     .partners {
       flex-direction: row;
@@ -7192,7 +7197,8 @@ form p {
     font-size: 60px; }
 
 .custom-panel {
-  padding: 60px 0; }
+  padding: 60px 0;
+  margin-bottom: 90px; }
 
 .button {
   margin: 0;
@@ -7294,8 +7300,11 @@ body {
   min-height: 100vh; }
 
 section {
-  padding: 4em 0;
+  padding: 1.6em 0 4em;
   clear: both; }
+  @media (min-width: 990px) {
+    section {
+      padding: 4em 0; } }
 
 .section--custom {
   padding-bottom: 0; }

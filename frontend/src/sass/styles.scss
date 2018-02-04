@@ -24,8 +24,12 @@ body {
 }
 
 section {
-	padding: 4em 0;
+	padding: 1.6em 0 4em;
 	clear: both;
+
+	@media (min-width: 990px) {
+		padding: 4em 0;
+	}
 }
 	
 .section--custom {

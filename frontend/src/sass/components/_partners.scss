@@ -1,5 +1,4 @@
 .partners {
-	padding: 4em 0;
 	display: flex;
 	flex-direction: column;
 
@@ -14,6 +13,8 @@
 		
 		@media (min-width: 780px) {
 			text-align: left;
+			position: absolute;
+			top: -18px;
 		}
 	}
 
