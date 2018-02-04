@@ -6782,6 +6782,22 @@ a {
         text-decoration: none;
         font-size: 20px; } }
 
+.intro {
+  padding-bottom: 30px; }
+  .intro--text {
+    line-height: 1.3em;
+    padding-bottom: 5px;
+    margin-top: 0; }
+    @media (min-width: 740px) {
+      .intro--text {
+        line-height: 1.7em;
+        padding-bottom: 18px; } }
+  .intro--span {
+    font-weight: 600;
+    font-size: 20px;
+    color: #333;
+    display: inline-block; }
+
 ul, ol {
   margin: 30px 0 0 20px; }
   ul li, ol li {
@@ -6811,6 +6827,12 @@ b,
 .small {
   font-weight: 300;
   font-size: .9em; }
+
+.large {
+  font-size: 1.1em; }
+  @media (min-width: 740px) {
+    .large {
+      font-size: 1.2em; } }
 
 .flex-wrap {
   display: flex; }
@@ -7161,11 +7183,15 @@ form p {
       align-items: center; } }
 
 .hero {
-  position: relative; }
+  position: relative;
+  max-width: 75%;
+  margin: auto; }
+  @media (min-width: 740px) {
+    .hero {
+      max-width: 90%; } }
   .hero__img {
-    width: 45%;
-    display: none;
-    margin: 10px auto;
+    width: 80%;
+    margin: 45px auto;
     margin-top: 0; }
     @media (min-width: 400px) {
       .hero__img {
@@ -7175,7 +7201,8 @@ form p {
         width: 60%; } }
     @media (min-width: 740px) {
       .hero__img {
-        width: 80%; } }
+        width: 80%;
+        margin: 55px auto; } }
   .hero__overlay {
     position: absolute;
     bottom: 33%; }
@@ -7223,6 +7250,18 @@ form p {
     .button--primary:hover {
       background-color: #e7f6f3;
       color: #4cc1a7; }
+  .button--primary-white {
+    background-color: #fff;
+    color: #333;
+    font-size: 17px;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 8px 0;
+    width: 7em;
+    border: 2px solid #4cc1a7; }
+    .button--primary-white:hover {
+      background-color: #4cc1a7;
+      color: #fff; }
   .button--secondary {
     background-color: transparent; }
 

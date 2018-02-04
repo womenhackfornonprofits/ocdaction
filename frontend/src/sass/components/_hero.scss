@@ -1,10 +1,15 @@
 .hero {
 	position: relative;
+	max-width: 75%;
+	margin: auto;
+
+	@media (min-width: 740px) {
+		max-width: 90%;
+	}
 	
 	&__img {
-		width: 45%;
-		display: none;
-    	margin: 10px auto;
+		width: 80%;
+    	margin: 45px auto;
     	margin-top: 0;
 
     	@media (min-width: 400px) {
@@ -16,6 +21,7 @@
 		}
 		@media (min-width: 740px) {
 			width: 80%;
+			margin: 55px auto;
 		}
 	}
 
@@ -25,7 +31,6 @@
 		
 		@media (min-width: 480px) {
 			bottom: 40%;
-
 		}
 	}
 }
