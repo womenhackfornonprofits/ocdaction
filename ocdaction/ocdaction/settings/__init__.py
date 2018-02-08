@@ -181,7 +181,7 @@ REGISTRATION_EMAIL_HTML = True
 REGISTRATION_AUTO_LOGIN = True
 
 EMAIL_BACKEND = 'django_ses.SESBackend'
-REGISTRATION_DEFAULT_FROM_EMAIL = 'youth@ocdaction.org.uk''
+REGISTRATION_DEFAULT_FROM_EMAIL = 'youth@ocdaction.org.uk'
 DEFAULT_FROM_EMAIL = 'youth@ocdaction.org.uk'
 AWS_SES_REGION_NAME = 'us-west-2'
 AWS_SES_REGION_ENDPOINT = 'email.us-west-2.amazonaws.com'
