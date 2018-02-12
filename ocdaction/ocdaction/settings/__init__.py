@@ -159,19 +159,19 @@ STATICFILES_DIRS = [
 
 # Static and media file storage with AWS S3
 
-AWS_STORAGE_BUCKET_NAME = 'ocdaction'
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
 AWS_S3_REGION_NAME = 'eu-west-2'
-AWS_ACCESS_KEY_ID = "FAKEforDEV"
-AWS_SECRET_ACCESS_KEY = "FAKEforDEV"
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 STATICFILES_LOCATION = 'static'
-STATICFILES_STORAGE = 's3_storages.StaticStorage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATIC_URL = AWS_S3_CUSTOM_DOMAIN + '/static/'
 
 MEDIAFILES_LOCATION = 'media'
-DEFAULT_FILE_STORAGE = 's3_storages.MediaStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 MEDIA_URL = AWS_S3_CUSTOM_DOMAIN + '/media/'
 
 # Registration settings
@@ -183,5 +183,5 @@ REGISTRATION_AUTO_LOGIN = True
 EMAIL_BACKEND = 'django_ses.SESBackend'
 REGISTRATION_DEFAULT_FROM_EMAIL = 'youth@ocdaction.org.uk'
 DEFAULT_FROM_EMAIL = 'youth@ocdaction.org.uk'
-AWS_SES_REGION_NAME = 'us-west-2'
-AWS_SES_REGION_ENDPOINT = 'email.us-west-2.amazonaws.com'
+AWS_SES_REGION_NAME = 'us-east-1'
+AWS_SES_REGION_ENDPOINT = 'email.us-east-1.amazonaws.com'
