@@ -11,7 +11,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 
-ALLOWED_HOSTS = ['staging-ocdaction.herokuapp.com']
+ALLOWED_HOSTS = ['staging-ocdaction.herokuapp.com', 'ocdyouthapp.org']
 
 LOGGING = {
     'version': 1,
@@ -50,11 +50,4 @@ LOGGING = {
     }
 }
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = os.environ["SENDGRID_USERNAME"]
-EMAIL_HOST_PASSWORD = os.environ["SENDGRID_PASSWORD"]
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
 
