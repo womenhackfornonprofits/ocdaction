@@ -11,7 +11,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 
-ALLOWED_HOSTS = ['staging-ocdaction.herokuapp.com', 'ocdyouthapp.org']
+ALLOWED_HOSTS = ['staging-ocdaction.herokuapp.com', '.ocdyouthapp.org']
 
 LOGGING = {
     'version': 1,
