@@ -40,4 +40,8 @@ urlpatterns = [
         r'^challenges/',
         include('challenges.urls')
     ),
+    url(
+        r'^my-account/',
+        include('accounts.urls')
+    ),
 ]
