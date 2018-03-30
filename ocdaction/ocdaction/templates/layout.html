@@ -23,6 +23,9 @@
 						{% if user.is_authenticated %}
     						<li class="header__item">
     							<a class="header__link" href="{% url 'challenge-list-archived' %}">Archive</a>
+							</li>
+							<li class="header__item">
+    							<a class="header__link" href="{% url 'my-account' %}">My Account</a>
     						</li>
 					        <li class="header__item">
 								<a class="header__link" href="{% url 'logout' %}">
