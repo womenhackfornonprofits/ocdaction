@@ -3,17 +3,7 @@
 """
 from django.conf.urls import url
 
-from .views import (
-    challenge_list,
-    challenge_list_archived,
-    challenge_add,
-    challenge_view,
-    challenge_edit,
-    challenge_archive,
-    challenge_score_form_new,
-    challenge_score_form,
-    challenge_summary
-)
+from .views import *
 
 urlpatterns = [
     url(
@@ -60,5 +50,10 @@ urlpatterns = [
         r'^(?P<challenge_id>\d+)/summary/(?P<score_id>\d+)/$',
         challenge_summary,
         name="challenge-summary"
+    ),
+    url(
+        r'^erase-my-record/$',
+        challenge_erase_my_record,
+        name="challenge-erase-my-record"
     ),
 ]

@@ -51,7 +51,7 @@ urlpatterns = [
     url(r'^accounts/', include('registration.backends.default.urls')),
 
     url(
-    r'^my-account',
+        r'^my-account/$',
         my_account,
         name="my-account"
     ),

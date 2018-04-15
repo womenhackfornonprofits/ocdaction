@@ -215,3 +215,11 @@ def challenge_score_form(request, challenge_id, score_id):
         'challenge/challenge_score_form.html',
         context
     )
+
+@login_required
+def challenge_erase_my_record(request):
+    return render(request, 'challenge/challenge_erase_my_record.html')
+
+
+
+
