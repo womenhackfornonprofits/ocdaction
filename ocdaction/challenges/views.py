@@ -220,6 +220,20 @@ def challenge_score_form(request, challenge_id, score_id):
 def challenge_erase_my_record(request):
     return render(request, 'challenge/challenge_erase_my_record.html')
 
+@login_required
+def delete_users_challenges(request):
+    """
+    Delete all challenges and associated score cards for a user
+    """
+    challenges = Challenge.objects.filter(user=request.user)
+
+    for challenge in challenges:
+        anxiety_score_cards = AnxietyScoreCard.objects.filter(challenge=challenge)
+        anxiety_score_cards.delete()
+        challenge.delete()
+
+    return render(request, 'profiles/my_account_confirm.html')
+
 
 
 

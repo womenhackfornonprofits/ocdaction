@@ -56,4 +56,9 @@ urlpatterns = [
         challenge_erase_my_record,
         name="challenge-erase-my-record"
     ),
+    url(
+        r'^delete-users-challenges/$',
+        delete_users_challenges,
+        name="delete-users-challenges"
+    ),
 ]
