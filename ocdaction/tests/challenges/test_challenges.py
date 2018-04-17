@@ -191,6 +191,17 @@ class ViewsTest(TestCase):
         response = challenge_score_form(request, self.challenge.pk, self.score_card.pk)
         assert response.status_code == 200
 
+    def test_challenge_erase_my_record(self):
+        request = self.factory.get(reverse('challenge-erase-my-record'))
+        request.user = self.user
+        response = challenge_erase_my_record(request)
+        assert response.status_code == 200
+
+    def test_delete_users_challenges(self):
+        request = self.factory.get(reverse('delete-users-challenges'))
+        request.user = self.user
+        response = delete_users_challenges(request)
+        assert response.status_code == 200
 
 # Test the forms
 @pytest.mark.parametrize(
