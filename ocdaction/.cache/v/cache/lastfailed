@@ -1,1 +1,3 @@
-{}
+{
+  "tests/challenges/test_challenges.py::ViewsTest::test_delete_users_challenges": true
+}
