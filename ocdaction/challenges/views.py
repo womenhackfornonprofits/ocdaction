@@ -225,8 +225,6 @@ def delete_challenges(user):
     challenges = Challenge.objects.filter(user=user)
 
     for challenge in challenges:
-        anxiety_score_cards = AnxietyScoreCard.objects.filter(challenge=challenge)
-        anxiety_score_cards.delete()
         challenge.delete()
 
 @login_required
