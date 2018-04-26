@@ -5,7 +5,7 @@
 from django.conf.urls import include, url
 from django.contrib.auth import views as auth_views
 
-from .views import RegistrationView, RegistrationComplete, ActivationComplete, my_account
+from .views import *
 from .forms import OCDActionUserRegistrationForm
 
 
@@ -54,5 +54,17 @@ urlpatterns = [
         r'^my-account/$',
         my_account,
         name="my-account"
+    ),
+
+    url(
+        r'^my-account-delete/$',
+        my_account_delete,
+        name="my-account-delete"
+    ),
+
+    url(
+        r'^delete-user/$',
+        delete_user,
+        name="delete-user"
     ),
 ]
