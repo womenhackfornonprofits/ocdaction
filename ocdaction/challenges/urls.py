@@ -61,4 +61,9 @@ urlpatterns = [
         delete_users_challenges,
         name="delete-users-challenges"
     ),
+    url(
+        r'^export-challenges-for-user/$',
+        export_challenges_for_user,
+        name="export-challenges-for-user"
+    ),
 ]
