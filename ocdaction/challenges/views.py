@@ -4,6 +4,11 @@ from django.contrib.auth.decorators import login_required
 from challenges.models import Challenge, AnxietyScoreCard
 from challenges.forms import ChallengeForm, AnxietyScoreCardForm
 
+import csv
+
+from django.http import HttpResponse
+from profiles.models import OCDActionUser
+
 
 @login_required
 def challenge_list(request):
@@ -235,6 +240,43 @@ def delete_users_challenges(request):
     delete_challenges(request.user)
 
     return render(request, 'profiles/my_account_confirm.html', {'deleted_user': False})
+
+@login_required
+def export_challenges_for_user(request):
+    """
+    Export a user's challenge data to csv
+    """
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="challenges.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['Email address', 'Nickname', 'Date of birth', 'Has OCD diagnosis?'])
+
+    user = OCDActionUser.objects.get(id=request.user.id)
+    writer.writerow([user.email, user.nickname, user.date_birth, user.have_ocd, ])
+
+    writer.writerow(['Challenge name',
+                     'Archived?',
+                     'In progress?',
+                     'Obsession',
+                     'Compulsion',
+                     'Exposure',
+                     'Created',
+                     'Last updated'])
+
+    challenges = Challenge.objects.filter(user=request.user).values_list('challenge_name',
+                                                                         'is_archived',
+                                                                         'in_progress',
+                                                                         'obsession',
+                                                                         'compulsion',
+                                                                         'exposure',
+                                                                         'created_at',
+                                                                         'updated_at')
+    for challenge in challenges:
+        writer.writerow(challenge)
+
+    return response
+
 
 
 
