@@ -275,8 +275,8 @@ def export_challenges_for_user(request):
                            challenge.obsession,
                            challenge.compulsion,
                            challenge.exposure,
-                           challenge.created_at,
-                           challenge.updated_at)
+                           challenge.created_at.strftime('%d-%m-%Y %H:%M'),
+                           challenge.updated_at.strftime('%d-%m-%Y %H:%M'))
 
         anxietyscorecard_attrs_list = challenge.anxietyscorecard_set.values_list('anxiety_at_0_min',
                                                                          'anxiety_at_5_min',
