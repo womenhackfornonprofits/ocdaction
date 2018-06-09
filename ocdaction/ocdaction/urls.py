@@ -33,7 +33,7 @@ urlpatterns = [
         name="index"
     ),
     url(
-        r'^users/',
+        r'',
         include('profiles.urls')
     ),
     url(

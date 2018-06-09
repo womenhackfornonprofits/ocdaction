@@ -215,3 +215,27 @@ def challenge_score_form(request, challenge_id, score_id):
         'challenge/challenge_score_form.html',
         context
     )
+
+@login_required
+def challenge_erase_my_record(request):
+    return render(request, 'challenge/challenge_erase_my_record.html')
+
+def delete_challenges(user):
+
+    challenges = Challenge.objects.filter(user=user)
+
+    for challenge in challenges:
+        challenge.delete()
+
+@login_required
+def delete_users_challenges(request):
+    """
+    Delete all challenges and associated score cards for a user
+    """
+    delete_challenges(request.user)
+
+    return render(request, 'profiles/my_account_confirm.html', {'deleted_user': False})
+
+
+
+

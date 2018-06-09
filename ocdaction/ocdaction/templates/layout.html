@@ -11,9 +11,11 @@
 				<nav class="header__nav js-header-nav">
 				    <button class="header__nav-toggle js-nav-toggle"><span class="hidden">Menu</span></button>
 				    <ul class="header__list js-header-list">
-				        <li class="header__item">
-                            <a class="header__link" href="{% url 'challenge-list' %}">Challenges</a>
-                        </li>
+                        {% if user.is_authenticated %}
+                            <li class="header__item">
+                                <a class="header__link" href="{% url 'challenge-list' %}">Challenges</a>
+                            </li>
+                        {% endif %}
 				        <li class="header__item">
                             <a class="header__link" href="{% url 'learn' %}">Learn</a>
                         </li>
@@ -23,6 +25,9 @@
 						{% if user.is_authenticated %}
     						<li class="header__item">
     							<a class="header__link" href="{% url 'challenge-list-archived' %}">Archive</a>
+							</li>
+							<li class="header__item">
+    							<a class="header__link" href="{% url 'my-account' %}">My Account</a>
     						</li>
 					        <li class="header__item">
 								<a class="header__link" href="{% url 'logout' %}">
