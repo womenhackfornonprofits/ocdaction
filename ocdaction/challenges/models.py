@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 from django.urls import reverse
 
 from django.db import models, transaction
+import uuid
 
 
 class Challenge(models.Model):
@@ -17,6 +18,7 @@ class Challenge(models.Model):
     user = models.ForeignKey('profiles.OCDActionUser', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    uuid = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=False, unique=True)
 
     def __str__(self):
         return self.challenge_name
@@ -30,7 +32,7 @@ class Challenge(models.Model):
 
     def get_absolute_url(self):
         return reverse('challenge-edit',
-                       kwargs={'challenge_id': self.id})
+                       kwargs={'challenge_uuid': self.uuid})
 
     def archive(self):
         self.is_archived = True
@@ -110,6 +112,7 @@ class AnxietyScoreCard(models.Model):
         blank=False
     )
     challenge = models.ForeignKey('Challenge', on_delete=models.CASCADE)
+    uuid = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=False, unique=True)
 
     def user_name(self):
         return self.challenge.user
@@ -117,10 +120,10 @@ class AnxietyScoreCard(models.Model):
     def get_absolute_url(self):
         return reverse(
             'challenge-score-form',
-            kwargs={'challenge_id': self.challenge.id})
+            kwargs={'challenge_uuid': self.challenge.uuid})
 
     def get_score_url(self):
         return reverse(
             'challenge-summary',
-            kwargs={'challenge_id': self.challenge.id,
-                    'score_id': self.id})
+            kwargs={'challenge_uuid': self.challenge.uuid,
+                    'score_uuid': self.uuid})
