@@ -45,10 +45,10 @@
                                                         {% get_anxiety_level challenge %}
                                                     </td>
                                                     <td class="text-align-left ibox-content">
-                                                        <a href="{% url 'challenge' challenge.id %}">{{ challenge.challenge_name }}</a>
+                                                        <a href="{% url 'challenge' challenge.uuid %}">{{ challenge.challenge_name }}</a>
                                                     </td>
                                                     <td class="text-align-right ibox-content">
-                                                        <a href="{% url 'challenge-score-form' challenge.id anxiety_score_card.id %}">
+                                                        <a href="{% url 'challenge-score-form' challenge.uuid anxiety_score_card.uuid %}">
                                                             <span class="glyphicon glyphicon-play-circle margin-right-5"></span>
                                                             <span class="visuallyhidden">Continue</span>
                                                         </a>
@@ -99,7 +99,7 @@
                                                         {% get_anxiety_level challenge %}
                                                     </td>
                                                     <td class="text-align-left ibox-content">
-                                                        <a href="{% url 'challenge' challenge.id %}">
+                                                        <a href="{% url 'challenge' challenge.uuid %}">
                                                             {{ challenge.challenge_name }}
                                                         </a>
                                                     </td>
@@ -111,7 +111,7 @@
                                                                 <span class="visuallyhidden">Do the challenge</span>
                                                             </a>
                                                         {% else %}
-                                                            <a href="{% url 'challenge-score-form-new' challenge.id %}">
+                                                            <a href="{% url 'challenge-score-form-new' challenge.uuid %}">
                                                                 <span class="glyphicon glyphicon-play-circle margin-right-5"></span> 
                                                                 <span class="visuallyhidden">Do the challenge</span>
                                                             </a>

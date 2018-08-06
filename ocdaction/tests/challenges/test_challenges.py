@@ -156,39 +156,39 @@ class ViewsTest(TestCase):
         assert response.status_code == 200
 
     def test_challenge_view(self):
-        request = self.factory.get(reverse('challenge', args=(self.challenge.pk,)))
+        request = self.factory.get(reverse('challenge', args=(self.challenge.uuid,)))
         request.user = self.user
-        response = challenge_view(request, self.challenge.pk)
+        response = challenge_view(request, self.challenge.uuid)
         assert response.status_code == 200
 
     def test_challenge_edit(self):
-        request = self.factory.get(reverse('challenge-edit', args=(self.challenge.pk,)))
+        request = self.factory.get(reverse('challenge-edit', args=(self.challenge.uuid,)))
         request.user = self.user
-        response = challenge_edit(request, self.challenge.pk)
+        response = challenge_edit(request, self.challenge.uuid)
         assert response.status_code == 200
 
     def test_challenge_archive(self):
-        request = self.factory.get(reverse('challenge-archive', args=(self.challenge.pk,)))
+        request = self.factory.get(reverse('challenge-archive', args=(self.challenge.uuid,)))
         request.user = self.user
-        response = challenge_archive(request, self.challenge.pk)
+        response = challenge_archive(request, self.challenge.uuid)
         assert response.status_code == 302
 
     def test_challenge_summary(self):
-        request = self.factory.get(reverse('challenge-summary', args=(self.challenge.pk, self.score_card.pk,)))
+        request = self.factory.get(reverse('challenge-summary', args=(self.challenge.uuid, self.score_card.uuid,)))
         request.user = self.user
-        response = challenge_summary(request, self.challenge.pk, self.score_card.pk)
+        response = challenge_summary(request, self.challenge.uuid, self.score_card.uuid)
         assert response.status_code == 200
 
     def test_challenge_score_form_new(self):
-        request = self.factory.get(reverse('challenge-score-form-new', args=(self.challenge.pk,)))
+        request = self.factory.get(reverse('challenge-score-form-new', args=(self.challenge.uuid,)))
         request.user = self.user
-        response = challenge_score_form_new(request, self.challenge.pk)
+        response = challenge_score_form_new(request, self.challenge.uuid)
         assert response.status_code == 200
 
     def test_challenge_score_form(self):
-        request = self.factory.get(reverse('challenge-score-form', args=(self.challenge.pk, self.score_card.pk,)))
+        request = self.factory.get(reverse('challenge-score-form', args=(self.challenge.uuid, self.score_card.uuid,)))
         request.user = self.user
-        response = challenge_score_form(request, self.challenge.pk, self.score_card.pk)
+        response = challenge_score_form(request, self.challenge.uuid, self.score_card.uuid)
         assert response.status_code == 200
 
     def test_challenge_erase_my_record(self):

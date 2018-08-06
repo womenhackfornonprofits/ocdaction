@@ -35,13 +35,13 @@
             {% if not challenge.is_archived %}
                 <div class="col-xs-6 col-md-3 col-md-offset-2">
                     <a class="button--archive btn btn-lg btn-outline btn-warning pull-right"
-                        href="{% url 'challenge-archive' challenge.id %}" onclick="return checkArchive()";>
+                        href="{% url 'challenge-archive' challenge.uuid %}" onclick="return checkArchive()";>
                         Archive
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-3 col-md-offset-1">
                     <a class="button--edit btn btn-lg btn-outline btn-primary pull-left"
-                        href="{% url 'challenge-edit' challenge.id %}">
+                        href="{% url 'challenge-edit' challenge.uuid %}">
                         Edit
                     </a>
                 </div>
