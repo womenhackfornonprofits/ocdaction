@@ -22,32 +22,32 @@ urlpatterns = [
         name="challenge-add"
     ),
     url(
-        r'^(?P<challenge_id>\d+)/$',
+        r'^(?P<challenge_uuid>[0-9a-f-]+)/$',
         challenge_view,
         name="challenge"
     ),
     url(
-        r'^(?P<challenge_id>\d+)/edit/$',
+        r'^(?P<challenge_uuid>[0-9a-f-]+)/edit/$',
         challenge_edit,
         name="challenge-edit"
     ),
     url(
-        r'^(?P<challenge_id>\d+)/archive/$',
+        r'^(?P<challenge_uuid>[0-9a-f-]+)/archive/$',
         challenge_archive,
         name="challenge-archive"
     ),
     url(
-        r'^(?P<challenge_id>\d+)/exposure/$',
+        r'^(?P<challenge_uuid>[0-9a-f-]+)/exposure/$',
         challenge_score_form_new,
         name="challenge-score-form-new"
     ),
     url(
-        r'^(?P<challenge_id>\d+)/exposure/(?P<score_id>\d+)/$',
+        r'^(?P<challenge_uuid>[0-9a-f-]+)/exposure/(?P<score_uuid>[0-9a-f-]+)/$',
         challenge_score_form,
         name="challenge-score-form"
     ),
     url(
-        r'^(?P<challenge_id>\d+)/summary/(?P<score_id>\d+)/$',
+        r'^(?P<challenge_uuid>[0-9a-f-]+)/summary/(?P<score_uuid>[0-9a-f-]+)/$',
         challenge_summary,
         name="challenge-summary"
     ),

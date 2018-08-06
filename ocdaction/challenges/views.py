@@ -81,11 +81,11 @@ def challenge_add(request):
 
 
 @login_required
-def challenge_view(request, challenge_id):
+def challenge_view(request, challenge_uuid):
     """
     View a challenge
     """
-    challenge = get_object_or_404(Challenge.objects.filter(user=request.user), pk=challenge_id)
+    challenge = get_object_or_404(Challenge.objects.filter(user=request.user), uuid=challenge_uuid)
     anxiety_score_cards = AnxietyScoreCard.objects.filter(challenge=challenge).order_by('-id')[:3]
 
     context = {'challenge': challenge, 'anxiety_score_cards': anxiety_score_cards}
@@ -94,11 +94,11 @@ def challenge_view(request, challenge_id):
 
 
 @login_required
-def challenge_edit(request, challenge_id):
+def challenge_edit(request, challenge_uuid):
     """
     Edit a challenge
     """
-    challenge_inst = get_object_or_404(Challenge.objects.filter(user=request.user), pk=challenge_id)
+    challenge_inst = get_object_or_404(Challenge.objects.filter(user=request.user), uuid=challenge_uuid)
 
     if request.method == 'POST':
         challenge_form = ChallengeForm(request.POST, instance=challenge_inst)
@@ -124,22 +124,22 @@ def challenge_edit(request, challenge_id):
 
 
 @login_required
-def challenge_archive(request, challenge_id):
+def challenge_archive(request, challenge_uuid):
     """
     Archive a challenge
     """
-    challenge = get_object_or_404(Challenge.objects.filter(user=request.user), pk=challenge_id)
+    challenge = get_object_or_404(Challenge.objects.filter(user=request.user), uuid=challenge_uuid)
     challenge.archive()
 
     return redirect('challenge-list')
 
 
 @login_required
-def challenge_summary(request, challenge_id, score_id):
+def challenge_summary(request, challenge_uuid, score_uuid):
     """
     Mark challenge complete and display summary of a challenge
     """
-    challenge = get_object_or_404(Challenge.objects.filter(user=request.user), pk=challenge_id)
+    challenge = get_object_or_404(Challenge.objects.filter(user=request.user), uuid=challenge_uuid)
     anxiety_score_cards = AnxietyScoreCard.objects.filter(challenge=challenge).order_by('-id')[:3]
 
     challenge.in_progress = False
@@ -155,12 +155,12 @@ def challenge_summary(request, challenge_id, score_id):
 
 
 @login_required
-def challenge_score_form_new(request, challenge_id):
+def challenge_score_form_new(request, challenge_uuid):
     """
     Start doing a challenge, creating a new score card
     """
 
-    challenge = get_object_or_404(Challenge.objects.filter(user=request.user), pk=challenge_id)
+    challenge = get_object_or_404(Challenge.objects.filter(user=request.user), uuid=challenge_uuid)
 
     if request.method == "POST":
         anxiety_score_form = AnxietyScoreCardForm(request.POST)
@@ -173,8 +173,8 @@ def challenge_score_form_new(request, challenge_id):
 
             return redirect(
                 challenge_score_form,
-                challenge_id=challenge_id,
-                score_id=anxiety_score_card.id
+                challenge_uuid=challenge_uuid,
+                score_uuid=anxiety_score_card.uuid
             )
 
     else:
@@ -191,13 +191,13 @@ def challenge_score_form_new(request, challenge_id):
 
 
 @login_required
-def challenge_score_form(request, challenge_id, score_id):
+def challenge_score_form(request, challenge_uuid, score_uuid):
     """
     Continue doing a challenge, on an existing score card
     """
 
-    challenge = get_object_or_404(Challenge.objects.filter(user=request.user), pk=challenge_id)
-    anxiety_score_card = get_object_or_404(AnxietyScoreCard, pk=score_id)
+    challenge = get_object_or_404(Challenge.objects.filter(user=request.user), uuid=challenge_uuid)
+    anxiety_score_card = get_object_or_404(AnxietyScoreCard, uuid=score_uuid)
 
     if request.method == "POST":
         anxiety_score_form = AnxietyScoreCardForm(request.POST, instance=anxiety_score_card)
