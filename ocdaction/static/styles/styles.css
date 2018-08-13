@@ -6983,6 +6983,8 @@ form p {
     font-weight: 400; }
   .challenge-form p {
     margin-bottom: 23px; }
+    .challenge-form p:last-of-type {
+      margin-bottom: 27px; }
   .challenge-form ::-webkit-input-placeholder {
     color: #9b9b9b; }
   .challenge-form :-moz-placeholder {

@@ -8,19 +8,23 @@ class ChallengeForm(forms.ModelForm):
         model = Challenge
         fields = ('challenge_name', 'obsession', 'compulsion', 'exposure')
         widgets = {
-            'challenge_name': forms.TextInput(attrs={'placeholder': 'This will appear in your Hierarchy'}),
-            'obsession': forms.Textarea(attrs={'rows': '3', 'placeholder': 'What\'s the worry or thought that makes you anxious'}),
-            'compulsion': forms.Textarea(attrs={'rows': '3', 'placeholder': 'What\'s the thing that you do to try to get rid of anxiety'}),
-            'exposure': forms.Textarea(attrs={'rows': '3', 'placeholder': 'What is your homework set by your therapist'})
+            'challenge_name': forms.TextInput(),
+            'obsession': forms.Textarea(attrs={'rows': '3'}),
+            'compulsion': forms.Textarea(attrs={'rows': '3'}),
+            'exposure': forms.Textarea(attrs={'rows': '3'})
         }
 
     def __init__(self, *args, **kwargs):
         kwargs.setdefault('label_suffix', '')
         super(ChallengeForm, self).__init__(*args, **kwargs)
         self.fields['challenge_name'].label = 'Your Fear'
+        self.fields['challenge_name'].help_text = 'This will be the name of your challenge and will appear in your challenge list page'
         self.fields['obsession'].label = 'Your Obsession'
+        self.fields['obsession'].help_text = 'What\'s the worry or thought that makes you anxious'
         self.fields['compulsion'].label = 'Your Compulsion'
+        self.fields['compulsion'].help_text = 'What\'s the thing that you do to try to get rid of anxiety'
         self.fields['exposure'].label = 'Your Exposure'
+        self.fields['exposure'].help_text = 'What is your homework set by your therapist'
 
 class AnxietyScoreCardForm(forms.ModelForm):
 
