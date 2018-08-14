@@ -55,7 +55,9 @@
 	    	<div class="col-xs-6 col-sm-4">
 	      		<h4 class="h5 global-footer__category text-uppercase">Sitemap</h4>
 		    	<ul class="global-footer__list margin-top-0 ">
-                    <li class="global-footer__item"><a class="global-footer__link" href="{% url 'challenge-list' %}">Challenges</a></li>
+					{% if user.is_authenticated %}
+						<li class="global-footer__item"><a class="global-footer__link" href="{% url 'challenge-list' %}">Challenges</a></li>
+					{% endif %}
                     <li class="global-footer__item"><a class="global-footer__link" href="{% url 'learn' %}">Learn</a></li>
 		        	<li class="global-footer__item"><a class="global-footer__link" href="{% url 'login' %}">Login</a></li>
 		        	<li class="global-footer__item"><a class="global-footer__link" href="{% url 'register' %}">Register</a></li>
