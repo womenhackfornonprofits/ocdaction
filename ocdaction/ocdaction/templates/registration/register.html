@@ -39,11 +39,8 @@
                                 {% endif %}
                             {% endif %}
 
-                        {% if field.name == "password1" or "password2" %}
-                            {% if field.help_text %}
-                                <p class="helptext">{{ field.help_text|safe }}</p>
-                            {% endif %}
-                        {% endif %}
+                        <!-- passwords helptexts -->
+                        <p class="helptext">{{ field.help_text|safe }}</p>
                     </div>
                 {% endfor %}
 
