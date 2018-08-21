@@ -6,6 +6,11 @@
         <section class="container">
             <h1>Register</h1>
             <form method="POST" action="" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4">
+                <p class="helptext">This app has been designed for teenagers and young adults over the age of 13 who are currently
+                    working with a Cognitive Behavioural Therapist to treat their OCD. If you have not attended treatment for OCD
+                    before and would like to find out more about how you can access it, you can contact our Youth Helpline for
+                    information and support. The details are on the <a class="helptext" href="/contact">contact</a> page.</p>
+                    
                 {% csrf_token %}
 
                 {% if form.non_field_errors %}
@@ -34,11 +39,8 @@
                                 {% endif %}
                             {% endif %}
 
-                        {% if field.name != "password1" %}
-                            {% if field.help_text %}
-                            <p class="helptext">{{ field.help_text|safe }}</p>
-                            {% endif %}
-                        {% endif %}
+                        <!-- passwords helptexts -->
+                        <p class="helptext">{{ field.help_text|safe }}</p>
                     </div>
                 {% endfor %}
 

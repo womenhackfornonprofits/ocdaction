@@ -33,6 +33,10 @@ class OCDActionUserRegistrationForm(RegistrationForm):
         label="I agree to the terms and conditions"
     )
 
+    def __init__(self, *args, **kwargs):
+        super(OCDActionUserRegistrationForm, self).__init__(*args, **kwargs)
+        self.fields['password1'].help_text = 'Password must be at least 10 characters.'
+
     class Meta:
         model = OCDActionUser
         fields = ('email', 'password1', 'password2', 'nickname', 'date_birth')
