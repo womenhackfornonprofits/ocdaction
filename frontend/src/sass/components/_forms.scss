@@ -104,6 +104,10 @@ form {
 
     p {
         margin-bottom: 23px;
+
+        &:last-of-type {
+            margin-bottom: 27px;
+        }
     }
     
     ::-webkit-input-placeholder {
