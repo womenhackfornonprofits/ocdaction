@@ -57,10 +57,16 @@
 		    	<ul class="global-footer__list margin-top-0 ">
 					{% if user.is_authenticated %}
 						<li class="global-footer__item"><a class="global-footer__link" href="{% url 'challenge-list' %}">Challenges</a></li>
+						<li class="global-footer__item"><a class="global-footer__link" href="{% url 'learn' %}">Learn</a></li>
+						<li class="global-footer__item"><a class="global-footer__link" href="{% url 'contact' %}">Contact</a></li>
+						<li class="global-footer__item"><a class="global-footer__link" href="{% url 'challenge-list-archived' %}">Archive</a></li>
+						<li class="global-footer__item"><a class="global-footer__link" href="{% url 'my-account' %}">My Account</a></li>
+					{% else %}				
+						<li class="global-footer__item"><a class="global-footer__link" href="{% url 'learn' %}">Learn</a></li>
+						<li class="global-footer__item"><a class="global-footer__link" href="{% url 'contact' %}">Contact</a></li>
+						<li class="global-footer__item"><a class="global-footer__link" href="{% url 'register' %}">Register</a></li>
+						<li class="global-footer__item"><a class="global-footer__link" href="{% url 'login' %}">Login</a></li>
 					{% endif %}
-                    <li class="global-footer__item"><a class="global-footer__link" href="{% url 'learn' %}">Learn</a></li>
-		        	<li class="global-footer__item"><a class="global-footer__link" href="{% url 'login' %}">Login</a></li>
-		        	<li class="global-footer__item"><a class="global-footer__link" href="{% url 'register' %}">Register</a></li>
 		        </ul>
 		    </div>
 	      <div class="col-xs-6 col-sm-4">
