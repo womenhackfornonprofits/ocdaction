@@ -1,5 +1,5 @@
 # This configuration is based on that automatically generated from a CircleCI 1.0 config.
-# Some of the aut generated comments have been kept in the file for future reference/changes to build config
+# Some of the auto generated comments have been kept in the file for future reference/changes to build config
 version: 2
 jobs:
   build:
