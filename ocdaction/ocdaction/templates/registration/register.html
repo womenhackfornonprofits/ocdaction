@@ -2,53 +2,106 @@
 
 {% load static widget_tweaks %}
 
-    {% block main %} 
-        <section class="container">
-            <h1>Register</h1>
-            <form method="POST" action="" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4">
-                <p class="helptext">This app has been designed for teenagers and young adults over the age of 13 who are currently
-                    working with a Cognitive Behavioural Therapist to treat their OCD. If you have not attended treatment for OCD
-                    before and would like to find out more about how you can access it, you can contact our Youth Helpline for
-                    information and support. The details are on the <a class="helptext" href="/contact">contact</a> page.</p>
-                    
-                {% csrf_token %}
+{% block main %} 
+    <section class="container">
+        <h1>Register</h1>
+        <form method="POST" action="" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4">
+            <p class="helptext">This app has been designed for teenagers and young adults over the age of 13 who are currently
+                working with a Cognitive Behavioural Therapist to treat their OCD. If you have not attended treatment for OCD
+                before and would like to find out more about how you can access it, you can contact our Youth Helpline for
+                information and support. The details are on the <a class="helptext" href="/contact">contact</a> page.</p>
 
-                {% if form.non_field_errors %}
-                    <div class="non-field-errors">
-                    {% for error in form.non_field_errors %}
-                        <p class="form-error text-danger">{{ error }}</p>
-                    {% endfor %}
-                    </div>
-                {% endif %}
-                {% for field in form %}
-                    <div class="form-group {% if field.errors %} has-error {% endif %}">
-                        {% if field.errors %}
-                            {% for error in field.errors %}
-                                <p class="form-error pull-left text-danger">{{ error }}</p>
-                            {% endfor %}
-                        {% endif %}
+            {% csrf_token %}
 
-                            {% if field.name == "terms" %}
-                                <label for="terms">{{ form.terms }} I agree to the <a href="/terms-and-conditions" target="_blank">Terms &amp; Conditions</a></label>
-                            {% else %}
-                                <label for="{{ field.name }}">{{ field.label }}:</label>
-                                {% if field.name == "nickname" %}
-                                    {% render_field field class="form-control" %}
-                                {% else %}
-                                    {% render_field field placeholder=field.label class="form-control" %}
-                                {% endif %}
-                            {% endif %}
-
-                        <!-- passwords helptexts -->
-                        <p class="helptext">{{ field.help_text|safe }}</p>
-                    </div>
+            {% if form.non_field_errors %}
+                <div class="non-field-errors">
+                {% for error in form.non_field_errors %}
+                    <p class="form-error text-danger">{{ error }}</p>
                 {% endfor %}
-
-                <div class="row text-center">
-                    <div class="margin-top-15">
-                        <button class="button button--primary" type="submit">Register</button>
-                    </div>
                 </div>
-            </form>
-        </section>
-    {% endblock %}
+            {% endif %}
+            {% for field in form %}
+                <div class="form-group {% if field.errors %} has-error {% endif %}">
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                            <p class="form-error pull-left text-danger">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if not field.name == "terms" %}
+                        <label for="{{ field.name }}">{{ field.label }}:</label>
+                        {% if field.name == "nickname" %}
+                            {% render_field field class="form-control" %}
+                        {% else %}
+                            {% render_field field placeholder=field.label class="form-control" %}
+                        {% endif %}
+                    {% endif %}
+
+                    <!-- passwords helptexts -->
+                    <p class="helptext">{{ field.help_text|safe }}</p>
+                </div>
+            {% endfor %}
+            
+            <details>
+                <summary class="bold margin-bottom-30 margin-top-30">Read our Terms and Conditions</summary>
+                <div>
+                    <p class="uppercase">PLEASE READ THESE TERMS AND CONDITIONS OF USE CAREFULLY. BY USING THIS WEB SITE, YOU AGREE TO THESE TERMS AND CONDITIONS.</p>
+                    
+                    <p>Your access to and use of this site is subject to the following terms and conditions of use and all applicable laws. These terms and conditions of use may be changed in the future at any time without further notice. Further, these terms and conditions apply exclusively to your access to, and use of, this Web site and will not alter in any way the terms or conditions of any other agreement you may enter into with OCD Action, a company incorporated in the United Kingdom, (“OCD Action”) for products, services, or anything else. The information provided on this site is provided without charge for informational purposes only and does not create any business or professional services relationship between you and OCD Action.</p>
+                    <h4 class="text-left">Copyright</h4>
+                    <p>Unless otherwise stated, all Web site materials, including, without limitation, all text, graphics, other files, and the selection and arrangement thereof, are the proprietary and copyrighted property of OCD Action. You may electronically copy and print to hard copy portions of this Web site for the sole purpose of using materials it contains for informational and non-commercial, personal use only. Any other use of the materials in this Web site — including any commercial use, reproduction for purposes other than described above, modification, distribution, republication, display, or performance — without the prior written permission of OCD Action is strictly prohibited.</p>
+                    <h4 class="text-left">Trademarks</h4>
+                    <p>OCD Action, the OCD Action logo, and all custom graphics, page headers, button icons, proprietary product and service names, and trade dress are either trademarks or registered trademarks of OCD Action and/or its licensors in the United States and/or other countries, and may not be used, in whole or in part, without the prior written permission of OCD Action. All other trademarks, registered trademarks, company names, product or service names are either trademarks or registered trademarks of their respective owners. Please review our additional trademark information.</p>
+                    
+                    <h4 class="text-left">Privacy Policy</h4>
+                    <p>OCD Action believes strongly in protecting user privacy. Users of this Web site should refer to our Privacy Policy to fully inform themselves of how OCD Action uses and collects information.</p>
+                    
+                    <h4 class="text-left">Submissions</h4>
+                    <p>You agree that any materials, including but not limited to questions, comments, suggestions, ideas, plans, notes, drawings, original or creative materials, or other information (other than personal identifying information subject to the OCD Action Privacy Policy), provided by you in the form of e-mail or submissions to OCD Action, or postings on this Web site, are non-confidential and shall become the sole property of OCD Action. OCD Action shall own exclusive rights, including all intellectual property rights, and shall be entitled to the unrestricted use of these materials for any purpose, commercial or otherwise, without acknowledgment or compensation to you. The submission of any materials to OCD Action, including the posting of materials to any forum or interactive area, irrevocably waives any and all “moral rights” in such materials, including the rights of paternity and integrity.</p>
+                    
+                    <h4 class="text-left">Indemnification</h4>
+                    <p>You shall remain solely liable for the Content of any messages or other information you upload or transmit to OCD Action. You agree to indemnify and hold harmless OCD Action, and its officers, directors, employees, owners from any claim, action, demand, loss, or damages (including attorneys’ fees) made or incurred by any third party arising out of or relating to your conduct, your violation of these terms and conditions, or your violation of any rights of a third party.</p>
+
+                    <h4 class="text-left">Hyperlinks</h4>
+                    <p>You are granted a limited, non-exclusive right to create a hypertext link to this Web site provided such link does not portray OCD Action or any of its products and services in a false, misleading, derogatory, or otherwise defamatory manner. This limited right may be revoked at any time, and you agree to promptly remove any such links at OCD Action’s request. You may not use, frame, or utilize framing techniques to enclose any OCD Action trademark, logo, or other proprietary information, including the images found at this Web site, the content of any text, and the layout/design of any page or form contained on a page without OCD Action’s express written consent. Except as noted above, you are not conveyed any right or license by implication, or otherwise in or under any patent, trademark, copyright, or proprietary right of OCD Action or any third party.
+                    OCD Action makes no claim or representation regarding, and accepts no responsibility for, the quality, content, privacy policies, nature, or reliability of Web sites accessible by hyperlink from this Web site, or Web sites linking to this Web site. The linked sites are not under the control of OCD Action, and OCD Action is not responsible for the contents of any linked site or any link contained in a linked site, or any review, changes, or updates to such sites. OCD Action is providing these links to you only as a convenience, and the inclusion of any link does not imply affiliation, endorsement, or adoption by OCD Action of the site or any information contained therein.</p>
+                    
+                    <h4 class="text-left">Forward Looking Statements</h4>
+                    <p>This Web site and any documents issued by OCD Action and available through this Web site contain statements which constitute forward-looking statements. Those statements may from time to time appear in a number of places in this Web site together with any documents issued by OCD Action and available through this Web site and can be identified by the use of forward-looking terminology such as “believe,” “expect,” “plans,” “may,” “will,” “should,” “anticipates” or similar statements or the negative thereof or other variations thereof. Such forward-looking statements include, without limitation, statements made as to future operation costs, capital expenditures, cash flow, improvements in infrastructure, distribution and replenishment systems and operating efficiencies, sales and earnings estimates or trends, and expansion plans and projections. Such forward-looking statements are based on current expectations and by their nature involve known and unknown internal and external risks, uncertainties, and other factors which may cause the actual results, performance, or achievements to be materially different from those expressed or implied. OCD Action undertakes no obligation to update forward-looking statements to reflect events or circumstances after the date such statements were made.</p>
+                    
+                    <p>The information contained within press releases issued by OCD Action should not be deemed accurate or current except as of the date the release was posted. OCD Action has no intention of updating, and specifically disclaims any duty to update, the information in the press releases. To the extent any information therein is forward-looking, it is intended to fit within the safe harbor for forward-looking statements, and is subject to material risk.</p>
+                    
+                    <h4 class="text-left">Third Party Content and Services</h4>
+                    
+                    <p>OCD Action may provide links to Web pages and content of third parties (the “Third Party Content”) as a service to those interested in this information. OCD Action does not monitor nor does it have any control over any Third Party Content or third party Web sites or the privacy policies of such Web sites. OCD Action does not endorse or adopt any Third Party Content and can make no guarantee as to its accuracy or completeness. OCD Action does not represent or warrant the accuracy of any information contained therein, and undertakes no responsibility to update or review any Third Party Content. Users use these links and Third Party Content contained therein at their own risk.</p>
+                    
+                    <h4 class="text-left">Disclaimer</h4>
+                    <p>THIS WEB SITE AND THE MATERIALS IN THIS WEB SITE ARE PROVIDED ON AN “AS IS” BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. OCD ACTION DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. OCD ACTION DOES NOT REPRESENT OR WARRANT THAT MATERIALS IN THIS WEB SITE ARE ACCURATE, COMPLETE, RELIABLE, CURRENT, OR ERROR-FREE. OCD ACTION DOES NOT REPRESENT OR WARRANT THAT THIS WEB SITE OR ITS SERVER(S) ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS. OCD ACTION DOES NOT REPRESENT OR WARRANT THAT THIS WEB SITE OR ITS SERVER(S) ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS.</p>
+                    <p>OCD Action reserves the right to change any and all content contained on this Web site at any time without notice. Reference to any products, services, processes, or other information, by trade name, trademark, manufacturer, supplier, or other designation does not constitute or imply endorsement, sponsorship, or recommendation thereof by OCD Action.</p>
+                    <h4 class="text-left">Limits of Liability</h4>
+                    <p>IN NO EVENT SHALL OCD ACTION, OR ITS OFFICES, DIRECTORS, SHAREHOLDERS, OR EMPLOYEES, BE LIABLE FOR ANY DIRECT, SPECIAL, INDIRECT, OR CONSEQUENTIAL DAMAGES, OR ANY OTHER DAMAGES OF ANY KIND, INCLUDING BUT NOT LIMITED TO LOSS OF USE, LOSS OF PROFITS, OR LOSS OF DATA, WHETHER IN AN ACTION IN CONTRACT, TORT (INCLUDING BUT NOT LIMITED TO NEGLIGENCE), OR OTHER FORM, ARISING OUT OF OR IN ANY WAY CONNECTED WITH THE USE OF THIS WEB SITE OR THE MATERIALS CONTAINED IN, OR ACCESSED THROUGH, THIS WEB SITE.</p>
+                    <h4 class="text-left">Applicable Law</h4>
+                    <p>These terms and conditions and any legal actions or proceedings relating to your use of this site shall be governed by and construed in accordance with the laws of the United Kingdom, applicable to agreements made and entirely to be performed within England and Wales, without resort to its conflict of law provisions. You agree that any suit, action, or proceeding at law or in equity arising out of or relating to these terms and conditions or your use of this site shall be filed only in Her Majesty’s Courts Service for England and Wales, and you hereby irrevocably and unconditionally consent and submit to the exclusive jurisdiction of such courts over any such suit, action, or proceeding.</p>
+                    <h4 class="text-left">Termination</h4>
+                    <p>Notwithstanding any of these terms and conditions, OCD Action reserves the right, without notice and in its sole discretion, to terminate your license to use this Web site, and to block or prevent future access to and use of this Web site.</p>
+                    <h4 class="text-left">Contact Information</h4>
+                    <p>Technical questions or comments about OCD Action’s Web site may be directed to OCD Action’s Webmaster at <a href="mailto:webmaster@ocdaction.org.uk">webmaster@ocdaction.org.uk</a>. General questions may be directed to OCD Action at <a href="mailto:info@ocdaction.org.uk">info@ocdaction.org.uk.</a>
+                    <h4 class="text-left">Severability</h4>
+                    <p>If any provision of these terms and conditions shall be deemed unlawful, void, or for any reason unenforceable, then that provision shall be deemed severable from these terms and conditions and shall not affect the validity and enforceability of any remaining provisions.</p>
+                </div>
+            </details>
+
+            {% for field in form %}
+                {% if field.name == "terms" %}
+                    <label for="terms">{{ form.terms }} I agree to the Terms &amp; Conditions</label>
+                {% endif %}
+            {% endfor %}
+
+            <div class="row text-center">
+                <div class="margin-top-15">
+                    <button class="button button--primary" type="submit">Register</button>
+                </div>
+            </div>
+        </form>
+    </section>
+{% endblock %}

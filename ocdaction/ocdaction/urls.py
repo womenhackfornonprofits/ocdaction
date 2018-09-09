@@ -23,11 +23,6 @@ urlpatterns = [
         name="learn"
     ),
     url(
-        r'^terms-and-conditions/$',
-        TemplateView.as_view(template_name='core/terms_and_conditions.html'),
-        name="terms_and_conditions"
-    ),
-    url(
         r'^$',
         home_index,
         name="index"

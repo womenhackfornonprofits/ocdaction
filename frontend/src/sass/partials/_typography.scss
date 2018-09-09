@@ -220,3 +220,8 @@ b,
         font-size: 1.2em;
     }
 }
+
+*:focus {
+    outline-color: #1ab394;
+    outline-width: 2px;
+}
