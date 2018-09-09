@@ -18,13 +18,13 @@ class ChallengeForm(forms.ModelForm):
         kwargs.setdefault('label_suffix', '')
         super(ChallengeForm, self).__init__(*args, **kwargs)
         self.fields['challenge_name'].label = 'Your Fear'
-        self.fields['challenge_name'].help_text = 'This will be the name of your challenge and will appear in your challenge list page'
+        self.fields['challenge_name'].help_text = 'This will be the name of your challenge and will appear in your hierarchy list.'
         self.fields['obsession'].label = 'Your Obsession'
-        self.fields['obsession'].help_text = 'What\'s the worry or thought that makes you anxious'
+        self.fields['obsession'].help_text = 'What\'s the worry or thought that makes you anxious?'
         self.fields['compulsion'].label = 'Your Compulsion'
-        self.fields['compulsion'].help_text = 'What\'s the thing that you do to try to get rid of anxiety'
+        self.fields['compulsion'].help_text = 'What\'s the thing that you do to try to get rid of anxiety?'
         self.fields['exposure'].label = 'Your Exposure'
-        self.fields['exposure'].help_text = 'What is your homework set by your therapist'
+        self.fields['exposure'].help_text = 'What is your homework set by your therapist?'
 
 class AnxietyScoreCardForm(forms.ModelForm):
 
