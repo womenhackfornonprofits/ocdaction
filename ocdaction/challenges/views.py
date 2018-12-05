@@ -205,6 +205,7 @@ def challenge_score_form(request, challenge_uuid, score_uuid):
             anxiety_score_card = anxiety_score_form.save(commit=False)
             anxiety_score_card.challenge = challenge
             anxiety_score_card.save()
+            challenge.save()
 
     else:
         anxiety_score_form = AnxietyScoreCardForm(instance=anxiety_score_card)
@@ -221,16 +222,37 @@ def challenge_score_form(request, challenge_uuid, score_uuid):
         context
     )
 
+
+@login_required
+def challenge_results(request, challenge_uuid):
+    """
+    See the results for today's challenges
+    """
+    challenge = get_object_or_404(Challenge.objects.filter(user=request.user), uuid=challenge_uuid)
+    anxiety_score_cards = AnxietyScoreCard.objects.filter(challenge=challenge).order_by('-id')[:3]
+
+    context = {'challenge': challenge, 'anxiety_score_cards': anxiety_score_cards}
+
+    return render(
+        request,
+        'challenge/challenge_results.html',
+        context
+    )
+
+
 @login_required
 def challenge_erase_my_record(request):
     return render(request, 'challenge/challenge_erase_my_record.html')
 
+
+@login_required
 def delete_challenges(user):
 
     challenges = Challenge.objects.filter(user=user)
 
     for challenge in challenges:
         challenge.delete()
+
 
 @login_required
 def delete_users_challenges(request):
@@ -240,6 +262,7 @@ def delete_users_challenges(request):
     delete_challenges(request.user)
 
     return render(request, 'profiles/my_account_confirm.html', {'deleted_user': False})
+
 
 @login_required
 def export_challenges_for_user(request):

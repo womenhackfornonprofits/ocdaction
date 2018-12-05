@@ -52,6 +52,11 @@ urlpatterns = [
         name="challenge-summary"
     ),
     url(
+        r'^(?P<challenge_uuid>[0-9a-f-]+)/results/$',
+        challenge_results,
+        name="challenge-results"
+    ),
+    url(
         r'^erase-my-record/$',
         challenge_erase_my_record,
         name="challenge-erase-my-record"
