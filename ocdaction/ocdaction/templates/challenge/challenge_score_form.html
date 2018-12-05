@@ -89,7 +89,7 @@
 
                 {% if anxiety_score_form.anxiety_at_120_min.value %}
                 <div class="anxiety-tracker--complete">
-                    <a class="button button--primary" href="{% url 'challenge-summary' challenge.uuid anxiety_score_card.uuid %}">
+                    <a class="button button--primary" href="{% url 'challenge-summary' challenge.uuid %}">
                         Complete this exposure
                     </a>
                 </div>

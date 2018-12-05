@@ -135,7 +135,7 @@ def challenge_archive(request, challenge_uuid):
 
 
 @login_required
-def challenge_summary(request, challenge_uuid, score_uuid):
+def challenge_summary(request, challenge_uuid):
     """
     Mark challenge complete and display summary of a challenge
     """
