@@ -245,7 +245,6 @@ def challenge_erase_my_record(request):
     return render(request, 'challenge/challenge_erase_my_record.html')
 
 
-@login_required
 def delete_challenges(user):
 
     challenges = Challenge.objects.filter(user=user)
