@@ -234,7 +234,24 @@ def challenge_results(request, challenge_uuid):
     date_from = datetime.datetime.now() - datetime.timedelta(days=1)
     latest_anxiety_score_card = AnxietyScoreCard.objects.filter(challenge=challenge, updated_at__gte=date_from).latest('updated_at')
 
-    context = {'challenge': challenge, 'latest_anxiety_score_card': latest_anxiety_score_card}
+    latest_anxiety_score_card_data = [
+        int(latest_anxiety_score_card.anxiety_at_0_min),
+        int(latest_anxiety_score_card.anxiety_at_5_min),
+        int(latest_anxiety_score_card.anxiety_at_10_min),
+        int(latest_anxiety_score_card.anxiety_at_15_min),
+        int(latest_anxiety_score_card.anxiety_at_30_min),
+        int(latest_anxiety_score_card.anxiety_at_60_min),
+        int(latest_anxiety_score_card.anxiety_at_120_min)
+    ]
+
+    latest_anxiety_score_card_label = latest_anxiety_score_card.updated_at.strftime("%d %b")
+
+    context = {
+        'challenge': challenge,
+        'latest_anxiety_score_card': latest_anxiety_score_card,
+        'latest_anxiety_score_card_data': latest_anxiety_score_card_data,
+        'latest_anxiety_score_card_label': latest_anxiety_score_card_label
+    }
 
     return render(
         request,
