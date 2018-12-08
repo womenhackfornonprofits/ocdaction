@@ -1,4 +1,5 @@
 import csv
+import datetime
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -229,9 +230,11 @@ def challenge_results(request, challenge_uuid):
     See the results for today's challenges
     """
     challenge = get_object_or_404(Challenge.objects.filter(user=request.user), uuid=challenge_uuid)
-    anxiety_score_cards = AnxietyScoreCard.objects.filter(challenge=challenge).order_by('-id')[:3]
 
-    context = {'challenge': challenge, 'anxiety_score_cards': anxiety_score_cards}
+    date_from = datetime.datetime.now() - datetime.timedelta(days=1)
+    latest_anxiety_score_card = AnxietyScoreCard.objects.filter(challenge=challenge, updated_at__gte=date_from).latest('updated_at')
+
+    context = {'challenge': challenge, 'latest_anxiety_score_card': latest_anxiety_score_card}
 
     return render(
         request,
