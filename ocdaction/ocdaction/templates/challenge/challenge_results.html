@@ -43,11 +43,26 @@
                     borderColor: 'rgb(255, 99, 132)',
                     pointStyle: 'circle',
                     pointBackgroundColor: 'rgb(255, 99, 132)',
+                    fill: false,
                     radius: 5,
                     data: {{ latest_anxiety_score_card_data }},
                 }]
             },
             options: {
+                scales: {
+                   xAxes: [{
+                       ticks: {
+                           min: 0,
+                           max: 120
+                       }
+                   }],
+                   yAxes: [{
+                       ticks: {
+                           min: 0,
+                           max: 10
+                       }
+                   }]
+                },
                 legend: {
                     position: 'bottom'
                 },
