@@ -1,5 +1,6 @@
 import csv
 import datetime
+import json
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -234,15 +235,51 @@ def challenge_results(request, challenge_uuid):
     date_from = datetime.datetime.now() - datetime.timedelta(days=1)
     latest_anxiety_score_card = AnxietyScoreCard.objects.filter(challenge=challenge, updated_at__gte=date_from).latest('updated_at')
 
-    latest_anxiety_score_card_data = [
-        int(latest_anxiety_score_card.anxiety_at_0_min),
-        int(latest_anxiety_score_card.anxiety_at_5_min),
-        int(latest_anxiety_score_card.anxiety_at_10_min),
-        int(latest_anxiety_score_card.anxiety_at_15_min),
-        int(latest_anxiety_score_card.anxiety_at_30_min),
-        int(latest_anxiety_score_card.anxiety_at_60_min),
-        int(latest_anxiety_score_card.anxiety_at_120_min)
-    ]
+    try:
+        anxiety_at_0_min = int(latest_anxiety_score_card.anxiety_at_0_min)
+    except:
+        anxiety_at_0_min = None
+
+    try:
+        anxiety_at_5_min = int(latest_anxiety_score_card.anxiety_at_5_min)
+    except:
+        anxiety_at_5_min = None
+
+    try:
+        anxiety_at_10_min = int(latest_anxiety_score_card.anxiety_at_10_min)
+    except:
+        anxiety_at_10_min = None
+
+    try:
+        anxiety_at_15_min = int(latest_anxiety_score_card.anxiety_at_15_min)
+    except:
+        anxiety_at_15_min = None
+
+    try:
+        anxiety_at_30_min = int(latest_anxiety_score_card.anxiety_at_30_min)
+    except:
+        anxiety_at_30_min = None
+
+    try:
+        anxiety_at_60_min = int(latest_anxiety_score_card.anxiety_at_60_min)
+    except:
+        anxiety_at_60_min = None
+
+    try:
+        anxiety_at_120_min = int(latest_anxiety_score_card.anxiety_at_120_min)
+    except:
+        anxiety_at_120_min = None
+
+    # using json.dumps to convert None to Null
+    latest_anxiety_score_card_data = json.dumps([
+        anxiety_at_0_min,
+        anxiety_at_5_min,
+        anxiety_at_10_min,
+        anxiety_at_15_min,
+        anxiety_at_30_min,
+        anxiety_at_60_min,
+        anxiety_at_120_min
+    ])
 
     latest_anxiety_score_card_label = latest_anxiety_score_card.updated_at.strftime("%d %b")
 
