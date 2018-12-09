@@ -238,11 +238,14 @@ def challenge_results(request, challenge_uuid):
                                                                                  'anxiety_at_15_min',
                                                                                  'anxiety_at_30_min',
                                                                                  'anxiety_at_60_min',
-                                                                                 'anxiety_at_120_min').order_by('-updated_at')[:1]
+                                                                                 'anxiety_at_120_min',
+                                                                                 'updated_at').order_by('-updated_at')[:1]
 
     for anxietyscorecard in anxietyscorecards_for_challenge:
+        anxietyscorecard_as_list = list(anxietyscorecard)
+        anxiety_score_card_date = anxietyscorecard_as_list.pop()
         scores = []
-        for i in anxietyscorecard:
+        for i in anxietyscorecard_as_list:
             try:
                 i = int(i)
             except:
@@ -250,13 +253,11 @@ def challenge_results(request, challenge_uuid):
             scores.append(i)
         latest_anxiety_score_card_data = json.dumps(scores)
 
-    date_from = datetime.datetime.now() - datetime.timedelta(days=1)
-    latest_anxiety_score_card = AnxietyScoreCard.objects.filter(challenge=challenge, updated_at__gte=date_from).latest('updated_at')
-    latest_anxiety_score_card_label = latest_anxiety_score_card.updated_at.strftime("%d %b")
+    latest_anxiety_score_card_label = anxiety_score_card_date.strftime("%d %b")
 
     context = {
         'challenge': challenge,
-        'latest_anxiety_score_card': latest_anxiety_score_card,
+        'scores': scores,
         'latest_anxiety_score_card_data': latest_anxiety_score_card_data,
         'latest_anxiety_score_card_label': latest_anxiety_score_card_label
     }
