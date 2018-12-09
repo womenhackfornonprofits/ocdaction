@@ -47,9 +47,14 @@ urlpatterns = [
         name="challenge-score-form"
     ),
     url(
-        r'^(?P<challenge_uuid>[0-9a-f-]+)/summary/(?P<score_uuid>[0-9a-f-]+)/$',
+        r'^(?P<challenge_uuid>[0-9a-f-]+)/summary/$',
         challenge_summary,
         name="challenge-summary"
+    ),
+    url(
+        r'^(?P<challenge_uuid>[0-9a-f-]+)/results/$',
+        challenge_results,
+        name="challenge-results"
     ),
     url(
         r'^erase-my-record/$',

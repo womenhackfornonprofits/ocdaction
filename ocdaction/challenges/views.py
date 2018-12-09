@@ -1,4 +1,5 @@
 import csv
+import datetime
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -135,7 +136,7 @@ def challenge_archive(request, challenge_uuid):
 
 
 @login_required
-def challenge_summary(request, challenge_uuid, score_uuid):
+def challenge_summary(request, challenge_uuid):
     """
     Mark challenge complete and display summary of a challenge
     """
@@ -205,6 +206,7 @@ def challenge_score_form(request, challenge_uuid, score_uuid):
             anxiety_score_card = anxiety_score_form.save(commit=False)
             anxiety_score_card.challenge = challenge
             anxiety_score_card.save()
+            challenge.save()
 
     else:
         anxiety_score_form = AnxietyScoreCardForm(instance=anxiety_score_card)
@@ -221,9 +223,30 @@ def challenge_score_form(request, challenge_uuid, score_uuid):
         context
     )
 
+
+@login_required
+def challenge_results(request, challenge_uuid):
+    """
+    See the results for today's challenges
+    """
+    challenge = get_object_or_404(Challenge.objects.filter(user=request.user), uuid=challenge_uuid)
+
+    date_from = datetime.datetime.now() - datetime.timedelta(days=1)
+    latest_anxiety_score_card = AnxietyScoreCard.objects.filter(challenge=challenge, updated_at__gte=date_from).latest('updated_at')
+
+    context = {'challenge': challenge, 'latest_anxiety_score_card': latest_anxiety_score_card}
+
+    return render(
+        request,
+        'challenge/challenge_results.html',
+        context
+    )
+
+
 @login_required
 def challenge_erase_my_record(request):
     return render(request, 'challenge/challenge_erase_my_record.html')
+
 
 def delete_challenges(user):
 
@@ -231,6 +254,7 @@ def delete_challenges(user):
 
     for challenge in challenges:
         challenge.delete()
+
 
 @login_required
 def delete_users_challenges(request):
@@ -240,6 +264,7 @@ def delete_users_challenges(request):
     delete_challenges(request.user)
 
     return render(request, 'profiles/my_account_confirm.html', {'deleted_user': False})
+
 
 @login_required
 def export_challenges_for_user(request):

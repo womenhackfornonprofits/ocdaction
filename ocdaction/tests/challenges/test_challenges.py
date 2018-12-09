@@ -174,9 +174,15 @@ class ViewsTest(TestCase):
         assert response.status_code == 302
 
     def test_challenge_summary(self):
-        request = self.factory.get(reverse('challenge-summary', args=(self.challenge.uuid, self.score_card.uuid,)))
+        request = self.factory.get(reverse('challenge-summary', args=(self.challenge.uuid,)))
         request.user = self.user
-        response = challenge_summary(request, self.challenge.uuid, self.score_card.uuid)
+        response = challenge_summary(request, self.challenge.uuid)
+        assert response.status_code == 200
+
+    def test_challenge_results(self):
+        request = self.factory.get(reverse('challenge-results', args=(self.challenge.uuid,)))
+        request.user = self.user
+        response = challenge_results(request, self.challenge.uuid)
         assert response.status_code == 200
 
     def test_challenge_score_form_new(self):

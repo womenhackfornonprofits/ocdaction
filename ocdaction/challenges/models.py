@@ -113,6 +113,8 @@ class AnxietyScoreCard(models.Model):
     )
     challenge = models.ForeignKey('Challenge', on_delete=models.CASCADE)
     uuid = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=False, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def user_name(self):
         return self.challenge.user

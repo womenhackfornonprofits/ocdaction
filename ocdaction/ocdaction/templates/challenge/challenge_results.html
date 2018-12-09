@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block title %}Challenge Summary{% endblock %} 
+{% block title %}Challenge Results{% endblock %}
 
 {% load static %}
 {% load challenges_tags %}
@@ -20,59 +20,36 @@
                 </div>
             </div>
             <div class="challenge-summary ibox-content text-center col-xs-12 col-md-4 col-md-offset-4">
-                <h3 class="font-bold margin-bottom-0">Congratulations!</h3>
-                <p>You have tackled this exposure</p>
+                <h3 class="font-bold margin-bottom-0">Today's anxiety levels:</h3>
                 <table class="challenge-summary--table">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th><div>Most</div><div>recent</div></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
                     <tbody>
                         <tr>
                             <td>Initial anxiety level:</td>
-                            {% for card in anxiety_score_cards %}
-                                <td>{% render_anxiety_level card.anxiety_at_0_min %}</td>
-                            {% endfor %}
+                            <td>{% render_anxiety_level latest_anxiety_score_card.anxiety_at_0_min %}</td>
                         </tr>
                         <tr>
                             <td>After 5mins:</td>
-                            {% for card in anxiety_score_cards %}
-                                <td>{% render_anxiety_level card.anxiety_at_5_min %}</td>
-                            {% endfor %}
+                            <td>{% render_anxiety_level latest_anxiety_score_card.anxiety_at_5_min %}</td>
                         </tr>
                         <tr>
                             <td>After 10mins:</td>
-                            {% for card in anxiety_score_cards %}
-                                <td>{% render_anxiety_level card.anxiety_at_10_min %}</td>
-                            {% endfor %}
+                            <td>{% render_anxiety_level latest_anxiety_score_card.anxiety_at_10_min %}</td>
                         </tr>
                         <tr>
                             <td>After 15mins:</td>
-                            {% for card in anxiety_score_cards %}
-                                <td>{% render_anxiety_level card.anxiety_at_15_min %}</td>
-                            {% endfor %}
+                            <td>{% render_anxiety_level latest_anxiety_score_card.anxiety_at_15_min %}</td>
                         </tr>
                         <tr>
                             <td>After 30mins:</td>
-                            {% for card in anxiety_score_cards %}
-                                <td>{% render_anxiety_level card.anxiety_at_30_min %}</td>
-                            {% endfor %}
+                            <td>{% render_anxiety_level latest_anxiety_score_card.anxiety_at_30_min %}</td>
                         </tr>
                         <tr>
                             <td>After 60mins:</td>
-                            {% for card in anxiety_score_cards %}
-                                <td>{% render_anxiety_level card.anxiety_at_60_min %}</td>
-                            {% endfor %}
+                            <td>{% render_anxiety_level latest_anxiety_score_card.anxiety_at_60_min %}</td>
                         </tr>
                         <tr>
                             <td>After 120mins:</td>
-                            {% for card in anxiety_score_cards %}
-                                <td>{% render_anxiety_level card.anxiety_at_120_min %}</td>
-                            {% endfor %}
+                            <td>{% render_anxiety_level latest_anxiety_score_card.anxiety_at_120_min %}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -80,7 +57,7 @@
             <div class="container">
                 <div class="row text-center">
                     <div class="col-xs-12 col-md-4 col-md-offset-4">
-                        <a class="button button--primary" href="{% url 'challenge-results' challenge.uuid %}">See how I did</a>
+                        <a class="button button--primary" href="{% url 'challenge-list' %}">Back to challenges</a>
                     </div>
                 </div>
             </div>
