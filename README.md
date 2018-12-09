@@ -16,6 +16,7 @@ A collaborative, youth­led project aiming to make use of digital technology to 
 ## Tech
 - Python + Django
 - JavaScript for some interactions/ lazy loading images etc
+- Chart.js
 - Sass + HTML
 - Github
 - Slack for group chats/standups etc

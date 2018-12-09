@@ -1,5 +1,6 @@
 import csv
 import datetime
+import json
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -231,10 +232,35 @@ def challenge_results(request, challenge_uuid):
     """
     challenge = get_object_or_404(Challenge.objects.filter(user=request.user), uuid=challenge_uuid)
 
-    date_from = datetime.datetime.now() - datetime.timedelta(days=1)
-    latest_anxiety_score_card = AnxietyScoreCard.objects.filter(challenge=challenge, updated_at__gte=date_from).latest('updated_at')
+    anxietyscorecards_for_challenge = challenge.anxietyscorecard_set.values_list('anxiety_at_0_min',
+                                                                                 'anxiety_at_5_min',
+                                                                                 'anxiety_at_10_min',
+                                                                                 'anxiety_at_15_min',
+                                                                                 'anxiety_at_30_min',
+                                                                                 'anxiety_at_60_min',
+                                                                                 'anxiety_at_120_min',
+                                                                                 'updated_at').order_by('-updated_at')[:1]
 
-    context = {'challenge': challenge, 'latest_anxiety_score_card': latest_anxiety_score_card}
+    for anxietyscorecard in anxietyscorecards_for_challenge:
+        anxietyscorecard_as_list = list(anxietyscorecard)
+        anxiety_score_card_date = anxietyscorecard_as_list.pop()
+        scores = []
+        for i in anxietyscorecard_as_list:
+            try:
+                i = int(i)
+            except:
+                i = None
+            scores.append(i)
+        latest_anxiety_score_card_data = json.dumps(scores)
+
+    latest_anxiety_score_card_label = anxiety_score_card_date.strftime("%d %b")
+
+    context = {
+        'challenge': challenge,
+        'scores': scores,
+        'latest_anxiety_score_card_data': latest_anxiety_score_card_data,
+        'latest_anxiety_score_card_label': latest_anxiety_score_card_label
+    }
 
     return render(
         request,
