@@ -271,7 +271,6 @@ def challenge_results(request, challenge_uuid):
                 scores.append(i)
             data_labels.append(anxiety_score_card_date.strftime("%d %b"))
             data_sets.append(json.dumps(scores))
-            print(data_sets)
 
     context = {
         'challenge': challenge,
