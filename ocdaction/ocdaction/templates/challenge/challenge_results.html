@@ -43,6 +43,7 @@
                     borderColor: 'rgb(255, 99, 132)',
                     pointStyle: 'circle',
                     pointBackgroundColor: 'rgb(255, 99, 132)',
+                    pointBorderColor: 'rgb(255, 99, 132)',
                     fill: false,
                     radius: 5,
                     data: {{ latest_anxiety_score_card_data }},
@@ -64,7 +65,10 @@
                    }]
                 },
                 legend: {
-                    position: 'bottom'
+                    position: 'bottom',
+                    labels: {
+                        usePointStyle: true
+                    }
                 },
                 elements: {
                     line: {
