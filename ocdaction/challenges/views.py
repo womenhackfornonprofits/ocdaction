@@ -241,8 +241,7 @@ def challenge_results(request, challenge_uuid):
                                                                                  'updated_at').order_by('-updated_at')[:5]
 
     first = True
-    data_labels = []
-    data_sets = []
+    data_sets = {}
     for anxietyscorecard in anxiety_score_cards_for_challenge:
         if first:
             # return the data for the most recent score card
@@ -259,7 +258,7 @@ def challenge_results(request, challenge_uuid):
             latest_anxiety_score_card_data = json.dumps(latest_scores)
             latest_anxiety_score_card_label = latest_anxiety_score_card_date.strftime("%d %b")
         else:
-            # return the data for the remaining score cards (max 4)
+            # return the data for the remaining score cards
             anxietyscorecard_as_list = list(anxietyscorecard)
             anxiety_score_card_date = anxietyscorecard_as_list.pop()
             scores = []
@@ -269,16 +268,15 @@ def challenge_results(request, challenge_uuid):
                 except:
                     i = None
                 scores.append(i)
-            data_labels.append(anxiety_score_card_date.strftime("%d %b"))
-            data_sets.append(json.dumps(scores))
+            data_sets[anxiety_score_card_date.strftime("%d %b %H:%M")] = json.dumps(scores)
+
 
     context = {
         'challenge': challenge,
         'latest_scores': latest_scores,
         'latest_anxiety_score_card_data': latest_anxiety_score_card_data,
         'latest_anxiety_score_card_label': latest_anxiety_score_card_label,
-        'data_sets': data_sets,
-        'data_labels': data_labels
+        'data_sets': data_sets
     }
 
     return render(

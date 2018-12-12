@@ -5,7 +5,7 @@
 {% load static %}
 {% load challenges_tags %}
 
-    {% block main %}
+    {% block extrahead %}
 
         <section>
             <div class="container">
@@ -30,23 +30,19 @@
             <div class="text-center col-xs-12 col-md-4 col-md-offset-4"><canvas id="anxietyScoreChart" width="50" height="30"></canvas></div>
         </section>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-
         <script type="text/javascript">
 
         var ctx = "anxietyScoreChart";
-        //var lineChartData = { labels: {{ data_labels }}, datasets: [] };
-        //var dataSetArray = {{ data_sets }};
-        //createChartDataSet(dataSetArray, lineChartData);
         var anxietyScoreChart = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: ['0', '5', '10', '15', '30', '60', '120'],
                 datasets: [{
                     label: '{{ latest_anxiety_score_card_label }}',
-                    borderColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(0, 0, 0)',
                     pointStyle: 'circle',
-                    pointBackgroundColor: 'rgb(255, 99, 132)',
-                    pointBorderColor: 'rgb(255, 99, 132)',
+                    pointBackgroundColor: 'rgb(0, 0, 0)',
+                    pointBorderColor: 'rgb(0, 0, 0)',
                     fill: false,
                     radius: 5,
                     data: {{ latest_anxiety_score_card_data }},
@@ -81,22 +77,27 @@
             }
         });
 
-        function createChartDataSet(arrData, arrLabels) {
-            dataSetArray.forEach(function (a, i) {
-                lineChartData.datasets.push({
-                    label: i,
-                    borderColor: 'rgb(0, 0, 255)',
-                    pointStyle: 'circle',
-                    pointBackgroundColor: 'rgb(0, 0, 255)',
-                    pointBorderColor: 'rgb(0, 0, 255)',
-                    fill: false,
-                    radius: 5,
-                    data: JSON.parse(a)
-                })
-            })
+        function addData(chart, label, color, data) {
+             chart.data.datasets.push({
+                 label: label,
+                 borderColor: color,
+                 pointStyle: 'circle',
+                 pointBackgroundColor: color,
+                 pointBorderColor: color,
+                 fill: false,
+                 radius: 5,
+                 data: data
+            });
+            chart.update();
         }
 
+        {% for label, data in data_sets.items %}
+            addData(anxietyScoreChart, '{{ label|slice:":-6" }}', 'rgb(255,0,0)', {{ data }})
+        {% endfor %}
+
         </script>
+    {% endblock %}
+    {% block main %}
         <section>
             <div class="challenge-summary ibox-content text-center col-xs-12 col-md-4 col-md-offset-4">
                 <h3 class="font-bold margin-bottom-0">Today's anxiety levels:</h3>
