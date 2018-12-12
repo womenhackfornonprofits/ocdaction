@@ -77,6 +77,13 @@
             }
         });
 
+        var dynamicColors = function() {
+            var r = Math.floor(Math.random() * 255);
+            var g = Math.floor(Math.random() * 255);
+            var b = Math.floor(Math.random() * 255);
+            return "rgb(" + r + "," + g + "," + b + ")";
+         };
+
         function addData(chart, label, color, data) {
              chart.data.datasets.push({
                  label: label,
@@ -92,7 +99,7 @@
         }
 
         {% for label, data in data_sets.items %}
-            addData(anxietyScoreChart, '{{ label|slice:":-6" }}', 'rgb(255,0,0)', {{ data }})
+            addData(anxietyScoreChart, '{{ label|slice:":-6" }}', dynamicColors(), {{ data }})
         {% endfor %}
 
         </script>
