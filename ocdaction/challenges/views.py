@@ -1,6 +1,8 @@
 import csv
 import json
 
+from collections import OrderedDict
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
@@ -241,7 +243,7 @@ def challenge_results(request, challenge_uuid):
                                                                                  'updated_at').order_by('-updated_at')[:5]
 
     first = True
-    data_sets = {}
+    data_sets = OrderedDict()
     for anxietyscorecard in anxiety_score_cards_for_challenge:
         if first:
             # return the data for the most recent score card
