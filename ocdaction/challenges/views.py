@@ -226,21 +226,25 @@ def challenge_score_form(request, challenge_uuid, score_uuid):
     )
 
 
-@login_required
-def challenge_results(request, challenge_uuid):
+def get_data_for_challenge_chart(challenge):
     """
-    See the results for today's challenges
+    :param challenge:
+    :return: all chart data for a challenge
     """
-    challenge = get_object_or_404(Challenge.objects.filter(user=request.user), uuid=challenge_uuid)
+
+    global latest_scores
+    global latest_anxiety_score_card_label
+    global latest_anxiety_score_card_data
+    global data_sets
 
     anxiety_score_cards_for_challenge = challenge.anxietyscorecard_set.values_list('anxiety_at_0_min',
-                                                                                 'anxiety_at_5_min',
-                                                                                 'anxiety_at_10_min',
-                                                                                 'anxiety_at_15_min',
-                                                                                 'anxiety_at_30_min',
-                                                                                 'anxiety_at_60_min',
-                                                                                 'anxiety_at_120_min',
-                                                                                 'updated_at').order_by('-updated_at')[:5]
+                                                                                   'anxiety_at_5_min',
+                                                                                   'anxiety_at_10_min',
+                                                                                   'anxiety_at_15_min',
+                                                                                   'anxiety_at_30_min',
+                                                                                   'anxiety_at_60_min',
+                                                                                   'anxiety_at_120_min',
+                                                                                   'updated_at').order_by('-updated_at')[:5]
 
     first = True
     data_sets = OrderedDict()
@@ -272,6 +276,15 @@ def challenge_results(request, challenge_uuid):
                 scores.append(i)
             data_sets[anxiety_score_card_date.strftime("%d %b %H:%M")] = json.dumps(scores)
 
+
+@login_required
+def challenge_results(request, challenge_uuid):
+    """
+    See the results for today's challenges
+    """
+    challenge = get_object_or_404(Challenge.objects.filter(user=request.user), uuid=challenge_uuid)
+
+    get_data_for_challenge_chart(challenge)
 
     context = {
         'challenge': challenge,
