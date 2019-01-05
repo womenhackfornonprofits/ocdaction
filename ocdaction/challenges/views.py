@@ -139,13 +139,11 @@ def challenge_view(request, challenge_uuid):
     View a challenge
     """
     challenge = get_object_or_404(Challenge.objects.filter(user=request.user), uuid=challenge_uuid)
-    anxiety_score_cards = AnxietyScoreCard.objects.filter(challenge=challenge).order_by('-id')[:3]
 
     get_data_for_challenge_chart(challenge, 5)
 
     context = {
         'challenge': challenge,
-        'anxiety_score_cards': anxiety_score_cards,
         'latest_scores': latest_scores,
         'latest_anxiety_score_card_data': latest_anxiety_score_card_data,
         'latest_anxiety_score_card_label': latest_anxiety_score_card_label,
