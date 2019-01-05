@@ -12,7 +12,7 @@ from challenges.forms import ChallengeForm, AnxietyScoreCardForm
 
 from profiles.models import OCDActionUser
 
-def get_data_for_challenge_chart(challenge):
+def get_data_for_challenge_chart(challenge, num_challenges):
     """
     :param challenge:
     :return: all chart data for a challenge
@@ -30,7 +30,7 @@ def get_data_for_challenge_chart(challenge):
                                                                                    'anxiety_at_30_min',
                                                                                    'anxiety_at_60_min',
                                                                                    'anxiety_at_120_min',
-                                                                                   'updated_at').order_by('-updated_at')[:5]
+                                                                                   'updated_at').order_by('-updated_at')[:num_challenges]
 
     first = True
     data_sets = OrderedDict()
@@ -141,7 +141,7 @@ def challenge_view(request, challenge_uuid):
     challenge = get_object_or_404(Challenge.objects.filter(user=request.user), uuid=challenge_uuid)
     anxiety_score_cards = AnxietyScoreCard.objects.filter(challenge=challenge).order_by('-id')[:3]
 
-    get_data_for_challenge_chart(challenge)
+    get_data_for_challenge_chart(challenge, 5)
 
     context = {
         'challenge': challenge,
@@ -292,7 +292,7 @@ def challenge_results(request, challenge_uuid):
     """
     challenge = get_object_or_404(Challenge.objects.filter(user=request.user), uuid=challenge_uuid)
 
-    get_data_for_challenge_chart(challenge)
+    get_data_for_challenge_chart(challenge, 5)
 
     context = {
         'challenge': challenge,
