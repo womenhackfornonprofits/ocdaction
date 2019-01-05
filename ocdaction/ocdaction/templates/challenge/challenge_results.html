@@ -1,145 +1,53 @@
-{% extends "layout.html" %}
+{% extends "challenge/challenge_chart.html" %}
 
 {% block title %}Challenge Results{% endblock %}
 
 {% load static %}
 {% load challenges_tags %}
 
-    {% block extrahead %}
-
-        <section>
-            <div class="container">
-                <div class="row">
-                    <h1 class="col-md-12">{{ challenge.challenge_name }}</h1>
+{% block main %}
+    <section>
+        <div class="challenge-summary ibox-content text-center col-xs-12 col-md-4 col-md-offset-4">
+            <h3 class="font-bold margin-bottom-0">Today's anxiety levels:</h3>
+            <table class="challenge-summary--table">
+                <tbody>
+                    <tr>
+                        <td>Initial anxiety level:</td>
+                        <td>{% render_anxiety_level latest_scores.0 %}</td>
+                    </tr>
+                    <tr>
+                        <td>After 5mins:</td>
+                        <td>{% render_anxiety_level latest_scores.1 %}</td>
+                    </tr>
+                    <tr>
+                        <td>After 10mins:</td>
+                        <td>{% render_anxiety_level latest_scores.2 %}</td>
+                    </tr>
+                    <tr>
+                        <td>After 15mins:</td>
+                        <td>{% render_anxiety_level latest_scores.3 %}</td>
+                    </tr>
+                    <tr>
+                        <td>After 30mins:</td>
+                        <td>{% render_anxiety_level latest_scores.4 %}</td>
+                    </tr>
+                    <tr>
+                        <td>After 60mins:</td>
+                        <td>{% render_anxiety_level latest_scores.5 %}</td>
+                    </tr>
+                    <tr>
+                        <td>After 120mins:</td>
+                        <td>{% render_anxiety_level latest_scores.6 %}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-xs-12 col-md-4 col-md-offset-4">
+                    <a class="button button--primary" href="{% url 'challenge-list' %}">Back to challenges</a>
                 </div>
             </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-2 col-md-2">
-                        <br>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center col-xs-12 col-md-4 col-md-offset-4"><canvas id="anxietyScoreChart" width="50" height="30"></canvas></div>
-        </section>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-        <script type="text/javascript">
-
-        var ctx = "anxietyScoreChart";
-        var anxietyScoreChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['0', '5', '10', '15', '30', '60', '120'],
-                datasets: [{
-                    label: '{{ latest_anxiety_score_card_label }}',
-                    borderColor: 'rgb(0, 0, 0)',
-                    pointStyle: 'circle',
-                    pointBackgroundColor: 'rgb(0, 0, 0)',
-                    pointBorderColor: 'rgb(0, 0, 0)',
-                    fill: false,
-                    radius: 5,
-                    data: {{ latest_anxiety_score_card_data }},
-                }]
-            },
-            options: {
-                scales: {
-                   xAxes: [{
-                       ticks: {
-                           min: 0,
-                           max: 120
-                       }
-                   }],
-                   yAxes: [{
-                       ticks: {
-                           min: 0,
-                           max: 10
-                       }
-                   }]
-                },
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        usePointStyle: true
-                    }
-                },
-                elements: {
-                    line: {
-                        tension: 0, // disables bezier curves
-                    }
-                }
-            }
-        });
-
-        var dynamicColors = function() {
-            var r = Math.floor(Math.random() * 255);
-            var g = Math.floor(Math.random() * 255);
-            var b = Math.floor(Math.random() * 255);
-            return "rgb(" + r + "," + g + "," + b + ")";
-         };
-
-        function addData(chart, label, color, data) {
-             chart.data.datasets.push({
-                 label: label,
-                 borderColor: color,
-                 pointStyle: 'circle',
-                 pointBackgroundColor: color,
-                 pointBorderColor: color,
-                 fill: false,
-                 radius: 5,
-                 data: data
-            });
-            chart.update();
-        }
-
-        {% for label, data in data_sets.items %}
-            addData(anxietyScoreChart, '{{ label|slice:":-6" }}', dynamicColors(), {{ data }})
-        {% endfor %}
-
-        </script>
-    {% endblock %}
-    {% block main %}
-        <section>
-            <div class="challenge-summary ibox-content text-center col-xs-12 col-md-4 col-md-offset-4">
-                <h3 class="font-bold margin-bottom-0">Today's anxiety levels:</h3>
-                <table class="challenge-summary--table">
-                    <tbody>
-                        <tr>
-                            <td>Initial anxiety level:</td>
-                            <td>{% render_anxiety_level latest_scores.0 %}</td>
-                        </tr>
-                        <tr>
-                            <td>After 5mins:</td>
-                            <td>{% render_anxiety_level latest_scores.1 %}</td>
-                        </tr>
-                        <tr>
-                            <td>After 10mins:</td>
-                            <td>{% render_anxiety_level latest_scores.2 %}</td>
-                        </tr>
-                        <tr>
-                            <td>After 15mins:</td>
-                            <td>{% render_anxiety_level latest_scores.3 %}</td>
-                        </tr>
-                        <tr>
-                            <td>After 30mins:</td>
-                            <td>{% render_anxiety_level latest_scores.4 %}</td>
-                        </tr>
-                        <tr>
-                            <td>After 60mins:</td>
-                            <td>{% render_anxiety_level latest_scores.5 %}</td>
-                        </tr>
-                        <tr>
-                            <td>After 120mins:</td>
-                            <td>{% render_anxiety_level latest_scores.6 %}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col-xs-12 col-md-4 col-md-offset-4">
-                        <a class="button button--primary" href="{% url 'challenge-list' %}">Back to challenges</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    {% endblock %}
+        </div>
+    </section>
+{% endblock %}
