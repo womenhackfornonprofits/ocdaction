@@ -12,6 +12,56 @@ from challenges.forms import ChallengeForm, AnxietyScoreCardForm
 
 from profiles.models import OCDActionUser
 
+def get_data_for_challenge_chart(challenge, num_challenges):
+    """
+    :param challenge:
+    :return: all chart data for a challenge
+    """
+
+    global latest_scores
+    global latest_anxiety_score_card_label
+    global latest_anxiety_score_card_data
+    global data_sets
+
+    anxiety_score_cards_for_challenge = challenge.anxietyscorecard_set.values_list('anxiety_at_0_min',
+                                                                                   'anxiety_at_5_min',
+                                                                                   'anxiety_at_10_min',
+                                                                                   'anxiety_at_15_min',
+                                                                                   'anxiety_at_30_min',
+                                                                                   'anxiety_at_60_min',
+                                                                                   'anxiety_at_120_min',
+                                                                                   'updated_at').order_by('-updated_at')[:num_challenges]
+
+    first = True
+    data_sets = OrderedDict()
+    for anxietyscorecard in anxiety_score_cards_for_challenge:
+        if first:
+            # return the data for the most recent score card
+            first = False
+            latest_anxietyscorecard_as_list = list(anxietyscorecard)
+            latest_anxiety_score_card_date = latest_anxietyscorecard_as_list.pop()
+            latest_scores = []
+            for i in latest_anxietyscorecard_as_list:
+                try:
+                    i = int(i)
+                except:
+                    i = None
+                latest_scores.append(i)
+            latest_anxiety_score_card_data = json.dumps(latest_scores)
+            latest_anxiety_score_card_label = latest_anxiety_score_card_date.strftime("%d %b")
+        else:
+            # return the data for the remaining score cards
+            anxietyscorecard_as_list = list(anxietyscorecard)
+            anxiety_score_card_date = anxietyscorecard_as_list.pop()
+            scores = []
+            for i in anxietyscorecard_as_list:
+                try:
+                    i = int(i)
+                except:
+                    i = None
+                scores.append(i)
+            data_sets[anxiety_score_card_date.strftime("%d %b %H:%M")] = json.dumps(scores)
+
 
 @login_required
 def challenge_list(request):
@@ -89,9 +139,16 @@ def challenge_view(request, challenge_uuid):
     View a challenge
     """
     challenge = get_object_or_404(Challenge.objects.filter(user=request.user), uuid=challenge_uuid)
-    anxiety_score_cards = AnxietyScoreCard.objects.filter(challenge=challenge).order_by('-id')[:3]
 
-    context = {'challenge': challenge, 'anxiety_score_cards': anxiety_score_cards}
+    get_data_for_challenge_chart(challenge, 5)
+
+    context = {
+        'challenge': challenge,
+        'latest_scores': latest_scores,
+        'latest_anxiety_score_card_data': latest_anxiety_score_card_data,
+        'latest_anxiety_score_card_label': latest_anxiety_score_card_label,
+        'data_sets': data_sets
+    }
 
     return render(request, 'challenge/challenge_view.html', context)
 
@@ -233,45 +290,7 @@ def challenge_results(request, challenge_uuid):
     """
     challenge = get_object_or_404(Challenge.objects.filter(user=request.user), uuid=challenge_uuid)
 
-    anxiety_score_cards_for_challenge = challenge.anxietyscorecard_set.values_list('anxiety_at_0_min',
-                                                                                 'anxiety_at_5_min',
-                                                                                 'anxiety_at_10_min',
-                                                                                 'anxiety_at_15_min',
-                                                                                 'anxiety_at_30_min',
-                                                                                 'anxiety_at_60_min',
-                                                                                 'anxiety_at_120_min',
-                                                                                 'updated_at').order_by('-updated_at')[:5]
-
-    first = True
-    data_sets = OrderedDict()
-    for anxietyscorecard in anxiety_score_cards_for_challenge:
-        if first:
-            # return the data for the most recent score card
-            first = False
-            latest_anxietyscorecard_as_list = list(anxietyscorecard)
-            latest_anxiety_score_card_date = latest_anxietyscorecard_as_list.pop()
-            latest_scores = []
-            for i in latest_anxietyscorecard_as_list:
-                try:
-                    i = int(i)
-                except:
-                    i = None
-                latest_scores.append(i)
-            latest_anxiety_score_card_data = json.dumps(latest_scores)
-            latest_anxiety_score_card_label = latest_anxiety_score_card_date.strftime("%d %b")
-        else:
-            # return the data for the remaining score cards
-            anxietyscorecard_as_list = list(anxietyscorecard)
-            anxiety_score_card_date = anxietyscorecard_as_list.pop()
-            scores = []
-            for i in anxietyscorecard_as_list:
-                try:
-                    i = int(i)
-                except:
-                    i = None
-                scores.append(i)
-            data_sets[anxiety_score_card_date.strftime("%d %b %H:%M")] = json.dumps(scores)
-
+    get_data_for_challenge_chart(challenge, 5)
 
     context = {
         'challenge': challenge,
