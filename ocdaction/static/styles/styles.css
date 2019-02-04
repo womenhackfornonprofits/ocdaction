@@ -7356,6 +7356,14 @@ form p {
     .challenge-chart--graph {
       margin-left: 30%; } }
 
+.challenge-chart--graph-result {
+  margin-left: -7px; }
+  @media (min-width: 740px) {
+    .challenge-chart--graph-result {
+      margin-top: 25px;
+      margin-bottom: 0;
+      margin-left: 32%; } }
+
 body {
   background: #fff;
   min-height: 100vh; }
