@@ -7340,6 +7340,30 @@ form p {
     padding: 8px 15px;
     text-align: left; }
 
+.challenge-chart {
+  margin-top: 25px; }
+  .challenge-chart p {
+    font-weight: 800;
+    text-align: center;
+    padding-top: 1px; }
+  .challenge-chart hr {
+    border-top: 1px solid #979797; }
+
+.challenge-chart--graph {
+  margin-left: -7px;
+  margin-bottom: 64px; }
+  @media (min-width: 740px) {
+    .challenge-chart--graph {
+      margin-left: 30%; } }
+
+.challenge-chart--graph-result {
+  margin-left: -7px; }
+  @media (min-width: 740px) {
+    .challenge-chart--graph-result {
+      margin-top: 25px;
+      margin-bottom: 0;
+      margin-left: 32%; } }
+
 body {
   background: #fff;
   min-height: 100vh; }

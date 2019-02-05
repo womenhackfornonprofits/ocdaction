@@ -5,7 +5,7 @@
 {% load static %}
 
 {% block main %}
-    <section class="section{% if anxiety_score_cards %}--custom {% endif %}">
+    <section class="section{% if data_sets %}--custom {% endif %}">
         <div class="container">
             <div class="row">
                 <div class="col-xs-2 col-md-2">
@@ -49,7 +49,7 @@
     </section>
 
     {% if data_sets %}
-        <div class="challenge-summary col-xs-12 col-md-7 col-md-offset-2">
+        <div class="challenge-chart col-xs-12 col-md-7 col-md-offset-2">
             <div class="row"><hr class="col-md-6 col-md-offset-3"></div>
             <div class="row">
                 <p>Your exposures for this challenge</p>
