@@ -9,9 +9,15 @@ DATABASES['default'] = dj_database_url.config()
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-SECRET_KEY = os.environ["SECRET_KEY"]
+# Security
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
-ALLOWED_HOSTS = ['staging-ocdaction.herokuapp.com', '.ocdyouthapp.org']
+PREPEND_WWW = True
+ALLOWED_HOSTS = ['staging-ocdaction.herokuapp.com', 'www.ocdyouthapp.org', 'ocdyouthapp.org']
+
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 LOGGING = {
     'version': 1,
