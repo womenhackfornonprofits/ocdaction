@@ -15,7 +15,7 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
 PREPEND_WWW = True
-ALLOWED_HOSTS = ['staging-ocdaction.herokuapp.com', 'www.ocdyouthapp.org', 'ocdyouthapp.org']
+ALLOWED_HOSTS = ['staging-ocdaction.herokuapp.com', '.ocdyouthapp.org']
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 
