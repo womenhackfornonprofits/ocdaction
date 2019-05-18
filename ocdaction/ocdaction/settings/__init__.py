@@ -80,16 +80,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ocdaction.wsgi.application'
 
-# Security
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-PREPEND_WWW = True
-BASE_URL = "https://ocdyouthapp.org"
-ALLOWED_HOSTS = ['www.ocdyouthapp.org', 'ocdyouthapp.org']
-
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
