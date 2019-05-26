@@ -15,12 +15,12 @@
   "homepage": "https://github.com/womenhackfornonprofits/ocdaction#readme",
   "devDependencies": {
     "bootstrap-sass": "^3.3.7",
-    "grunt": "^1.0.1",
+    "grunt": "^1.0.4",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-cssmin": "^3.0.0",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.1",
-    "grunt-contrib-watch": "^1.0.0",
+    "grunt-contrib-watch": "^1.1.0",
     "scss-lint": "0.0.0"
   },
   "dependencies": {
